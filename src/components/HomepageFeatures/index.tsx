@@ -1,25 +1,23 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './index.module.css';
-import Link from '@docusaurus/Link';
+import React from "react";
+import clsx from "clsx";
+import styles from "./index.module.css";
+import Link from "@docusaurus/Link";
 
 const FeatureList = [
   {
     id: 1,
-    title: 'Introduction',
-    url: '/category/introduction',
-    Svg: require('@site/static/img/feature_images/getstarted.svg').default,
+    title: "Introduction",
+    url: "/category/introduction",
+    Svg: require("@site/static/img/feature_images/getstarted.svg").default,
     description: (
-      <>
-        Containing all the basic information on the Parrot project.
-      </>
+      <>Containing all the basic information on the Parrot project.</>
     ),
   },
   {
     id: 2,
-    title: 'Installation',
-    url: '/installation/',
-    Svg: require('@site/static/img/feature_images/installation.svg').default,
+    title: "Installation",
+    url: "/installation/",
+    Svg: require("@site/static/img/feature_images/installation.svg").default,
     description: (
       <>
         Where it is shown how to install Parrot on your physical or virtual
@@ -29,9 +27,9 @@ const FeatureList = [
   },
   {
     id: 3,
-    title: 'Virtualization',
-    url: '/category/virtualization/',
-    Svg: require('@site/static/img/feature_images/virtualization.svg').default,
+    title: "Virtualization",
+    url: "/category/virtualization/",
+    Svg: require("@site/static/img/feature_images/virtualization.svg").default,
     description: (
       <>
         Extend or customize your website layout by reusing React. Docusaurus can
@@ -41,83 +39,81 @@ const FeatureList = [
   },
   {
     id: 4,
-    title: 'Configuration',
-    url: '/category/configuration',
-    Svg: require('@site/static/img/feature_images/config.svg').default,
+    title: "Configuration",
+    url: "/category/configuration",
+    Svg: require("@site/static/img/feature_images/config.svg").default,
     description: (
       <>
-        Find the more technical aspects, some tips on how to configure 
-        some software, management of your system, etc...
+        Find the more technical aspects, some tips on how to configure some
+        software, management of your system, etc...
       </>
     ),
   },
   {
     id: 5,
-    title: 'Cloud',
-    url: '/category/cloud',
-    Svg: require('@site/static/img/feature_images/cloud.svg').default,
+    title: "Cloud",
+    url: "/category/cloud",
+    Svg: require("@site/static/img/feature_images/cloud.svg").default,
     description: (
-      <>
-        Install ParrotOS on your servers, or use it as a Docker container.
-      </>
+      <>Install ParrotOS on your servers, or use it as a Docker container.</>
     ),
   },
   {
     id: 6,
-    title: 'USB',
-    url: '/category/usb',
-    Svg: require('@site/static/img/feature_images/usb.svg').default,
+    title: "USB",
+    url: "/category/usb",
+    Svg: require("@site/static/img/feature_images/usb.svg").default,
     description: (
       <>
-        Create a bootable USB with ParrotOS inside, install the OS or 
-        try it in live mode.
+        Create a bootable USB with ParrotOS inside, install the OS or try it in
+        live mode.
       </>
     ),
   },
   {
     id: 7,
-    title: 'Troubleshooting',
-    url: '/category/troubleshooting',
-    Svg: require('@site/static/img/feature_images/troubleshooting.svg').default,
+    title: "Troubleshooting",
+    url: "/category/troubleshooting",
+    Svg: require("@site/static/img/feature_images/troubleshooting.svg").default,
     description: (
       <>
-        Here there will be guides or tutorials to solve some possible
-        problems that an inexperienced user might face.
+        Here there will be guides or tutorials to solve some possible problems
+        that an inexperienced user might face.
       </>
     ),
   },
   {
     id: 8,
-    title: 'Tools',
-    url: '/category/tools',
-    Svg: require('@site/static/img/feature_images/tools.svg').default,
+    title: "Tools",
+    url: "/category/tools",
+    Svg: require("@site/static/img/feature_images/tools.svg").default,
     description: (
       <>
-        This section contains some information on some of the software most
-        used or developed by the Parrot team.
+        This section contains some information on some of the software most used
+        or developed by the Parrot team.
       </>
     ),
   },
   {
     id: 9,
-    title: 'Mirrors',
-    url: '/mirrors/mirrors-list',
-    Svg: require('@site/static/img/feature_images/mirrors.svg').default,
+    title: "Mirrors",
+    url: "/mirrors/mirrors-list",
+    Svg: require("@site/static/img/feature_images/mirrors.svg").default,
     description: (
       <>
-        The software in the Parrot archive is delivered in form of deb packages, 
+        The software in the Parrot archive is delivered in form of deb packages,
         and these packages are served through a vast network of mirror servers.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description, url}) {
+function Feature({ title, Svg, description, url }) {
   return (
     <div className="col col--3 card text--center shadow--md margin--md">
-      <Link to={url} style={{ color: 'inherit', textDecoration: 'inherit'}}>
+      <Link to={url} style={{ color: "inherit", textDecoration: "inherit" }}>
         <div className="text--center padding-vert--md">
-          <Svg className={styles.featureSvg} role='img' />
+          <Svg className={styles.featureSvg} role="img" />
         </div>
         <div className="text--center padding-horiz--xs">
           <h3>{title}</h3>
@@ -140,9 +136,9 @@ function HomepageFeatures(): JSX.Element {
         <div className="container__items--center padding-top--lg text--center">
           <div className="padding-horiz--md">
             <p>
-              The documentation is a continuous Work In Progress (WIP), 
-              and <strong>all Parrot users</strong> are invited to 
-              contribute to the creation and translation process of this portal.
+              The documentation is a continuous Work In Progress (WIP), and{" "}
+              <strong>all Parrot users</strong> are invited to contribute to the
+              creation and translation process of this portal.
             </p>
           </div>
         </div>
@@ -151,4 +147,4 @@ function HomepageFeatures(): JSX.Element {
   );
 }
 
-export default HomepageFeatures
+export default HomepageFeatures;
