@@ -38,6 +38,8 @@ The APT package manager uses `/etc/apt/sources.list` and any *.list* file found 
     #deb-src https://deb.parrot.sh/parrot/ parrot main contrib non-free
     deb https://deb.parrot.sh/parrot/ parrot-security main contrib non-free
     #deb-src https://deb.parrot.sh/parrot/ parrot-security main contrib non-free
+    deb https://deb.parrot.sh/parrot parrot-backports main contrib non-free
+    #deb-src https://deb.parrot.sh/parrot parrot-backports main contrib non-free
 
 ## Other mirrors for manual configuration
 
