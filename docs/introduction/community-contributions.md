@@ -12,12 +12,12 @@ contribute. Here you will find a guide on how to proceed and on which projects y
 
 No matter how technically good you are in a certain area, you will see that you can contribute in various ways depending 
 on the Parrot sub-project. Any motivated and useful contribution is always more than welcome. In any case, someone from 
-the team will be alongside you in order to discuss it together.
+the [team](https://parrotsec.org/team/) will be alongside you in order to discuss it together.
 
 At present, all Debian packages and all tools developed by the Parrot team reside on [GitLab](https://gitlab.com/parrotsec) 
 and [GitHub](https://github.com/parrotsec) (as a backup mirror).
 
-## Work on a Parrot sub-project
+## Working on a Parrot sub-project
 
 Since we mainly work on GitLab, it will be important that you have a registered GitLab account, you will need it to start
 contributing. Then, once you have chosen the sub-project, contact the Parrot team at the email team@parrotsec.org, specifying
@@ -27,9 +27,8 @@ This list will be updated, but it is now possible to contribute to the following
 
 * Website
 * Documentation
-* AnonSurf
 * Debian Packages
-* ARM images
+* ARM Images
 * Community
 
 ### Website
@@ -37,24 +36,40 @@ This list will be updated, but it is now possible to contribute to the following
 The Parrot website, freely visible at https://parrotsec.org, was built using the NextJS framework and the React library. 
 You are free to view and analyze the code by cloning the [repository](https://gitlab.com/parrotsec/project/website).
 
-If you have any ideas on how to improve it or anything else, feel free to open a merge request. The maintainer of 
-this sub-project will review your request as soon as possible and coordinate to approve it.
-
-Maintainer: danterolle@parrotsec.org
+If you have any ideas on how to improve it or anything else, feel free to open a merge request. The maintainer (danterolle@parrotsec.org)
+of this sub-project will review your request as soon as possible and coordinate to approve it.
 
 ### Documentation
 
 The official ParrotOS documentation, accessible at https://parrotsec.org/docs. It is based on the Docusaurus v2 framework
-and the graphics follow the ParrotOS style. If you think you can add some essential or interesting documents, feel free 
-to clone this [repository](https://gitlab.com/parrotsec/project/documentation) and open a merge request.
-
-Maintainer: danterolle@parrotsec.org
-
-### AnonSurf
+and the graphics follow the ParrotOS style. New features will always be added to make it as complete as possible.
+If you think you can add some essential or interesting documents, feel free to clone this [repository](https://gitlab.com/parrotsec/project/documentation) and open a merge request.
 
 ### Debian Packages
 
+Most of our 3rd party programs and most of our pre-included programs comes from Debian. We mostly wait for Debian updates.
+You can contribute by creating new Debian packages or by proposing new tools, strictly already packaged according to 
+[Debian standards](https://wiki.debian.org/PackagingWithGit).
+
+To get started, you can follow [this manual](https://www.debian.org/doc/debian-policy).
+
+Initially the work must be started on personal repo forking the package. Once the code is correctly set to be packaged, 
+open a merge request and Team Leader will analyze modifications before approve.
+
+### ARM Images
+
+Parrot is also available for ARM platforms, through some scripts we generate the images available in 
+[this repository](https://gitlab.com/parrotsec/build/parrot-build-scripts).
+
+In particular, it is recommended to read the **iot** and **architect** folders.
+
 ### Community
+
+The [community](https://parrotsec.org/community) is a very important part for an operating system like Parrot, and helping each other can only be useful 
+to increase one's knowledge. The ParrotOS community always needs new moderators, for Discord channels, our Forum and 
+in Telegram groups.
+
+The contact person for the community is tissy@parrotsec.org.
 
 ## Development workflow
 
