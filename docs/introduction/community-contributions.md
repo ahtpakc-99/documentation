@@ -17,6 +17,14 @@ the [team](https://parrotsec.org/team/) will be alongside you in order to discus
 At present, all Debian packages and all tools developed by the Parrot team reside on [GitLab](https://gitlab.com/parrotsec) 
 and [GitHub](https://github.com/parrotsec) (as a backup mirror).
 
+## Why should you be a contributor?
+
+Be a contributor for an open-source project means that you have the chance to:
+
+- <b>Meet new people</b>: you will be able to meet a lot of developers like you, who are in love with the world of the open-source projects. This will not only help you to expand your network from a professional point of view, but also to develop real and true friendship;
+- <b>Learn and teach new things</b>: first rule of contributor is "never get stuck on what you already know", it doesn't matter if you're a newbie or a senior developer, if you start contribute to an open-source project you can learn a lot of new things or, in the other way, you'll get the chance to teach new things to other people (this will boost your confidence a lot, trust us); 
+- <b>Make your work worth it</b>: you will get the chance to test in advance some of our packages and, in the best-case scenario, your work will be built into Parrot Security OS. 
+
 ## Working on a Parrot sub-project
 
 Since we mainly work on GitLab, it will be important that you have a registered GitLab account, you will need it to start
