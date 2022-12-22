@@ -65,8 +65,9 @@ The APT package manager uses `/etc/apt/sources.list` and any *.list* file found 
 | Ecuador<br />CEDIA<br />100 Mbps       | RED CEDIA (National research and education center of Ecuador) | [mirror.cedia.org.ec/parrot](http://mirror.cedia.org.ec/parrot)                        | <sub>deb https://mirror.cedia.org.ec/parrot/ parrot main contrib non-free</sub>           |
 | Ecuador<br />UTA<br />100 Mbps         |              UTA (Universidad Técnica de ambato)              | [mirror.uta.edu.ec/parrot](http://mirror.uta.edu.ec/parrot)                            | <sub>deb https://mirror.uta.edu.ec/parrot/parrot main contrib non-free<</sub>             |
 | Ecuador<br />UEB<br />100 Mbps         |             UEB (Universidad Estatal de Bolivar)              | [mirror.ueb.edu.ec/parrot](http://mirror.ueb.edu.ec/parrot)                            | <sub>deb https://mirror.ueb.edu.ec/parrot/ parrot main contrib non-free</sub>             |
+| Ecuador<br />EcuaLinux<br />/          |                           EcuaLinux                           | [mirror.ec/parrot/](https://mirror.ec/parrot/)                                         | <sub>deb https://mirror.ec/parrot/ parrot main contrib non-free</sub>                     |
 | Brazil<br />USP<br />1 Gbps            |                    University of Sao Paulo                    | [sft.if.usp.br/parrot](http://sft.if.usp.br/parrot)                                    | <sub>deb http://sft.if.usp.br/parrot/ main contrib non-free</sub>                         |
-| Canada<br />/<br />/                   |                          Emma Samms                           | [https://mirror.0xem.ma/parrot/](https://mirror.0xem.ma/parrot/)                       | <sub>deb https://mirror.0xem.ma/parrot/ main contrib non-free</sub>                       |
+| Canada<br />/<br />/                   |                          Emma Samms                           | [mirror.0xem.ma/parrot/](https://mirror.0xem.ma/parrot/)                               | <sub>deb https://mirror.0xem.ma/parrot/ main contrib non-free</sub>                       |
 
 ### EMEA (Europe Middle East and Africa)
 
