@@ -191,7 +191,7 @@ To avoid conflicts with the installation of the new driver, remember to blacklis
 
 Add these lines then save the file:
 
-    nouveau blacklist
+    blacklist nouveau
     options nouveau modeset=0
     alias nouveau off
 
