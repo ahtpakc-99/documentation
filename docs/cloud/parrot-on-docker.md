@@ -10,30 +10,27 @@ Docker uses template images, and allows the user to start several instances of t
 
 Parrot uses docker to allow its users to use its vast arsenal of tools on any platform supported by docker.
 
-[Parrot Core](#parrotseccore) | [Parrot Security](#parrotsecsecurity)
+[Parrot Core](#parrotruncore) | [Parrot Security](#parrotrunsecurity)
 
-[Nmap](#parrotsecnmap)
+[Nmap](#parrotrunnmap)
 
-[Metasploit](#parrotsecmetasploit)
+[Metasploit](#parrotrunmetasploit)
 
-[Social Engineering Toolkit](#parrotsecset)
+[Social Engineering Toolkit](#parrotrunset)
 
-[Beef-XSS](#parrotsecbeef)
+[Beef-XSS](#parrotrunbeef)
 
-[Bettercap](#parrotsectoos-bettercap)
+[Bettercap](#parrotrunbettercap)
 
-[SQLMap](#parrotsecsqlmap)
+[SQLMap](#parrotrunsqlmap)
 
-[Builder Container](#parrotsecbuild)
-
-
-[skip to usage examples](#general-usage-instructions-and-examples)
+[skip to usage examples](./general-usage-docker)
 
 # Available Templates
 
 Whether you want to have a container full of tools, or several smaller containers with a tiny selection of tools, or even a clean Parrot environment to build yor custom stack on, this is the right place where to learn how to take advantage of the Parrot Docker workspace.
 
-## parrot.run/core
+## parrotsec/core
 
 Core system with just the Parrot basics.
 You can use it as a start point to create your custom containers.
@@ -42,10 +39,10 @@ This image is multiarch, and works for amd64, arm64 and armhf architectures
 
 *launch the container*:
     
-    docker run --rm -ti --network host -v $PWD/work:/work parrot.run/core
+    docker run --rm -ti --network host -v $PWD/work:/work parrotsec/core
 
 
-## parrot.run/security
+## parrotsec/security
 
 This container includes a huge collection of tools that can be used via command line from inside a docker container.
 
@@ -58,7 +55,7 @@ This container ships with the following metapackages:
 
 Launch the container:
 
-    docker run --rm -ti --network host -v $PWD/work:/work parrot.run/security
+    docker run --rm -ti --network host -v $PWD/work:/work parrotsec/security
 
 
 ## Individual Parrot Tools
@@ -69,7 +66,7 @@ Containers with shared tools are stacked on top of each other (when possible) to
 
 available templates:
 
-### parrot.run/nmap
+### parrotsec/nmap
 
 based on parrot.run/core
 provides the following packages:
@@ -82,15 +79,15 @@ provides the following packages:
 
 usage: 
 
-    docker run --rm -ti parrot.run/nmap <nmap options>
+    docker run --rm -ti parrotsec/nmap <nmap options>
 
 examples:
 
-    docker run --rm -ti parrot.run/nmap -F 192.168.1.1
+    docker run --rm -ti parrotsec/nmap -F 192.168.1.1
 
-    docker run --rm -ti parrot.run/nmap -Pn 89.36.210.176
+    docker run --rm -ti parrotsec/nmap -Pn 89.36.210.176
 
-### parrot.run/metasploit
+### parrotsec/metasploit
 
 based on parrot.run/nmap:latest
 provides the following packages:
@@ -100,9 +97,9 @@ provides the following packages:
 
 usage:
 
-    docker run --rm -ti --network host -v $PWD/msf:/root/ parrot.run/metasploit
+    docker run --rm -ti --network host -v $PWD/msf:/root/ parrotsec/metasploit
 
-### parrot.run/set
+### parrotsec/set
 
 based on parrot.run/metasploit:latest
 provides the following packages:
@@ -110,9 +107,9 @@ provides the following packages:
 
 usage:
 
-    docker run --rm -ti --network host -v $PWD/set:/root/.set parrot.run/set
+    docker run --rm -ti --network host -v $PWD/set:/root/.set parrotsec/set
 
-### parrot.run/beef
+### parrotsec/beef
 
 based on parrot.run/core
 provides the following packages:
@@ -120,9 +117,9 @@ provides the following packages:
 
 usage:
 
-    docker run --rm --network host -ti -v $PWD/beef:/var/lib/beef-xss parrot.run/beef
+    docker run --rm --network host -ti -v $PWD/beef:/var/lib/beef-xss parrotsec/beef
 
-### parrot.run/bettercap
+### parrotsec/bettercap
 
 based on parrot.run/nmap
 provides the following packages:
@@ -130,9 +127,9 @@ provides the following packages:
 
 usage:
 
-    docker run --rm -ti --network host parrot.run/bettercap
+    docker run --rm -ti --network host parrotsec/bettercap
 
-### parrot.run/sqlmap
+### parrotsec/sqlmap
 
 based on parrot.run/nmap
 provides the following packages:
@@ -140,8 +137,8 @@ provides the following packages:
 
 usage:
 
-    docker run --rm -ti parrot.run/sqlmap <sqlmap options>
+    docker run --rm -ti parrotsec/sqlmap <sqlmap options>
 
 example:
 
-    docker run --rm -ti parrot.run/sqlmap -u parrotsec.org --wizard
+    docker run --rm -ti parrotsec/sqlmap -u parrotsec.org --wizard
