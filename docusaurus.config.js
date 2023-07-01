@@ -81,10 +81,6 @@ const config = {
             label: 'Download',
             position: 'left'
           },
-          { to: 'https://parrotsec.org/contribute/',
-            label: 'Contribute',
-            position: 'left'
-          },
           {
             href: 'https://gitlab.com/parrotsec',
             label: 'GitLab',
