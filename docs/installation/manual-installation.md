@@ -9,18 +9,13 @@ Let's see two use cases: Partitioning a disk with existing partitions and Partit
 ## Case 1: Partitioning a disk with existing partitions
 
 
-After following the steps for setting the [Parrot Installation](./) before partitioning, 
+After following the steps for setting the [Parrot Installation](./) before partitioning, select **Manual Partitioning** then click on Next.
 
 ![1](./images/dualboot/db1.png)
-
-Select **Manual Partitioning** then click on Next.
-
-[aggiungere foto qui]: #
 
 You'll see something similar to this:
 
 [aggiungere foto qui]: #
-
 
 The partitions in detail: [metterò quelle corrette dopo]: #
 
