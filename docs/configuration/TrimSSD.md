@@ -13,7 +13,7 @@ $ sudo hdparm -I /dev/sdx
 
 If it’s supported, the output should contain this:
 
-Data Set Management TRIM supported`
+`Data Set Management TRIM supported`
 
 :::info Note Only EXT4 filesystems supports SSD trim, if you use BTRFS, EXT3 or any other FS, it won’t work. :::
 
