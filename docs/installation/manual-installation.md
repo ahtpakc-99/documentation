@@ -18,7 +18,7 @@ You'll see something similar to this:
 ![1](./images/partitioning/par1.png)
 
 
-The partitions in detail: [metterò quelle corrette dopo]: #
+The partitions in detail:
 
 * /dev/sda1 is a hidden partition which contains Windows Files for Recovery.
 * /dev/sda2 is the boot partition.
