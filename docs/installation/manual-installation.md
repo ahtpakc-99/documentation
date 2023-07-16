@@ -121,6 +121,8 @@ After this, proceed with the final steps of the installation by clicking on *Nex
 
 ## Case 2: Partitioning an empty disk
 
+[Back to Top](#install-parrotos-with-manual-partitioning)
+
 
 After following the steps for setting the [Parrot Installation](./) before partitioning, select **Manual Partitioning** then click on Next.
 
@@ -179,3 +181,5 @@ Now the partitioning is completed, proceed with the installation by clicking on 
 
 ![1](./images/partitioning/manp3.png)
 
+
+[Back to Top](#install-parrotos-with-manual-partitioning)
