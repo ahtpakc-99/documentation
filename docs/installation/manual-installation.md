@@ -114,3 +114,64 @@ Click on the Mount Point drop-down list, set the file system you want (ParrotOS 
 After this, proceed with the final steps of the installation by clicking on *Next* .
 
 ![1](./images/partitioning/par16.png)
+
+## Case 2: Partitioning an empty disk
+
+
+After following the steps for setting the [Parrot Installation](./) before partitioning, select **Manual Partitioning** then click on Next.
+
+![1](./images/partitioning/manp0.png)
+
+Since the hard drive is empty, the space will appear unallocated. Let's create a new partition table by clicking on *New Partition Table*
+
+![1](./images/partitioning/manp1.png)
+
+A dialogue window will appear asking the desired partition table type, keep the default value (GPT) and click *Ok*
+
+![1](./images/partitioning/manp2.png)
+
+Select the **Free Space** and click on *Create*
+
+![1](./images/partitioning/manp3.png)
+
+From here, it's possible to create and edit partitions. Let's create the first one, `/boot/EFI` - _the folder containing the efi firware necessary to boot the system._ by following three simple steps:
+
+
+* Click on the Mount Point drop-down list, and set it on `/boot/EFI`
+* Click on File System drop-down list, set it on `fat32`
+* On the Size text field, write `200MiB`, then click on *OK*
+
+![1](./images/partitioning/manp4.png)
+
+At this stage, the partition table will result like this:
+
+![1](./images/partitioning/manp5.png)
+
+Now select again the **Free Space** and click on *Create*, let's create * `/` - _the folder containing the entire system_
+
+![1](./images/partitioning/manp6.png)
+
+From the partition setup window, set the partition *Size* to 20753MiB, the *File System* to btrfs and the *Mount Point* to `/`, then click on *Ok*
+
+:::info Note
+  Parrot Home needs at least 20GB of space, while Parrot Security needs at least 40GB of space. Home Edition will be installed in this guide.
+:::
+
+![1](./images/partitioning/manp7.png)
+
+Now, the partition table looks almost complete:
+
+![1](./images/partitioning/manp8.png)
+
+Finally, let's create `/home`- _the User data folder_ with the remaining **Free Space**. Select it and click on *Create*
+
+![1](./images/partitioning/manp9.png)
+
+As the setup window appears, setup **File System** as `Btrfs` and **Mount Point** as `/home`. When finished, click on *Ok*
+
+![1](./images/partitioning/manp10.png)
+
+Now the partitioning is completed, proceed with the installation by clicking on *Next*.
+
+![1](./images/partitioning/manp3.png)
+
