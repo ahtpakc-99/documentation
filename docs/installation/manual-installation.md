@@ -4,7 +4,11 @@ Now let's focus on the Manual partitioning of ParrotOS using Calamares installer
 
 Like the [Dualboot with Windows](https://parrotsec.org/docs/installation/dualboot-with-windows), this method allows you to assign the desired size of the partitions and determine how many of them to create or edit.
 
-Let's see two use cases: Partitioning a disk with existing partitions and Partitioning an empty disk.
+Let's see two use cases:  
+
+* [Partitioning a disk with existing partitions ](#Case-1:-Partitioning-a-disk-with-existing-partitions)
+* [Partitioning an empty disk](#Case-2:-Partitioning-an-empty-disk
+)
 
 ## Case 1: Partitioning a disk with existing partitions
 
