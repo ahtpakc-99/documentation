@@ -6,8 +6,8 @@ Like the [Dualboot with Windows](https://parrotsec.org/docs/installation/dualboo
 
 Let's see two use cases:  
 
-* [Partitioning a disk with existing partitions ](#Case-1:-Partitioning-a-disk-with-existing-partitions)
-* [Partitioning an empty disk](#Case-2:-Partitioning-an-empty-disk
+* [Partitioning a disk with existing partitions ](#case-1-partitioning-a-disk-with-existing-partitions)
+* [Partitioning an empty disk](#case-2:-partitioning-an-empty-disk
 )
 
 ## Case 1: Partitioning a disk with existing partitions
