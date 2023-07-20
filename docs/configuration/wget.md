@@ -54,16 +54,6 @@ A very powerful option. User can provide a text file as input to wget containing
 
 [immagine]: # (dopo)
 
-* Simulating a browser with a user agent `wget –-user-agent=`
-
-```
-wget --user-agent=”Mozilla/5.0 (X11; Linux i686; rv:5.0) Gecko/20100101 Firefox/5.0″ http://www.kernel.org/pub/linux/kernel/v3.0/testing/patch-3.0-rc4.bz2
-```
-
-Some websites do not allow downloading from tools like wget, the user needs to specify the user agent. In this case, it is easy to simulate use of Linux with Firefox instead of wget and thus bypass the imposed limitations.
-
-[immagine]: # (dopo)
-
 * Limiting download speed `wget –-limit-rate=`
 
 ```
