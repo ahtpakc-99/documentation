@@ -1,0 +1,1 @@
+# Use ParrotOS on your Mac M1/M2 via UTM
