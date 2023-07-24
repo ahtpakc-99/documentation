@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Installing Parrot Security on VirtualBox
+# Installing ParrotOS on VirtualBox
 
 ## This guide will cover the following steps:
 
