@@ -1,8 +1,8 @@
-### Enable SSD Trim
+# TRIM on SSD
 
 SSD Trim allows the drive to check and delete data blocks no longer needed. This means that the drive is always ready to write new data when the old ones are being deleted and that block containing the data is no longer busy.
 
-In order to set up SSD trim, open the terminal and follow these steps:
+In order to set up SSD Trim, open the terminal and follow these steps:
 
 1. Identify your drive first and check if your drive supports the Trim: 
 
@@ -11,17 +11,17 @@ $ sudo fdisk -l
 $ sudo hdparm -I /dev/sdx
 ```
 
-If it’s supported, the output should contain this:
-
-`Data Set Management TRIM supported`
-
-:::info Note Only EXT4 filesystems supports SSD trim, if you use BTRFS, EXT3 or any other FS, it won’t work. :::
+:::info Note
+    If it’s supported, the output should contain this:
+    Data Set Management TRIM supported
+:::
 
 2. Backup your fstab to a location of your choice 
 
 ```
-$ sudo cp /etc/fstab /opt/fstab.back
+$ sudo cp /etc/fstab /opt/fstab.bak
 ```
+
 3. Edit fstab
 
 ```
@@ -31,7 +31,11 @@ $ sudo pluma /etc/fstab
 The file should result like this:
 
 
-:::info Note The UUIDs listed below are only examples. :::
+:::info Note
+
+The UUIDs listed below are only examples. 
+
+:::
 
 
 ```
