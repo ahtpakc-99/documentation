@@ -3,7 +3,6 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/palenight');
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl');
-const path = require('path');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
