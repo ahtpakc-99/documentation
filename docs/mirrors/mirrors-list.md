@@ -67,7 +67,7 @@ The APT package manager uses `/etc/apt/sources.list` and any *.list* file found 
 | Ecuador<br />UEB<br />100 Mbps         |             UEB (Universidad Estatal de Bolivar)              | [mirror.ueb.edu.ec/parrot](http://mirror.ueb.edu.ec/parrot)                            | <sub>deb https://mirror.ueb.edu.ec/parrot/ parrot main contrib non-free</sub>             |
 | Ecuador<br />EcuaLinux<br />/          |                           EcuaLinux                           | [mirror.ec/parrot/](https://mirror.ec/parrot/)                                         | <sub>deb https://mirror.ec/parrot/ parrot main contrib non-free</sub>                     |
 | Brazil<br />USP<br />1 Gbps            |                    University of Sao Paulo                    | [sft.if.usp.br/parrot](http://sft.if.usp.br/parrot)                                    | <sub>deb http://sft.if.usp.br/parrot/ main contrib non-free</sub>                         |
-| Canada<br />/<br />/                   |                          Emma Samms                           | [mirror.0xem.ma/parrot/](https://mirror.0xem.ma/parrot/)                               | <sub>deb https://mirror.0xem.ma/parrot/ main contrib non-free</sub>                       |
+| Canada<br />/<br> 1 Gbps >Montreal                  |                          Emma Ruby                           | [mirror.0xem.ma/parrot/](https://mirror.0xem.ma/parrot/)                               | <sub>deb https://mirror.0xem.ma/parrot/ main contrib non-free</sub>                       |
 
 ### EMEA (Europe Middle East and Africa)
 
