@@ -14,7 +14,10 @@ Open up a Powershell as administrator(Right click -> Run As Administrator), and 
 ### Manual Install
 Download the .zip containing the needed files from [https://www.parrotsec.org/download/](https://www.parrotsec.org/download/), and extract it to a folder.
 
-Double click launcher.exe and enter the username & password you wish to use.
+Double click launcher.exe and the installation window will pop up.
+
+First, enter `y` or `n` to choose to install all the security tools,, or just the base image(this can be done later).
+Next, enter your username & password for your user account.
 
 ![1](./images/wsl/install.gif)
 
