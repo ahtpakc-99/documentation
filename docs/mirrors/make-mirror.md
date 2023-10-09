@@ -34,6 +34,15 @@ services:
 
 Please change the configuration noted as applicable for your setup. The volume must be mounted at /mirror, unless you rebuild the container and change the relevant configuration.
 
+## Helm Chart
+A Helm Chat chart is also availble, and can be installed as follows:
+
+1) Add the Helm Repo `helm repo add 0xemma https://0xemma.github.io/helm-charts`
+
+2) `helm install parrot-mirror 0xemma/parrot-mirror`
+
+You may change the values.yaml as needed to match your setup.
+
 ## Manual Setup
 
 ### Choose the upstream server
