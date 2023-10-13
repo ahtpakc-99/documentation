@@ -17,11 +17,11 @@ The current archive size is available here [archive.parrotsec.org/parrot/misc/ar
 
 # Dockerized Setup
 
-We have a provided docker image located at `registry.gitlab.com/parrotsec/parrot-mirror-setup:main`, you may use our suggested docker compose file:
+We have a provided docker image located at `registry.gitlab.com/parrotsec/project/parrot-mirror-docker:main`, you may use our suggested docker compose file:
 ```yaml
 services:
   parrot-mirror:
-    image: registry.gitlab.com/parrotsec/parrot-mirror-setup:main
+    image: registry.gitlab.com/parrotsec/project/parrot-mirror-docker:main
     ports:
       - "8000:80" # Port Exposed for HTTP, container port is 80
       - "873:873" # Rsync Daemon Port
