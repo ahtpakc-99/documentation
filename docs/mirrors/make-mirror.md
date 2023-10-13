@@ -15,6 +15,36 @@ Make sure to have enough free space to host a mirror, and be ready for future up
 
 The current archive size is available here [archive.parrotsec.org/parrot/misc/archive-size.txt](https://deb.parrotsec.org/parrot/misc/archive-size.txt)
 
+# Dockerized Setup
+
+We have a provided docker image located at `registry.gitlab.com/parrotsec/project/parrot-mirror-docker:main`, you may use our suggested docker compose file:
+```yaml
+services:
+  parrot-mirror:
+    image: registry.gitlab.com/parrotsec/project/parrot-mirror-docker:main
+    ports:
+      - "8000:80" # Port Exposed for HTTP, container port is 80
+      - "873:873" # Rsync Daemon Port
+    volumes:
+      - ./mirror-tmp:/mirror # Where do you want the mirror files to be stored? Must be mapped to /mirror internally.
+    environment:
+      SOURCE: "rsync://rsync.parrot.sh:/parrot" # Where the mirror should sync from
+      BWLIMIT: "0" # Bandwidth limit for rsync
+```
+
+Please change the configuration noted as applicable for your setup. The volume must be mounted at /mirror, unless you rebuild the container and change the relevant configuration.
+
+## Helm Chart
+A Helm Chat chart is also availble, and can be installed as follows:
+
+1) Add the Helm Repo `helm repo add 0xemma https://0xemma.github.io/helm-charts`
+
+2) `helm install parrot-mirror 0xemma/parrot-mirror`
+
+You may change the values.yaml as needed to match your setup.
+
+## Manual Setup
+
 ### Choose the upstream server
 
 We handle several domains for repository syncing services, we suggest you use `rsync.parrot.sh` for automatic and failproof setups, but upstream settings can be adjusted in case of specific needs.
