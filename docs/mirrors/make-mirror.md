@@ -17,7 +17,7 @@ The current archive size is available here [archive.parrotsec.org/parrot/misc/ar
 
 # Dockerized Setup
 
-We have a provided docker image located at `registry.gitlab.com/0xemma/parrot-mirror-setup:main`, you may use our suggested docker compose file:
+We have a provided docker image located at `registry.gitlab.com/parrotsec/parrot-mirror-setup:main`, you may use our suggested docker compose file:
 ```yaml
 services:
   parrot-mirror:
