@@ -21,7 +21,7 @@ We have a provided docker image located at `registry.gitlab.com/parrotsec/parrot
 ```yaml
 services:
   parrot-mirror:
-    image: registry.gitlab.com/0xemma/parrot-mirror-setup:main
+    image: registry.gitlab.com/parrotsec/parrot-mirror-setup:main
     ports:
       - "8000:80" # Port Exposed for HTTP, container port is 80
       - "873:873" # Rsync Daemon Port
