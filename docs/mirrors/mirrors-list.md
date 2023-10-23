@@ -92,6 +92,7 @@ The APT package manager uses `/etc/apt/sources.list` and any *.list* file found 
 | Ukraine<br />comsys<br />1 Gbps           |     KPI (National Technical University of Ukraine - Comsys)     | [mirrors.comsys.kpi.ua/parrot](http://mirrors.comsys.kpi.ua/parrot)                                                             | <sub>only ISO files are mirrored</sub>                                                                          |
 | Ukraine<br />astra.in.ua<br />/           |                               ISP                               | [parrot.astra.in.ua/](https://parrot.astra.in.ua/)                                                                              | <sub>deb https://parrot.astra.in.ua/ parrot main contrib non-free</sub>                                         |
 | Azerbaijan<br />YER Hosting<br />1 Gbps   |                       YER Hosting (Baku)                        | [mirror.yer.az/parrot/](https://mirror.yer.az/parrot/)                                                                          | <sub>deb https://mirror.yer.az/parrot/ parrot main contrib non-free</sub>                                       |
+| Serbia<br />Serbia Open Exchange<br />50 Gbps   |                       Serbia Open Exchange                        | [mirror1.sox.rs/parrot/](https://mirror1.sox.rs/parrot/)                                                                          | <sub>deb https://mirror1.sox.rs/parrot/ parrot main contrib non-free</sub>                                       |
 
 
 ### APAC (Asia and Pacific)
