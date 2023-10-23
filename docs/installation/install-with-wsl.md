@@ -2,6 +2,14 @@
 
 Installing ParrotOS on Windows-Subsystem-Linux(henceforth WSL)
 
+
+### Note about Virtaulized Machines
+This is not indended, or supported to be ran within a Virtaulized Windows Machine.
+
+Any bugs or issues resulting from this are most likely not going to be fixed.
+
+TL;DR, Virtaulized Windows Machine - You're on your own.
+
 ## Installing WSL
 
 If you already have WSL installed on your machine, you can skip this section.
