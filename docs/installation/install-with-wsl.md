@@ -34,3 +34,16 @@ Congrats, you now have a working WSL instance!
 
 ### Windows Store
 Coming soon....
+
+
+## Known Issues
+
+Packages requiring SystemD(i.e. Powershell Empire) are not working on default installs.
+
+This can be fixed however, by editing /etc/wsl.conf and adding
+```yaml
+[boot]
+systemd=true
+```
+
+And restarting your wsl instance.
