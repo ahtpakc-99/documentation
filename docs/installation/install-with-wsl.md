@@ -29,7 +29,13 @@ Next, enter your username & password for your user account.
 
 ![1](./images/wsl/install.gif)
 
+Your WSL "Hard Drive" will be created as a .vdhx in the folder you create the launcher from.
+
+All updates can be performed via a standard apt upgrade/update. However if you wish to rerun the installer, you must run `wsl --uninstall ParrotOS`, and rerun launcher.exe
+
 Congrats, you now have a working WSL instance!
+
+
 
 
 ### Windows Store
@@ -47,3 +53,6 @@ systemd=true
 ```
 
 And restarting your wsl instance.
+
+## Unknown Issues
+Please open an issue in [The WSL Gitlab Project](https://gitlab.com/parrotsec/project/wsl) for any bugs you encounter.
