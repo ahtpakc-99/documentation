@@ -7,6 +7,6 @@ We use Docker/Podman for development, testing and deployment.
 ### Build and start the Docker image
 
 ```
-$ docker build --target development -t parrot-documentation .
+$ docker build -t parrot-documentation .
 $ docker run --rm -ti -p 3000:3000 parrot-documentation
 ```
