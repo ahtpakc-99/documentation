@@ -31,7 +31,7 @@ Next, enter your username & password for your user account.
 
 Your WSL "Hard Drive" will be created as a .vdhx in the folder you create the launcher from.
 
-All updates can be performed via a standard apt upgrade/update. However if you wish to rerun the installer, you must run `wsl --uninstall ParrotOS`, and rerun launcher.exe
+All updates can be performed via a standard apt upgrade/update. However if you wish to rerun the installer, you must run `wsl --unregister ParrotOS`, and rerun launcher.exe
 
 Congrats, you now have a working WSL instance!
 
