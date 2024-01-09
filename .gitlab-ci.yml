@@ -27,7 +27,7 @@ build_production:
 build_beta:
   stage: build
   only:
-    - beta
+    - dev
   image: docker:latest
   script:
     - *beta-script
@@ -35,7 +35,7 @@ build_beta:
 build_test:
   stage: build
   except:
-    - beta
+    - dev
     - master
   image: docker:latest
   artifacts:
