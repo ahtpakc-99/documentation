@@ -117,7 +117,7 @@ The calculations are as follows:
 
 Multiply 1024 with the amount of Memory/RAM you want and put the value here.
 
-![6](./images/vbox/6.png)   
+![6](./images/vbox/13.png)   
 
 ### Step 2.4 - Allocate Video memory and 3D acceleration
 
