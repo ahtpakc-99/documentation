@@ -133,7 +133,7 @@ If you have more than one monitor, you can change your settings here too.
 
 Select **Storage > Controller: IDE** and highlight Empty CD icon. Now on your right, you should be able to click on the little CD icon (it should be CD/DVD Drive: IDE Secondary Master already, if not change it) and select your downloaded ISO.
 
-Once you select your downloaded ISO (in this case, it’s Parrot Security 4.11.2 ISO. See the properties and information’s changes accordingly.
+Once you select your downloaded ISO (in this case, it’s Parrot Security 6.0 ISO. See the properties and information’s changes accordingly.
 
 
 
