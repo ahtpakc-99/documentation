@@ -42,46 +42,35 @@ Once you’ve installed VirtualBox:
 
 ### Step 1.1 - Enter a name for your Virtual Machine
 
-Enter Parrot Security as the name. Set "Type" to **Linux**, and set "Version" to **Debian (64-bit)**.
+Enter **Parrot Security** as the name. Load Parrot Security ISO (click on the arrow at your right, and search for the ISO in the download folder.) and proceed, **Type** and **Version** will be detected automatically.   
+
+**Important**: if your disk size is mismatched, you might have a corrupt disk. Refer to Parrot Security [chapter](../introduction/download-parrot) through this documentation for size related info. You can also do a SHA1 check to ensure your disk is not corrupted.  
 
 ![1](./images/vbox/1.png)
 
-### Step 1.2 - Allocate Memory/RAM
+### Step 1.2 - Allocate RAM and CPU
 
-The OS can run on machines with 512 MB of RAM, but at least **2 GB** is strongly recommended for both Parrot Security and Home Editions.
+The OS can run on machines with 512 MB of RAM and 2 cores, but at least **2 GB** and **2 cores** are strongly recommended for both Parrot Security and Home Editions. 
 
-Choose the best setting for your machine and click *Next*.
+Choose the best setting for your machine, check "**Enable EFI**" checkbox and click *Next*.
 
 ![2](./images/vbox/2.png)
 
-### Step 2 - Create a Virtual Hard Drive
-On this screen select **Create a virtual hard disk now** (*2nd option*) and click *Create*.
+### Step 1.3 - Create a Virtual Hard Drive
+
+On the next screen select **Create a Virtual Hard Disk Now**. Set the disk size at **20 GB for Home Edition** and **40 GB for Security Edition**
+
+This will create a **Dinamically Allocated Disk**, if you want to have the entire disk size, check "**Pre-Allocated Full Size**"
+
+Click *Next* and proceed.
 
 ![3](./images/vbox/3.png)
 
-### Step 2.1 - Select Virtual Drive File type
-
-On the next screen select **VDI** – **VirtualBox Disk Image** as your *Hard drive file type*.
-
-Click *Next*.
+Double-check your settings in the screen similar to this and click *Finish*
 
 ![4](./images/vbox/4.png)
 
-### Step 2.2 - Select Physical Hard Drive allocation type
-
-Select **Dynamically Allocated** and click Next on *Storage on physical hard drive* window.
-
-![4](./images/vbox/5.png)
-
-### Step 2.3 - Allocate disk size
-
-On **File location and size** screen, it will show 8.00 GB as the default size (which we’ve set on Step 1.1). In this example we have increased it to 20 GB for storage reasons.
-
-Choose which fits your needs and click *Next*. 
-
-![6](./images/vbox/6.png)
-
-### Step 3 - Modify VirtualBox settings
+### Step 2 - Modify VirtualBox settings
 
 So far, we’ve done the following, checklist for you:
 
@@ -90,24 +79,26 @@ So far, we’ve done the following, checklist for you:
   * Fiddled with disk properties, type and size.
  
 At this point you should see the following screen:
-  
-![7](./images/vbox/7.png)
-  
-### Step 3.1 - Select type of OS
 
-Depending on which ISO you downloaded, select the correct Version here.
+![4](./images/vbox/5.png)
 
-As Parrot Security is derived from Debian, I’ve selected Other Linux (64-bit) on *General > Basic*.
-
-![8](./images/vbox/8.png)
-
-### Step 3.2 - Enable shared Clipboard and Drag ’n’ Drop feature
+### Step 2.1 - Enable shared Clipboard and Drag ’n’ Drop feature
 
 Select *General > Advanced TAB* and change **Shared Clipboard** and **Drag ’n’ Drop** to Bidirectional. This will allow you to copy paste files from your HOST machine on the fly. Confirm by clicking *OK*.
 
-![9](./images/vbox/9.png)
+![6](./images/vbox/6.png)
 
-### Step 3.3 - Update Virtual Motherboard options
+### Step 2.2 - Update number of Processors and enable PAE/NX
+
+As we already said, 2 cores works well. With 4, 6, and so on, performance will be much better. 
+
+You should not configure virtual machines to use more CPU cores than are available physically. This includes real cores, with no hyperthreads. See [processor tab](https://www.virtualbox.org/manual/ch03.html#settings-processor) on VirtualBox website. 
+
+Check the box for **Enable PAE/NX**.
+  
+![7](./images/vbox/7.png)
+
+### Step 2.3 - Update Virtual Motherboard options
 
 Select *System > Motherboard*, un-check Floppy (who has a floppy anymore?) and check the box to [**Enable I/O APIC**](https://www.virtualbox.org/manual/ch03.html#settings-motherboard).
 
@@ -126,20 +117,7 @@ The calculations are as follows:
 
 Multiply 1024 with the amount of Memory/RAM you want and put the value here.
 
-![10](./images/vbox/10.png)
-
-### Step 3.4 - Select number of Processors and enable PAE/NX
-
-Sets the number of virtual CPU cores the guest OS can see. 
-2 virtual cores works well. With 4, 6, and so on, performance will be much better. 
-
-You should not configure virtual machines to use more CPU cores than are available physically. This includes real cores, with no hyperthreads. See [processor tab](https://www.virtualbox.org/manual/ch03.html#settings-processor) on VirtualBox website. 
-
-Check the box for **Enable PAE/NX**.
-
-![11](./images/vbox/16.png)
-
-### Step 3.5 - Allocate Video memory and 3D acceleration
+### Step 2.4 - Allocate Video memory and 3D acceleration
 
 Select **Display > Screen > set Video Memory to 128 MB**. This allows for a good responsive desktop environment.
 
@@ -147,29 +125,30 @@ Also check the box for *Enable 3D Acceleration*.
 
 If you have more than one monitor, you can change your settings here too.
 
-![12](./images/vbox/11.png)
+![10](./images/vbox/8.png)
 
-### Step 4 - Loading Parrot Security ISO
+### Step 2.5 - Update Parrot Security ISO Loading Settings
 
 Select **Storage > Controller: IDE** and highlight Empty CD icon. Now on your right, you should be able to click on the little CD icon (it should be CD/DVD Drive: IDE Secondary Master already, if not change it) and select your downloaded ISO.
 
-![13](./images/vbox/14.png)
-
 Once you select your downloaded ISO (in this case, it’s Parrot Security 4.11.2 ISO. See the properties and information’s changes accordingly.
 
-**Important**: if your disk size is mismatched, you might have a corrupt disk. Refer to Parrot Security [chapter](../introduction/download-parrot) through this documentation for size related info. You can also do a SHA1 check to ensure your disk is not corrupted.
+
 
 :::info Note
   if you want to test Parrot in live mode, check the *"Live CD/DVD"* box
 :::
 
-### Step 4.1 - Select Network connection type
 
-If your computer is connected to the internet, select NAT on *Network > Adapter 1*. You can enable more network adapters if you feel you want to do so. 
+![8](./images/vbox/12.png)
 
-![14](./images/vbox/12.png)
+### Step 3 - Select Network connection type
 
-### Step 4.2 - Enable USB 2.0 and 3.0 Controllers
+If your computer is connected to the internet, select NAT on *Network > Adapter 1*. You can enable more network adapters if you feel you want to do so.  
+
+![9](./images/vbox/9.png)
+
+### Step 3.1 - Enable USB 2.0 and 3.0 Controllers
 
 Firstly, make sure you have installed the *extension pack*, or you will not be able to enable USB 2.0 and 3.0 controllers.
 
@@ -181,15 +160,17 @@ In GNU/Linux, you could also install it from the terminal with `sudo apt install
 
 Once installed, it will enable VirtualBox Remote Desktop Protocol (VRDP) support and Host webcam passthrough support.
 
-![15](./images/vbox/13.png)
 
-### Step 4.3 - It's all set up?
+![10](./images/vbox/10.png)
+
+### Step 4 - It's all set up?
 
 Finally, by clicking on your new virtual machine, this is what you should see:
 
-![16](./images/vbox/15.png)
+![12](./images/vbox/11.png)
 
 You can always change the configuration the way you prefer.
+
 
 ### Step 5 - Booting Parrot Security ISO
 
