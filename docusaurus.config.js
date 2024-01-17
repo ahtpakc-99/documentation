@@ -60,6 +60,8 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
       navbar: {
         /* title: 'ParrotOS', */
         logo: {
