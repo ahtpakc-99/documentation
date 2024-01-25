@@ -24,10 +24,8 @@ You'll see something similar to this:
 
 The partitions in detail:
 
-* `/dev/sda1` is a hidden partition which contains Windows Files for Recovery.
-* `/dev/sda2` is the boot partition.
-* `/dev/sda3` is MSR (Microsoft Reserved partition).
-* `/dev/sda4` is where preinstalled OS exists (Windows 10 for this use case).
+* `/dev/sda1` is the partition which contains EFI boot files.
+* `/dev/sda2` is the partition containing the existing OS.
 
 
 To make ParrotOS work in a UEFI computer, at least three working partitions are needed: 
@@ -44,80 +42,47 @@ In a standard BIOS partition, at least two working partitions are needed:
 * `/`
 * `/home`
 
-**/dev/sda1** and **/dev/sda3** are useless for ParrotOS, so let's delete them.
-
-Select **/dev/sda1** then click on *Delete*
-
+Now, let's change the mount point for the necessary partitions.
+First, select **/dev/sda1** and click on Edit
 ![par2](./images/partitioning/par2.png)
 
-Repeat the operation for **/dev/sda3**. The configuration at this stage will be like this:
+This window will appear, here is possible to shrink/resize partitions (by dragging the bar or inserting the size in MiB), set flags and mount point.
+
+Set up the partition as you can see below, then click on Ok.
 
 ![par3](./images/partitioning/par3.png)
 
-You may need to move **/dev/sda2** to the first section of the disk, so click on *Edit* and this window will appear:
-
+Now select **/dev/sda2** and click on Edit.
 ![par4](./images/partitioning/par4.png)
 
-Hold and drag left the partition, then click on *Ok*
-
-![par5](./images/partitioning/par5.png)
-
-The configuration at this stage will be like this:
-
-![par6](./images/partitioning/par6.png)
-
-
-Now, let's change the mount point for the necessary partitions.
-
-Select **/dev/sda2** then click on Edit.
-
-![par7](./images/partitioning/par7.png)
-
-This window will open up:
-
-![par8](./images/partitioning/par8.png)
-
-Here is possible to shrink/resize partitions (by dragging the bar or inserting the size in MiB), set flags and mount point.
-
-Click on the Mount Point drop-down list, and set it on `/boot/EFI`, then click on *OK*
-
-![par9](./images/partitioning/par9.png)
-
-Select **/dev/sda4** then click on Edit.
-
-![par10](./images/partitioning/par10.png)
-
-As mentioned before, at least three working partitions are needed for ParrotOS.
-
-The first partition going to be created will be `/home` - _the User data folder_
+Drag the bar or set the value for getting the desired partition size (in this case the total amount of the partition size is about 124GB, and we dedicated about 70GB to Windows, and thereby the remaining 50GB have been assigned to ParrotOS.) then click on OK.
 
 :::info Note
   Parrot Home needs at least 20GB of space, while Parrot Security needs at least 40GB of space. Home Edition will be installed in this guide.
 :::
 
-Shrink the partition by dragging right the slider, unless you'll have 20gb of unallocated space, then set the mount point to `/home`, set the content to *Format*, then click on *Ok*
+![par5](./images/partitioning/par5.png)
 
-![par11](./images/partitioning/par11.png)
+Now select the *Free Space* and click on Create.
 
-Now the updated situation will be this:
+![par6](./images/partitioning/par6.png)
 
-![par12](./images/partitioning/par12.png)
 
-Select the *Free Space* and click on *Create* to setup `/` - _the folder containing the entire system_ :
+Now let's create the **/ - root partition**, set it up as it appears below then click on Ok:
 
-![par13](./images/partitioning/par13.png)
+![par7](./images/partitioning/par7.png)
 
-This window will appear:
+Now, the last partition, **/home**. Select the remaining Free Space then click on Create:
+![par8](./images/partitioning/par8.png)
 
-![par14](./images/partitioning/par14.png)
+Set up the partition as it appears below then click on Ok:
+![par9](./images/partitioning/par9.png)
 
-Click on the Mount Point drop-down list, set the file system you want (ParrotOS uses BTRFS by default), set the mount point in `/ (root)`, then click on *OK*
+Now all the partition are properly configured, proceed with the installation by clicking on next.
+![par10](./images/partitioning/par10.png)
 
-![par15](./images/partitioning/par15.png)
 
 After this, proceed with the final steps of the installation by clicking on *Next* .
-
-![par16](./images/partitioning/par16.png)
 
 ## Case 2: Partitioning an empty disk
 
