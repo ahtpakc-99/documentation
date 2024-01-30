@@ -32,31 +32,31 @@ One of the very first steps in any network reconnaissance mission is to reduce a
 
     $ nmap  -Pn # (No ping)
 
-    $ nmap  -PS <port list> # (TCP SYN Ping)
+    $ `nmap  -PS <port list> # (TCP SYN Ping)`
 
-    $ nmap -PA <port list> # (TCP ACK Ping)
+    $ `nmap -PA <port list> # (TCP ACK Ping)`
 
-    $ nmap  -PU <port list> # (UDP Ping)
+    $ `nmap  -PU <port list> # (UDP Ping)`
 
-    $ nmap  -PY <port list> # (SCTP INIT Ping)
+    $ `nmap  -PY <port list> # (SCTP INIT Ping)`
 
-    $ nmap  -PE; -PP; -PM # (ICMP Ping Types)
+    $ `nmap  -PE; -PP; -PM # (ICMP Ping Types)`
 
-    $ nmap  -PO <protocol list> # (IP Protocol Ping)
+    $ `nmap  -PO <protocol list> # (IP Protocol Ping)`
 
-    $ nmap  --disable-arp-ping # (No ARP or ND Ping)
+    $ `nmap  --disable-arp-ping # (No ARP or ND Ping)`
 
-    $ nmap  --traceroute # (Trace path to host)
+    $ `nmap  --traceroute # (Trace path to host)`
 
-    $ nmap  -n # (No DNS resolution)
+    $ `nmap  -n # (No DNS resolution)`
 
-    $ nmap  -R # (DNS resolution for all targets)
+    $ `nmap  -R # (DNS resolution for all targets)`
 
     $ nmap  --resolve-all # (Scan each resolved address)
 
     $ nmap  --system-dns # (Use system DNS resolver)
 
-    $ nmap  --dns-servers <server1>[,<server2>[,...]] # (Servers to use for reverse DNS queries)
+    $ `nmap  --dns-servers <server1>[,<server2>[,...]] # (Servers to use for reverse DNS queries)`
 
 ## Nmap Port Scanning Basics
 

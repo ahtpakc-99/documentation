@@ -79,7 +79,7 @@ provides the following packages:
 
 usage: 
 
-    docker run --rm -ti parrotsec/nmap <nmap options>
+    `docker run --rm -ti parrotsec/nmap <nmap options>`
 
 examples:
 
@@ -137,7 +137,7 @@ provides the following packages:
 
 usage:
 
-    docker run --rm -ti parrotsec/sqlmap <sqlmap options>
+    `docker run --rm -ti parrotsec/sqlmap <sqlmap options>`
 
 example:
 
