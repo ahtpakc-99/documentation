@@ -2,23 +2,27 @@
 
 This guide will give you a list of known solutions to use when you are having problems with GRUB. 
 
+:::info Note
 If you want to know more about GRUB: 
 
 [GRUB - gnu.org](https://www.gnu.org/software/grub/)
 
 [GRUB -  Wikipedia](https://en.wikipedia.org/wiki/GNU_GRUB)
-
-In order to repair GRUB:
+:::
 
 ## Step 1 - Pick up ParrotOS Live ISO
 
-[Download](https://parrotsec.org/download/) the latest ParrotOS .iso, [flash it onto an USB drive](../usb/how-to-create-a-parrot-usb-drive) and boot it.
+In order to repair GRUB:
+
+[Download](https://parrotsec.org/download/) the latest ParrotOS **.iso**, [flash it onto an USB drive](../usb/how-to-create-a-parrot-usb-drive) and boot it.
 
 ## Step 2 - Disk and partition identification
 
 Once you entered the live mode, open terminal and type 
 
-    sudo fdisk -l
+```
+sudo fdisk -l
+```
 
 ![1](./images/grub/grub1.png)
 
@@ -29,17 +33,23 @@ The output should be similar to this. `/dev/sda` is usually the first SSD or HDD
 
 ## Step 3 - Create the mount folder
 
-A mount folder is needed to perform this operation. So, in the same terminal window, type
+A mount folder is needed to perform this operation. So, in the same terminal window, type:
     
-    mkdir /mnt 
+```
+mkdir /mnt
+```
 
-This is the main folder. Next type 
+This is the main folder. Next type: 
 
-    mkdir /mnt/boot 
+```
+mkdir /mnt/boot
+```
 
-followed by
+followed by:
 
-    mkdir /boot/efi
+```
+mkdir /boot/efi
+```
 
 Which creates the directory used for mounting the EFI partition. This is needed for installing the correct GRUB package. 
  
@@ -49,10 +59,12 @@ Which creates the directory used for mounting the EFI partition. This is needed 
 
 Now it's time to mount the partitions. In the same terminal window, type 
 
-    sudo mount -o subvol=@ /dev/sda2 /mnt
+```
+sudo mount -o subvol=@ /dev/sda2 /mnt
+```
 
 :::info Note
-  This is needed since ParrotOS default filesystem is BTRFS and it has subvolumes enabled. 
+  This is needed since ParrotOS default filesystem is **btrfs** and it has subvolumes enabled. 
 :::
 
 ![3](./images/grub/grub3.png)
@@ -61,13 +73,15 @@ Mount the `dev`, `proc`, `sys` folders and the `EFI` partion in order to get acc
 
 In the same terminal window, type
 
-    sudo mount --bind /dev /mnt/dev
+```
+sudo mount --bind /dev /mnt/dev
 
-    sudo mount --bind /proc /mnt/proc
+sudo mount --bind /proc /mnt/proc
 
-    sudo mount --bind /sys /mnt/sys
+sudo mount --bind /sys /mnt/sys
 
-    sudo mount /dev/sda1 /mnt/boot/efi
+sudo mount /dev/sda1 /mnt/boot/efi
+```
    
 ![4](./images/grub/grub4.png)
 
@@ -75,11 +89,15 @@ In the same terminal window, type
 
 Time to enter the system. In the same terminal window, type 
 
-    sudo chroot /mnt
+```
+sudo chroot /mnt
+```
 
 Once in chroot environment, type 
 
-    grub-install /dev/sda
+```
+grub-install /dev/sda
+```
 
 ![5](./images/grub/grub5.png)
 
@@ -90,15 +108,17 @@ After the installation is finished, type `exit` so as to exit the chroot environ
 After exiting the chroot environment, unmount all of the partitions and folders used.
 In the same terminal window type:
 
-    sudo umount /mnt/dev
+```
+sudo umount /mnt/dev
 
-    sudo umount /mnt/proc
+sudo umount /mnt/proc
 
-    sudo umount /mnt/sys
+sudo umount /mnt/sys
 
-    sudo umount /mnt/boot/efi
+sudo umount /mnt/boot/efi
 
-    sudo umount /mnt
+sudo umount /mnt
+```
    
 ![6](./images/grub/grub6.png)
 
