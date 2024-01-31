@@ -10,8 +10,6 @@ It includes a full portable arsenal for IT security and digital forensics operat
 
 Parrot is available in three main editions, [Security](https://parrotsec.org/download/?version=security), [Home](https://parrotsec.org/download/?version=home) and [Architect](https://parrotsec.org/download/?version=architect) Edition, even as Virtual Machine (Virtual Box, Parallels and VMware), on [Raspberry Pi](https://parrotsec.org/download/?version=raspberry) and also on Docker.
 
-From version 5.0 LTS, support for ARM platforms is back, and some images are also available for boards like Raspberry Pi.
-
 The operating system ships by default with MATE Desktop Environment, but it is possible to install others DEs.
 
 ![ParrotOS Desktop](./images/parrot_desktop.png)

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # How to install ParrotOS on VMware
 
-From version 4.11 of ParrotOS up to the latest release, it is possible to use the OS on VMware in all its editions (Workstation Player, Workstation Pro and also on MacOS, Fusion Player and Fusion Pro). 
+It is possible to use the OS on VMware in all its editions (Workstation Player, Workstation Pro and also on MacOS, Fusion Player and Fusion Pro). 
 
 This guide will allow the user to create a Virtual Machine on VMware Workstation Player. Since the other editions are extensions of the free version of Workstation Player, in the setup and installation procedure, not much will change.
 
@@ -14,11 +14,15 @@ Follow this step by step guide, it will go from installing VMware to creating th
 
 Once you have downloaded VMware from the [official website](https://www.vmware.com), go to the folder where you downloaded it, and open a terminal. Give execution permissions with
 
-    sudo chmod +x ./VMware-Workstation-$edition-$architecture.bundle
+```
+sudo chmod +x ./VMware-Workstation-$edition-$architecture.bundle
+```
 
 and then, again from the terminal, start it:
 
-    sudo ./VMware-Workstation-$edition-$architecture.bundle
+```
+sudo ./VMware-Workstation-$edition-$architecture.bundle
+```
 
 the installer will complete the installation operation and in the Parrot menu you will find your VMware edition ready for use.
 
