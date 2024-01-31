@@ -30,11 +30,15 @@ Optional: Complete the steps below if unfamiliar with GnuPG or if they haven't a
 
 ### 2. Set warning free permissions
 
-    chmod --recursive og-rwx ~/.gnupg
+```
+chmod --recursive og-rwx ~/.gnupg
+```
 
 ### 3. Get the ParrotOS key
 
-    wget -q -O - https://deb.parrotsec.org/parrot/misc/parrotsec.gpg | gpg --import
+```
+wget -q -O - https://deb.parrotsec.org/parrot/misc/parrotsec.gpg | gpg --import
+```
 
 ![GPG](./images/hash-key_verification/gpg1.png)
 
@@ -54,7 +58,9 @@ For the purpose of this tutorial we will use **Parrot-home-6.0_amd64.iso**.
 
 Now open a terminal window and run the following command:
 
-    md5sum Parrot-home-6.0_amd64.iso
+```
+md5sum Parrot-home-6.0_amd64.iso
+```
 
 ![Hash](./images/hash-key_verification/hash1.png)
 
@@ -72,6 +78,8 @@ When both hashes match exactly then the downloaded file is almost certainly inta
 
 The method for other hashes such as SHA256 or SHA512 is exactly the same with the above guides only instead of md5 you must use the proper hash you want. Let's make an example:
 
-    sha512sum Parrot-home-6.0_amd64.iso
+```
+sha512sum Parrot-home-6.0_amd64.iso
+```
 
 ![Hash](./images/hash-key_verification/hash4.png)

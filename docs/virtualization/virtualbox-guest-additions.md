@@ -39,23 +39,33 @@ For more infomations, check the [VirtualBox manual](https://www.virtualbox.org/m
 
 **1.** Open a terminal and update your packages list from the repository with
  
-    sudo apt update
+```
+sudo apt update
+```
 
 **2.** Install the Guest Additions from Parrot OS repository with 
 
-    sudo apt install virtualbox-guest-utils
+```
+sudo apt install virtualbox-guest-utils
+```
 
 **3.** And install the last package with 
     
-    sudo apt install virtualbox-guest-x11
+```
+sudo apt install virtualbox-guest-x11
+```
 
 **4.** When the installation is completed, you can reboot your machine with 
 
-    sudo reboot
+```
+sudo reboot
+```
 
 **5.** Check if Guest Additions are correctly installed by running 
 
-    sudo /usr/sbin/VBoxService -V 
+```
+sudo /usr/sbin/VBoxService -V
+```
 
 ## Method 2 (From ISO)
 

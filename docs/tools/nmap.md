@@ -14,49 +14,71 @@ Nmap or Network Mapper is a free and open source utility for network discovery a
 
 ## Sample nmap command
 
-    $ nmap -A -T4 scanme.nmap.org
+```
+nmap -A -T4 scanme.nmap.org
+```
 
 ## Nmap option summary
 
 If you want to get a summary of nmap’s command just run nmap without any command like this:
 
-    $ nmap
+```
+nmap
+```
 
 ## Nmap Host discovery
 
 One of the very first steps in any network reconnaissance mission is to reduce a (sometimes huge) set of IP ranges into a list of active or interesting hosts. Scanning every port of every single IP address is slow and usually unnecessary. Of course what makes a host interesting depends greatly on the scan purposes. Network administrators may only be interested in hosts running a certain service, while security auditors may care about every single device with an IP address. An administrator may be comfortable using just an ICMP ping to locate hosts on his internal network, while an external penetration tester may use a diverse set of dozens of probes in an attempt to evade firewall restrictions
 
-    $ nmap  -sL # (List Scan)
+```
+# (List Scan)
+nmap  -sL
 
-    $ nmap  -sn # (No port scan)
+# (No port scan)
+nmap  -sn
 
-    $ nmap  -Pn # (No ping)
+# (No ping)
+nmap  -Pn
 
-    $ `nmap  -PS <port list> # (TCP SYN Ping)`
+# (TCP SYN Ping)
+nmap  -PS <port list>
 
-    $ `nmap -PA <port list> # (TCP ACK Ping)`
+# (TCP ACK Ping)
+nmap -PA <port list>
 
-    $ `nmap  -PU <port list> # (UDP Ping)`
+# (UDP Ping)
+nmap  -PU <port list>
 
-    $ `nmap  -PY <port list> # (SCTP INIT Ping)`
+# (SCTP INIT Ping)
+nmap  -PY <port list>
 
-    $ `nmap  -PE; -PP; -PM # (ICMP Ping Types)`
+# (ICMP Ping Types)
+nmap  -PE; -PP; -PM
 
-    $ `nmap  -PO <protocol list> # (IP Protocol Ping)`
+# (IP Protocol Ping)
+nmap  -PO <protocol list>
 
-    $ `nmap  --disable-arp-ping # (No ARP or ND Ping)`
+# (No ARP or ND Ping)
+nmap  --disable-arp-ping
 
-    $ `nmap  --traceroute # (Trace path to host)`
+# (Trace path to host)
+nmap  --traceroute
 
-    $ `nmap  -n # (No DNS resolution)`
+# (No DNS resolution)
+nmap  -n
 
-    $ `nmap  -R # (DNS resolution for all targets)`
+# (DNS resolution for all targets)
+nmap  -R
 
-    $ nmap  --resolve-all # (Scan each resolved address)
+# (Scan each resolved address)
+nmap  --resolve-all
 
-    $ nmap  --system-dns # (Use system DNS resolver)
+# (Use system DNS resolver)
+nmap  --system-dns
 
-    $ `nmap  --dns-servers <server1>[,<server2>[,...]] # (Servers to use for reverse DNS queries)`
+# (Servers to use for reverse DNS queries)
+nmap  --dns-servers <server1>[,<server2>[,...]]
+```
 
 ## Nmap Port Scanning Basics
 
@@ -90,13 +112,15 @@ Nmap places ports in this state when it is unable to determine whether a port is
 
 This state is used when Nmap is unable to determine whether a port is closed or filtered. It is only used for the IP ID idle scan.
 
-    Not shown: 995 filtered ports
-    PORT     STATE  SERVICE
-    80/tcp   open   http
-    113/tcp  closed ident
-    443/tcp  open   https
-    8080/tcp open   http-proxy
-    8443/tcp open   https-alt
+```
+Not shown: 995 filtered ports
+PORT     STATE  SERVICE
+80/tcp   open   http
+113/tcp  closed ident
+443/tcp  open   https
+8080/tcp open   http-proxy
+8443/tcp open   https-alt
 
-    Nmap done: 1 IP address (1 host up) scanned in 18.57 seconds
-    # Notice the STATE
+Nmap done: 1 IP address (1 host up) scanned in 18.57 seconds
+# Notice the STATE
+```
