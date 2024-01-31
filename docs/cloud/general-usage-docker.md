@@ -86,13 +86,13 @@ Note that the first port is the port that will be opened on your host, and the s
 
 Here is a reference usage of the **-p** flag:
 
-    -p <host port>:<container port> (e.g. -p 8080:80)
+    `-p <host port>:<container port> (e.g. -p 8080:80)`
 
-    -p <host port>:<container port>/<protocol> (e.g. -p 8080:80/tcp)
+    `-p <host port>:<container port>/<protocol> (e.g. -p 8080:80/tcp)`
 
 In case of multiple addresses on host network:
 
-    -p <address>:<host port>:<container port> (e.g. -p 192.168.1.30:8080:80)
+    `-p <address>:<host port>:<container port> (e.g. -p 192.168.1.30:8080:80)`
 
 ### Use network host instead of Docker NAT
 

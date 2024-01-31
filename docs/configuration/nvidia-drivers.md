@@ -205,7 +205,7 @@ The last step is to disable nouveau drivers by rebooting the machine:
 
 Now navigate to the folder where you downloaded the **.run** file and give it execute permissions:
 
-    sudo chmod +x NVIDIA-Linux-x86_64-<driver version>.run
+    `sudo chmod +x NVIDIA-Linux-x86_64-<driver version>.run`
 
 
 :::info Note
@@ -214,7 +214,7 @@ Now navigate to the folder where you downloaded the **.run** file and give it ex
 
 After that you can start the **.run** file:
 
-    sudo ./NVIDIA-Linux-x86_64-<driver version>.run
+    `sudo ./NVIDIA-Linux-x86_64-<driver version>.run`
 
 The installation wizard process will start and the drivers will be installed along with all utilities (including Nvidia Driver X Settings).
 
