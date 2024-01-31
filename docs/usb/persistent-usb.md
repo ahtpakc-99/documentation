@@ -6,15 +6,21 @@ This guide will show you how to create a persistent partition inside a USB with 
 
 After downloading the ParrotOS *.iso* file from our website, download mkusb from the [repository](https://github.com/sudodus/tarballs).
 
-    git clone https://github.com/sudodus/tarballs.git
+```
+git clone https://github.com/sudodus/tarballs.git
+```
 
 Enter the folder just downloaded and extract the tool with *tar*:
 
-    cd tarballs && tar -xf dus.tar.xz
+```
+cd tarballs && tar -xf dus.tar.xz
+```
 
 A *dus-tmp* folder will be created from which the tool can be installed, open the terminal and type:
 
-    sudo ./dus-installer i
+```
+sudo ./dus-installer i
+```
 
 In the same terminal session, type dus and the program will start:
 

@@ -1,5 +1,5 @@
 # PRODUCTION TARGET
-FROM docker.parrot.run/library/node:16 AS build
+FROM docker.parrot.run/library/node:18 AS build
 
 COPY ./ /documentation/
 WORKDIR /documentation/

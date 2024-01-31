@@ -18,7 +18,9 @@ Feel free to [download](https://parrotsec.org/download/) the edition that is use
 
   It may be useful to know that the user can install more DE on their Parrot, just type in a terminal:
         
-      sudo apt update && sudo apt install parrot-desktop-<desktop environment>
+  ```
+  sudo apt update && sudo apt install parrot-desktop-<desktop environment>
+  ```
 
   then restart your computer. 
   In the login session you can change DE by clicking on the white dot ⚪️ (it's the "default session") and change DE. You can now use the newly installed DE with all the tools and configurations already present previously.

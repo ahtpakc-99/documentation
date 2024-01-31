@@ -1,7 +1,6 @@
 # Use ParrotOS on your Mac M1/M2 via UTM
 
-Since ParrotOS 5.3, the system is also available to be virtualized on Apple platforms with M1/M2 processor (and its variants).
-Specifically, Parrot can be used through the [open source UTM software](https://mac.getutm.app/).
+The OS is also available to be virtualized on Apple platforms with M1/M2/M3(and its variants) CPUs. Specifically, Parrot can be used through the [open source UTM software](https://mac.getutm.app/).
 
 Once you download and install UTM, you will see this screen:
 

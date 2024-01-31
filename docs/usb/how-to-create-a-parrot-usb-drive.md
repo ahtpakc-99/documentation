@@ -45,7 +45,7 @@ Once the burning is complete, you can use the USB stick as the boot device for y
 
 i.g.
 
-    sudo dd status=progress if=Parrot-<edition>-<version>_amd64.iso of=/dev/sdX
+    `sudo dd status=progress if=Parrot-<edition>-<version>_amd64.iso of=/dev/sdX`
 
 ![dd](./images/usb-drive/dd.png)
 

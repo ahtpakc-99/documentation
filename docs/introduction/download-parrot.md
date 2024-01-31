@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Download Parrot OS
+# Download ParrotOS
 
 ParrotOS is available for download [here](https://parrotsec.org/download/).
 
