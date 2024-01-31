@@ -33,17 +33,22 @@ Since version 3.2.0, AnonSurf has been rewritten, with a new code structure. The
 
 First of all, being written in Nim, some dependencies need to be installed:
 
-    sudo apt install nim
-
-    sudo apt install libnim-gintro-dev
+```
+sudo apt install nim
+```
+```
+sudo apt install libnim-gintro-dev
+```
 
 Then you can download the anonsurf source:
 
-    cd anonsurf/
+```
+cd anonsurf/
 
-    make build
-    
-    make install
+make build
+
+make install
+```
 
 ![Code structure](./images/anonsurf/7.png)
 
