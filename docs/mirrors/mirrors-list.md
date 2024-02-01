@@ -34,13 +34,14 @@ The APT package manager uses `/etc/apt/sources.list` and any *.list* file found 
 
 ### Content of /etc/apt/sources.list.d/parrot.list
 
-    deb https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware
-    deb https://deb.parrot.sh/parrot lory-security main contrib non-free non-free-firmware
-    deb https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware
-    #deb-src https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware
-    #deb-src https://deb.parrot.sh/parrot lory-security main contrib non-free non-free-firmware
-    #deb-src https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware
-    #deb-src https://deb.parrot.sh/parrot lory-updates main contrib non-free non-free-firmware
+```
+deb https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware
+deb https://deb.parrot.sh/parrot lory-security main contrib non-free non-free-firmware
+deb https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware
+#deb-src https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware
+#deb-src https://deb.parrot.sh/parrot lory-security main contrib non-free non-free-firmware
+#deb-src https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware
+```
 
 ### Updates/Testing purpose
 
@@ -52,7 +53,9 @@ We suggest to not enable it, as it may introduce untested bugs and make the
 system unstable. Updates are delivered as fast as possible (within a week), 
 so you are not missing anything important with this disabled (unless you are a dev):
 
-    deb https://deb.parrot.sh/parrot lory-updates main contrib non-free non-free-firmware
+```
+deb https://deb.parrot.sh/parrot lory-updates main contrib non-free non-free-firmware
+```
 
 ## Other mirrors for manual configuration
 
