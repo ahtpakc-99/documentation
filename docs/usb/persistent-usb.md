@@ -1,57 +1,72 @@
 # How to create persistent partition on USB
 
-This guide will show you how to create a persistent partition inside a USB with ParrotOS. To do this we will use the [**mkusb**](https://github.com/sudodus/tarballs) tool.
+This guide shows how to create a persistent partition inside USB with ParrotOS.
+To do this we will use the [**mkusb**](https://github.com/sudodus/tarballs) tool.
 
 ## Install mkusb
 
-After downloading the ParrotOS *.iso* file from our website, download mkusb from the [repository](https://github.com/sudodus/tarballs).
+After downloading the ParrotOS *.iso* file from our website, download *mkusb* from the [repository](https://github.com/sudodus/tarballs).
 
 ```
 git clone https://github.com/sudodus/tarballs.git
 ```
 
-Enter the folder just downloaded and extract the tool with *tar*:
+Navigate to the downloaded folder and unpack **dus-plus.tar.xz** with *tar*:
 
 ```
-cd tarballs && tar -xf dus.tar.xz
+cd tarballs && tar -xf dus-plus.tar.xz
 ```
 
-A *dus-tmp* folder will be created from which the tool can be installed, open the terminal and type:
+:::info Note
+    Why only **dus-plus.tar.xz** instead of **dus.tar.xz**? In short, it contains the *usb-pack-efi* package needed to boot the partition.
+:::
+
+Go inside the newly extracted *dus-tplus* folder, and install the tool by typing:
 
 ```
-sudo ./dus-installer i
+cd dus-tplus/ && sudo ./dus-installer i
 ```
 
-In the same terminal session, type dus and the program will start:
+In the same terminal session, type dus (or open *guidus* from Parrot's menu) and it will start:
 
-![1](./images/persistent-usb/mkusb_1.png)
+:::info Note
+    dus will ask to install the *guidus* GUI as well, the functionality will remain the same.
+:::
 
-This tool can also be used to make a USB bootable, recover it, format it and other interesting things.
+![1](./images/persistent-usb/1.png)
 
-![2](./images/persistent-usb/mkusb_2.png)
+This tool can also be used to make a USB bootable, restore, format and other interesting things.
+
+![2](./images/persistent-usb/2.png)
 
 ## Create the persistent partition
 
-Now we can continue with the procedure to create the persistent partition.
+Select *install (make a boot device)*. Then, **Persistent-live** option.
 
-![3](./images/persistent-usb/mkusb_3.png)
+![3](./images/persistent-usb/3.png)
 
-Choose the mode to create persistence and select the *.iso* to install:
+Select **dus-Persistent** from the menu to choose the method to create the persistent partition.
 
-![4](./images/persistent-usb/mkusb_4.png)
+![4](./images/persistent-usb/4.png)
 
-Now you can select the USB that you can use to create the live.
+Now select the *.iso* to install:
 
-![5](./images/persistent-usb/mkusb_5.png)
+![5](./images/persistent-usb/5.png)
 
-Here select the upefi package and click *Ok*.
+Select the USB where you want to install Parrot (we recommend using at least a 4GB USB key).
 
-![6](./images/persistent-usb/mkusb_6.png)
+![6](./images/persistent-usb/6.png)
 
-From this window you can assign the amount of space to dedicate to the persistent partition, as desired:
+Select the *upefi* package and click *ok*.
 
-![7](./images/persistent-usb/mkusb_7.png)
+![7](./images/persistent-usb/7.png)
 
-From here on click on Go to confirm the operation and in a few minutes the USB will be ready.
+You can allocate as much space as you like for the persistent partition from this window:
 
-![8](./images/persistent-usb/mkusb_8.png)
+![8](./images/persistent-usb/8.png)
+
+From here, click *Go* to confirm the operation. The persistent partition will be ready in a few minutes.
+
+![9](./images/persistent-usb/9.png)
+
+![10](./images/persistent-usb/10.png)
