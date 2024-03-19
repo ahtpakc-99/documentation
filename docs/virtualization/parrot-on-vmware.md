@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# How to install ParrotOS on VMware
+# VMware
 
 It is possible to use the OS on VMware in all its editions (Workstation Player, Workstation Pro and also on MacOS, Fusion Player and Fusion Pro). 
 

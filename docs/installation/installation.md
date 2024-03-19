@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# How to install ParrotOS
+# Install ParrotOS
 
 This guide will help you install ParrotOS (latest version) on your computer step-by-step through the default official installer: *Calamares*. 
 

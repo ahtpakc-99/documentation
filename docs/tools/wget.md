@@ -1,4 +1,4 @@
-# Wget
+# wget
 
 Wget is a CLI tool which lets you download files and use REST API interactively. 
 It supports HTTP, HTTPS, FTP and FTPS.

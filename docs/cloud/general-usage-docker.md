@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Docker usages, instructions and examples 
+# Docker usages and examples 
 
 ## Launch a container
 
