@@ -1,4 +1,4 @@
-# ParrotOS on Raspberry Pi
+# Raspberry Pi
 
 This version is available in all the variants offered by Parrot: [Core, Home and Security editions](https://parrotsec.org/download/?version=raspberry).
 

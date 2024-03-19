@@ -1,4 +1,4 @@
-# Install ParrotOS with Manual Partitioning
+# Manual partitioning
 
 Now let's focus on the Manual partitioning of ParrotOS using Calamares installer, which may be necessary for various purposes and needs.
 

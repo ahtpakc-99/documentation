@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Installing ParrotOS on VirtualBox
+# VirtualBox
 
 ## This guide will cover the following steps:
 

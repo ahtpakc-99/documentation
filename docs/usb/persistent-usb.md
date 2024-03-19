@@ -1,4 +1,4 @@
-# How to create persistent partition on USB
+# Persistent partition
 
 This guide shows how to create a persistent partition inside USB with ParrotOS.
 To do this we will use the [**mkusb**](https://github.com/sudodus/tarballs) tool.
