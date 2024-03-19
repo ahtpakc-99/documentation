@@ -1,4 +1,4 @@
-# Install ParrotOS with WSL
+# WSL Edition
 
 Installing ParrotOS on Windows-Subsystem-Linux(henceforth WSL)
 

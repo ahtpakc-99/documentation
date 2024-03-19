@@ -1,6 +1,4 @@
-# How to create a Parrot USB drive
-
-## How to create a Bootable Device
+# Create a bootable USB
 
 First of all, you need to download the latest ISO file from our [website](https://parrotsec.org/download/).
 

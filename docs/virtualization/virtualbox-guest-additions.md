@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Introduction to Virtualbox Guest Additions
+# VirtualBox Guest Additions
 
 The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability.
 

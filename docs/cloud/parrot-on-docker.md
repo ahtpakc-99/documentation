@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Docker images for ParrotOS
+# Docker images
 
 Docker is a powerful technology that allows users to run containers universally on any host platform.
 
