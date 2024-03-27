@@ -1,10 +1,10 @@
-# Printers installation
+# Printer setup
 
-Printers can be installed on ParrotOS, this is possible thanks to [**CUPS**](https://openprinting.github.io/cups/doc/overview.html).
+Thanks to [**CUPS**](https://openprinting.github.io/cups/doc/overview.html), we can print any document we want.
 
 :::info Note
-  These instructions are valid for every printer, in this guide an HP printer has been used as example.
-  For this reason, it may be necessary to install [HPLIP](https://developers.hp.com/hp-linux-imaging-and-printing/tech_docs/overview) (which provides also the necessary drivers for the printer) with this command 
+  These instructions apply to any printer; this guide uses an HP printer as an example.
+  For this reason, it may be necessary to install [HPLIP](https://developers.hp.com/hp-linux-imaging-and-printing/tech_docs/overview) (which provides also the necessary drivers for the printer) with this command:
   ```
   sudo apt install hplip -y
   ```
@@ -12,7 +12,7 @@ Printers can be installed on ParrotOS, this is possible thanks to [**CUPS**](htt
 
 ## Install CUPS
 
-It should be already installed on ParrotOS but, if not, open a terminal window and launch
+It should already be installed on ParrotOS, but if not, open a terminal window and run:
 
 ```
 sudo apt update && sudo apt install cups
@@ -20,24 +20,21 @@ sudo apt update && sudo apt install cups
 
 ![Install Cups](./images/cups/cups0.png)
 
-After the installation, it may be necessary to add your user to ***lpadmin*** group, in order to perform administrative tasks via the web interface. For this reason, it's necessary to authenticate in the lpadmin group. Otherwise, CUPS won’t authenticate a passwordless user.
-
-To do so, launch
+After installation, it may be necessary to add your user to the lpadmin group in order to perform administrative tasks via the web interface. For this reason, it is necessary to authenticate to the lpadmin group. Otherwise CUPS will not authenticate a user without a password:
 
 ```
 sudo adduser user lpadmin
 ```
 
 :::info Note
-  Change the username *user* in the command accordingly to your system's username.
+  Change the *user* user name in the command to match your system's user name.
 :::
 
 ![Add user to lpadmin](./images/cups/cups1.png)
 
-More info about what is lpadmin [here](https://www.cups.org/doc/admin.html)
+Learn more about what lpadmin is [here](https://www.cups.org/doc/admin.html)
 
-
-Now, start CUPS service with
+Start CUPS service:
 
 ```
 sudo service cups start
@@ -45,64 +42,58 @@ sudo service cups start
 
 ![Start CUPS daemon](./images/cups/cups2.png)
 
-## Printer setup
+## Open CUPS Web Interface
 
-### Open CUPS Web Interface
+Now that the CUPS services are up and running, it is time for access to its interface.
 
-After booting CUPS services, now it's time to access its interface. 
+CUPS is accessible from your favorite browser at **http://localhost:631/admin**
 
-CUPS is reachable from your favorite browser at ***http://localhost:631/admin***
-
-This is what will appear:
+This is what you will see:
 
 ![CUPS home interface](./images/cups/cups3.png)
 
-### Adding new printer
+## Adding new printer
 
-From the CUPS web interface, click on ***Add Printer***. It'll ask for your username and password. 
+From the CUPS web interface, click *Add Printer*. You will be prompted for your username and password.
 
 ![Add new printer](./images/cups/cups4.png)
 
-The service will search for any network and local printer. 
+The service searches for all network and local printers. 
 
-Under ***Discovered Network Printers*** the new printer should appear. 
-Select it and click on ***Continue***.
+The new printer should appear under **Discovered Network Printers**. 
+Select it and click on **Continue**.
 
 ![Add new printer](./images/cups/cups5.png)
 
-Next page will allow to customize printer's details such as Name and Description. 
+The next page allows you to customize printer details such as Name and Description.
 
-Tick the *Share this printer* checkbox to make other clients able to use the printer, then click on ***Continue***.
+Select the **Share This Printer** check box so that other clients can use the printer, and then click *Continue*.
 
 ![Add new printer](./images/cups/cups6.png)
 
-Next page will allow to setup the last settings for the printer.
+The next page allows you to make the final settings for the printer.
 
-Select printer's Manufacturer and Model from the ***Make*** and ***Model*** sections or, if necessary, it's possible to provide printer drivers from PPD file. 
+Select printer Manufacturer and Model from the ***Make*** and ***Model*** sections or, if necessary, it is possible to provide printer drivers from *PPD* file. 
 
 ![Add new printer](./images/cups/cups8.png)
 
-After that, click on ***Add Printer***.
+Then click on **Add Printer**.
 
-If everything went correctly, this page will appear. 
+If everything has been done correctly, you will see this page: 
 
 ![Add new printer](./images/cups/cups9.png)
 
-### Verify printer installation
+## Verify printer installation
 
-Let's check if the printer has been set up correctly.
+Let's check if the printer is set up correctly. From the CUPS web interface, click the **Printers** tab at the top right of the page. The printer should appear.
 
-From CUPS web interface, click on ***Printers*** tab on the upper right side of the page.
-
-The printer should appear.
-
-Click on the chosen name.
+Click on the selected name.
 
 ![Verify printer installation](./images/cups/cups10.png)
 
-From this page, it's possible to perform many operations (such as print a test page) and handle the printing queue.
+From this page, you can perform many operations (such as printing a test page) and manage the print queue.
 
 ![Verify printer installation](./images/cups/cups11.png)
 
-That's all for setting up a printer on ParrotOS. 
+That's all you need to set up a printer under ParrotOS.
 
