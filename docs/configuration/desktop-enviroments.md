@@ -14,7 +14,7 @@ Each of the following DE (all of them available on our repository) gives the pos
 * **XFCE**
 * **GNOME**
 * **KDE**
-* **i3** (this is not a full DE, it's a WindowManager)
+* **i3** (this is not a full DE, it's a [WindowManager](https://en.wikipedia.org/wiki/Window_manager))
 
 ![Available DE](./images/DE/de2.png)
 
@@ -35,6 +35,6 @@ The differences between all DEs mainly concern the graphical interface, any soft
   then restart your computer. 
   In the login session you can change DE by clicking on the white dot ⚪️ (it's the "default session") and change DE. You can now use the newly installed DE with all the tools and configurations already present previously.
   
-  ![Switch DE](./images/DE/de0.jpg) ![Switch DE](./images/DE/de1.jpg)
+  ![Switch DE](./images/DE/de0.jpg) ![Switch DE](./images/DE/de1.png)
 
 :::
