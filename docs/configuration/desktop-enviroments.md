@@ -2,39 +2,47 @@
 sidebar_position: 7
 ---
 
-# Desktop Enviroments #
+# Desktop Enviroments
 
-From version 5.0 LTS, ParrotOS is available with the **default MATE Desktop Environment (DE)** for all editions (Home, Security and HTB Edition). However, additional desktop environments can be installed on one OS. Each DE has its  peculiarity, but we recommend trying them out before deciding what to install.
+ParrotOS comes out with the **default MATE Desktop Environment (DE)** for all editions (Home, Security and HTB). However, additional desktop environments can be installed on an OS. Each DE has its own characteristics, but we recommend that you try them all before deciding what to install.
 
+Since the DE is a graphical interface through which the user interacts with the operating system, there are many ways to modify its various components.
 
-Being a graphical interface through which the user can interact with the operating system, the possibilities to modify the various components of the DE are many.  
-Each of the following DE (all of them available on our repository) gives the possibility to be customized according to one's tastes:
+Each of the following DE (all available in our repository) offers the possibility to customize it to your liking:
 
-* **MATE** (default ParrotOS DE)
+* **MATE**
 * **XFCE**
 * **GNOME**
 * **KDE**
-* **i3** (this is not a full DE, it's a [WindowManager](https://en.wikipedia.org/wiki/Window_manager))
+
+:::info
+
+  If you prefer a window manager instead of a DE, we have added a metapackage to our repository for installing [**i3**](https://i3wm.org/).
+
+:::
+
+The differences between the DEs mainly concern the graphical interface, all software is available from the Parrot repositories regardless of the DE used.
 
 ![Available DE](./images/DE/de2.png)
 
-The differences between all DEs mainly concern the graphical interface, any software is equally available through the Parrot repositories regardless of the DE used.
+## Install a Desktop Enviroment
 
-[Feel free to download(https://parrotsec.org/download/) the edition that is useful to you!]: #
+To install a DE, simply type in the terminal:
 
-[hide this sentence because it's not related to the desktop environments, since we actually don't have any different DE edition than MATE]: #
+```
+sudo apt update && sudo apt install parrot-desktop-<desktop environment>
+```
 
-:::tip Install a Desktop Enviroment
+then restart your computer. 
 
-  It may be useful to know that the user can install more DE on their Parrot, just type in a terminal:
-        
-  ```
-  sudo apt update && sudo apt install parrot-desktop-<desktop environment>
-  ```
+In the login session, you can change the DE by clicking on the white dot ⚪️ (this is the *default session*) and changing the DE. You can now use the newly installed DE with all the tools and configurations you had before.
 
-  then restart your computer. 
-  In the login session you can change DE by clicking on the white dot ⚪️ (it's the "default session") and change DE. You can now use the newly installed DE with all the tools and configurations already present previously.
-  
-  ![Switch DE](./images/DE/de0.jpg) ![Switch DE](./images/DE/de1.png)
+![Switch DE](./images/DE/de0.jpg)
+
+:::note
+
+  You can install more than one DE, but considering the amount of packages, it is recommended that you keep only one or at most two DEs in order to avoid conflicts.
 
 :::
+
+![Multiple DE](./images/DE/de1.png)
