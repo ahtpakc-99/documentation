@@ -48,7 +48,7 @@ wget -q -O - https://deb.parrotsec.org/parrot/misc/parrotsec.gpg | gpg --import
 
 ### md5sum hash verification
 
-After you obtained the ISO of your choice go [here: https://download.parrot.sh/parrot/iso/6.0/signed-hashes.txt](https://download.parrot.sh/parrot/iso/6.0/signed-hashes.txt) to see the signed hashes.
+After you obtained the ISO of your choice go [here: https://download.parrot.sh/parrot/iso/6.1/signed-hashes.txt](https://download.parrot.sh/parrot/iso/6.1/signed-hashes.txt) to see the signed hashes.
 
 On the first section where it says "MD5" find the hash that matches your downloaded ISO.
 
