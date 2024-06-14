@@ -74,10 +74,10 @@ Note: Before using Rufus, please read the following from the Rufus FAQ regarding
 
 ![Initial configuration](./images/usb-drive/rufus1.png)
 
-Select the USB drive from the Device menu and the ISO from the Boot selection menu
+Select the USB drive from the Device menu and the ISO from the Boot selection menu. Then choose DD mode.
 
 ![Selecting DD mode](./images/usb-drive/rufus2.png)
 
-Then click on *START* and wait for the writing procedure to finish.
+Click on *START* and wait for the writing procedure to finish.
 
 ![Writing image](./images/usb-drive/rufus3.png)
