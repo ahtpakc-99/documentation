@@ -59,6 +59,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+      },
+
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
@@ -166,8 +170,8 @@ const config = {
     }),
   /*
   customFields: {
-		wallpaper: 'parrot_desktop.png',
-	},
+    wallpaper: 'parrot_desktop.png',
+  },
   */
 };
 

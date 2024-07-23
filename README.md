@@ -8,5 +8,8 @@ We use Docker/Podman for development, testing and deployment.
 
 ```
 $ docker build -t parrot-documentation .
-$ docker run --rm -ti -p 3000:3000 parrot-documentation
+$ docker run --rm -ti -p 3000:80 parrot-documentation
 ```
+
+After those commands the documentation should be available at the url:
+http://localhost:3000/docs/
