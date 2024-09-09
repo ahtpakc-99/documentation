@@ -64,20 +64,10 @@ To get started, you can follow [this manual](https://www.debian.org/doc/debian-p
 Initially the work must be started on personal repo forking the package. Once the code is correctly set to be packaged, 
 open a merge request and Team Leader will analyze modifications before approve.
 
-### ARM Images
-
-Parrot is also available for ARM platforms, through some scripts we generate the images available in 
-[this repository](https://gitlab.com/parrotsec/build/parrot-build-scripts).
-
-In particular, it is recommended to read the **iot** and **architect** folders.
-
 ### Community
 
 The [community](https://parrotsec.org/community) is a very important part for an operating system like Parrot, and helping each other can only be useful 
-to increase one's knowledge. The ParrotOS community always needs new moderators, for Discord channels, our Forum and 
-in Telegram groups.
-
-The contact person for the community is tissy@parrotsec.org.
+to increase one's knowledge. The ParrotOS community always needs new moderators, for Discord channels, our Forum and in Telegram groups.
 
 #### Community Structure
 
@@ -123,15 +113,7 @@ We value users’ contributions so, for this reason, every three months we will 
 
 #### Parrot Community Activities
 
-This is something new for the ParrotOS community, we are proud to introduce periodic challenges and events to make our common place more vital and involved. 
-So, as per the above-mentioned values, we designed these activities for you:
-
-* **ParrotOS Tutorial**   
-    A Tutorial video series showing how to use ParrotOS    from the very basics to the most advanced tasks. Every two months live on Discord and available on our Youtube Channel.
-
-* **Learn Linux and Security with ParrotOS**   
-This is both for newbies and the experienced ones, we’re going to monthly use HTB Academy to teach and challenge you to train and improve your knowledge, whether you know Linux and Security or not.
-
+WIP.
 
 ## Development workflow
 
