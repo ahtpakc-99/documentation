@@ -36,19 +36,19 @@ The output should be similar to this. `/dev/sda` is usually the first SSD or HDD
 A mount folder is needed to perform this operation. So, in the same terminal window, type:
     
 ```
-mkdir /mnt
+sudo mkdir /mnt
 ```
 
 This is the main folder. Next type: 
 
 ```
-mkdir /mnt/boot
+sudo mkdir /mnt/boot
 ```
 
 followed by:
 
 ```
-mkdir /boot/efi
+sudo mkdir /boot/efi
 ```
 
 Which creates the directory used for mounting the EFI partition. This is needed for installing the correct GRUB package. 
