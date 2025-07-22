@@ -48,7 +48,7 @@ Click on *Next*.
 
 ### Parrot Security disk partitioning
 
-We think guided partitioning for less experienced users is recommended, 40 GB or more is enough, unless your going to want to install a lot of programs or keep larger file on your hard drive.
+We think guided partitioning for less experienced users is recommended, 40 GB or more is enough, unless you're going to want to install a lot of programs or keep larger file on your hard drive.
 
 ![6](./images/calamares/15.png)
 
