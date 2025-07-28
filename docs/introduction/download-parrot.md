@@ -30,7 +30,7 @@ Recommended for those who are familiar with Pentesting Distros but require a min
 
 These are images created specifically for embedded devices, the first board on which Parrot can be installed is the Raspberry Pi versions 3, 4/400 and 5. Other boards will follow in the future.
 
-### Parrot 6.0 Architect Edition (deprecated)
+### Parrot 6.4 Architect Edition (deprecated)
 
 This edition of Parrot does not contain any software you do not choose, weighs about 379 mb and is available for any architecture (amd64, i386, arm64). The arm64 version can also be used in MacOS devices with M1/M2 processor.
 
