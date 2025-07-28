@@ -48,18 +48,18 @@ wget -q -O - https://deb.parrotsec.org/parrot/misc/parrotsec.gpg | gpg --import
 
 ### md5sum hash verification
 
-After you obtained the ISO of your choice go [here: https://download.parrot.sh/parrot/iso/6.1/signed-hashes.txt](https://download.parrot.sh/parrot/iso/6.1/signed-hashes.txt) to see the signed hashes.
+After you obtained the ISO of your choice go [here: https://download.parrot.sh/parrot/iso/6.4/signed-hashes.txt](https://download.parrot.sh/parrot/iso/6.4/signed-hashes.txt) to see the signed hashes.
 
 On the first section where it says "MD5" find the hash that matches your downloaded ISO.
 
 ![Hash](./images/hash-key_verification/hash0.png)
 
-For the purpose of this tutorial we will use **Parrot-home-6.0_amd64.iso**.
+For the purpose of this tutorial we will use **Parrot-home-6.4_amd64.iso**.
 
 Now open a terminal window and run the following command:
 
 ```
-md5sum Parrot-home-6.0_amd64.iso
+md5sum Parrot-home-6.4_amd64.iso
 ```
 
 ![Hash](./images/hash-key_verification/hash1.png)
@@ -79,7 +79,7 @@ When both hashes match exactly then the downloaded file is almost certainly inta
 The method for other hashes such as SHA256 or SHA512 is exactly the same with the above guides only instead of md5 you must use the proper hash you want. Let's make an example:
 
 ```
-sha512sum Parrot-home-6.0_amd64.iso
+sha512sum Parrot-home-6.4_amd64.iso
 ```
 
 ![Hash](./images/hash-key_verification/hash4.png)
