@@ -24,7 +24,7 @@ Parrot uses docker to allow its users to use its vast arsenal of tools on any pl
 
 [SQLMap](#parrotrunsqlmap)
 
-[skip to usage examples](./general-usage-docker)
+[skip to usage examples](general-usage-docker.md)
 
 # Available Templates
 

@@ -1,48 +1,47 @@
 # WSL Edition
 
-Installing ParrotOS on Windows-Subsystem-Linux (henceforth WSL)
+Installing ParrotOS on WSL (Windows Subsystem for Linux)
 
+Compatible with the latest versions of **Windows 10** and **Windows 11**.
 
-### Note about Virtualized Machines
-This is not intended, or supported to be ran within a Virtualized Windows Machine.
+Currently, only the Core Edition is available. 
+A complete Security Edition will probably be released in the future.
 
-Any bugs or issues resulting from this are most likely not going to be fixed.
-
-TL;DR, Virtualized Windows Machine - You're on your own.
+Anyway, any tool from the Security Edition can be installed using `apt`.
 
 ## Installing WSL
 
-If you already have WSL installed on your machine, you can skip this section.
+If you already have WSL installed on your machine, *you can skip this section*.
 
-Open up a Powershell as administrator (Right click -> Run As Administrator), and type `wsl --install`. If you see help text, that means you have WSL already installed, otherwise wait for the install to finish.
+Open up a Powershell/Terminal as administrator (Right click -> Run As Administrator), and type `wsl --install`. 
 
+If you see help text, that means you have WSL already installed, otherwise wait for the install to finish.
 
-## Running Parrot WSL
+## Running ParrotOS WSL
 
 ### Manual Install
-Download the ZIP file containing the needed files from [https://www.parrotsec.org/download/](https://www.parrotsec.org/download/), and extract it to a folder.
 
-Double click launcher.exe and the installation window will pop up.
+Download the `.wsl` file containing the needed files from [the ParrotOS website](https://www.parrotsec.org/download/).
 
-First, enter `y` or `n` to choose to install all the security tools, or just the base image (this can be done later).
-Next, enter your username & password for your user account.
+![Download ParrotOS on Windows](./images/wsl/download_wsl.png)
 
-![1](./images/wsl/install.gif)
+Double click `parrot-core_6.4.wsl` and an installation window will pop up.
 
-Your WSL "Hard Drive" will be created as a .vdhx in the folder you create the launcher from.
+Now, enter your username and password for your user account.
 
-All updates can be performed via a standard apt upgrade/update. However, if you wish to rerun the installer, you must run `wsl --unregister ParrotOS`, and rerun launcher.exe
+![2](./images/wsl/configuration.gif)
 
-Congrats, you now have a working WSL instance!
+Your WSL "Hard Drive" will be created as a `.vdhx` in the folder you create the launcher from.
 
+All updates can be performed via a standard `apt` upgrade/update. However, if you wish to rerun the installer, you must run `wsl --unregister parrot`, and rerun the `.wsl`
 
+Congrats, you now have a working ParrotOS WSL instance!
 
+### Microsoft Store
 
-### Windows Store
-Coming soon....
+Coming soon...
 
-
-## Known Issues
+## Troubleshooting
 
 Packages requiring SystemD(i.e. Powershell Empire) are not working on default installs.
 
@@ -55,4 +54,5 @@ systemd=true
 And restarting your wsl instance.
 
 ## Unknown Issues
-Please open an issue in [The WSL Gitlab Project](https://gitlab.com/parrotsec/project/wsl) for any bugs you encounter.
+
+Please open an issue in [The WSL Gitlab Project](https://gitlab.com/parrotsec/build/wsl) for any bugs you encounter.
