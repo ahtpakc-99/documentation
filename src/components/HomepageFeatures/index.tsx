@@ -52,10 +52,10 @@ const FeatureList = [
   {
     id: 5,
     title: "Cloud",
-    url: "/category/cloud",
+    url: "/category/containers",
     Svg: require("@site/static/img/feature_images/cloud.svg").default,
     description: (
-      <>Install ParrotOS on your servers, or use it as a Docker container.</>
+      <>Run ParrotOS on Docker, Podman, Apple's container and WSL.</>
     ),
   },
   {
