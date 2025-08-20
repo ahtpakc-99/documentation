@@ -287,6 +287,25 @@ const tools = [
   },
 ];
 
+const mirrors = [
+  {
+    type: 'doc',
+    id: 'mirrors/mirrors-list',
+    label: 'Mirrors',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_mirrors.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'mirrors/make-mirror',
+    label: 'Make your own mirror',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_mirrors.svg',
+    },
+  }
+];
+
 export const sidebarItems = [
   {
     type: 'category',
@@ -374,6 +393,17 @@ export const sidebarItems = [
     },
     items: [
         ...tools,
+    ]
+  },
+  {
+    type: 'category',
+    label: 'Mirrors',
+    link: {
+      type: 'doc',
+      id: 'mirrors/index',
+    },
+    items: [
+        ...mirrors,
     ]
   },
 
