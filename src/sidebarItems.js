@@ -112,6 +112,25 @@ const virtualization = [
       }
     ];
 
+const usb = [
+      {
+        type: 'doc',
+        id: 'usb/how-to-create-a-parrot-usb-drive',
+        label: 'Create a bootable USB',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_usb.svg',
+        },
+      },
+      {
+        type: 'doc',
+        id: 'usb/persistent-usb',
+        label: 'Persistent partition',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_usb.svg',
+        },
+      }
+    ];
+
 export const sidebarItems = [
   {
     type: 'category',
@@ -144,6 +163,17 @@ export const sidebarItems = [
     },
     items: [
         ...virtualization,
+    ]
+  },
+  {
+    type: 'category',
+    label: 'USB',
+    link: {
+      type: 'doc',
+      id: 'usb/index',
+    },
+    items: [
+        ...usb,
     ]
   },
 ];
