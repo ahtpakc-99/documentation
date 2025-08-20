@@ -241,6 +241,17 @@ const configuration = [
   },
 ];
 
+const troubleshooting = [
+      {
+        type: 'doc',
+        id: 'troubleshooting/grub',
+        label: 'GRUB',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_troubleshoot.svg',
+        },
+      },
+    ];
+
 export const sidebarItems = [
   {
     type: 'category',
@@ -306,6 +317,17 @@ export const sidebarItems = [
     },
     items: [
         ...configuration,
+    ]
+  },
+  {
+    type: 'category',
+    label: 'Troubleshooting',
+    link: {
+      type: 'doc',
+      id: 'troubleshooting/index',
+    },
+    items: [
+        ...troubleshooting,
     ]
   },
 
