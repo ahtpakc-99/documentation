@@ -131,6 +131,41 @@ const usb = [
       }
     ];
 
+const containers = [
+      {
+        type: 'doc',
+        id: 'containers/parrot-on-docker',
+        label: 'Docker images',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_cloud.svg',
+        },
+      },
+      {
+        type: 'doc',
+        id: 'containers/general-usage-docker',
+        label: 'Docker usages and examples',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_cloud.svg',
+        },
+      },
+      {
+        type: 'doc',
+        id: 'containers/apple-container',
+        label: '(Apple) container',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_cloud.svg',
+        },
+      },
+      {
+        type: 'doc',
+        id: 'containers/wsl',
+        label: 'WSL Edition',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_cloud.svg',
+        },
+      }
+    ];
+
 const configuration = [
   {
     type: 'doc',
@@ -242,6 +277,17 @@ export const sidebarItems = [
   },
   {
     type: 'category',
+    label: 'Containers',
+    link: { 
+      type: 'doc',
+      id: 'containers/index',
+    },
+    items: [
+        ...containers,
+    ]
+  },
+  {
+    type: 'category',
     label: 'USB',
     link: {
       type: 'doc',
@@ -262,4 +308,5 @@ export const sidebarItems = [
         ...configuration,
     ]
   },
+
 ];
