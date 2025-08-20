@@ -131,6 +131,81 @@ const usb = [
       }
     ];
 
+const configuration = [
+  {
+    type: 'doc',
+    id: 'configuration/parrot-software-management',
+    label: 'Parrot Software Management',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/nvidia-drivers',
+    label: 'Nvidia GPU Driver configuration',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/file-and-directory-permissions',
+    label: 'File and Directory Permissions',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/apparmor',
+    label: 'AppArmor',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/hash-and-key-verification',
+    label: 'Hash and key verification',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/assistive-technologies',
+    label: 'Assistive Technologies',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/desktop-enviroments',
+    label: 'Desktop Enviroments',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/printers',
+    label: 'Printer setup',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'configuration/trim-ssd',
+    label: 'SSD TRIM',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+];
+
 export const sidebarItems = [
   {
     type: 'category',
@@ -145,7 +220,7 @@ export const sidebarItems = [
   },
   {
     type: 'category',
-    label: 'Installation/index',
+    label: 'Installation',
     link: {
       type: 'doc',
       id: 'installation/index',
@@ -174,6 +249,17 @@ export const sidebarItems = [
     },
     items: [
         ...usb,
+    ]
+  },
+  {
+    type: 'category',
+    label: 'Configuration',
+    link: {
+      type: 'doc',
+      id: 'configuration/index',
+    },
+    items: [
+        ...configuration,
     ]
   },
 ];
