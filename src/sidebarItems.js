@@ -37,7 +37,7 @@ const introduction = [
 const installation = [
       {
         type: 'doc',
-        id: 'installation/installation',
+        id: 'installation/installation-parrot',
         label: 'Install ParrotOS',
         customProps: {
           iconUrl: '/img/icons/parrotOS_icons_nobckgr_instal.svg',
@@ -77,6 +77,41 @@ const installation = [
       },
     ];
 
+const virtualization = [
+      {
+        type: 'doc',
+        id: 'virtualization/install-parrot-on-virtualbox',
+        label: 'VirtualBox',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_virtual.svg',
+        },
+      },
+      {
+        type: 'doc',
+        id: 'virtualization/virtualbox-guest-additions',
+        label: 'VirtualBox Guest Additions',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_virtual.svg',
+        },
+      },
+      {
+        type: 'doc',
+        id: 'virtualization/parrot-on-vmware',
+        label: 'VMware',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_virtual.svg',
+        },
+      },
+      {
+        type: 'doc',
+        id: 'virtualization/utm-configuration',
+        label: 'UTM',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_virtual.svg',
+        },
+      }
+    ];
+
 export const sidebarItems = [
   {
     type: 'category',
@@ -91,13 +126,24 @@ export const sidebarItems = [
   },
   {
     type: 'category',
-    label: 'Installation',
+    label: 'Installation/index',
     link: {
       type: 'doc',
       id: 'installation/index',
     },
     items: [
         ...installation,
+    ]
+  },
+  {
+    type: 'category',
+    label: 'Virtualization',
+    link: {
+      type: 'doc',
+      id: 'virtualization/index',
+    },
+    items: [
+        ...virtualization,
     ]
   },
 ];
