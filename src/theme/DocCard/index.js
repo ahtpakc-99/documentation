@@ -39,16 +39,18 @@ function CardLayout({className, href, icon, title, description, iconUrl}) {
   return (
     <CardContainer href={href} className={className}>
       <div className={styles.cardHeading}>
-        <img
-        src={require(`@site/static${iconUrl}`).default}
-        alt={`${title} icon`}
-        style={{ width: '20px', height: '20px', display: 'block' }}
-      />
+        {iconUrl &&
+          <img
+            src={require(`@site/static${iconUrl}`).default}
+            alt={`${title} icon`}
+            style={{ width: '20px', height: '20px', display: 'block' }}
+          />   
+        }
       <Heading
         as="h2"
         className={clsx('text--truncate', styles.cardTitle)}
         title={title}>
-        {title}
+        {!iconUrl && icon}{title}
       </Heading>
       </div>
       {description && (
