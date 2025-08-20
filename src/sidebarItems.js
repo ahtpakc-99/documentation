@@ -242,15 +242,50 @@ const configuration = [
 ];
 
 const troubleshooting = [
-      {
-        type: 'doc',
-        id: 'troubleshooting/grub',
-        label: 'GRUB',
-        customProps: {
-          iconUrl: '/img/icons/parrotOS_icons_nobckgr_troubleshoot.svg',
-        },
-      },
-    ];
+  {
+    type: 'doc',
+    id: 'troubleshooting/grub',
+    label: 'GRUB',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_troubleshoot.svg',
+    },
+  },
+];
+
+const tools = [
+  {
+    type: 'doc',
+    id: 'tools/anonsurf',
+    label: 'AnonSurf',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_tools.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'tools/nmap',
+    label: 'nmap',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_tools.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'tools/rclone',
+    label: 'rclone',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_tools.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'tools/wget',
+    label: 'wget',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_tools.svg',
+    },
+  },
+];
 
 export const sidebarItems = [
   {
@@ -328,6 +363,17 @@ export const sidebarItems = [
     },
     items: [
         ...troubleshooting,
+    ]
+  },
+  {
+    type: 'category',
+    label: 'Tools',
+    link: {
+      type: 'doc',
+      id: 'tools/index',
+    },
+    items: [
+        ...tools,
     ]
   },
 
