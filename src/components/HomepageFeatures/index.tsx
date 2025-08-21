@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
 import Link from "@docusaurus/Link";
@@ -7,7 +6,7 @@ const FeatureList = [
   {
     id: 1,
     title: "Introduction",
-    url: "/category/introduction",
+    url: "/introduction",
     Svg: require("@site/static/img/feature_images/getstarted.svg").default,
     description: (
       <>Containing all the basic information on the Parrot project.</>
@@ -28,7 +27,7 @@ const FeatureList = [
   {
     id: 3,
     title: "Virtualization",
-    url: "/category/virtualization/",
+    url: "/virtualization/",
     Svg: require("@site/static/img/feature_images/virtualization.svg").default,
     description: (
       <>
@@ -40,7 +39,7 @@ const FeatureList = [
   {
     id: 4,
     title: "Configuration",
-    url: "/category/configuration",
+    url: "/configuration",
     Svg: require("@site/static/img/feature_images/config.svg").default,
     description: (
       <>
@@ -52,7 +51,7 @@ const FeatureList = [
   {
     id: 5,
     title: "Cloud",
-    url: "/category/containers",
+    url: "/containers",
     Svg: require("@site/static/img/feature_images/cloud.svg").default,
     description: (
       <>Run ParrotOS on Docker, Podman, Apple's container and WSL.</>
@@ -61,7 +60,7 @@ const FeatureList = [
   {
     id: 6,
     title: "USB",
-    url: "/category/usb",
+    url: "/usb",
     Svg: require("@site/static/img/feature_images/usb.svg").default,
     description: (
       <>
@@ -73,7 +72,7 @@ const FeatureList = [
   {
     id: 7,
     title: "Troubleshooting",
-    url: "/category/troubleshooting",
+    url: "/troubleshooting",
     Svg: require("@site/static/img/feature_images/troubleshooting.svg").default,
     description: (
       <>
@@ -85,7 +84,7 @@ const FeatureList = [
   {
     id: 8,
     title: "Tools",
-    url: "/category/tools",
+    url: "/tools",
     Svg: require("@site/static/img/feature_images/tools.svg").default,
     description: (
       <>
@@ -97,7 +96,7 @@ const FeatureList = [
   {
     id: 9,
     title: "Mirrors",
-    url: "/mirrors/mirrors-list",
+    url: "/mirrors",
     Svg: require("@site/static/img/feature_images/mirrors.svg").default,
     description: (
       <>
