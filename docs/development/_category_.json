@@ -1,0 +1,8 @@
+{
+    "label": "Development",
+    "position": 10,
+    "link": {
+      "type": "generated-index",
+      "description": "You can help improve Parrot by fixing bugs and adding new features, or build a custom version tailored to your specific needs."
+    }
+  }

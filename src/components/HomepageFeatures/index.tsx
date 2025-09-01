@@ -1,3 +1,4 @@
+import React from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
 import Link from "@docusaurus/Link";
@@ -6,7 +7,7 @@ const FeatureList = [
   {
     id: 1,
     title: "Introduction",
-    url: "/introduction",
+    url: "/category/introduction",
     Svg: require("@site/static/img/feature_images/getstarted.svg").default,
     description: (
       <>Containing all the basic information on the Parrot project.</>
@@ -27,7 +28,7 @@ const FeatureList = [
   {
     id: 3,
     title: "Virtualization",
-    url: "/virtualization/",
+    url: "/category/virtualization/",
     Svg: require("@site/static/img/feature_images/virtualization.svg").default,
     description: (
       <>
@@ -39,7 +40,7 @@ const FeatureList = [
   {
     id: 4,
     title: "Configuration",
-    url: "/configuration",
+    url: "/category/configuration",
     Svg: require("@site/static/img/feature_images/config.svg").default,
     description: (
       <>
@@ -51,16 +52,16 @@ const FeatureList = [
   {
     id: 5,
     title: "Cloud",
-    url: "/containers",
+    url: "/category/cloud",
     Svg: require("@site/static/img/feature_images/cloud.svg").default,
     description: (
-      <>Run ParrotOS on Docker, Podman, Apple's container and WSL.</>
+      <>Install ParrotOS on your servers, or use it as a Docker container.</>
     ),
   },
   {
     id: 6,
     title: "USB",
-    url: "/usb",
+    url: "/category/usb",
     Svg: require("@site/static/img/feature_images/usb.svg").default,
     description: (
       <>
@@ -72,7 +73,7 @@ const FeatureList = [
   {
     id: 7,
     title: "Troubleshooting",
-    url: "/troubleshooting",
+    url: "/category/troubleshooting",
     Svg: require("@site/static/img/feature_images/troubleshooting.svg").default,
     description: (
       <>
@@ -84,7 +85,7 @@ const FeatureList = [
   {
     id: 8,
     title: "Tools",
-    url: "/tools",
+    url: "/category/tools",
     Svg: require("@site/static/img/feature_images/tools.svg").default,
     description: (
       <>
@@ -96,12 +97,24 @@ const FeatureList = [
   {
     id: 9,
     title: "Mirrors",
-    url: "/mirrors",
+    url: "/mirrors/mirrors-list",
     Svg: require("@site/static/img/feature_images/mirrors.svg").default,
     description: (
       <>
         The software in the Parrot archive is delivered in form of deb packages,
         and these packages are served through a vast network of mirror servers.
+      </>
+    ),
+  },
+  {
+    id: 10,
+    title: "Development",
+    url: "/development/setup-environment",
+    Svg: require("@site/static/img/feature_images/mirrors.svg").default,
+    description: (
+      <>
+        Parrot is a collaborative project that relies on community contributions.
+        This section provides the guidelines and tools required to build packages and contribute to the system. 
       </>
     ),
   },
