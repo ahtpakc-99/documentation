@@ -310,12 +310,13 @@ const development = [
   {
     type: 'doc',
     id: 'development/setup-environment',
-    label: 'Development',
+    label: 'Development Environment Setup',
     customProps: {
       iconUrl: '/img/icons/parrotOS_icons_nobckgr_mirrors.svg',
     },
   },
 ];
+
 export const sidebarItems = [
   {
     type: 'category',
@@ -407,6 +408,17 @@ export const sidebarItems = [
   },
   {
     type: 'category',
+    label: 'Development',
+    link: {
+      type: 'doc',
+      id: 'development/index',
+    },
+    items: [
+      ...development,
+    ]
+  },
+  {
+    type: 'category',
     label: 'Mirrors',
     link: {
       type: 'doc',
@@ -415,17 +427,6 @@ export const sidebarItems = [
     items: [
         ...mirrors,
     ]
-  },
-  {
-    type: 'category',
-    label: 'Development',
-    link: {
-      type: 'doc',
-      id: 'development/index',
-    },
-    items: [
-        ...development,
-    ]
-  },
+  }
 
 ];
