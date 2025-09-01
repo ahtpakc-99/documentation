@@ -106,18 +106,18 @@ const FeatureList = [
       </>
     ),
   },
-  {
-    id: 10,
-    title: "Development",
-    url: "/development/setup-environment",
-    Svg: require("@site/static/img/feature_images/mirrors.svg").default,
-    description: (
-      <>
-        Parrot is a collaborative project that relies on community contributions.
-        This section provides the guidelines and tools required to build packages and contribute to the system. 
-      </>
-    ),
-  },
+  // {
+  //   id: 10,
+  //   title: "Development",
+  //   url: "/development/setup-environment",
+  //   Svg: require("@site/static/img/feature_images/mirrors.svg").default,
+  //   description: (
+  //     <>
+  //       Parrot is a collaborative project that relies on community contributions.
+  //       This section provides the guidelines and tools required to build packages and contribute to the system.
+  //     </>
+  //   ),
+  // },
 ];
 
 function Feature({ title, Svg, description, url }) {
