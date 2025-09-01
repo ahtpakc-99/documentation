@@ -31,7 +31,7 @@ On GNU/Linux it is the same, but you can install it via CLI:
 Follow the same steps **EXACTLY** to install and run Parrot via VirtualBox in your machine.
 
 
-### Step 1 - Create a new Virtual Machine
+### Create a new Virtual Machine
 
 Before proceeding, make sure you have successfully installed VirtualBox. On GNU/Linux you can check this by opening a terminal and typing `virtualbox` and/or the icon to start VirtualBox will be visible in the menu. For other operating systems there will be a similar icon to start it.
 
@@ -40,7 +40,7 @@ Once you’ve installed VirtualBox:
   - Open it.
   - Click on New to create a New Virtual Machine.
 
-### Step 1.1 - Enter a name for your Virtual Machine
+#### Enter a name for your Virtual Machine
 
 Enter **Parrot Security** as the name. Load Parrot Security ISO (click on the arrow at your right, and search for the ISO in the download folder.) and proceed, **Type** and **Version** will be detected automatically.   
 
@@ -48,7 +48,7 @@ Enter **Parrot Security** as the name. Load Parrot Security ISO (click on the ar
 
 ![1](./images/vbox/1.png)
 
-### Step 1.2 - Allocate RAM and CPU
+#### Allocate RAM and CPU
 
 The OS can run on machines with 512 MB of RAM and 2 cores, but at least **2 GB** and **2 cores** are strongly recommended for both Parrot Security and Home Editions. 
 
@@ -56,7 +56,7 @@ Choose the best setting for your machine, check "**Enable EFI**" checkbox and cl
 
 ![2](./images/vbox/2.png)
 
-### Step 1.3 - Create a Virtual Hard Drive
+### Create a Virtual Hard Drive
 
 On the next screen select **Create a Virtual Hard Disk Now**. Set the disk size at **20 GB for Home Edition** and **40 GB for Security Edition**
 
@@ -70,7 +70,7 @@ Double-check your settings in the screen similar to this and click *Finish*
 
 ![4](./images/vbox/4.png)
 
-### Step 2 - Modify VirtualBox settings
+#### Modify VirtualBox settings
 
 So far, we’ve done the following, checklist for you:
 
@@ -82,13 +82,13 @@ At this point you should see the following screen:
 
 ![4](./images/vbox/5.png)
 
-### Step 2.1 - Enable shared Clipboard and Drag ’n’ Drop feature
+#### Enable shared Clipboard and Drag ’n’ Drop feature
 
 Select *General > Advanced TAB* and change **Shared Clipboard** and **Drag ’n’ Drop** to Bidirectional. This will allow you to copy paste files from your HOST machine on the fly. Confirm by clicking *OK*.
 
 ![6](./images/vbox/6.png)
 
-### Step 2.2 - Update number of Processors and enable PAE/NX
+#### Update number of Processors and enable PAE/NX
 
 As we already said, 2 cores works well. With 4, 6, and so on, performance will be much better. 
 
@@ -98,7 +98,7 @@ Check the box for **Enable PAE/NX**.
   
 ![7](./images/vbox/7.png)
 
-### Step 2.3 - Update Virtual Motherboard options
+#### Update Virtual Motherboard options
 
 Select *System > Motherboard*, un-check Floppy (who has a floppy anymore?) and check the box to [**Enable I/O APIC**](https://www.virtualbox.org/manual/ch03.html#settings-motherboard).
 
@@ -119,7 +119,7 @@ Multiply 1024 with the amount of Memory/RAM you want and put the value here.
 
 ![6](./images/vbox/13.png)   
 
-### Step 2.4 - Allocate Video memory and 3D acceleration
+#### Allocate Video memory and 3D acceleration
 
 Select **Display > Screen > set Video Memory to 128 MB**. This allows for a good responsive desktop environment.
 
@@ -129,7 +129,7 @@ If you have more than one monitor, you can change your settings here too.
 
 ![10](./images/vbox/8.png)
 
-### Step 2.5 - Update Parrot Security ISO Loading Settings
+#### Update Parrot Security ISO Loading Settings
 
 Select **Storage > Controller: IDE** and highlight Empty CD icon. Now on your right, you should be able to click on the little CD icon (it should be CD/DVD Drive: IDE Secondary Master already, if not change it) and select your downloaded ISO.
 
@@ -144,13 +144,13 @@ Once you select your downloaded ISO (in this case, it’s Parrot Security 6.0 IS
 
 ![8](./images/vbox/12.png)
 
-### Step 3 - Select Network connection type
+### Select Network connection type
 
 If your computer is connected to the internet, select NAT on *Network > Adapter 1*. You can enable more network adapters if you feel you want to do so.  
 
 ![9](./images/vbox/9.png)
 
-### Step 3.1 - Enable USB 2.0 and 3.0 Controllers
+#### Enable USB 2.0 and 3.0 Controllers
 
 Firstly, make sure you have installed the *extension pack*, or you will not be able to enable USB 2.0 and 3.0 controllers.
 
@@ -165,7 +165,7 @@ Once installed, it will enable VirtualBox Remote Desktop Protocol (VRDP) support
 
 ![10](./images/vbox/10.png)
 
-### Step 4 - It's all set up?
+### It's all set up?
 
 Finally, by clicking on your new virtual machine, this is what you should see:
 
@@ -174,18 +174,18 @@ Finally, by clicking on your new virtual machine, this is what you should see:
 You can always change the configuration the way you prefer.
 
 
-### Step 5 - Booting Parrot Security ISO
+### Booting Parrot Security ISO
 
 From VirtualBox Main Screen, click on Start and boot Parrot Security.
 
-### Step 5.1 - choose Install
+#### Choose Install
 
 From VirtualBox Main Screen, it will boot Parrot Security, click in the Virtual Machine, select *Try/Install* and then click Enter.
 
 ![16](../installation/images/calamares/10.png)
 
 
-### Step 5.2 - Choose the default Installer (Calamares)
+#### Choose the default Installer
 
 Here you can test the OS in its entirety, then you can proceed with the installation.
 
@@ -195,25 +195,25 @@ Click on **Install Parrot**:
 
 and the default installer, Calamares, will start.
 
-### Step 5.3 - Select language
+#### Select language
 
 In this example we have chosen American English. Click on *Next*.
 
 ![18](../installation/images/calamares/12.png)
 
-### Step 5.4 - Select location
+#### Select location
 
 Here we have selected America and New York zone. Click on *Next*.
 
 ![19](../installation/images/calamares/13.png)
 
-### Step 5.5 - Select keyboard layout
+#### Select keyboard layout
 
 Select the layout that best suits your keyboard, you can also test the keyboard's key where it says *type here to test your keyboard*. Click on *Next*.
 
 ![20](../installation/images/calamares/14.png)
 
-### Step 5.6 - Parrot Security disk partitioning
+#### Disk partitioning
 
 As this is all Virtualized, you can choose anything you want to.
 
@@ -233,7 +233,7 @@ Here you can decide whether to enable swap or not. For more information about sw
 
 ![23](../installation/images/calamares/17.png)
 
-### Step 5.7 - Creating a new user account
+#### Creating a new user account
 
 You will be asked to create a new user, for simplicity we have chosen a **user**.
 You can enter any name in here. 
@@ -242,7 +242,7 @@ You can enter any name in here.
 
 Then, click on *Next*
 
-### Step 6 Completing the installation process
+### Completing the installation process
 
 Finally, a summary of the choices made during the procedure:
 
@@ -264,7 +264,7 @@ With an SSD (SATA), it takes a few minutes.
 
 ![28](../installation/images/calamares/22.png)
 
-### Step 7: Login to Parrot Security for the first time
+### Login to Parrot Security for the first time
 
 Enter your Password:
 
