@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
 import Link from "@docusaurus/Link";
@@ -7,7 +6,7 @@ const FeatureList = [
   {
     id: 1,
     title: "Introduction",
-    url: "/category/introduction",
+    url: "/docs/introduction",
     Svg: require("@site/static/img/feature_images/getstarted.svg").default,
     description: (
       <>Containing all the basic information on the Parrot project.</>
@@ -16,7 +15,7 @@ const FeatureList = [
   {
     id: 2,
     title: "Installation",
-    url: "/installation/",
+    url: "/docs/installation/",
     Svg: require("@site/static/img/feature_images/installation.svg").default,
     description: (
       <>
@@ -28,7 +27,7 @@ const FeatureList = [
   {
     id: 3,
     title: "Virtualization",
-    url: "/category/virtualization/",
+    url: "/docs/virtualization/",
     Svg: require("@site/static/img/feature_images/virtualization.svg").default,
     description: (
       <>
@@ -40,7 +39,7 @@ const FeatureList = [
   {
     id: 4,
     title: "Configuration",
-    url: "/category/configuration",
+    url: "/docs/configuration",
     Svg: require("@site/static/img/feature_images/config.svg").default,
     description: (
       <>
@@ -51,8 +50,8 @@ const FeatureList = [
   },
   {
     id: 5,
-    title: "Cloud",
-    url: "/category/cloud",
+    title: "Containers",
+    url: "/docs/containers",
     Svg: require("@site/static/img/feature_images/cloud.svg").default,
     description: (
       <>Install ParrotOS on your servers, or use it as a Docker container.</>
@@ -61,7 +60,7 @@ const FeatureList = [
   {
     id: 6,
     title: "USB",
-    url: "/category/usb",
+    url: "/docs/usb",
     Svg: require("@site/static/img/feature_images/usb.svg").default,
     description: (
       <>
@@ -73,7 +72,7 @@ const FeatureList = [
   {
     id: 7,
     title: "Troubleshooting",
-    url: "/category/troubleshooting",
+    url: "/docs/troubleshooting",
     Svg: require("@site/static/img/feature_images/troubleshooting.svg").default,
     description: (
       <>
@@ -85,7 +84,7 @@ const FeatureList = [
   {
     id: 8,
     title: "Tools",
-    url: "/category/tools",
+    url: "/docs/tools",
     Svg: require("@site/static/img/feature_images/tools.svg").default,
     description: (
       <>
