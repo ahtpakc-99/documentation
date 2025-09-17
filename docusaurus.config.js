@@ -14,17 +14,11 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  // organizationName: 'parrot', // Usually your GitHub org/user name.
-  // projectName: 'parrot-documentation', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  // Even if you don't use internationalization, you can use this field to set useful
+  // metadata like html lang.
   i18n: {
     defaultLocale: 'en',
-    locales: ['en','pt-BR'],
+    locales: ['en', 'pt-BR'],
   },
 
   presets: [
@@ -34,21 +28,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          routeBasePath: '/'
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          //editUrl:
-          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          routeBasePath: '/',
         },
-        /**
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        **/
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -62,12 +43,10 @@ const config = {
       colorMode: {
         defaultMode: 'dark',
       },
-
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
       navbar: {
-        /* title: 'ParrotOS', */
         logo: {
           alt: 'Parrot Logo',
           src: 'img/parrot-logo.svg',
@@ -80,19 +59,18 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          /** {to: '/blog', label: 'Blog', position: 'left'}, **/
           {
             to: 'https://parrotsec.org/download',
             label: 'Download',
-            position: 'left'
+            position: 'left',
+          },
+          {
+            type: 'localeDropdown',   // 🔥 seletor de idiomas
+            position: 'right',
           },
           {
             href: 'https://gitlab.com/parrotsec',
             label: 'GitLab',
-            position: 'right',
-          },
-          {
-            type: 'localeDropdown',
             position: 'right',
           },
         ],
@@ -103,65 +81,32 @@ const config = {
           {
             title: 'Social',
             items: [
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/parrotsec',
-              },
-              {
-                label: 'Instagram',
-                href: 'https://www.instagram.com/parrotproject/',
-              },
-              {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/ParrotSec/'
-              },
-              {
-                label: 'Telegram',
-                href: 'https://t.me/parrotsecgroup'
-              },
+              { label: 'Twitter', href: 'https://twitter.com/parrotsec' },
+              { label: 'Instagram', href: 'https://www.instagram.com/parrotproject/' },
+              { label: 'Facebook', href: 'https://www.facebook.com/ParrotSec/' },
+              { label: 'Telegram', href: 'https://t.me/parrotsecgroup' },
             ],
           },
           {
             title: 'Community',
             items: [
-              {
-                label: 'Forum',
-                href: 'https://community.parrotsec.org',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discord.gg/j7QTaCzAsm',
-              },
+              { label: 'Forum', href: 'https://community.parrotsec.org' },
+              { label: 'Discord', href: 'https://discord.gg/j7QTaCzAsm' },
             ],
           },
           {
             title: 'Repositories',
             items: [
-              {
-                label: 'GitLab',
-                href: 'https://gitlab.com/parrotsec',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/parrotsec',
-              },
+              { label: 'GitLab', href: 'https://gitlab.com/parrotsec' },
+              { label: 'GitHub', href: 'https://github.com/parrotsec' },
             ],
           },
           {
             title: 'More',
             items: [
-              {
-                label: 'Team',
-                to: 'https://parrotsec.org/team/',
-              },
-              {
-                label: 'Partners',
-                to: 'https://parrotsec.org/partners/',
-              },
-              {
-                label: 'Donate',
-                to: 'https://parrotsec.org/donate/',
-              },
+              { label: 'Team', to: 'https://parrotsec.org/team/' },
+              { label: 'Partners', to: 'https://parrotsec.org/partners/' },
+              { label: 'Donate', to: 'https://parrotsec.org/donate/' },
             ],
           },
         ],
@@ -172,11 +117,6 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-  /*
-  customFields: {
-    wallpaper: 'parrot_desktop.png',
-  },
-  */
 };
 
 module.exports = config;
