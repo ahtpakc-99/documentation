@@ -91,6 +91,10 @@ const config = {
             label: 'GitLab',
             position: 'right',
           },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
         ],
       },
       footer: {
