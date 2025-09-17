@@ -1,5 +1,3 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
-
 ---
 sidebar_position: 1
 ---
@@ -14,7 +12,7 @@ O Parrot está disponível em três edições principais, [Security](https://par
 
 O sistema operacional vem por padrão com o Ambiente de Desktop MATE, mas é possível instalar outros DEs.
 
-![ParrotOS Desktop](useBaseUrl('/img/parrot_desktop.png'))
+![ParrotOS Desktop](./images/parrot_desktop.png)
 
 <h5 align="center">Parrot Security 6.0 "Lorikeet" com MATE Desktop</h5>
 
