@@ -24,7 +24,7 @@ Em resumo, poderíamos dizer que:
 - "Software Livre" ou "Libre Software" não significa necessariamente que seja gratuito, embora em muitos casos o seja.
 - "Software Livre" fornece quatro liberdades básicas: liberdade de executar o software, liberdade de modificar e estudar seu código, liberdade de redistribuir cópias desse software e liberdade de distribuir cópias de software modificado.
 
-Você pode ler essas informações no seguinte link: [https://www.gnu.org/philosophy/free-sw.en.html](https://www.gnu.org/philosophy/free-sw.en.html)
+Você pode ler essas informações no seguinte link: [https://www.gnu.org/philosophy/free-sw.pt-br.html](https://www.gnu.org/philosophy/free-sw.pt-br.html)
 
 ## Projeto GNU
 
@@ -40,8 +40,8 @@ Um sistema operacional semelhante ao Unix inclui um kernel, compiladores, editor
 
 No início da década de 1990, os principais componentes já haviam sido encontrados ou programados, exceto um: o kernel.
 
-[1]. [https://www.gnu.org/gnu/manifesto.html](https://www.gnu.org/gnu/manifesto.html)  
-[2]. [http://www.poppyfields.net/poppy/songs/gnu.html](http://www.poppyfields.net/poppy/songs/gnu.html)
+[1]. [https://www.gnu.org/gnu/manifesto.pt-br.html](https://www.gnu.org/gnu/manifesto.pt-br.html)  
+[2]. [http://www.poppyfields.net/poppy/songs/gnu.html](ou [versão arquivada](https://web.archive.org/web/20231211205624/http://www.poppyfields.net/poppy/songs/gnu.html))
 
 ## Projeto Linux
 
@@ -67,7 +67,7 @@ Portanto, o nome correto para o Sistema Operacional não é Linux, mas GNU/Linux
 
 O kernel em si é inútil. O kernel é o componente que faz o software, e portanto o usuário, ser capaz de se comunicar com o hardware. Mas é preciso mais do que um kernel para rodar um computador. É necessário que existam certos programas na parte do usuário. Esses programas podem ou não ser licenciados sob a GPL (GNU).
 
-[1]. [https://www.gnu.org/gnu/linux-and-gnu.en.html](https://www.gnu.org/gnu/linux-and-gnu.en.html)
+[1]. [https://www.gnu.org/gnu/linux-and-gnu.pt-br.html](https://www.gnu.org/gnu/linux-and-gnu.pt-br.html)
 =======
 ---
 id: gnu-linux-basics
@@ -98,7 +98,7 @@ Em resumo, poderíamos dizer que:
 - "Software Livre" ou "Libre Software" não significa necessariamente que seja gratuito, embora em muitos casos o seja.
 - "Software Livre" fornece quatro liberdades básicas: liberdade de executar o software, liberdade de modificar e estudar seu código, liberdade de redistribuir cópias desse software e liberdade de distribuir cópias de software modificado.
 
-Você pode ler essas informações no seguinte link: [https://www.gnu.org/philosophy/free-sw.en.html](https://www.gnu.org/philosophy/free-sw.en.html)
+Você pode ler essas informações no seguinte link: [https://www.gnu.org/philosophy/free-sw.pt-br.html](https://www.gnu.org/philosophy/free-sw.pt-br.html)
 
 ## Projeto GNU
 
@@ -114,9 +114,9 @@ Um sistema operacional semelhante ao Unix inclui um kernel, compiladores, editor
 
 No início da década de 1990, os principais componentes já haviam sido encontrados ou programados, exceto um: o kernel.
 
-[1]. [https://www.gnu.org/gnu/manifesto.html](https://www.gnu.org/gnu/manifesto.html)  
+[1]. [https://www.gnu.org/gnu/manifesto.pt-br.html](https://www.gnu.org/gnu/manifesto.pt-br.html)  
 
-[2]. [http://www.poppyfields.net/poppy/songs/gnu.html](http://www.poppyfields.net/poppy/songs/gnu.html)
+[2]. [http://www.poppyfields.net/poppy/songs/gnu.html](ou [versão arquivada](https://web.archive.org/web/20231211205624/http://www.poppyfields.net/poppy/songs/gnu.html))
 
 ## Projeto Linux
 
@@ -142,5 +142,5 @@ Portanto, o nome correto para o Sistema Operacional não é Linux, mas GNU/Linux
 
 O kernel em si é inútil. O kernel é o componente que faz o software, e portanto o usuário, ser capaz de se comunicar com o hardware. Mas é preciso mais do que um kernel para rodar um computador. É necessário que existam certos programas na parte do usuário. Esses programas podem ou não ser licenciados sob a GPL (GNU).
 
-[1]. [https://www.gnu.org/gnu/linux-and-gnu.en.html](https://www.gnu.org/gnu/linux-and-gnu.en.html)
+[1]. [https://www.gnu.org/gnu/linux-and-gnu.pt-br.html](https://www.gnu.org/gnu/linux-and-gnu.pt-br.html)
 >>>>>>> f058b54 (Tradução GNU/Linux Basics + ajustes de imagens e sidebar)

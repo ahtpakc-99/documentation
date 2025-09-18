@@ -56,7 +56,7 @@ Antes de tudo, mesmo que o Parrot forneça sabores de uso geral, seu núcleo ain
 
 O Parrot é diferente de uma distribuição de uso geral (ex.: Ubuntu) porque não tenta de forma alguma esconder seus internos.
 
-Isso significa que muitas ferramentas de automação estão incluídas no sistema para torná-lo mais fácil de usar, mas ainda expõem muito bem o que há sob o capô.
+Isso significa que muitas ferramentas de automação estão incluídas no sistema para torná-lo mais fácil de usar, mas ainda expõem muito bem o que há por baixo dos panos.
 
 Um bom exemplo é o lembrete de atualização do Parrot: é um programa simples e poderoso que solicita ao usuário verificar por atualizações do sistema uma vez por semana. Mas, em vez de esconder o processo de atualização atrás de uma barra de progresso, ele mostra ao usuário toda a saída do apt durante a atualização.
 
