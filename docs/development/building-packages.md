@@ -68,8 +68,9 @@ After you've confirmed the package builds correctly with a manual `sbuild` comma
 
 ### Example Usage:
 The command's syntax is `main.sh <path> <branch> <architecture>`.
-- The <path> argument is mandatory and points to the root of the git repository you want to build (it can also be a remote url).
-- <branch> is the name of the branch of the “debianized” source. 
+
+- The &lt;path&gt; argument is mandatory and points to the root of the git repository you want to build (it can also be a remote url).
+- &lt;branch&gt; is the name of the branch of the “debianized” source.
 
 To perform the same *arm64* build, the commands are:
 
