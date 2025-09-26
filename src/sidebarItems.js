@@ -315,6 +315,14 @@ const development = [
       iconUrl: '/img/icons/parrotOS_icons_nobckgr_mirrors.svg',
     },
   },
+  {
+    type: 'doc',
+    id: 'development/building-packages',
+    label: 'Building packages',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_mirrors.svg',
+    },
+  },
 ];
 
 export const sidebarItems = [
