@@ -105,7 +105,7 @@ provides the following packages:
 usage:
 
 ```
-docker run --rm -ti --network host -v $PWD/msf:/root/ parrotsec/metasploi
+docker run --rm -ti --network host -v $PWD/msf:/root/ parrotsec/metasploit
 ```
 
 ### parrotsec/set
