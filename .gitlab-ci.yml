@@ -7,9 +7,9 @@ services:
   docker run --rm -v $(pwd)/build:/build test -- cp -r /usr/share/nginx/html/ /build
 
 .beta: &beta-script |
-  docker build -t sjc.vultrcr.com/parrotinfra/documentation:beta .
+  docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
   docker login -u $DOCKER_REGISTRY_USER -p $DOCKER_REGISTRY_PASSWORD sjc.vultrcr.com/parrotinfra
-  docker push sjc.vultrcr.com/parrotinfra/documentation:beta
+  docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
 
 .prod: &prod-script |
   docker build -t sjc.vultrcr.com/parrotinfra/documentation:latest .
