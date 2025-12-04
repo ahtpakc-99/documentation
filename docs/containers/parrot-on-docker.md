@@ -69,7 +69,7 @@ available templates:
 
 ### parrotsec/nmap
 
-based on parrot.run/core
+based on parrotsec/core
 provides the following packages:
 * nmap
 * ncat
@@ -96,7 +96,7 @@ docker run --rm -ti parrotsec/nmap -Pn 89.36.210.176
 
 ### parrotsec/metasploit
 
-based on parrot.run/nmap:latest
+based on parrotsec/nmap:latest
 provides the following packages:
 * nmap
 * metasploit-framework
@@ -110,7 +110,7 @@ docker run --rm -ti --network host -v $PWD/msf:/root/ parrotsec/metasploit
 
 ### parrotsec/set
 
-based on parrot.run/metasploit:latest
+based on parrotsec/metasploit:latest
 provides the following packages:
 
 * set
@@ -123,7 +123,7 @@ docker run --rm -ti --network host -v $PWD/set:/root/.set parrotsec/set
 
 ### parrotsec/beef
 
-based on parrot.run/core
+based on parrotsec/core
 provides the following packages:
 
 * beef-xss
@@ -136,7 +136,7 @@ docker run --rm --network host -ti -v $PWD/beef:/var/lib/beef-xss parrotsec/beef
 
 ### parrotsec/bettercap
 
-based on parrot.run/nmap
+based on parrotsec/nmap
 provides the following packages:
 
 * bettercap
@@ -149,7 +149,7 @@ docker run --rm -ti --network host parrotsec/bettercap
 
 ### parrotsec/sqlmap
 
-based on parrot.run/nmap
+based on parrotsec/nmap
 provides the following packages:
 
 * sqlmap
