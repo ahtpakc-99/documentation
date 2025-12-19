@@ -25,7 +25,7 @@ Download the `.wsl` file containing the needed files from [the ParrotOS website]
 
 ![Download ParrotOS on Windows](./images/wsl/download_wsl.png)
 
-Double click `parrot-core_6.4.wsl` and an installation window will pop up.
+Double click `parrot-core_7.wsl` and an installation window will pop up.
 
 Now, enter your username and password for your user account.
 
