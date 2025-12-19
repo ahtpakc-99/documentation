@@ -14,23 +14,23 @@ Parrot comes in a lot of shapes and sizes in order to fit all possible hardware 
 
 Depending on what hardware configuration and scope you have, consider these options:
 
-### Parrot 6.4 Security Edition
+### Parrot 7 Security Edition
 
 As the name suggests, this is the full edition.
 After the installation you have a complete out of the box pentesting workstation loaded with a large variety of tools ready to use.
 Highly recommended for PC Desktops and Laptops with at least 4GB of RAM, for a smooth experience whilst multitasking.
 
-### Parrot 6.4 Home Edition
+### Parrot 7 Home Edition
 
 This version of Parrot is a lightweight installation which provides the essential tools needed to start working.
 It relies on the same repositories as the Full Edition, letting you choose most of the programs you want to install later on.
 Recommended for those who are familiar with Pentesting Distros but require a minimal installation.
 
-### Parrot 6.4 IoT
+### Parrot 7 IoT
 
 These are images created specifically for embedded devices, the first board on which Parrot can be installed is the Raspberry Pi versions 3, 4/400 and 5. Other boards will follow in the future.
 
-### Parrot 6.4 Architect Edition (deprecated)
+### Parrot 7 Architect Edition (deprecated)
 
 This edition of Parrot does not contain any software you do not choose, weighs about 379 mb and is available for any architecture (amd64, i386, arm64). The arm64 version can also be used in MacOS devices with M1/M2 processor.
 
@@ -44,7 +44,7 @@ You can use the Home Edition and install only the hacking tools you actually nee
 
 The Architect Edition does not contain any software pre-installed. You can decide and customize your edition of ParrotOS just before the installation.
 
-### Parrot 6.4 on Docker
+### Parrot 7 on Docker
 
 Forget all you know about pentesting circumstances. Carrying a laptop everywhere you go to accomplish your job is not mandatory anymore.
 You can now have a remote VPS loaded with Parrot OS ready to perform all sort of tasks from an embedded terminal, with discretion. 
