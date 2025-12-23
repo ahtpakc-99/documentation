@@ -27,7 +27,7 @@ build_production:
 build_beta:
   stage: build
   only:
-    - beta
+    - dev
   image: docker:latest
   script:
     - *beta-script
