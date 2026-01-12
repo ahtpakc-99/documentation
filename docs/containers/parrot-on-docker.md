@@ -22,7 +22,7 @@ Parrot uses docker to allow its users to use its vast arsenal of tools on any pl
 
 [Bettercap](#parrotsecbettercap)
 
-[SQLMap](#parrotrunsqlmap)
+[SQLMap](#parrotsecsqlmap)
 
 [skip to usage examples](general-usage-docker.md)
 
@@ -38,7 +38,7 @@ You can use it as a start point to create your custom containers.
 This image is multiarch, and works for amd64, arm64 and armhf architectures
 
 *launch the container*:
-    
+
 ```
 docker run --rm -ti --network host -v $PWD/work:/work parrotsec/core
 ```
@@ -78,7 +78,7 @@ provides the following packages:
 * netcat
 * telnet
 
-usage: 
+usage:
 
 ```
 docker run --rm -ti parrotsec/nmap <nmap options>
