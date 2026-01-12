@@ -1,28 +1,15 @@
 services:
   - docker:dind
 
-.test: &test-script |
-  docker build -t test .
-  mkdir -p build
-  docker run --rm -v $(pwd)/build:/build test -- cp -r /usr/share/nginx/html/ /build
-
-.beta: &beta-script |
-  docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
-  echo $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin sjc.vultrcr.com/parrotinfra
-  docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
-
-.prod: &prod-script |
-  docker build -t sjc.vultrcr.com/parrotinfra/documentation:latest .
-  echo $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin sjc.vultrcr.com/parrotinfra
-  docker push sjc.vultrcr.com/parrotinfra/documentation:latest
-
 build_production:
   stage: build
   only:
     - master
   image: docker:latest
   script:
-    - *prod-script
+    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:latest .
+    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
+    - docker push sjc.vultrcr.com/parrotinfra/documentation:latest
 
 build_beta:
   stage: build
@@ -30,7 +17,9 @@ build_beta:
     - dev
   image: docker:latest
   script:
-    - *beta-script
+    - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
+    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
+    - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
 
 build_test:
   stage: build
@@ -42,4 +31,6 @@ build_test:
     paths:
       - build
   script:
-    - *test-script
+    - docker build -t test .
+    - mkdir -p build
+    - docker run --rm -v $(pwd)/build:/build test -- cp -r /usr/share/nginx/html/ /build
