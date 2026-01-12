@@ -8,12 +8,12 @@ services:
 
 .beta: &beta-script |
   docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
-  docker login -u $DOCKER_REGISTRY_USER -p $DOCKER_REGISTRY_PASSWORD sjc.vultrcr.com/parrotinfra
+  echo $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin sjc.vultrcr.com/parrotinfra
   docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
 
 .prod: &prod-script |
   docker build -t sjc.vultrcr.com/parrotinfra/documentation:latest .
-  docker login -u $DOCKER_REGISTRY_USER -p $DOCKER_REGISTRY_PASSWORD sjc.vultrcr.com/parrotinfra
+  echo $DOCKER_REGISTRY_PASSWORD | docker login -u $DOCKER_REGISTRY_USER --password-stdin sjc.vultrcr.com/parrotinfra
   docker push sjc.vultrcr.com/parrotinfra/documentation:latest
 
 build_production:
