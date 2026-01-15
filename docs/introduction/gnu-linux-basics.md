@@ -84,14 +84,6 @@ This created a perfect match:
 
 When the Linux kernel was combined with the GNU system, a complete operating system was born. Therefore, the technically correct name for the system is **GNU/Linux**. The kernel (Linux) handles the hardware resources, while the GNU tools allow the user to interact with the computer.
 
-![Parrot OS 7.0 Fastfetch](./images/parrot-fastfetch-terminal.png)
-
-:::note Why GNU/Linux?
-As seen in the screenshot above, modern distributions like Parrot represent this union perfectly:
-* **OS:** Parrot Security (The distribution)
-* **Kernel:** Linux (The hardware driver)
-* **Shell/Tools:** Bash, Zsh, GNU Utils (The userland tools)
-
 Nowadays, when people say "Linux", they are often referring to this **GNU/Linux** combination.
 :::
 
