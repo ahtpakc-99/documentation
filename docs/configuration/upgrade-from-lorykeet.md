@@ -19,9 +19,14 @@ For those who already have Parrot installed on their computer, the main changes 
 
 ### Debian 13
 
-In general, using `parrot-upgrade` or `parrot-updater` should allow you to perform a clean migration. 
+In general, using `parrot-upgrade` or `parrot-updater` should allow you to perform a clean migration.
 
-When apt asks to update your configurations by replacing the repositories from `lory` to `echo`, if you confirm the choice, 
+It is **strongly** recommended that you back up your files and configurations (whether they are `.bashrc`, `.zshrc`,
+configurations of other WMs such as i3, etc...) as they may be overwritten:
+
+![New Updates](./images/upgrade-from-lorykeet/update.png)
+
+When **apt** asks to update your configurations by replacing the repositories from `lory` to `echo`, if you confirm the choice,
 the upgrade will proceed automatically.
 
 If the user decides to install the new repositories later, this is still possible. 
@@ -32,7 +37,6 @@ that contain the name `lory` with `echo`, so that they look like this:
 
 ```
 deb https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
-deb https://deb.parrot.sh/direct/parrot echo-security main contrib non-free non-free-firmware
 ```
 
 Once this is done, it is recommended to run `apt update` to refresh the local package database, and then run `parrot-upgrade`, 
