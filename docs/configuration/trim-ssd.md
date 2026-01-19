@@ -1,3 +1,7 @@
+---
+sidebar_position: 9
+---
+
 # SSD TRIM
 
 SSD Trim allows the drive to check and delete data blocks no longer needed. This means that the drive is always ready to write new data when the old ones are being deleted and that block containing the data is no longer busy.

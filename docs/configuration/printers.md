@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # Printer setup
 
 Thanks to [**CUPS**](https://openprinting.github.io/cups/doc/overview.html), we can print any document we want.

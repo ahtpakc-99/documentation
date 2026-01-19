@@ -185,6 +185,14 @@ const configuration = [
   },
   {
     type: 'doc',
+    id: 'configuration/upgrade-from-lorykeet',
+    label: 'Upgrade from Lorykeet',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
+    },
+  },
+  {
+    type: 'doc',
     id: 'configuration/file-and-directory-permissions',
     label: 'File and Directory Permissions',
     customProps: {
