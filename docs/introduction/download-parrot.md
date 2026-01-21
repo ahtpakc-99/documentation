@@ -30,20 +30,6 @@ Recommended for those who are familiar with Pentesting Distros but require a min
 
 These are images created specifically for embedded devices, the first board on which Parrot can be installed is the Raspberry Pi versions 3, 4/400 and 5. Other boards will follow in the future.
 
-### Parrot 7 Architect Edition (deprecated)
-
-This edition of Parrot does not contain any software you do not choose, weighs about 379 mb and is available for any architecture (amd64, i386, arm64). The arm64 version can also be used in MacOS devices with M1/M2 processor.
-
-### Security, Home and Architect Edition, which one should I choose?
-
-*Parrot Home Edition and Parrot Security Edition are identical, and the only difference between them is the set of software that comes pre-installed*.
-
-Parrot OS Home Edition comes with no security tools, while Parrot OS Security Edition comes with all the hacking and pentest tools pre-installed.
-
-You can use the Home Edition and install only the hacking tools you actually need, or you can install all of them at once with `sudo apt install parrot-tools-full`
-
-The Architect Edition does not contain any software pre-installed. You can decide and customize your edition of ParrotOS just before the installation.
-
 ### Parrot 7 on Docker
 
 Forget all you know about pentesting circumstances. Carrying a laptop everywhere you go to accomplish your job is not mandatory anymore.
@@ -51,3 +37,11 @@ You can now have a remote VPS loaded with Parrot OS ready to perform all sort of
 This edition does not provide a GUI out of the box, but it's available in the repositories if needed.
 
 [Check it out now](<../containers/parrot-on-docker>)
+
+### Security vs Home Edition: Which one should I choose?
+
+*Parrot Home Edition and Parrot Security Edition are identical, and the only difference between them is the set of software that comes pre-installed*.
+
+Parrot OS Home Edition comes with no security tools, while Parrot OS Security Edition comes with all the hacking and pentest tools pre-installed.
+
+You can use the Home Edition and install only the hacking tools you actually need, or you can install all of them at once with `sudo apt install parrot-tools-full`.
