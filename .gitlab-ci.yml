@@ -1,5 +1,10 @@
 services:
-  - docker:dind
+  - name: docker:dind
+    command: ["--tls=false"]
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ""
 
 build_production:
   stage: build
@@ -17,7 +22,6 @@ build_beta:
     - dev
   image: docker:latest
   script:
-    - unset DOCKER_HOST
     - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
     - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
     - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
