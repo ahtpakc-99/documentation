@@ -17,6 +17,7 @@ build_beta:
     - dev
   image: docker:latest
   script:
+    - unset DOCKER_HOST
     - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
     - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
     - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
