@@ -7,9 +7,9 @@ build_production:
     - master
   image: docker:latest
   script:
-    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:latest .
+    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:prod .
     - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
-    - docker push sjc.vultrcr.com/parrotinfra/documentation:latest
+    - docker push sjc.vultrcr.com/parrotinfra/documentation:prod
 
 build_beta:
   stage: build
