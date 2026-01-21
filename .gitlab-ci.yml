@@ -1,7 +1,6 @@
 services:
   - name: docker:27-dind
     alias: docker
-    command: ["--tls=false"]
 
 variables:
   DOCKER_TLS_CERTDIR: ""
