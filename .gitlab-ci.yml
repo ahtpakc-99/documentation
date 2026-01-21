@@ -3,8 +3,6 @@ services:
     alias: docker
 
 variables:
-  DOCKER_TLS_CERTDIR: ""
-  DOCKER_HOST: tcp://docker:2375
   DOCKER_DRIVER: overlay2
 
 build_production:
@@ -21,7 +19,7 @@ build_beta:
   stage: build
   only:
     - dev
-  image: docker:latest
+  image: docker:27-cli
   script:
     - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
     - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
