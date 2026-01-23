@@ -1,50 +1,43 @@
+default:
+  image: docker:29-cli
+  services:
+    - name: docker:29-dind
+      alias: docker
+  before_script:
+    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
+
 variables:
   DOCKER_TLS_CERTDIR: ""
 
-image: docker:28
+stages:
+  - build_beta
 
-build_production:
-  stage: build
-  only:
-    - master
-  image: docker:28
-  script:
-    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:prod .
-    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
-    - docker push sjc.vultrcr.com/parrotinfra/documentation:prod
+#build_production:
+#  stage: build
+#  only:
+#    - master
+#  image: docker:28
+#  script:
+#    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:prod .
+#    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
+#    - docker push sjc.vultrcr.com/parrotinfra/documentation:prod
 
 build_beta:
-  stage: build
-  image: docker:28
   only:
     - dev
-  variables:
-    DOCKER_TLS_CERTDIR: ""
   script:
-    - docker buildx create --use
-    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
-    - docker buildx build --push -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
+    - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
+    - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
 
-#build_beta:
-#  stage: build
-#  image: docker:28
-#  only:
+#build_test:
+#  except:
 #    - dev
+#    - master
+#  image: docker:28
+#  artifacts:
+#    paths:
+#      - build
 #  script:
-#    - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
-#    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
-#    - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
-
-build_test:
-  stage: build
-  except:
-    - dev
-    - master
-  image: docker:28
-  artifacts:
-    paths:
-      - build
-  script:
-    - docker build -t test .
-    - mkdir -p build
-    - docker run --rm -v $(pwd)/build:/build test -- cp -r /usr/share/nginx/html/ /build
+#    - docker build -t test .
+#    - mkdir -p build
+#    - docker run --rm -v $(pwd)/build:/build test -- cp -r /usr/share/nginx/html/ /build
