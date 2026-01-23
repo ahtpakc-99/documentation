@@ -23,6 +23,7 @@ stages:
 #    - docker push sjc.vultrcr.com/parrotinfra/documentation:prod
 
 build_beta:
+  stage: build_beta
   only:
     - dev
   script:
