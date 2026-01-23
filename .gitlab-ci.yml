@@ -5,7 +5,7 @@ build_production:
   stage: build
   only:
     - master
-  image: docker:latest
+  image: docker:28
   script:
     - docker build -t sjc.vultrcr.com/parrotinfra/documentation:prod .
     - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
@@ -13,6 +13,7 @@ build_production:
 
 build_beta:
   stage: build
+  image: docker:28
   only:
     - dev
   script:
@@ -25,7 +26,7 @@ build_test:
   except:
     - dev
     - master
-  image: docker:latest
+  image: docker:28
   artifacts:
     paths:
       - build
