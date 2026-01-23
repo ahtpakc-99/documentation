@@ -1,5 +1,7 @@
 default:
   image: docker:latest
+  tags:
+    - docker-privileged
   services:
     - name: docker:dind
       alias: docker
