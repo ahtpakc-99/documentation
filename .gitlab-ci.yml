@@ -1,3 +1,6 @@
+variables:
+  DOCKER_TLS_CERTDIR: ""
+
 services:
   - docker:28-dind
 
