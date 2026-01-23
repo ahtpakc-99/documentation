@@ -1,8 +1,7 @@
 variables:
   DOCKER_TLS_CERTDIR: ""
 
-services:
-  - docker:28-dind
+image: docker:28
 
 build_production:
   stage: build
@@ -19,10 +18,22 @@ build_beta:
   image: docker:28
   only:
     - dev
+  variables:
+    DOCKER_TLS_CERTDIR: ""
   script:
-    - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
+    - docker buildx create --use
     - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
-    - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
+    - docker buildx build --push -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
+
+#build_beta:
+#  stage: build
+#  image: docker:28
+#  only:
+#    - dev
+#  script:
+#    - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
+#    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
+#    - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
 
 build_test:
   stage: build
