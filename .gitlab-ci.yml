@@ -10,17 +10,16 @@ variables:
   DOCKER_TLS_CERTDIR: ""
 
 stages:
+  - build
   - build_beta
 
-#build_production:
-#  stage: build
-#  only:
-#    - master
-#  image: docker:28
-#  script:
-#    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:prod .
-#    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin sjc.vultrcr.com/parrotinfra
-#    - docker push sjc.vultrcr.com/parrotinfra/documentation:prod
+build_production:
+  stage: build
+  only:
+    - master
+  script:
+    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:prod .
+    - docker push sjc.vultrcr.com/parrotinfra/documentation:prod
 
 build_beta:
   stage: build_beta
