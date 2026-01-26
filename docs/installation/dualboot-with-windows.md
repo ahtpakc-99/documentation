@@ -4,17 +4,17 @@ sidebar_position: 2
 
 # Dualboot with Windows
 
-It's possible to install ParrotOS alongside Windows, thanks to GRUB and a correct partitioning. 
+It is possible to install ParrotOS alongside Windows, thanks to GRUB and correct partitioning. 
 
 :::info Note
-  Disable Secure Boot and CSM from UEFI settings in your machine.
+  Disable Secure Boot and CSM in your machine's UEFI settings.
 :::
 
-After following the steps for setting the [Parrot Installation](./) before partitioning, the situation will be similar to this:
+After following the steps in the [Parrot Installation](./) guide up to the partitioning section, the situation will look similar to this:
 
 ![1](./images/dualboot/db1.png)
 
-There are two ways for proceeding: 
+There are two ways to proceed: 
 
  - [Method 1: Automated Partitioning](<./dualboot-with-windows.html#method-1-automated-partitioning>)
  - [Method 2: Manual Partitioning](<./dualboot-with-windows.html#method-2-manual-partitioning>)
@@ -22,66 +22,65 @@ There are two ways for proceeding:
 
 ## Method 1: Automated Partitioning
 
-This is more way easier. You just have to select **Install alongside** then select **/dev/sda3** within the bar, drag the bottom bar to resize the partition in order to assign the desired amount of space for ParrotOS, then click on *Next* and proceed with the installation.
+This is the easiest method. You simply verify that **Install alongside** is selected, choose the correct drive (e.g., **/dev/sda3**) from the dropdown menu, and drag the bottom slider to assign the desired amount of space for ParrotOS. Then click on *Next* to proceed.
 
 ![2](./images/dualboot/db2.png)
 
 
 ## Method 2: Manual Partitioning
 
-This method gives the freedom to choose for ParrotOS the desired amount of space and the number of partitions wanted.
+This method gives you the freedom to choose the exact amount of space and the number of partitions for ParrotOS.
 
-**NOTE:** The **Security** edition needs *at least* 40GB of space, **Home** edition needs *at least* 20GB of space (which has been used for this guide.). No Swap partition has been set because it has been used on an SSD.
+**NOTE:** The **Security** edition needs *at least* 40GB of space, while the **Home** edition needs *at least* 20GB. In this guide, we are not creating a Swap partition as it is optional on modern systems with SSDs.
 
-Select **Manual Partitioning** then click on *Next*.
+Select **Manual Partitioning** and click on *Next*.
 
 ![3](./images/dualboot/db3.png)
 
-You'll see something similar to this:
+You will see something similar to this:
 
 ![4](./images/dualboot/db4.png)
 
 In detail:
 
-* **/dev/sda1** is the boot partition.
-* **/dev/sda2** is MSR (Microsoft Reserved partition).
-* **/dev/sda3** is where Windows 10 exists.
-* **/dev/sda4** is a hidden partition which contains Windows Files for Recovery.
+* **/dev/sda1** is the boot partition (EFI).
+* **/dev/sda2** is the MSR (Microsoft Reserved partition).
+* **/dev/sda3** is where Windows is installed.
+* **/dev/sda4** is a recovery partition.
 
-This is the standard partitioning for Windows, which follows this exact order.
-Select **/dev/sda3** then click on *Edit*.
+This is a standard Windows partition layout.
+Select the main Windows partition (e.g., **/dev/sda3**) and click on *Edit*.
 
 ![5](./images/dualboot/db5.png)
 
-This window will open up:
+This window will open:
 
 ![6](./images/dualboot/db6.png)
 
-Here is possible to shrink/resize partitions (by dragging the bar or inserting the size in MiB), set flags and mount point.
+Here you can shrink/resize partitions (by dragging the bar or entering the size in MiB), and set flags and mount points.
 
-Drag the bar or set the value for getting the desired partition size (in this case the total amount of the partition size is 60GB, and we dedicated 40GB to Windows, and thereby the remaining 20GB have been assigned to ParrotOS.) then click on *OK*.
+Drag the bar or set the value to free up the desired space (in this example, we resized Windows to 40GB, leaving 20GB of unallocated space for ParrotOS), then click on *OK*.
 
 ![7](./images/dualboot/db7.png)
 
-This is the updated situation, after shrinking the Windows partition, an unallocated space of 20GB is available. Select it, then click on *Create*:
+Now you will see the updated layout. Select the new **Unallocated** space and click on *Create*:
 
 ![8](./images/dualboot/db8.png)
 
-These are the settings for new partition, set the file system you want (ParrotOS uses BTRFS by default), set the mount point in / (**root**), then click on *OK*:
+Configure the new partition settings. Choose your file system (ParrotOS defaults to BTRFS) and set the mount point to / (**root**). Then click on *OK*:
 
 ![9](./images/dualboot/db9.png)
 
-Now, the last step: Set up the boot partition.
+Finally, set up the boot partition.
 
-Select **/dev/sda1** and click on *Edit*:
+Select the EFI partition (e.g., **/dev/sda1**) and click on *Edit*:
 
 ![10](./images/dualboot/db10.png)
 
-Set the mount point in **/boot/efi** then click on *OK*:
+Set the mount point to **/boot/efi** (do not format this partition!) and click on *OK*:
 
 ![11](./images/dualboot/db11.png)
 
-This is the final situation, proceed with the installation by clicking on *Next*:
+This is the final layout. Proceed with the installation by clicking on *Next*:
 
 ![12](./images/dualboot/db12.png)
-
