@@ -13,7 +13,7 @@ You can sync the entire repository or pick just the ISO images.
 
 Make sure to have enough free space to host a mirror, and be ready for future upgrades as the archive size fluctuates.
 
-The current archive size is available here [archive.parrotsec.org/parrot/misc/archive-size.txt](https://deb.parrotsec.org/parrot/misc/archive-size.txt)
+The current archive size is available [here](https://deb.parrotsec.org/parrot/archive-size.txt).
 
 # Dockerized Setup
 
