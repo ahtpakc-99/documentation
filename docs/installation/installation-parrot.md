@@ -14,17 +14,17 @@ Insert your installation media into your computer and through your BIOS settings
 
 Select **Try/Install** and press *Enter*.
 
-![1](./images/calamares/10.png)
+![1](./images/calamares/27.png)
 
 Wait for the OS to load (few seconds).
 
-## Welcome in Parrot Live
+## Welcome to Parrot Live
 
 Here you can test the OS in its entirety, then you can proceed with the installation.
 
 Click on **Install Parrot**:
 
-![2](./images/calamares/11.png)
+![2](./images/calamares/26.png)
 
 and the installer, Calamares, will start.
 
@@ -48,7 +48,7 @@ Click on *Next*.
 
 ### Parrot Security disk partitioning
 
-We think guided partitioning for less experienced users is recommended, 40 GB or more is enough, unless you're going to want to install a lot of programs or keep larger file on your hard drive.
+We think guided partitioning for less experienced users is recommended, 40 GB or more is enough, unless you're going to want to install a lot of programs or keep larger files on your hard drive.
 
 ![6](./images/calamares/15.png)
 
@@ -92,13 +92,13 @@ Confirm by clicking **Install now**
 
 And wait for the installation to complete!
 
-With an SSD (Sata), it will take a few minutes.
+With an SSD, it will take a few minutes.
 
 ![12](./images/calamares/21.png)
 
 **Well done! You have successfully installed Parrot OS on your computer!**
 
-![13](./images/calamares/22.png)
+![13](./images/calamares/25.png)
 
 ### Login to Parrot for the first time
 
@@ -108,4 +108,4 @@ Enter your Password:
 
 **Welcome to Parrot! Congrats!**
 
-![15](./images/calamares/24.png)
+![15](./images/calamares/25.png)
