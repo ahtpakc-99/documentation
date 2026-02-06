@@ -1,144 +1,158 @@
-# Manual partitioning
+# Manual Partitioning
 
-Now let's focus on the Manual partitioning of ParrotOS using Calamares installer, which may be necessary for various purposes and needs.
+This guide focuses on the **Manual Partitioning** of ParrotOS using the Calamares installer. This method provides full control over disk management, allowing you to define partition sizes, file systems, and mount points according to your specific needs.
 
-Like the [Dualboot with Windows](https://parrotsec.org/docs/installation/dualboot-with-windows), this method allows you to assign the desired size of the partitions and determine how many of them to create or edit.
+Similar to the [Dualboot with Windows](https://parrotsec.org/docs/installation/dualboot-with-windows) guide, this approach allows for custom configurations.
 
-Let's see two use cases:  
+We will cover two common use cases:
 
-* [Partitioning a disk with existing partitions ](#case-1-partitioning-a-disk-with-existing-partitions)
-* [Partitioning an empty disk](#case-2-partitioning-an-empty-disk
-)
+- [Manual Partitioning](#manual-partitioning)
+  - [Case 1: Partitioning a disk with existing partitions](#case-1-partitioning-a-disk-with-existing-partitions)
+    - [Resizing and Configuring Partitions](#resizing-and-configuring-partitions)
+    - [Creating New Partitions](#creating-new-partitions)
+  - [Case 2: Partitioning an empty disk](#case-2-partitioning-an-empty-disk)
 
 ## Case 1: Partitioning a disk with existing partitions
 
-
-After following the steps for setting the [Parrot Installation](./) before partitioning, select **Manual Partitioning** then click on Next.
+After following the initial [Parrot Installation](./) steps, select **Manual Partitioning** and click **Next**.
 
 ![par0](./images/partitioning/par0.png)
 
-You'll see something similar to this:
+You will see a disk layout similar to this:
 
 ![par1](./images/partitioning/par1.png)
 
+**Partition breakdown:**
+* `/dev/sda1`: The partition containing EFI boot files.
+* `/dev/sda2`: The partition containing the existing Operating System (e.g., Windows).
 
-The partitions in detail:
-
-* `/dev/sda1` is the partition which contains EFI boot files.
-* `/dev/sda2` is the partition containing the existing OS.
-
-
-To make ParrotOS work in a UEFI computer, at least three working partitions are needed: 
-* `/boot/EFI` - _the folder containing the efi firware necessary to boot the system._
-* `/` - _the folder containing the entire system_
-* `/home`- _the User data folder_
-
+To run ParrotOS on a **UEFI** system, at least three partitions are required:
+* `/boot/EFI` - *The partition containing the EFI firmware files necessary to boot the system.*
+* `/` - *The root partition containing the entire operating system.*
+* `/home` - *The partition dedicated to user data.*
 
 :::info Note
-  Disable Secure Boot and CSM from UEFI settings in your machine before doing any of the above descripted operations.
+  Ensure that **Secure Boot** and **CSM** (Compatibility Support Module) are disabled in your machine's UEFI settings before proceeding with the operations described below.
 :::
 
-In a standard BIOS partition, at least two working partitions are needed: 
+For a standard **Legacy BIOS** environment, at least two partitions are needed:
 * `/`
 * `/home`
 
-Now, let's change the mount point for the necessary partitions.
-First, select **/dev/sda1** and click on Edit
+### Resizing and Configuring Partitions
+
+First, we need to adjust the existing partitions to make space. Select **/dev/sda1** and click **Edit**.
 ![par2](./images/partitioning/par2.png)
 
-This window will appear, here is possible to shrink/resize partitions (by dragging the bar or inserting the size in MiB), set flags and mount point.
-
-Set up the partition as you can see below, then click on Ok.
+In this window, you can shrink/resize partitions, set flags, and define mount points. Set up the partition as shown below, then click **OK**.
 
 ![par3](./images/partitioning/par3.png)
 
-Now select **/dev/sda2** and click on Edit.
+Next, select the existing OS partition (e.g., **/dev/sda2**) and click **Edit**.
 ![par4](./images/partitioning/par4.png)
 
-Drag the bar or set the value for getting the desired partition size (in this case the total amount of the partition size is about 124GB, and we dedicated about 70GB to Windows, and thereby the remaining 50GB have been assigned to ParrotOS.) then click on OK.
+Drag the bar or enter a specific value to resize the partition.
+*In this example, the total disk size is about 124GB. We allocated roughly 70GB to Windows, leaving approximately 50GB for ParrotOS.*
+
+Click **OK** when finished.
 
 :::info Note
-  Parrot Home needs at least 20GB of space, while Parrot Security needs at least 40GB of space. Home Edition will be installed in this guide.
+  **Storage Requirements:**
+  * Parrot Home Edition: At least **20GB**.
+  * Parrot Security Edition: At least **40GB**.
+  * *This guide demonstrates the installation of the Home Edition.*
 :::
 
 ![par5](./images/partitioning/par5.png)
 
-Now select the *Free Space* and click on Create.
+### Creating New Partitions
+
+Select the newly created **Free Space** and click **Create**.
 
 ![par6](./images/partitioning/par6.png)
 
-
-Now let's create the **/ - root partition**, set it up as it appears below then click on Ok:
+**1. Create the Root Partition (`/`)**
+Set it up as shown in the image below and click **OK**:
 
 ![par7](./images/partitioning/par7.png)
 
-Now, the last partition, **/home**. Select the remaining Free Space then click on Create:
+**2. Create the Home Partition (`/home`)**
+Select the remaining **Free Space** and click **Create**:
 ![par8](./images/partitioning/par8.png)
 
-Set up the partition as it appears below then click on Ok:
+Set it up as shown below and click **OK**:
 ![par9](./images/partitioning/par9.png)
 
-Now all the partition are properly configured, proceed with the installation by clicking on next.
+Once all partitions are properly configured, proceed with the installation by clicking **Next**.
 ![par10](./images/partitioning/par10.png)
 
-
-After this, proceed with the final steps of the installation by clicking on *Next* .
+Follow the remaining on-screen instructions to complete the installation.
 
 ## Case 2: Partitioning an empty disk
 
-After following the steps for setting the [Parrot Installation](./) before partitioning, select **Manual Partitioning** then click on Next.
+After following the initial [Parrot Installation](./) steps, select **Manual Partitioning** and click **Next**.
 
 ![manp0](./images/partitioning/manp0.png)
 
-Since the hard drive is empty, the space will appear unallocated. Let's create a new partition table by clicking on *New Partition Table*
+Since the hard drive is empty, the space will appear as *unallocated*. Create a new partition table by clicking **New Partition Table**.
 
 ![manp1](./images/partitioning/manp1.png)
 
-A dialogue window will appear asking the desired partition table type, keep the default value (GPT) and click *Ok*
+A dialog window will appear asking for the partition table type. Keep the default value (**GPT**) for modern UEFI systems and click **OK**.
 
 ![manp2](./images/partitioning/manp2.png)
 
-Select the **Free Space** and click on *Create*
+Select the **Free Space** and click **Create**.
 
 ![manp3](./images/partitioning/manp3.png)
 
-From here, it's possible to create and edit partitions. Let's create the first one, `/boot/EFI` - _the folder containing the efi firware necessary to boot the system._ by following three simple steps:
+Now we will create the necessary partitions manually.
 
-
-* Click on the Mount Point drop-down list, and set it on `/boot/EFI`
-* Click on File System drop-down list, set it on `fat32`
-* On the Size text field, write `200MiB`, then click on *OK*
+**1. Create the EFI Partition (`/boot/EFI`)**
+* **Mount Point:** Select `/boot/EFI`
+* **File System:** Select `fat32`
+* **Size:** `200MiB` (Recommended: 512MiB for multi-boot systems)
+* Click **OK**.
 
 ![manp4](./images/partitioning/manp4.png)
 
-At this stage, the partition table will result like this:
+Your partition table should now look like this:
 
 ![manp5](./images/partitioning/manp5.png)
 
-Now select again the **Free Space** and click on *Create*, let's create * `/` - _the folder containing the entire system_
+**2. Create the Root Partition (`/`)**
+Select the **Free Space** again and click **Create**.
 
 ![manp6](./images/partitioning/manp6.png)
 
-From the partition setup window, set the partition *Size* to 20753MiB, the *File System* to btrfs and the *Mount Point* to `/`, then click on *Ok*
+Configure the root partition:
+* **Size:** Allocate appropriate space (e.g., 20753MiB in this example).
+* **File System:** `btrfs` (or ext4).
+* **Mount Point:** `/`
+* Click **OK**.
 
 :::info Note
-  Parrot Home needs at least 20GB of space, while Parrot Security needs at least 40GB of space. Home Edition will be installed in this guide.
+  Remember the minimum requirements: 20GB for Home Edition, 40GB for Security Edition.
 :::
 
 ![manp7](./images/partitioning/manp7.png)
 
-Now, the partition table looks almost complete:
+**3. Create the Home Partition (`/home`)**
+The partition table is almost complete. Let's use the remaining space for user data.
 
 ![manp8](./images/partitioning/manp8.png)
 
-Finally, let's create `/home`- _the User data folder_ with the remaining **Free Space**. Select it and click on *Create*
+Select the remaining **Free Space** and click **Create**.
 
 ![manp9](./images/partitioning/manp9.png)
 
-As the setup window appears, setup **File System** as `Btrfs` and **Mount Point** as `/home`. When finished, click on *Ok*
+Configure the home partition:
+* **File System:** `btrfs` (or ext4).
+* **Mount Point:** `/home`
+* Click **OK**.
 
 ![manp10](./images/partitioning/manp10.png)
 
-Now the partitioning is completed, proceed with the installation by clicking on *Next*.
+With partitioning completed, click **Next** to proceed with the installation.
 
 ![manp11](./images/partitioning/manp11.png)
