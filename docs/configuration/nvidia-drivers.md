@@ -61,7 +61,7 @@ sudo apt update && sudo apt install nvidia-driver
   From kernel 5.16, for compatibility problems, it may be necessary to install the drivers with the following command:
         
 ```
-sudo apt install nvidia-driver -t lory-backports
+sudo apt install nvidia-driver -t echo-backports
 ```
 :::
 
