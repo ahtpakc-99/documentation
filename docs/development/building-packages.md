@@ -29,17 +29,17 @@ After running this command, you will see the `.orig.tar.gz` file in the parent d
 
 ## 2. Build the Package with sbuild
 
-Once the source tarball is ready, you can proceed with the build using `sbuild`. The following command demonstrates a cross-compilation build for the arm64 architecture targeting the "lory" distribution of Parrot OS.
+Once the source tarball is ready, you can proceed with the build using `sbuild`. The following command demonstrates a cross-compilation build for the arm64 architecture targeting the "echo" distribution of Parrot OS.
 
 ```
-sbuild --arch=arm64 --dist=lory --apt-update --source --force-orig-source --no-run-lintian --no-clean-source -v --chroot=lory-arm64-sbuild -D .
+sbuild --arch=arm64 --dist=echo --apt-update --source --force-orig-source --no-run-lintian --no-clean-source -v --chroot=echo-arm64-sbuild -D .
 ```
 
 ### Understanding the Build Flags
 
 #### Cross-Compilation:
 - `--arch=arm64`: This flag specifies the target architecture for the package. `sbuild` will set up the build environment accordingly. Inside the chroot, this value is accessible through the `$DEB_HOST_ARCH` environment variable, which build scripts can use to make architecture-specific decisions.
-- `--chroot=lory-arm64-sbuild`: Specifies the exact name of the schroot environment to use for the build. This chroot must be configured for the target architecture (arm64) and distribution (lory).
+- `--chroot=echo-arm64-sbuild`: Specifies the exact name of the schroot environment to use for the build. This chroot must be configured for the target architecture (arm64) and distribution (lory).
 
 #### Build Environment and Behavior:
 

@@ -28,8 +28,8 @@ The package manager must check in a given location (it can be a local directory 
 Although in Parrot it is not necessary (nor recommended) to add new repositories or modify existing ones, we will see where we can configure them. In the file system, under the path */etc/apt/sources.list.d*, we find the file **parrot.list**. The content of this file should be:
 
 	## stable repository
-	deb http://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware
-	#deb-src http://deb.parrot.sh/parrot lory contrib non-free non-free-firmware
+	deb http://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
+	#deb-src http://deb.parrot.sh/parrot echo contrib non-free non-free-firmware
 
 With this, we make sure we have the correct repository list. In this location the Parrot developers keep the packages updated.
 

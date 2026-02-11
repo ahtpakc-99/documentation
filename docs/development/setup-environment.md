@@ -34,11 +34,11 @@ sudo apt install devscripts git-buildpackage sbuild
 
 ### 3. **Create the Build Chroot:** 
 
-Set up a clean build environment for your target architecture using sbuild. A chroot is essentially a self-contained copy of a minimal Parrot OS system. This command creates a chroot named **lory-\<architecture\>-sbuild** for the "lory" Parrot OS release.  
+Set up a clean build environment for your target architecture using sbuild. A chroot is essentially a self-contained copy of a minimal Parrot OS system. This command creates a chroot named **echo-\<architecture\>-sbuild** for the "echo" Parrot OS release.  
 Replace **\<architecture\>** with your target architecture, such as *amd64* or *arm64*. 
 
 ``` 
-sudo sbuild-createchroot --arch=<architecture> lory /var/lib/sbuild/lory-<architecture>-sbuild https://deb.parrot.sh/parrot
+sudo sbuild-createchroot --arch=<architecture> echo /var/lib/sbuild/echo-<architecture>-sbuild https://deb.parrot.sh/parrot
 ```
 
 ### 4. **Add User to Sbuild Group:**
@@ -78,7 +78,7 @@ As mentioned, **sbuild** is used to build Debian packages in a clean, isolated c
 As shown in the setup section, you can create a chroot with the following command. You can have multiple chroots for different releases or architectures on the same machine.
 
 ```
-sudo sbuild-createchroot --arch=<architecture\> lory /var/lib/sbuild/lory-<architecture>-sbuild https://deb.parrot.sh/parrot
+sudo sbuild-createchroot --arch=<architecture\> echo /var/lib/sbuild/echo-<architecture>-sbuild https://deb.parrot.sh/parrot
 ```
 
 ### Troubleshooting: "chroot already exists" Error
@@ -86,7 +86,7 @@ sudo sbuild-createchroot --arch=<architecture\> lory /var/lib/sbuild/lory-<archi
 If you attempt to create a chroot that is already defined, you will see an error like this:
 
 ```
-chroot with name lory-<architecture>-sbuild already exists at /usr/bin/sbuild-createchroot line 283, <PH> line 1.
+chroot with name echo-<architecture>-sbuild already exists at /usr/bin/sbuild-createchroot line 283, <PH> line 1.
 ```
 
 To resolve this, you must manually remove all traces of the old, conflicting chroot. Follow these steps carefully, replacing \<architecture\> with the specific architecture of the chroot you need to remove.
@@ -96,7 +96,7 @@ To resolve this, you must manually remove all traces of the old, conflicting chr
 Use `schroot -i -c <chroot_name>` to find the exact location of the chroot's filesystem directory.  
 
 ```
-schroot -i -c lory-<architecture>-sbuild
+schroot -i -c echo-<architecture>-sbuild
 ```
 
 #### 2. **Remove the directory:** 
@@ -108,7 +108,7 @@ Delete the directory found in the previous step. This is often located in */var/
 :::
 
 ```
-sudo rm -rf /var/lib/sbuild/lory-<architecture>-sbuild
+sudo rm -rf /var/lib/sbuild/echo-<architecture>-sbuild
 ```
 
 #### 3. **Remove the schroot config:** 
@@ -116,7 +116,7 @@ sudo rm -rf /var/lib/sbuild/lory-<architecture>-sbuild
 Delete the chroot's main configuration file from */etc/schroot/chroot.d/*
 
 ```  
-sudo rm /etc/schroot/chroot.d/lory-<architecture>-sbuild.conf
+sudo rm /etc/schroot/chroot.d/echo-<architecture>-sbuild.conf
 ```
 
 #### 4. **Remove the sbuild config:** 
@@ -124,7 +124,7 @@ sudo rm /etc/schroot/chroot.d/lory-<architecture>-sbuild.conf
 Finally, remove the chroot's configuration from sbuild's specific configuration directory.
 
 ```  
-sudo rm /etc/sbuild/chroot/lory-<architecture>-sbuild.conf
+sudo rm /etc/sbuild/chroot/echo-<architecture>-sbuild.conf
 ```  
 
 After these steps, the old chroot configuration is completely gone, and you can re-run the `sbuild-createchroot` command successfully.
