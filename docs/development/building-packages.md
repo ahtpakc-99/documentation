@@ -43,7 +43,7 @@ sbuild --arch=arm64 --dist=echo --apt-update --source --force-orig-source --no-r
 
 #### Build Environment and Behavior:
 
-- `--dist=lory`: Defines the target distribution codename. sbuild will use the APT sources configured for this distribution inside the chroot to satisfy build dependencies.
+- `--dist=echo`: Defines the target distribution codename. sbuild will use the APT sources configured for this distribution inside the chroot to satisfy build dependencies.
 - `--apt-update`: Ensures that apt-get update is run inside the chroot before the build starts, guaranteeing the package lists are fresh.
 - `--force-orig-source`: Forces sbuild to use the .orig.tar.gz file located in the parent directory, which we created in the previous step.
 - `--source`: In addition to binary packages, build the source package (.dsc, .orig.tar.gz, .debian.tar.xz).
