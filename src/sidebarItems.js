@@ -109,6 +109,14 @@ const virtualization = [
         customProps: {
           iconUrl: '/img/icons/parrotOS_icons_nobckgr_virtual.svg',
         },
+      },
+            {
+        type: 'doc',
+        id: 'virtualization/qemu-kvm-configuration',
+        label: 'QEMU/KVM',
+        customProps: {
+          iconUrl: '/img/icons/parrotOS_icons_nobckgr_virtual.svg',
+        },
       }
     ];
 
