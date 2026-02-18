@@ -60,7 +60,7 @@ Choose the best setting for your machine, check "**Enable EFI**" checkbox and cl
 
 On the next screen select **Create a Virtual Hard Disk Now**. Set the disk size at **20 GB for Home Edition** and **40 GB for Security Edition**
 
-This will create a **Dinamically Allocated Disk**, if you want to have the entire disk size, check "**Pre-Allocated Full Size**"
+This will create a **Dynamically Allocated Disk**, if you want to have the entire disk size, check "**Pre-Allocated Full Size**"
 
 Click *Next* and proceed.
 

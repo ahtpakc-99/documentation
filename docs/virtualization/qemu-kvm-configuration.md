@@ -2,34 +2,32 @@
 sidebar_position: 5
 ---
 
-# QEMU/KVM
-
 # Installing QEMU/KVM, Virt-Manager, and GNOME Boxes on Debian
 
 This guide will help you set up a virtualization environment on Debian-based systems, including Parrot OS, using **QEMU/KVM**, **Virt-Manager**, and **GNOME Boxes**.
 
----
+## Update your system
 
-## Step 1 — Update your system
-
-First, make sure your system is up-to-date:
+First, make sure your system is up to date:
 
 ```bash
-sudo apt update
-sudo apt upgrade -y
+sudo parrot-upgrade
 ```
 
-## Step 2 — Install QEMU and KVM
+## Install QEMU and KVM
 
-Install the neccesary packages:
+Install the necessary packages:
  
 ```bash
 sudo apt install -y qemu qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 ```
-If you want **Virtmanager** use in this command --> `virt-manager` but if you want **Gnome-Boxes** use --> `gnome-boxes`
+**To launch Virt-Manager, use the command:**  
+`virt-manager`
 
+**To launch Gnome Boxes, use:**  
+`gnome-boxes`
 
-## Step 3 — Verify CPU virtualization support
+## Verify CPU virtualization support
 
 Check if your CPU supports hardware virtualization:
 
@@ -37,9 +35,9 @@ Check if your CPU supports hardware virtualization:
 egrep -c '(vmx|svm)' /proc/cpuinfo
 ```
 
-If is **≥1** → ready to use KVM.
+If it is **≥1**, we are ready to use KVM.
 
-## Step 4 — Add your user to the libvirt and kvm groups
+## Add your user to the libvirt and kvm groups
 
 This allows running virtual machines without sudo:
 
@@ -47,18 +45,16 @@ This allows running virtual machines without sudo:
 sudo usermod -aG libvirt $USER
 sudo usermod -aG kvm $USER
 ```
-:::danger NOTE
+:::info NOTE
     If we import a .qcow2 image, it should not cause any issues. Just configure the resources and start.
 :::
 
-## Step 5 — Verify KVM installation
+## Verify KVM installation
 
 ```bash
 virsh list --all
 ```
-If there are no errors, your KVM environment is ready.
-
-You can now create and manage virtual machines using Virt-Manager or GNOME Boxes.
+If there are no errors, your KVM environment is ready. You can now create and manage virtual machines using Virt-Manager or GNOME Boxes.
 
 ### Using Gnome-Boxes
 
@@ -66,15 +62,13 @@ After installing the package, Boxes will be ready to use.
 
 ![1](./images/qemu/1.png)
 
-When clicking Create New Virtual Machine, you will have two options. Select the first one. You can use either an .iso or a .qcow2 file.
+When clicking Create New Virtual Machine, you will have two options. Select the first one. You can use either an `.iso` or a `.qcow2` file.
 
 ![2](./images/qemu/2.png)
 
-
 With the ISO selected.
 
-
-:::danger NOTE
+:::info NOTE
     Log out and log back in (or reboot) for the changes to take effect.
 :::
 
@@ -98,24 +92,21 @@ If you want to access more advanced settings, you can do so from **Edit Configur
 
 ![6.2](./images/qemu/6.2.png)
 
-
 ![7](./images/qemu/7.png)
-
 
 ![8](./images/qemu/8.png)
 
-Done. From here, you can simply follow the standard Parrot OS installation procedure.
-
+Done. From here, you can follow the standard Parrot OS installation procedure.
 
 ### Using Virt-Manager
 
 After installing the package, Virt-Manager will be ready to use.
 
-:::danger NOTE
+:::info NOTE
     This Virt-Manager GUI can be slightly more complex to use than Boxes for beginner users.
 :::
 
-The steps are similar to the previous ones. Only a few points change, which will be detailed below.
+The steps are similar to the previous ones. Only a few-point change, which will be detailed below.
 
 ![10](./images/qemu/10.png)
 
@@ -131,10 +122,9 @@ It is important to disable automatic OS detection. You should manually select th
 
 ![14](./images/qemu/14.png)
 
-
 ![15](./images/qemu/15.png)
 
-:::danger NOTE
+:::info NOTE
 Allocate the resources you need (or consider appropriate) for your project.
 :::
 
@@ -148,7 +138,7 @@ If you select **Customize configuration before install**, you can access more ad
 
 ![18](./images/qemu/18.png)
 
-Done. From here, you can simply follow the standard Parrot OS installation procedure.
+Done. From here, you can follow the standard Parrot OS installation procedure.
 
 If you want to access more advanced settings, double-click on your virtual machine.
 
@@ -158,12 +148,12 @@ Then click the light bulb icon next to the monitor icon.
 
 ![20](./images/qemu/20.png)
 
-You also have the option to manage snapshots.
+You can also manage snapshots.
 
 ![21](./images/qemu/21.png)
 
 Once the changes are done, you can return to the VM start screen by clicking the monitor icon.
 
-:::danger NOTE
+:::info NOTE
 There are other alternatives if you prefer a more minimal approach to managing and using VMs with QEMU/KVM, such as `virsh` or commands like `qemu-img`.
 :::
