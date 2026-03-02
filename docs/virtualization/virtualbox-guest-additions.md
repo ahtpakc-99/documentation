@@ -4,76 +4,55 @@ sidebar_position: 2
 
 # VirtualBox Guest Additions
 
-The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been installed. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability.
+The Guest Additions are designed to be installed inside a virtual machine after the guest operating system has been set up. They consist of device drivers and system applications that optimize the guest operating system for better performance and usability.
 
-## Features of Virtualbox Guest Additions
+## Features of VirtualBox Guest Additions
 
-  * **Mouse pointer integration**
-    * Pressing the Host key is no longer required to "free" the mouse from being captured by the guest OS.
+  * **Mouse pointer integration:** Pressing the Host key is no longer required to "free" the mouse from being captured by the guest OS.
+  * **Shared folders:** Easily share directories between the Host and the Parrot VM.
+  * **Better video support:** Provides custom video drivers that allow for extra high and non-standard video modes, accelerated video performance, and dynamic monitor resolution resizing.
+  * **Seamless windows:** Allows individual windows displayed on the desktop of the virtual machine to be mapped on the host's desktop, as if the application was running natively on the host.
+  * **Generic host/guest communication channels:** Enables control and monitoring of guest execution through specific "guest properties," exchanging data bits between the guest and host.
+  * **Time synchronization:** Automatically synchronizes the date and time from the host to the Parrot VM.
+  * **Shared clipboard:** Allows copying and pasting text or files between the host and Parrot.
 
-  * **Shared folders**
-    * Shared folders between Host and Parrot.
+For more information, please refer to the [official VirtualBox manual](https://www.virtualbox.org/manual/ch04.html).
 
-  * **Better video support**
-    * While the virtual graphics card which VirtualBox emulates for any guest operating system provides all the basic features, the custom video drivers that are installed with the Guest Additions provide you with extra high and non-standard video modes as well as accelerated video performance. 
-    
-    **(Generally used for changing monitor resolution)**
+---
 
-  * **Seamless windows**
-    * With this feature, the individual windows that are displayed on the desktop of the virtual machine can be mapped on the host's desktop, as if the underlying application was actually running on the host.
+# Guest Additions Installation
 
-  * **Generic host/guest communication channels**
-    * The Guest Additions enable you to control and monitor guest execution in ways other than those mentioned above. The so-called "guest properties" provide a generic string-based mechanism to exchange data bits between a guest and a host, some of which have special meanings for controlling and monitoring the guest.
+## Method 1 (Recommended & Easiest)
 
-  * **Time synchronization**
-    * Synchronize date and time from host to Parrot.
+The most reliable way to install Guest Additions on Parrot OS is via the official APT repository.
 
-  * **Shared clipboard**
-    * Shared clipboard from host to Parrot.
+**1.** Open a terminal and update your package list:
 
-For more infomations, check the [VirtualBox manual](https://www.virtualbox.org/manual/ch04.html).
+    sudo apt update
 
-# Guest Additions Installation(s)
+**2.** Install the Guest Additions packages:
 
-## Method 1 (Easiest)
+    sudo apt install -y virtualbox-guest-utils virtualbox-guest-x11
 
-**1.** Open a terminal and update your packages list from the repository with
- 
-```
-sudo apt update
-```
+**3.** Once the installation is complete, reboot your virtual machine:
 
-**2.** Install the Guest Additions from Parrot OS repository with 
+    sudo reboot
 
-```
-sudo apt install virtualbox-guest-utils
-```
+**4.** After rebooting, you can verify if the Guest Additions are running correctly with:
 
-**3.** And install the last package with 
-    
-```
-sudo apt install virtualbox-guest-x11
-```
+    sudo /usr/sbin/VBoxService -V
 
-**4.** When the installation is completed, you can reboot your machine with 
+---
 
-```
-sudo reboot
-```
+## Method 2 (From VirtualBox ISO)
 
-**5.** Check if Guest Additions are correctly installed by running 
+If you prefer to install the additions directly from the VirtualBox hypervisor ISO, follow these steps:
 
-```
-sudo /usr/sbin/VBoxService -V
-```
-
-## Method 2 (From ISO)
-
-**1.** On Virtual Machine menu bar, select `Devices > Insert Guest Additions CD image...`.
+**1.** On the Virtual Machine menu bar, select `Devices > Insert Guest Additions CD image...`.
 
 ![1](./images/vbox/guest_additions1.png)
 
-**2.** VirtualBox will not automatically find the Guest Additions, instead it will ask you to download them (Click on *Download*). We recommend adding an additional secondary optical drive, because once the guest additions are downloaded, they will be mounted on a second drive.
+**2.** VirtualBox may prompt you to download the Guest Additions if they are not present on your host. Click **Download**. 
 
 ![2](./images/vbox/guest_additions2.png)
 
@@ -81,20 +60,23 @@ sudo /usr/sbin/VBoxService -V
 
 ![4](./images/vbox/guest_additions4.png)
 
-Click on "**insert**". If it returns an error (maybe it can't mount the iso you just downloaded, then turn off the virtual machine, and return to the main VirtualBox screen, go to *Setting > Storage*, here add another optical drive and make sure it is secondary so as not to give problems in booting the distro). 
+Click on **Insert**. 
+
+:::info Note
+If it returns an error stating it cannot mount the ISO, turn off the virtual machine. From the main VirtualBox screen, go to **Settings > Storage**, add a new optical drive, set it as Secondary (to avoid boot issues), and manually load the downloaded ISO.
+:::
 
 ![5](./images/vbox/guest_additions5.png)
 
-**3.** Then go to the Guest Addition ISO folder, open a terminal and type
+**3.** Navigate to the mounted Guest Additions directory, open a terminal there, and grant execution permissions to the installer:
 
     sudo chmod +x VBoxLinuxAdditions.run
 
-Once done, execute
+Execute the script:
 
     sudo ./VBoxLinuxAdditions.run
 
-
-**4.** Wait for the installation to finish. Once completed, reboot the virtual machine with 
+**4.** Wait for the installation process to finish. Once completed, reboot the virtual machine:
 
 ![6](./images/vbox/guest_additions6.png)
 
