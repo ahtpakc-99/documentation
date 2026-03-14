@@ -1,20 +1,27 @@
 ---
 sidebar_position: 4
 ---
+
 # UTM
 
-The OS is also available to be virtualized on Apple platforms with M1/M2/M3(and its variants) CPUs. Specifically, Parrot can be used through the [open source UTM software](https://mac.getutm.app/).
+ParrotOS can be easily virtualized on macOS systems equipped with Apple Silicon (M-series chips). To achieve this, we recommend using [UTM](https://mac.getutm.app/), a popular open-source virtualization software for Mac.
 
-Once you download and install UTM, you will see this screen:
+### 1. Download and Install UTM
+
+First, download and install UTM from the official website. Once launched, you will be greeted by the main interface:
 
 ![utm1](./images/utm/1.png)
 
-The format we provide to users has the **.utm** extension, so it is already compatible with UTM itself, which is why, 
-once you download the file from our website, all you have to do is go to the folder where you downloaded Parrot 
-and extract the *.utm* file. 
+### 2. Download and Extract the ParrotOS VM
 
-After correctly extracting the *.utm* file, simply drag and drop it inside UTM.
+We provide a pre-configured Virtual Machine specifically for Apple Silicon, which already comes in the **.utm** format. 
+
+Download the appropriate Apple edition from our website and extract the archive to retrieve the `.utm` file.
+
+### 3. Import and Run
+
+Once extracted, simply drag and drop the `.utm` file directly into the UTM application window.
 
 ![utm2](./images/utm/2.png)
 
-the OS will be immediately recognized and by clicking on the Play icon you can immediately use Parrot in your system with MacOS.
+The system will immediately recognize the Virtual Machine. Simply click the **Play** icon to start using ParrotOS on your Mac.
