@@ -2,166 +2,147 @@
 sidebar_position: 1
 ---
 
-# Docker images
+# Docker Images
 
 Docker is a powerful technology that allows users to run containers universally on any host platform.
 
 Docker uses template images, and allows the user to start several instances of the same template, destroy them, or build new custom templates on top of them.
 
-Parrot uses docker to allow its users to use its vast arsenal of tools on any platform supported by docker.
+Parrot uses Docker to allow its users to take advantage of its vast arsenal of tools on any platform supported by Docker.
 
 [Parrot Core](#parrotseccore) | [Parrot Security](#parrotsecsecurity)
 
-[Nmap](#parrotsecnmap)
+[Nmap](#parrotsecnmap) | [Metasploit](#parrotsecmetasploit) | [Social Engineering Toolkit](#parrotsecset) | [Beef-XSS](#parrotsecbeef) | [Bettercap](#parrotsecbettercap) | [SQLMap](#parrotsecsqlmap)
 
-[Metasploit](#parrotsecmetasploit)
+[Skip to usage examples](general-usage-docker.md)
 
-[Social Engineering Toolkit](#parrotsecset)
+## Available Templates
 
-[Beef-XSS](#parrotsecbeef)
+Whether you want to have a container full of tools, several smaller containers with a tiny selection of tools, or even a clean Parrot environment to build your custom stack on, this is the right place to learn how to take advantage of the Parrot Docker workspace.
 
-[Bettercap](#parrotsecbettercap)
+### parrotsec/core
 
-[SQLMap](#parrotsecsqlmap)
+Core system with just the Parrot basics. You can use it as a starting point to create your custom containers.
 
-[skip to usage examples](general-usage-docker.md)
+This image is multiarch, and works for `amd64`, `arm64`, and `armhf` architectures.
 
-# Available Templates
+**Launch the container:**
 
-Whether you want to have a container full of tools, or several smaller containers with a tiny selection of tools, or even a clean Parrot environment to build yor custom stack on, this is the right place where to learn how to take advantage of the Parrot Docker workspace.
-
-## parrotsec/core
-
-Core system with just the Parrot basics.
-You can use it as a start point to create your custom containers.
-
-This image is multiarch, and works for amd64, arm64 and armhf architectures
-
-*launch the container*:
-
-```
+```bash
 docker run --rm -ti --network host -v $PWD/work:/work parrotsec/core
 ```
 
-## parrotsec/security
+### parrotsec/security
 
-This container includes a huge collection of tools that can be used via command line from inside a docker container.
+This container includes a huge collection of tools that can be used via the command line from inside a Docker container.
 
-Some tools with graphical interface were excluded for obvious reasons.
+Some tools with graphical interfaces were excluded for obvious reasons.
 
 This container ships with the following metapackages:
+* `parrot-cloud`
 
-* parrot-cloud
+**Launch the container:**
 
-Launch the container:
-
-```
+```bash
 docker run --rm -ti --network host -v $PWD/work:/work parrotsec/security
 ```
 
 ## Individual Parrot Tools
 
-This is a curated selection of smaller docker containers that contain only specific tools, alone or in cherry-picked collections.
+This is a curated selection of smaller Docker containers that contain only specific tools, either alone or in cherry-picked collections.
 
-Containers with shared tools are stacked on top of each other (when possible) to minimize storage waste and maximize layers reuse.
-
-available templates:
+Containers with shared tools are stacked on top of each other (when possible) to minimize storage waste and maximize layer reuse.
 
 ### parrotsec/nmap
 
-based on parrotsec/core
-provides the following packages:
-* nmap
-* ncat
-* ndiff
-* dnsutils
-* netcat
-* telnet
+**Based on:** `parrotsec/core`  
+**Provides the following packages:**
+* `nmap`
+* `ncat`
+* `ndiff`
+* `dnsutils`
+* `netcat`
+* `telnet`
 
-usage:
+**Usage:**
 
-```
+```bash
 docker run --rm -ti parrotsec/nmap <nmap options>
 ```
 
-examples:
+**Examples:**
 
-```
+```bash
 docker run --rm -ti parrotsec/nmap -F 192.168.1.1
 ```
-
-```
+```bash
 docker run --rm -ti parrotsec/nmap -Pn 89.36.210.176
 ```
 
 ### parrotsec/metasploit
 
-based on parrotsec/nmap:latest
-provides the following packages:
-* nmap
-* metasploit-framework
-* postgresql
+**Based on:** `parrotsec/nmap:latest`  
+**Provides the following packages:**
+* `nmap`
+* `metasploit-framework`
+* `postgresql`
 
-usage:
+**Usage:**
 
-```
+```bash
 docker run --rm -ti --network host -v $PWD/msf:/root/ parrotsec/metasploit
 ```
 
 ### parrotsec/set
 
-based on parrotsec/metasploit:latest
-provides the following packages:
+**Based on:** `parrotsec/metasploit:latest`  
+**Provides the following packages:**
+* `set`
 
-* set
+**Usage:**
 
-usage:
-
-```
+```bash
 docker run --rm -ti --network host -v $PWD/set:/root/.set parrotsec/set
 ```
 
 ### parrotsec/beef
 
-based on parrotsec/core
-provides the following packages:
+**Based on:** `parrotsec/core`  
+**Provides the following packages:**
+* `beef-xss`
 
-* beef-xss
+**Usage:**
 
-usage:
-
-```
+```bash
 docker run --rm --network host -ti -v $PWD/beef:/var/lib/beef-xss parrotsec/beef
 ```
 
 ### parrotsec/bettercap
 
-based on parrotsec/nmap
-provides the following packages:
+**Based on:** `parrotsec/nmap`  
+**Provides the following packages:**
+* `bettercap`
 
-* bettercap
+**Usage:**
 
-usage:
-
-```
+```bash
 docker run --rm -ti --network host parrotsec/bettercap
 ```
 
 ### parrotsec/sqlmap
 
-based on parrotsec/nmap
-provides the following packages:
+**Based on:** `parrotsec/nmap`  
+**Provides the following packages:**
+* `sqlmap`
 
-* sqlmap
+**Usage:**
 
-usage:
-
-```
+```bash
 docker run --rm -ti parrotsec/sqlmap <sqlmap options>
 ```
 
-example:
+**Example:**
 
-```
+```bash
 docker run --rm -ti parrotsec/sqlmap -u parrotsec.org --wizard
 ```
