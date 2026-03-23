@@ -10,9 +10,9 @@ Docker uses template images, and allows the user to start several instances of t
 
 Parrot uses Docker to allow its users to take advantage of its vast arsenal of tools on any platform supported by Docker.
 
-[Parrot Core](#parrotseccore) | [Parrot Security](#parrotsecsecurity)
-
-[Nmap](#parrotsecnmap) | [Metasploit](#parrotsecmetasploit) | [Social Engineering Toolkit](#parrotsecset) | [Beef-XSS](#parrotsecbeef) | [Bettercap](#parrotsecbettercap) | [SQLMap](#parrotsecsqlmap)
+| Editions                                                | Tools                                                                                                                                                                       |
+|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Core](#parrotseccore) • [Security](#parrotsecsecurity) | [nmap](#parrotsecnmap) • [metasploit](#parrotsecmetasploit) • [SET](#parrotsecset) • [beef](#parrotsecbeef) • [bettercap](#parrotsecbettercap) • [SQLMap](#parrotsecsqlmap) |
 
 [Skip to usage examples](general-usage-docker.md)
 
@@ -24,7 +24,7 @@ Whether you want to have a container full of tools, several smaller containers w
 
 Core system with just the Parrot basics. You can use it as a starting point to create your custom containers.
 
-This image is multiarch, and works for `amd64`, `arm64`, and `armhf` architectures.
+This image is multiarch and works for `amd64` and `arm64` architectures.
 
 **Launch the container:**
 
