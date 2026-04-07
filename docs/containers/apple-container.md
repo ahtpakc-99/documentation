@@ -1,27 +1,26 @@
-# (Apple) container
+---
+sidebar_position: 4
+---
 
-During the latest WWDC (2025), Containerization was announced and released,
-a software that “[executes each Linux container inside of its own lightweight virtual machine](https://github.com/apple/containerization?tab=readme-ov-file#design)”
-on Apple Silicon processors, starting from MacOS 15 **Sequoia** and MacOS 26 **Tahoe**. 
+# Apple Container
 
-Through Containerization, we have another way to [manage OCI‑compatible images](https://github.com/apple/containerization/tree/main/Sources/ContainerizationOCI); 
-as a result, we can also use **Parrot’s Docker images**.
+During the latest WWDC (2025), Containerization was announced and released, a software that "[executes each Linux container inside of its own lightweight virtual machine](https://github.com/apple/containerization?tab=readme-ov-file#design)" on Apple Silicon processors, starting from macOS 15 **Sequoia** and macOS 26 **Tahoe**. 
 
-Why? Because our Docker images are _OCI‑compliant_, so we can use them without any issues.
+Through Containerization, we have another way to [manage OCI-compatible images](https://github.com/apple/containerization/tree/main/Sources/ContainerizationOCI); as a result, we can also use **Parrot's Docker images**.
+
+Why? Because our Docker images are *OCI-compliant*, so we can use them without any issues.
 
 ## Install `container`
 
-`container` is a CLI tool that allows us to use the Containerization APIs to create and manage these images. 
-It’s recommended to update MacOS to the latest stable version to ensure you can use `container`. 
+`Container` is a CLI tool that allows us to use the Containerization APIs to create and manage these images. It's recommended to update macOS to the latest stable version to ensure you can use `container`. 
 
-Although it can be installed directly from the [GitHub Releases page](https://github.com/apple/container/releases),
-it’s also possible to use Homebrew for the installation:
+Although it can be installed directly from the [GitHub Releases page](https://github.com/apple/container/releases), it's also possible to use Homebrew for the installation:
 
+```bash
+brew install --cask container
 ```
-$ brew install --cask container
-```
-```
-$ container
+
+```text
 OVERVIEW: A container platform for macOS
 
 USAGE: container [--debug] <subcommand>
@@ -55,32 +54,28 @@ SYSTEM SUBCOMMANDS:
 
 Then you can start the system service with the command below:
 
-```
-$ container system start
+```bash
+container system start
 ```
 
 Running this command starts the container server. 
 
-If a default kernel isn’t already installed,
-it will be installed automatically (the default kernel shown is provided by [Kata Containers](https://github.com/kata-containers/kata-containers), 
-a lightweight virtual machine solution for running containers).
+If a default kernel isn't already installed, it will be installed automatically (the default kernel shown is provided by [Kata Containers](https://github.com/kata-containers/kata-containers), a lightweight virtual machine solution for running containers).
 
-## Use ParrotOS containers on Apple Silicon
+## Use Parrot OS containers on Apple Silicon
 
-The commands are very similar to Docker/Podman: 
-`container list --all` will display all containers, `build` allows you to create custom images, and so on.
+The commands are very similar to Docker/Podman. For example, `container list --all` will display all containers, and `build` allows you to create custom images.
 
-As we mentioned earlier, we can also use ParrotOS Docker images on `container`, 
-and since the commands are the same, we can start a ParrotOS container simply by typing:
+As we mentioned earlier, we can also use Parrot OS Docker images on `container`, and since the commands are the same, we can start a Parrot OS container simply by typing:
 
-```
-$ container run --rm -it parrotsec/core
+```bash
+container run --rm -it parrotsec/core
 ```
 
 or
 
-```
-$ container run --rm -it parrotsec/security
+```bash
+container run --rm -it parrotsec/security
 ```
 
 ## Technical Overview
