@@ -6,11 +6,10 @@ Similar to the [Dualboot with Windows](https://parrotsec.org/docs/installation/d
 
 We will cover two common use cases:
 
-- [Manual Partitioning](#manual-partitioning)
-  - [Case 1: Partitioning a disk with existing partitions](#case-1-partitioning-a-disk-with-existing-partitions)
-    - [Resizing and Configuring Partitions](#resizing-and-configuring-partitions)
-    - [Creating New Partitions](#creating-new-partitions)
-  - [Case 2: Partitioning an empty disk](#case-2-partitioning-an-empty-disk)
+- [Case 1: Partitioning a disk with existing partitions](#case-1-partitioning-a-disk-with-existing-partitions)
+  - [Resizing and Configuring Partitions](#resizing-and-configuring-partitions)
+  - [Creating New Partitions](#creating-new-partitions)
+- [Case 2: Partitioning an empty disk](#case-2-partitioning-an-empty-disk)
 
 ## Case 1: Partitioning a disk with existing partitions
 
