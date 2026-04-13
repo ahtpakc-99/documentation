@@ -33,6 +33,9 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "resolutions": {
+    "webpack": "5.97.1"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
