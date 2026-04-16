@@ -121,7 +121,7 @@ const FeatureList = [
 
 function Feature({ title, Svg, description, url }) {
   return (
-    <div className="col col--3 card text--center shadow--md margin--md">
+    <div className="col col--3 card text--center shadow--md margin--md feature-card">
       <Link to={url} style={{ color: "inherit", textDecoration: "inherit" }}>
         <div className="text--center padding-vert--md">
           <Svg className={styles.featureSvg} role="img" />
@@ -143,15 +143,6 @@ function HomepageFeatures(): JSX.Element {
           {FeatureList.map((props) => (
             <Feature key={props.id} {...props} />
           ))}
-        </div>
-        <div className="container__items--center padding-top--lg text--center">
-          <div className="padding-horiz--md">
-            <p>
-              The documentation is a continuous Work In Progress (WIP), and{" "}
-              <strong>all Parrot users</strong> are invited to contribute to the
-              creation and translation process of this portal.
-            </p>
-          </div>
         </div>
       </div>
     </section>
