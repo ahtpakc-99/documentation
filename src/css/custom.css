@@ -65,7 +65,7 @@ html[data-theme='dark'] {
 .navbar__title {
   font-size: 1.3rem;
   font-weight: 300;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .hero__subtitle {

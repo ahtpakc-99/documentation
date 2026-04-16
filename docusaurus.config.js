@@ -73,7 +73,7 @@ const config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
       navbar: {
-        title: 'Docs',
+        title: 'Documentation',
         logo: {
           alt: 'Parrot Logo',
           src: 'img/parrot-logo.svg'
