@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
@@ -10,7 +9,9 @@ function HomepageHeader() {
   return (
     <div className="container">
       <div className="padding-vert--lg text--center">
-        <h1 className="hero__title">{siteConfig.title}</h1>
+        <h1 className="hero__title">{siteConfig.title.split(" ")[0]}
+          <span className='hero__title__span'>{siteConfig.title.split(" ")[1]}</span>
+        </h1>
       </div>
       <div className="row">
         <div className="col col--9 hero__subtitle text--center" style={{ margin: '0 auto' }}>

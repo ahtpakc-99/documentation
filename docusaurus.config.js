@@ -73,31 +73,31 @@ const config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
       navbar: {
-        /* title: 'ParrotOS', */
+        title: 'Docs',
         logo: {
           alt: 'Parrot Logo',
           src: 'img/parrot-logo.svg'
         },
         hideOnScroll: true,
-        items: [
-          {
-            type: 'doc',
-            docId: 'introduction/what-is-parrot',
-            position: 'left',
-            label: 'Documentation'
-          },
-          /** {to: '/blog', label: 'Blog', position: 'left'}, **/
-          {
-            to: 'https://parrotsec.org/download',
-            label: 'Download',
-            position: 'left'
-          },
-          {
-            href: 'https://gitlab.com/parrotsec',
-            label: 'GitLab',
-            position: 'right'
-          }
-        ]
+        // items: [
+        //   {
+        //     type: 'doc',
+        //     docId: 'introduction/what-is-parrot',
+        //     position: 'left',
+        //     label: 'Documentation'
+        //   },
+        //   /** {to: '/blog', label: 'Blog', position: 'left'}, **/
+        //   {
+        //     to: 'https://parrotsec.org/download',
+        //     label: 'Download',
+        //     position: 'left'
+        //   },
+        //   {
+        //     href: 'https://gitlab.com/parrotsec',
+        //     label: 'GitLab',
+        //     position: 'right'
+        //   }
+        // ]
       },
       footer: {
         style: 'light',
