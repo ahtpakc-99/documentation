@@ -233,8 +233,8 @@ const configuration = [
   },
   {
     type: 'doc',
-    id: 'configuration/desktop-enviroments',
-    label: 'Desktop Enviroments',
+    id: 'configuration/desktop-environments',
+    label: 'desktop-environments',
     customProps: {
       iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg',
     },
