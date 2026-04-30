@@ -439,9 +439,4 @@ export const sidebarItems = [
     },
     items: [...mirrors]
   }
-<<<<<<< HEAD
 ]
-=======
-
-];
->>>>>>> 0666de9 (fix(desktop-environments): correct sidebar label capitalisation)
