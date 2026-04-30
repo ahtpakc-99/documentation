@@ -233,7 +233,7 @@ const configuration = [
   {
     type: 'doc',
     id: 'configuration/desktop-environments',
-    label: 'desktop-environments',
+    label: 'Desktop Environments',
     customProps: {
       iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg'
     }
@@ -439,4 +439,9 @@ export const sidebarItems = [
     },
     items: [...mirrors]
   }
+<<<<<<< HEAD
 ]
+=======
+
+];
+>>>>>>> 0666de9 (fix(desktop-environments): correct sidebar label capitalisation)
