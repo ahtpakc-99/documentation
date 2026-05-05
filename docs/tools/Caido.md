@@ -19,14 +19,12 @@ Start Caido from the Parrot menu under
 or run it from the terminal:
 
 ```bash
-caido
+$ caido
 ```
 
 The Caido launcher will open, showing the Instances screen.
 
 ![Caido instances screen](./images/caido/caido-int-launch.png)
-
-### Creating an Instance
 
 Click **+ New instance**. Give it a name, set the listening address and port 
 (the defaults — `127.0.0.1` and `8080` — are fine for local use), then click 
@@ -80,25 +78,25 @@ in your browser:
 
 ## Key Features
 
-| Feature | Description |
-|---|---|
-| **Proxy / Intercept** | Intercept, inspect, and forward HTTP/S and WebSocket traffic in real time |
-| **HTTP History** | Full log of all proxied requests and responses, searchable with HTTPQL |
-| **Replay** | Resend and modify requests to test how the application responds |
-| **Automate** | Automated payload injection across request parameters (similar to Burp Intruder) |
-| **Match & Replace** | Rules to automatically transform requests or responses on the fly |
-| **Sitemap** | Visual map of all discovered endpoints and application structure |
-| **Scope** | Define target domains and paths to cut out noise |
-| **Workflows** | Node-based automation for encoding, decoding, and data transformation |
-| **Plugins** | Extend Caido with community or custom JavaScript plugins |
-| **HTTPQL** | Query language built for filtering requests and responses |
-| **Projects** | Separate workspaces per target to keep things organised |
+| Feature               | Description                                                                      |
+|-----------------------|----------------------------------------------------------------------------------|
+| **Proxy / Intercept** | Intercept, inspect, and forward HTTP/S and WebSocket traffic in real time        |
+| **HTTP History**      | Full log of all proxied requests and responses, searchable with HTTPQL           |
+| **Replay**            | Resend and modify requests to test how the application responds                  |
+| **Automate**          | Automated payload injection across request parameters (similar to Burp Intruder) |
+| **Match & Replace**   | Rules to automatically transform requests or responses on the fly                |
+| **Sitemap**           | Visual map of all discovered endpoints and application structure                 |
+| **Scope**             | Define target domains and paths to cut out noise                                 |
+| **Workflows**         | Node-based automation for encoding, decoding, and data transformation            |
+| **Plugins**           | Extend Caido with community or custom JavaScript plugins                         |
+| **HTTPQL**            | Query language built for filtering requests and responses                        |
+| **Projects**          | Separate workspaces per target to keep things organised                          |
 
 ## How It Works
 
 Caido sits in the middle of every request your browser makes. When you point 
 your browser's proxy settings at Caido, all HTTP and HTTPS traffic flows through 
-it before reaching the server — and all responses come back through it too.
+it before reaching the server and all responses come back through it too.
 
 That means Caido can:
 
@@ -108,8 +106,7 @@ once the CA cert is installed).
 - **Drop** or **replay** requests independently of the browser.
 - **Automate** repeated requests with varying payloads to probe for vulnerabilities.
 
-Because the backend is Rust, it stays lean on memory and feels snappy compared 
-to JVM-based tools. The frontend runs entirely in the browser via Vue.js, so 
+Because the backend is Rust, it stays lean on memory. The frontend runs entirely in the browser via Vue.js, so 
 there are no native GUI dependencies to worry about.
 
 ## Further Reading
