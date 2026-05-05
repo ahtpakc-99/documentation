@@ -2,20 +2,14 @@
 
 Wireless adapter detection failures on Parrot OS usually originate from one of four layers: hardware visibility, kernel driver support, firmware availability, or interface state. This guide focuses on structured diagnosis rather than one-click fixes.
 
----
-
-## Scope
-
 Use this guide if:
 
 - No wireless networks appear
 - Wi-Fi toggle is missing
-- `wlan0` / `wlp*` interface does not exist
+- `wlan0` or `wlp*` interface does not exist
 - USB Wi-Fi adapter is plugged in but ignored
 - Internal laptop Wi-Fi works in another OS but not in Parrot
-- Adapter appears in hardware list but cannot initialize
-
----
+- Adapter appears in the hardware list but cannot initialize
 
 ## 1. Identify Whether the System Sees the Hardware
 
@@ -43,14 +37,12 @@ If nothing relevant appears:
 
 If hardware does not enumerate, this is not yet a Linux driver issue.
 
----
-
 ## 2. Check for a Wireless Interface
 
 List interfaces:
 
 ```
-ip link
+sudo ip link
 ```
 
 Typical wireless names:
@@ -59,9 +51,7 @@ Typical wireless names:
 - `wlp2s0`
 - `wlx<mac>`
 
-If only `lo` and Ethernet interfaces exist, continue to driver and firmware checks.
-
----
+If only `lo` and Ethernet interfaces exist, continue to driver and firmware checks.
 
 ## 3. Inspect Driver Binding
 
@@ -85,29 +75,27 @@ lsmod | grep -E 'iwlwifi|ath|rtw|rtl|mt76|brcm'
 
 Common families:
 
-| Vendor           | Typical Module               |
-| ---------------- | ---------------------------- |
-| Intel            | `iwlwifi`                    |
-| Qualcomm Atheros | `ath9k`, `ath10k`, `ath11k`  |
-| Realtek          | `rtw88`, `rtw89`, `rtl8xxxu` |
-| MediaTek         | `mt76`                       |
-| Broadcom         | `brcmsmac`, `brcmfmac`, `wl` |
+| Vendor           | Typical Module             |
+|------------------|----------------------------|
+| Intel            | `iwlwifi`                  |
+| Qualcomm Atheros | `ath9k`,`ath10k`,`ath11k`  |
+| Realtek          | `rtw88`,`rtw89`,`rtl8xxxu` |
+| MediaTek         | `mt76`                     |
+| Broadcom         | `brcmsmac`,`brcmfmac`,`wl` |
 
 If the adapter is visible but no suitable module loads, continue below.
-
----
 
 ## 4. Review Kernel Messages
 
 Kernel logs often reveal the exact failure reason.
 
 ```
-dmesg | grep -iE 'wifi|wlan|firmware|iwlwifi|rtl|ath|mt76|brcm'
+sudo dmesg | grep -iE 'wifi|wlan|firmware|iwlwifi|rtl|ath|mt76|brcm'
 ```
 
 Look for patterns such as:
 
-- firmware file missing
+- firmware file is missing
 - failed to load firmware
 - device timeout
 - unsupported chipset
@@ -116,8 +104,6 @@ Look for patterns such as:
 - invalid EEPROM / calibration data
 
 This step is usually more valuable than random package reinstall attempts.
-
----
 
 ## 5. Firmware Missing
 
@@ -139,9 +125,7 @@ sudo modprobe -r iwlwifi
 sudo modprobe iwlwifi
 ```
 
-If a specific firmware filename is missing in `dmesg`, search for the package that provides it.
-
----
+If a specific firmware filename is missing in `dmesg`, search for the package that provides it.
 
 ## 6. RF-Kill / Soft Blocked Devices
 
@@ -160,8 +144,6 @@ sudo rfkill unblock all
 ```
 
 Then verify NetworkManager detects the device.
-
----
 
 ## 7. NetworkManager Running but No Device Listed
 
@@ -185,23 +167,19 @@ nmcli device status
 
 If the interface exists but shows unavailable, firmware or regulatory issues may still be present.
 
----
-
 ## 8. Realtek USB Adapters
 
 Some Realtek USB chipsets rely on out-of-tree drivers or newer kernel support.
 
-Identify chipset first:
+Identify the chipset first:
 
 ```
 lsusb
 ```
 
-Then search exact chipset model (example: `8812au`, `8821cu`, `8852bu`) before installing random GitHub drivers.
+Then search exact chipset model (example:`8812au`, `8821cu`, `8852bu`) before installing random GitHub drivers.
 
 Avoid mixing multiple unofficial drivers simultaneously.
-
----
 
 ## 9. Broadcom Devices
 
@@ -213,15 +191,13 @@ Check device ID:
 lspci -nn | grep -i broadcom
 ```
 
-Then install recommended package if required:
+Then install the recommended package if required:
 
 ```
 sudo apt install broadcom-sta-dkms
 ```
 
 Reboot after installation.
-
----
 
 ## 10. Secure Boot Consideration
 
@@ -232,14 +208,12 @@ Symptoms:
 - Driver installed successfully
 - Module exists
 - Interface still absent
-- `dmesg` mentions signature rejection
+- `dmesg` mentions signature rejection
 
 Options:
 
 - Disable Secure Boot in firmware
 - Enroll signing keys properly
-
----
 
 ## 11. Kernel Version Issues
 
@@ -253,8 +227,6 @@ uname -r
 
 If the adapter is recent-generation hardware, testing a newer kernel may resolve detection issues.
 
----
-
 ## 12. USB Power Management Problems
 
 Adapters that appear/disappear repeatedly may be suspended by power management.
@@ -265,9 +237,7 @@ Temporarily test:
 sudo usbreset
 ```
 
-or disable autosuspend via kernel parameters / TLP configuration.
-
----
+or disable auto suspend via kernel parameters / TLP configuration.
 
 ## 13. Validate Final State
 
@@ -285,13 +255,11 @@ You should see:
 - scan results returned
 - successful association to an AP
 
----
-
 ## Common Mistakes
 
 - Installing random drivers before identifying chipset
 - Assuming missing Wi-Fi icon = missing hardware
-- Ignoring `rfkill`
+- Ignoring `rfkill`
 - Forgetting firmware packages
 - Mixing proprietary and in-kernel drivers
 - Using outdated forum fixes for different chipsets

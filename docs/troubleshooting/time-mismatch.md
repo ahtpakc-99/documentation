@@ -2,10 +2,6 @@
 
 A common issue in Linux + Windows dual-boot systems is that the clock appears correct in one OS and wrong in the other. The usual symptom is an offset of several hours after rebooting between systems. This is not a hardware clock failure—it is typically caused by different assumptions about how the Real-Time Clock (RTC) is stored.
 
----
-
-## Scope
-
 Use this guide if:
 
 - Time is correct in Parrot OS but wrong in Windows
@@ -14,18 +10,16 @@ Use this guide if:
 - Timezone is correct, but displayed time is offset
 - NTP works temporarily, then breaks after switching OS
 
----
-
 ## Why It Happens
 
 Your motherboard clock (RTC) stores a base time. Operating systems may interpret that clock differently:
 
-- **Linux** commonly expects RTC in **UTC**
-- **Windows** commonly expects RTC in **local time**
+- **Linux** commonly expects RTC in **UTC**
+- **Windows** commonly expects RTC in **local time**
 
 If one OS writes RTC using one model and the other reads using another, the displayed time becomes offset.
 
-This is a standards mismatch, not a timezone bug.
+This is a standard mismatch, not a timezone bug.
 
 ---
 
@@ -46,9 +40,7 @@ Important fields:
 - `System clock synchronized`
 - `RTC in local TZ`
 
-This command usually reveals the exact configuration mismatch.
-
-### Example timedatectl output
+This command usually reveals the exact configuration mismatch, e.g.:
 
 ```
 Local time: Mon 2026-04-27 11:18:28 UTC
@@ -60,15 +52,13 @@ NTP service: active
 RTC in local TZ: no
 ```
 
----
-
 ## 2. Recommended Fix: Keep RTC in UTC
 
 Using UTC for RTC is cleaner and aligns with Linux defaults. Configure Windows to understand UTC instead of local time.
 
 ### On Windows
 
-Run **Command Prompt as Administrator**:
+Run **Command Prompt as Administrator**:
 
 ```
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /t REG_DWORD /d 1 /f
@@ -78,7 +68,7 @@ Then fully reboot Windows.
 
 ### On Parrot
 
-Ensure Linux is using UTC behavior:
+Ensure it is using UTC behavior:
 
 ```
 timedatectl set-local-rtc 0
@@ -93,8 +83,6 @@ timedatectl
 Expected:
 
 - `RTC in local TZ: no`
-
----
 
 ## 3. Alternative Fix: Force Linux to Use Local Time
 
@@ -116,8 +104,6 @@ Expected:
 
 This works, but UTC is generally preferable.
 
----
-
 ## 4. Ensure NTP Is Enabled
 
 Even after RTC alignment, network time sync should remain active.
@@ -128,8 +114,6 @@ timedatectl
 ```
 
 If synchronization is disabled, the clock may drift over time.
-
----
 
 ## 5. Correct Timezone Explicitly
 
@@ -153,20 +137,16 @@ Then verify again:
 timedatectl
 ```
 
----
-
 ## 6. Fast Startup in Windows
 
 Windows Fast Startup can preserve stale clock state across shutdowns.
 
 Recommended:
 
-- Disable **Fast Startup** in Windows power settings
-- Perform a full shutdown/reboot after changing clock settings
+- Disable **Fast Startup** in Windows power settings.
+- Perform a full shutdown/reboot after changing clock settings.
 
 This prevents partial hibernation behavior from reintroducing mismatches.
-
----
 
 ## 7. If Time Keeps Resetting in Both OSes
 
@@ -178,8 +158,6 @@ If both systems lose time entirely (not just offset), check hardware causes:
 
 That is separate from dual-boot UTC/local conflicts.
 
----
-
 ## 8. Validate the Fix
 
 After configuration:
@@ -190,12 +168,10 @@ After configuration:
 
 If correct in all transitions, the RTC model is aligned.
 
----
-
 ## Common Mistakes
 
 - Changing timezone instead of RTC mode
-- Disabling NTP and assuming problem is fixed
+- Disabling NTP and assuming the problem is fixed
 - Using local RTC without understanding DST effects
-- Testing without full reboot
+- Testing without a full reboot
 - Ignoring Windows Fast Startup
