@@ -1,18 +1,18 @@
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-
 import styles from './index.module.css'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
 
   return (
-    <div className="container">
+    <div className="container flex flex-col gap-5">
       <div className="padding-vert--lg text--center">
         <h1 className="hero__title">{siteConfig.title.split(" ")[0]}
           <span className='hero__title__span'>{siteConfig.title.split(" ")[1]}</span>
         </h1>
       </div>
+      {/* <SearchBar /> */}
       <div className="row">
         <div className="col col--9 hero__subtitle text--center" style={{ margin: '0 auto' }}>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -23,6 +23,7 @@ function HomepageHeader() {
             >
               Get Started
             </Link>
+                  
           </div>
         </div>
         {/*

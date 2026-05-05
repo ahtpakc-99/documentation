@@ -13,7 +13,18 @@ const config = {
   baseUrl: '/docs/',
   onBrokenLinks: 'ignore',
   favicon: 'img/favicon.ico',
-
+  // ... rest of config
+  scripts: [
+    {
+      src: '/docs/pagefind/pagefind-ui.js',
+      async: true,
+    },
+  ],
+  stylesheets: [
+    {
+      href: '/docs/pagefind/pagefind-ui.css',
+    },
+  ],
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   // organizationName: 'parrot', // Usually your GitHub org/user name.
@@ -73,7 +84,7 @@ const config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
       navbar: {
-        title: 'Documentation',
+        // title: 'Documentation',
         logo: {
           alt: 'Parrot Logo',
           src: 'img/parrot-logo.svg'
