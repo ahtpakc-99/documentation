@@ -272,6 +272,22 @@ const troubleshooting = [
     customProps: {
       iconUrl: '/img/icons/parrotOS_icons_nobckgr_troubleshoot.svg'
     }
+  },
+  {
+    type: 'doc',
+    id: 'troubleshooting/wifi',
+    label: 'Wi-Fi Adapter Not Detected',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_troubleshoot.svg',
+    },
+  },
+  {
+    type: 'doc',
+    id: 'troubleshooting/time-mismatch',
+    label: 'Dual Boot Time Mismatch',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_troubleshoot.svg',
+    },
   }
 ]
 
