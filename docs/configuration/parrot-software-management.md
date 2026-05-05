@@ -101,7 +101,7 @@ sudo apt upgrade <package>
 Update the full distribution. It will update our system to the next available version:
 
 :::warning
-Parrot OS is a rolling release distribution. You should **always** use `parrot-upgrade` to update the entire system. Do not use `apt upgrade` or `apt full-upgrade` for system-wide updates, as this can break your system dependencies.
+Parrot OS is a rolling release distribution. It is highly recommended to use `parrot-upgrade` to update the entire system. `parrot-upgrade` is a custom wrapper that automatically executes the appropriate `apt` commands with the correct parameters, ensuring your system dependencies are safely managed during rolling updates.
 :::
 
 ```bash
