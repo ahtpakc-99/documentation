@@ -307,6 +307,14 @@ const tools = [
     customProps: {
       iconUrl: '/img/icons/parrotOS_icons_nobckgr_tools.svg'
     }
+  },
+  {
+    type: 'doc',
+    id: 'tools/Caido',
+    label: 'Caido',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_tools.svg'
+    }
   }
 ]
 
