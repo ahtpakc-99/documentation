@@ -18,8 +18,8 @@ build_production:
   only:
     - master
   script:
-    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:prod .
-    - docker push sjc.vultrcr.com/parrotinfra/documentation:prod
+    - docker build -t sjc.vultrcr.com/parrotinfra/documentation:latest .
+    - docker push sjc.vultrcr.com/parrotinfra/documentation:latest
 
 build_beta:
   stage: build_beta
