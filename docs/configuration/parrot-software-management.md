@@ -27,86 +27,91 @@ The package manager must check in a given location (it can be a local directory 
 
 Although in Parrot it is not necessary (nor recommended) to add new repositories or modify existing ones, we will see where we can configure them. In the file system, under the path */etc/apt/sources.list.d*, we find the file **parrot.list**. The content of this file should be:
 
-	## stable repository
-	deb http://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
-	#deb-src http://deb.parrot.sh/parrot echo contrib non-free non-free-firmware
+```bash
+## stable repository
+deb http://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
+```
 
 With this, we make sure we have the correct repository list. In this location the Parrot developers keep the packages updated.
 
 ## Package Manager
 
-The Parrot package manager is **apt**. Amongst other things,this manager is responsible for installing packages, checking dependencies, and updating the system. Let's see what we can do with it. We will see the most common options below. For more in-depth instructions, view the man pages for each of the following commands: *apt*, *apt-cache*, *dpkg*, etc...
+The Parrot package manager is **apt**. Amongst other things, this manager is responsible for installing packages, checking dependencies, and updating the system. Let's see what we can do with it. We will see the most common options below. For more in-depth instructions, view the man pages for each of the following commands: *apt*, *apt-cache*, *dpkg*, etc...
 
 Search for a package or text string:
 
-```
+```bash
 apt search <package/text_string>
 ```
 
 Show package information:
 
-```
+```bash
 apt show <package>
 ```
 
 Show package dependencies:
 
-```
+```bash
 apt depends <package>
 ```
 
 Show the names of all the packages installed in the system:
 
-```
+```bash
 apt list --installed
 ```
-	
-Install a package:
+    
+Install a package (requires root privileges):
 
-```
-apt install <package>
+```bash
+sudo apt install <package>
 ```
 
 Uninstall a package:
 
-```
-apt remove <package>
+```bash
+sudo apt remove <package>
 ```
 
 Delete a package including its configuration files:
 
-```
-apt purge <package>
+```bash
+sudo apt purge <package>
 ```
 
-Delete automatically those packages that are not being used (be careful with this command, due to apt's hell dependency it may delete unwanted packages): 
+Delete automatically those packages that are not being used (be careful with this command, due to complex dependency trees, it might occasionally remove packages you still need): 
 
-```
-apt autoremove
+```bash
+sudo apt autoremove
 ```
 
 Update the repositories information:
 
-```
-apt update
+```bash
+sudo apt update
 ```
 
-Update a package to the last available version in the repository:
+Update a specific package to the last available version in the repository:
 
+```bash
+sudo apt upgrade <package>
 ```
-apt upgrade <package>
-```
-	
+    
 Update the full distribution. It will update our system to the next available version:
 
-```
+:::warning
+Parrot OS is a rolling release distribution. It is highly recommended to use `parrot-upgrade` to update the entire system. `parrot-upgrade` is a custom wrapper that automatically executes the appropriate `apt` commands with the correct parameters, ensuring your system dependencies are safely managed during rolling updates.
+:::
+
+```bash
 sudo parrot-upgrade
 ```
 
 Clean caches, downloaded packages, etc:
 
-```
-apt clean && apt autoclean
+```bash
+sudo apt clean && sudo apt autoclean
 ```
 
-These are just some examples. If more information is required, you should check the manual page (man apt).
+These are just some examples. If more information is required, you should check the manual page (`man apt`).
