@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "start": "docusaurus start && pagefind --site build",
     "build": "docusaurus build && pagefind --site build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
