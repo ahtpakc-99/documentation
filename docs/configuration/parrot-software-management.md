@@ -29,7 +29,7 @@ Although in Parrot it is not necessary (nor recommended) to add new repositories
 
 ```bash
 ## stable repository
-deb http://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
+deb https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
 ```
 
 With this, we make sure we have the correct repository list. In this location the Parrot developers keep the packages updated.
@@ -101,14 +101,14 @@ sudo apt upgrade <package>
 Update the full distribution. It will update our system to the next available version:
 
 :::warning
-Parrot OS is a rolling release distribution. It is highly recommended to use `parrot-upgrade` to update the entire system. `parrot-upgrade` is a custom wrapper that automatically executes the appropriate `apt` commands with the correct parameters, ensuring your system dependencies are safely managed during rolling updates.
+It is highly recommended to use `parrot-upgrade` to update the entire system. `parrot-upgrade` is a custom wrapper that automatically executes the appropriate `apt` commands with the correct parameters, ensuring your system dependencies are safely managed during rolling updates.
 :::
 
 ```bash
 sudo parrot-upgrade
 ```
 
-Clean caches, downloaded packages, etc:
+Clean caches, downloaded packages, etc.:
 
 ```bash
 sudo apt clean && sudo apt autoclean
