@@ -30,6 +30,14 @@ const introduction = [
     customProps: {
       iconUrl: '/img/icons/parrotOS_icons_nobckgr_intro.svg'
     }
+  },
+  {
+    type: 'doc',
+    id: 'introduction/community-manifesto',
+    label: 'Community Manifesto',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_intro.svg'
+    }
   }
 ]
 

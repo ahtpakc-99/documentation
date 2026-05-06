@@ -45,7 +45,7 @@ The Parrot website, freely visible at https://parrotsec.org, was built using the
 You are free to view and analyze the code by cloning the [repository](https://gitlab.com/parrotsec/project/website).
 
 If you have any ideas on how to improve it or anything else, feel free to open a merge request. The maintainer (danterolle@parrotsec.org)
-of this sub-project will review your request as soon as possible and coordinate to approve it.
+of this subproject will review your request as soon as possible and coordinate to approve it.
 
 ### Documentation
 
@@ -64,55 +64,13 @@ To get started, you can follow [this manual](https://www.debian.org/doc/debian-p
 Initially, the work must be started on a personal repo forking the package. Once the code is correctly set to be packaged, 
 open a merge request and a Team Leader will analyze the modifications before approving.
 
-### Community
-
-The [community](https://parrotsec.org/community) is a very important part for an operating system like Parrot, and helping each other can only be useful 
-to increase one's knowledge. The ParrotOS community always needs new moderators for Discord channels, our Forum, and Telegram groups.
-
-#### Community Structure
-
-Each community is divided into the following sections:
-
-* **General**: A welcome place to have a first approach to our community. Feel free to ask for help or whatever you need, there will always be someone who will answer your questions or direct you to the right channel.
-
-* **Support**: Technical Support room for ParrotOS. Here you can find questions and answers concerning the OS.
-
-* **Ask the Devs**: ParrotOS devs are here to answer questions regarding the OS and more.
-
-* **Distro Development**: News and sneak peeks at the progress of the next ParrotOS version development, questions are always welcome.
-
-* **Hacking**: Have fun by asking questions about hacking techniques, read users’ experiences, read contents made by us or discuss what concerns Hacking and Security in general.
-
-* **Programming**: In this room discussions about coding are highly encouraged, and if you need assistance on your tasks, don't hesitate to ask.
-
-* **Sysadmin**: The topic here is all about system administration, networking, hardware and software.
-
-* **OffTopic**: Free conversation room, memes are always welcome!
-
-* **News**: Official Channel to get all of the latest news about Parrot.
-
-#### Community Manifesto
-We highly encourage users to engage in discussions not only for support purposes, but also for whatever concerns security, hacking, programming (and so on), building an active and varied community where any kind of discussion or comparison is valued and welcome. 
-
-If any user wants to join us (or has already joined) to help build and keep our community healthy and active, we ask them to follow the rules of each community and to meet certain requirements:
-
-* **Be kind, always.** It is important to maintain a consistently polite and patient demeanour with users. Reserve expressing frustration or anger for truly exceptional and extreme circumstances.
-
-* **Respect Everyone.** Our community must be healthy even when it’s about religion, political belief, physical/mental disabilities and LGBT+ communities. Don’t spread hate on anything or anyone and guide users towards respect and acceptance.
-
-* **Be a guide to anyone approaching this field, ParrotOS and GNU/Linux for the first time.** No one is born an expert in a specific field. Don’t take anything for granted, if a user asks a question about something that you know very well, share your knowledge, it’ll be accessible for the future to those who’ll be in the same situation. You don’t know the answer? Kindly guide the user to wait for someone more experienced to read the request and reply.
-* **Be always enthusiastic to learn new things and be open to new possibilities.** Knowledge is constantly evolving, and something you used to know may vary over time, consult the community as much as possible.
-* **Avoid acting impulsively or based solely on your personal dislikes.** Everyone can have likes and dislikes, but this must not affect the community. Moderate with intelligence and reasoning, not with your personal emotions. If there’s something negative or that needs more attention about the team, please ping the community manager in the moderation room and explain in detail what’s going on.
-
-We value users’ contributions so, for this reason, every three months we will announce the most active members, who will obtain in their profile the mention of “**ParrotOS Enthusiast**”. Thanks to this, we will give our community more reference points.
-
 ## Development workflow
 
 Our development workflow is based on the following points and always tries to involve the entire development team (and
 interested contributors), so that everyone is constantly updated:
 
-1. Devs will write their code and perform a first local test in order to resolve as many bugs as possible.
+1. Devs will write their code and perform the first local test to resolve as many bugs as possible.
 2. Upload the first version (or an updated version through a merge request in case of an application being updated) on GitLab. The Team Leader (or someone in charge) will analyze the code and approve the modifications.
-3. An open beta/internal beta campaign will be launched in order to investigate the code and find bugs/vulnerabilities.
+3. An open beta/internal beta campaign will be launched to investigate the code and find bugs/vulnerabilities.
 4. If bugs and vulnerabilities are discovered, repeat the two previous steps until there are no more critical and evident bugs.
 5. When the code is ready to be packaged, the Team Leader or someone in charge will accept the final modifications.
