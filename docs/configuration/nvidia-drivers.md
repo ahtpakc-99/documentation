@@ -4,17 +4,17 @@ sidebar_position: 2
 
 # Nvidia GPU Driver configuration
 
-Initially, Parrot uses the Nvidia **nouveau open source drivers**, since they support most Nvidia cards. These guarantee good stability and allow you to use your gpu without problems for everyday use. 
+Initially, Parrot uses the Nvidia **nouveau open source drivers**, since they support most Nvidia cards. These guarantee good stability and allow you to use your GPU without problems for everyday use. 
 
 However, it may be necessary to use other drivers that give greater compatibility with different software and make the most of your GPU. For this reason, you can install **Nvidia's official (closed source) drivers**.
 
-You have two ways to install, either via [the Parrot repository](./nvidia-drivers.html#install-the-driver-via-the-parrot-repositories) or [from the official Nvidia website](./nvidia-drivers.html#install-the-driver-from-the-official-nvidia-website).
+You have two ways to install, either via [the Parrot repository](#install-the-driver-via-the-parrot-repositories) or [from the official Nvidia website](#install-the-driver-from-the-official-nvidia-website).
 
 
 :::info Note
-  Please note the driver installation and configuration may be different for laptop or desktop computers. For example, the user could have a CPU with an iGPU (integrated GPU) and a dGPU (dedicated GPU). The user must choose which to use based on the context. 
+  Please note the driver installation and configuration may be different for laptop or desktop computers. For example, the user could have a CPU with an iGPU (integrated GPU) and a dGPU (dedicated GPU). Users with hybrid setups (iGPU + dGPU) must configure their system to correctly offload rendering to the dedicated GPU.
 
-  [The differences will be highlighted in this document](./nvidia-drivers.html#nvidia-driver-on-a-computer-with-igpu-and-dgpu).
+  [The differences will be highlighted in this document](#nvidia-driver-on-a-computer-with-igpu-and-dgpu).
 
   Every step described here has been tested, so it is highly recommended that you read everything in this document very carefully.
 :::
@@ -23,7 +23,7 @@ You have two ways to install, either via [the Parrot repository](./nvidia-driver
 
 If you don't know your GPU model, open the terminal and type this command:
 
-```
+```bash
 lspci | grep VGA
 ```
 
@@ -31,36 +31,28 @@ lspci | grep VGA
 
 It will show your GPU model and its architecture. For further information use:
 
-```
+```bash
 inxi -F
 ```
 
 This will show your computer information, including the GPU model and also the type of driver used.
 
-Once you have ascertained that you are using the nouveau driver and you want to use the proprietary driver instead, for reasons of driver conflict, you must first disable the nouveau driver.
+Once you have ascertained that you are using the nouveau driver and you want to use the proprietary driver instead, for reasons of driver conflict, you must first disable the nouveau driver. This command will automatically create the configuration file with the necessary rules:
 
-```
-sudo nano /etc/modprobe.d/blacklist-nouveau.conf
-```
-
-Add the following lines and save the file.
-    
-```
-blacklist nouveau
-options nouveau modeset=0
-alias nouveau off
+```bash
+echo -e "blacklist nouveau\noptions nouveau modeset=0\nalias nouveau off" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf
 ```
 
 Once the file has been saved, proceed with the installation of the Nvidia driver using the following command:
 
-```
+```bash
 sudo apt update && sudo apt install nvidia-driver
 ```
 
 :::info Note
   From kernel 5.16, for compatibility problems, it may be necessary to install the drivers with the following command:
         
-```
+```bash
 sudo apt install nvidia-driver -t echo-backports
 ```
 :::
@@ -69,13 +61,13 @@ This completes the installation, but we recommend that you check that everything
 
 Install it by running:
 
-```
+```bash
 sudo apt install nvidia-smi
 ```
 
 Start it with the following command:
 
-```
+```bash
 nvidia-smi
 ```
 
@@ -91,49 +83,39 @@ Most modern computers come with an integrated video card in the CPU (iGPU, like 
 
 In this guide we'll deal with the drivers for both video cards and show how to switch between them.
 
-#### Step 1 - Install NVIDIA Drivers and CUDA Toolkit
+#### Step 1 - Install Nvidia Drivers and CUDA Toolkit
 
 Open a terminal window and type:
 
-```
+```bash
 sudo apt update 
 ```
 
-```
+```bash
 sudo apt install bumblebee-nvidia primus-nvidia primus-vk-nvidia nvidia-smi nvidia-cuda-dev nvidia-cuda-toolkit
 ```
 
 ![7](./images/nvidia-drivers/7.png)
 
-Wait for the installation to proceed. When a warning notifying **nouveau** driver conflicting with **nvidia** driver appears, click **ok**:
+Wait for the installation to proceed. When a warning notifying **nouveau** driver conflicting with **Nvidia** driver appears, click **ok**:
 
 ![8](./images/nvidia-drivers/8.png)
 
 #### Step 2 - Blacklist Nouveau
 
 :::info Note
-  if you have already followed <a href="./nvidia-drivers.html#install-the-driver-via-the-parrot-repository">the nvidia installation via the Parrot repo</a> you can go to <a href="./nvidia-drivers.html#step-3---configure-bumblebee">step 3</a>.
+  If you have already followed [the Nvidia installation via the Parrot repo](#install-the-driver-via-the-parrot-repositories) you can go to [step 3](#step-3---configure-bumblebee).
 :::
 
-After the installation has finished, it's time to blacklist the **nouveau** driver in order to make the nvidia driver work.
+After the installation has finished, it's time to blacklist the **nouveau** driver in order to make the Nvidia driver work.
 
-In the terminal, type:
+In the terminal, run the following command to create the file and add the rules automatically:
 
-```
-sudo nano /etc/modprobe.d/blacklist-nouveau.conf
-```
-
-And add:
-
-```
-blacklist nouveau
-options nouveau modeset=0
-alias nouveau off
+```bash
+echo -e "blacklist nouveau\noptions nouveau modeset=0\nalias nouveau off" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf
 ```
 
-![9](./images/nvidia-drivers/9.png)
-
-Save the file and reboot.
+Save your work and reboot.
  
 #### Step 3 - Configure Bumblebee
 
@@ -141,7 +123,7 @@ Now it's time to tell **bumblebee** which driver should be used.
 
 In the terminal open **bumblebee.conf**:
 
-```
+```bash
 sudo nano /etc/bumblebee/bumblebee.conf
 ```
 
@@ -157,13 +139,13 @@ Save the file and reboot.
 
 Open a terminal and type:
 
-```
+```bash
 watch nvidia-smi
 ```
 
 In a new terminal enter the following command:
 
-```
+```bash
 optirun hashcat -b -d 1
 ```
 
@@ -174,12 +156,12 @@ The result should be similar to this:
 In `nvidia-smi` interface, `hashcat` should appear running using your Nvidia video card.
 
 :::info Note
-  Launching application with <strong>primusrun</strong> will use PRIMUS Technology, while using <strong>optirun</strong> will use VirtualGL.
+  Launching application with **primusrun** will use PRIMUS Technology, while using **optirun** will use VirtualGL.
 :::
 
 ## Install the driver from the official Nvidia website
 
-As mentioned at the beginning of this document, drivers can also be installed from Nvidia website.
+As mentioned at the beginning of this document, drivers can also be installed from the official Nvidia website.
 
 You can download the latest driver directly from [here](https://www.nvidia.com/en-us/drivers/unix/), where there are also older drivers for old GPUs.
 
@@ -199,56 +181,49 @@ From the Nvidia website:
 
 Click on **download**, and a file with this name will be downloaded:
 
-`NVIDIA-Linux-x86_64-<driver version>.run` (about 260 mb)
+`NVIDIA-Linux-x86_64-<driver version>.run` (about 260 MB)
 
 To avoid conflicts with the X graphics server, we will have to use Parrot without a graphical interface (we will have to drop to [Runlevel 3](https://en.wikipedia.org/wiki/Runlevel)). 
 
 We can do this simply via systemd, with the systemctl command:
 
-```
+```bash
 sudo systemctl set-default multi-user.target
 ```
 
 :::info Note
-If by any chance you want to go back and reuse Parrot with MATE, use the following commands:
+If by any chance you want to go back and reuse Parrot with KDE Plasma, use the following commands:
 
-```  
+```bash  
 sudo systemctl set-default graphical.target 
 ```
-```
+
+```bash
 reboot
 ```
 :::
 
-To avoid conflicts with the installation of the new driver, remember to blacklist the nouveau driver:
+To avoid conflicts with the installation of the new driver, remember to blacklist the nouveau driver by running:
 
-```
-sudo nano /etc/modprobe.d/blacklist-nouveau.conf
-```
-
-Add these lines then save the file:
-
-```
-blacklist nouveau
-options nouveau modeset=0
-alias nouveau off
+```bash
+echo -e "blacklist nouveau\noptions nouveau modeset=0\nalias nouveau off" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf
 ```
 
 Run the following command to regenerate the initramfs image.
 
-```
+```bash
 sudo update-initramfs -u
 ```
 
 The last step is to disable nouveau drivers by rebooting the machine:
 
-```
+```bash
 reboot
 ```
 
 Now navigate to the folder where you downloaded the **.run** file and give it execute permissions:
 
-```
+```bash
 sudo chmod +x NVIDIA-Linux-x86_64-<driver version>.run
 ```
 
@@ -259,26 +234,27 @@ If you don't remember what chmod does, it is recommended that you read the [File
 
 After that you can start the **.run** file:
 
-```
+```bash
 sudo ./NVIDIA-Linux-x86_64-<driver version>.run
 ```
 
 The installation wizard process will start and the drivers will be installed along with all utilities (including Nvidia Driver X Settings).
 
-Return to MATE via the command:
+Return to KDE Plasma via the commands:
 
-```
+```bash
+sudo systemctl isolate graphical.target
 sudo systemctl set-default graphical.target
 ```
 
-You will go from Runlevel 3 to Runlevel 5, and finally you will be able to use the nvidia driver. 
+You will go from Runlevel 3 back to your graphical interface, and finally you will be able to use the Nvidia driver. 
 
 To verify that everything went well, start nvidia-smi (already installed through *.run* file):
 
-```
+```bash
 nvidia-smi
 ```
 
 ![6](./images/nvidia-drivers/6.png)
 
-Notice that in this case the latest Nvidia (470.57.02) driver was installed.
+Notice that in this case, the Nvidia driver was successfully installed (version shown in the image as an example).
