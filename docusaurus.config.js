@@ -87,7 +87,9 @@ const config = {
         // title: 'Documentation',
         logo: {
           alt: 'Parrot Logo',
-          src: 'img/parrot-logo.svg'
+          src: 'img/parrot-logo.svg',
+          href: 'https://parrotsec.org',
+          target: '_self',
         },
         hideOnScroll: true,
         // items: [
