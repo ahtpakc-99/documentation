@@ -192,6 +192,14 @@ const configuration = [
   },
   {
     type: 'doc',
+    id: 'configuration/parrot-optimized-builds',
+    label: 'Parrot Optimized Builds',
+    customProps: {
+      iconUrl: '/img/icons/parrotOS_icons_nobckgr_configure.svg'
+    }
+  },
+  {
+    type: 'doc',
     id: 'configuration/nvidia-drivers',
     label: 'Nvidia GPU Driver configuration',
     customProps: {
