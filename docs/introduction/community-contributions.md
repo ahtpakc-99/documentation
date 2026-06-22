@@ -49,7 +49,7 @@ of this subproject will review your request as soon as possible and coordinate t
 
 ### Documentation
 
-The official ParrotOS documentation, accessible at https://parrotsec.org/docs. It is based on the Docusaurus v2 framework
+The official ParrotOS documentation, accessible at https://parrotsec.org/docs. It is based on the Docusaurus v3 framework
 and the graphics follow the ParrotOS style. New features will always be added to make it as complete as possible.
 If you think you can add some essential or interesting documents, feel free to clone this [repository](https://gitlab.com/parrotsec/project/documentation) and open a merge request.
 
