@@ -20,6 +20,57 @@ const config = {
       async: true,
     },
   ],
+  plugins: [
+    function matomoPlugin() {
+      return {
+        name: 'matomo-plugin',
+        injectHtmlTags() {
+          return {
+            headTags: [
+              {
+                tagName: 'script',
+                innerHTML: `
+                  window.addEventListener('load', function() {
+                    document.body.classList.add('loaded');
+                  });
+                `,
+              },
+              {
+                tagName: 'script',
+                innerHTML: `
+                  var _paq = window._paq = window._paq || [];
+                  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+                  _paq.push(["setCookieDomain", "*.parrotsec.org"]);
+                  _paq.push(["setDomains", ["*.parrotsec.org"]]);
+                  _paq.push(["disableCookies"]);
+                  _paq.push(['trackPageView']);
+                  _paq.push(['enableLinkTracking']);
+                  (function() {
+                    var u="https://endpoints.parrotsec.org/";
+                    _paq.push(['setTrackerUrl', u+'t']);
+                    _paq.push(['setSiteId', '1']);
+                    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                    g.async=true; g.src=u+'j'; s.parentNode.insertBefore(g,s);
+                  })();
+                `,
+              },
+            ],
+            postBodyTags: [
+              {
+                tagName: 'img',
+                attributes: {
+                  referrerPolicy: 'no-referrer-when-downgrade',
+                  src: 'https://endpoints.parrotsec.org/t?idsite=1&rec=1',
+                  style: 'border: 0',
+                  alt: '',
+                },
+              },
+            ],
+          };
+        },
+      };
+    },
+  ],
   stylesheets: [
     {
       href: '/docs/pagefind/pagefind-ui.css',
