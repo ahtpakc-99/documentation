@@ -56,15 +56,7 @@ const config = {
               },
             ],
             postBodyTags: [
-              {
-                tagName: 'img',
-                attributes: {
-                  referrerPolicy: 'no-referrer-when-downgrade',
-                  src: 'https://endpoints.parrotsec.org/t?idsite=1&rec=1',
-                  style: 'border: 0',
-                  alt: '',
-                },
-              },
+              `<noscript><img referrerpolicy="no-referrer-when-downgrade" src="https://endpoints.parrotsec.org/t?idsite=1&rec=1" style="border: 0" alt="" /></noscript>`,
             ],
           };
         },
