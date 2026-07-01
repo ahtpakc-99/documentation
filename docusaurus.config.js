@@ -55,8 +55,11 @@ const config = {
                 `,
               },
             ],
-            postBodyTags: [
-              `<noscript><img referrerpolicy="no-referrer-when-downgrade" src="https://endpoints.parrotsec.org/t?idsite=1&rec=1" style="border: 0" alt="" /></noscript>`,
+            preBodyTags: [
+              {
+                tagName: 'noscript',
+                innerHTML: `<img referrerpolicy="no-referrer-when-downgrade" src="https://endpoints.parrotsec.org/t?idsite=1&rec=1" style="border: 0;" alt="" />`,
+              },
             ],
           };
         },
