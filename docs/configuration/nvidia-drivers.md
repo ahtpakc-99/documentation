@@ -49,14 +49,6 @@ Once the file has been saved, proceed with the installation of the Nvidia driver
 sudo apt update && sudo apt install nvidia-driver
 ```
 
-:::info Note
-  From kernel 5.16, for compatibility problems, it may be necessary to install the drivers with the following command:
-        
-```bash
-sudo apt install nvidia-driver -t echo-backports
-```
-:::
-
 This completes the installation, but we recommend that you check that everything went well. To do this, you can use the official utility from Nvidia called [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface).
 
 Install it by running:
