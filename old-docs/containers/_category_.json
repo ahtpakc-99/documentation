@@ -1,8 +1,0 @@
-{
-  "label": "Containers",
-  "position": 5,
-  "link": {
-    "type": "generated-index",
-    "description": "Run ParrotOS on Docker, Podman, Apple's container and WSL."
-  }
-}

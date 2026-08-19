@@ -22,15 +22,54 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Guides",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", slug: "guides/example" },
-          ],
+          label: "Introduction",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "introduction" } }],
         },
         {
           label: "Installation",
+          collapsed: true,
           items: [{ autogenerate: { directory: "installation" } }],
+        },
+        {
+          label: "Virtualization",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "virtualization" } }],
+        },
+        {
+          label: "Containers",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "containers" } }],
+        },
+        {
+          label: "USB",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "usb" } }],
+        },
+        {
+          label: "Configuration",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "configuration" } }],
+        },
+        {
+          label: "Troubleshooting",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "troubleshooting" } }],
+        },
+        {
+          label: "Tools",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "tools" } }],
+        },
+        {
+          label: "Development",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "development" } }],
+        },
+        {
+          label: "Mirrors",
+          collapsed: true,
+          items: [{ autogenerate: { directory: "mirrors" } }],
         },
       ],
     }),
