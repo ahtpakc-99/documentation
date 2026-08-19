@@ -1,0 +1,37 @@
+/* 1. Make the "On this page" title smaller */
+starlight-toc h2 {
+  font-size: var(
+    --sl-text-sm
+  ) !important; /* Default is larger, around h5 size */
+}
+
+/* 2. Make the anchor links smaller */
+starlight-toc a {
+  font-size: var(--sl-text-xs) !important; /* Default is --sl-text-sm */
+  line-height: 1.4 !important; /* Pulls the links slightly closer together */
+}
+
+/* 3. OPTIONAL: Shrink the physical width of the right sidebar column on desktop */
+
+:root {
+  --sl-content-width: 60rem;
+}
+
+/* src/styles/custom.css */
+:root[data-theme='dark'] {
+  /* 1. The Vibrant Teal Accents */
+  --sl-color-accent-high: #5eead7; /* Light teal for hover states */
+  --sl-color-accent: #0eb39e;      /* Main teal for active items and links */
+  --sl-color-accent-low: #043933;  /* Dark teal used for badge/card backgrounds */
+  
+  /* 2. The Text Accent (Ensures links are legible against dark backgrounds) */
+  --sl-color-text-accent: #1bdac1; 
+  
+  /* 3. The Dark Blue-Grey Backgrounds (Optional, but matches the image) */
+  --sl-color-bg: #11141c;          /* Main content area */
+  --sl-color-bg-nav: #0b0d13;      /* Top navigation bar */
+  --sl-color-bg-sidebar: #0f121a;  /* Left and right sidebars */
+  
+  /* 4. Muted Text Colors (Matches the grey description text) */
+  --sl-color-text-muted: #8b949e;
+}
