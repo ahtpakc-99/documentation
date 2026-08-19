@@ -3,12 +3,11 @@ yarn.lock
 /node_modules
 .idea
 
-# Production
-/build
+# build output
+dist/
 
-# Generated files
-.docusaurus
-.cache-loader
+# generated types
+.astro/
 
 # Misc
 .DS_Store
