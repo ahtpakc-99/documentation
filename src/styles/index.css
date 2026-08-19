@@ -17,6 +17,13 @@ starlight-toc a {
   --sl-content-width: 60rem;
 }
 
+:root[data-theme='light'] {
+  --sl-color-accent-high: #087F72;
+  --sl-color-accent: #0EB39E;
+  --sl-color-accent-low: #D9F7F3;
+  --sl-color-text-accent: #087F72;
+}
+
 /* src/styles/custom.css */
 :root[data-theme='dark'] {
   /* 1. The Vibrant Teal Accents */
@@ -28,10 +35,26 @@ starlight-toc a {
   --sl-color-text-accent: #1bdac1; 
   
   /* 3. The Dark Blue-Grey Backgrounds (Optional, but matches the image) */
-  --sl-color-bg: #11141c;          /* Main content area */
-  --sl-color-bg-nav: #0b0d13;      /* Top navigation bar */
-  --sl-color-bg-sidebar: #0f121a;  /* Left and right sidebars */
+  --sl-color-bg: #0D1117;          /* Main content area */
+  --sl-color-bg-nav: #0D1117;      /* Top navigation bar */
+  --sl-color-bg-sidebar: #090D13;  /* Left and right sidebars */
+  --sl-color-hairline: #21262D;
+  --sl-color-hairline-light: #21262D;
+  --sl-color-hairline-shade: #21262D;
   
-  /* 4. Muted Text Colors (Matches the grey description text) */
-  --sl-color-text-muted: #8b949e;
+  /* 4. Body and sidebar text */
+  --sl-color-text: #8B949E;
+  --sl-color-text-muted: #8B949E;
+  --sl-color-gray-2: #8B949E;
+}
+
+.sidebar-content a[aria-current='page'] {
+  color: var(--sl-color-accent);
+  background-color: #00D4C81A;
+  border-left: 2px solid var(--sl-color-accent);
+}
+
+.sidebar-content a {
+  border-radius: 0;
+  padding: 0.5rem 0.75rem;
 }

@@ -6,13 +6,16 @@ import starlight from "@astrojs/starlight";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "",
+      title: "ParrotOS Docs",
 	  logo: {
         src: './src/assets/parrot-logo.svg',
       },
       customCss: [
         "./src/styles/index.css",
       ],
+      components: {
+        SiteTitle: "./src/components/SiteTitle.astro",
+      },
       social: [
         {
           icon: "gitlab",
