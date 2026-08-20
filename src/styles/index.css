@@ -13,8 +13,13 @@ starlight-toc a {
   padding: 0.5rem 0.75rem;
 }
 
+starlight-toc nav > ul {
+  border-left: 2px solid var(--sl-color-hairline);
+}
+
 starlight-toc a[aria-current='true'] {
   border-left: 2px solid var(--sl-color-accent);
+  margin-left: -2px;
 }
 
 /* 3. OPTIONAL: Shrink the physical width of the right sidebar column on desktop */
