@@ -1,14 +1,12 @@
-/* 1. Make the "On this page" title smaller */
 starlight-toc h2 {
   font-size: var(
     --sl-text-sm
-  ) !important; /* Default is larger, around h5 size */
+  ) !important; 
 }
 
-/* 2. Make the anchor links smaller */
 starlight-toc a {
-  font-size: var(--sl-text-xs) !important; /* Default is --sl-text-sm */
-  line-height: 1.4 !important; /* Pulls the links slightly closer together */
+  font-size: var(--sl-text-xs) !important;
+  line-height: 1.4 !important;
   border-radius: 0;
   padding: 0.5rem 0.75rem;
 }
@@ -22,8 +20,6 @@ starlight-toc a[aria-current='true'] {
   margin-left: -2px;
 }
 
-/* 3. OPTIONAL: Shrink the physical width of the right sidebar column on desktop */
-
 :root {
   --sl-content-width: 60rem;
 }
@@ -35,17 +31,14 @@ starlight-toc a[aria-current='true'] {
   --sl-color-text-accent: #087F72;
 }
 
-/* src/styles/custom.css */
 :root[data-theme='dark'] {
-  /* 1. The Vibrant Teal Accents */
-  --sl-color-accent-high: #5eead7; /* Light teal for hover states */
+
+  --sl-color-accent-high: #5eead7;
   --sl-color-accent: #0eb39e;      /* Main teal for active items and links */
   --sl-color-accent-low: #043933;  /* Dark teal used for badge/card backgrounds */
-  
-  /* 2. The Text Accent (Ensures links are legible against dark backgrounds) */
+
   --sl-color-text-accent: #1bdac1; 
   
-  /* 3. The Dark Blue-Grey Backgrounds (Optional, but matches the image) */
   --sl-color-bg: #0D1117;          /* Main content area */
   --sl-color-bg-nav: #0D1117;      /* Top navigation bar */
   --sl-color-bg-sidebar: #090D13;  /* Left and right sidebars */
@@ -53,7 +46,7 @@ starlight-toc a[aria-current='true'] {
   --sl-color-hairline-light: #21262D;
   --sl-color-hairline-shade: #21262D;
   
-  /* 4. Body and sidebar text */
+  /* Body and sidebar text */
   --sl-color-text: #8B949E;
   --sl-color-text-muted: #8B949E;
   --sl-color-gray-2: #8B949E;
