@@ -7,6 +7,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "ParrotOS Docs",
+      favicon: "/favicon.ico",
 	  logo: {
         src: './src/assets/parrot-logo.svg',
       },
@@ -14,6 +15,7 @@ export default defineConfig({
         "./src/styles/index.css",
       ],
       components: {
+        PageTitle: "./src/components/PageTitle.astro",
         SiteTitle: "./src/components/SiteTitle.astro",
       },
       social: [

@@ -1,0 +1,17 @@
+---
+import Default from "@astrojs/starlight/components/PageTitle.astro";
+
+const isHomepage = Astro.locals.starlightRoute.id === "";
+---
+
+{
+  isHomepage
+    ? <span class="homepage-title-placeholder" aria-hidden="true"></span>
+    : <Default><slot /></Default>
+}
+
+<style is:global>
+  .content-panel:has(.homepage-title-placeholder) {
+    display: none;
+  }
+</style>

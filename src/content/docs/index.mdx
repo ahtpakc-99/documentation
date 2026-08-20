@@ -1,25 +1,9 @@
 ---
 title: ParrotOS Documentation
 description: An important part of any operating system is documentation, the technical manuals which describe the operation and use of programs. As part of its efforts to create a high-quality free operating system, the Parrot Project is making every effort to provide all of its users with proper documentation in an easily accessible form.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
-hero:
-  tagline: Official Documentation
-  image:
-    file: ../../assets/parrot-logo.svg
-  actions:
-    - text: Read the docs
-      link: /installation/dualboot-with-windows/
-      icon: right-arrow
-    # - text: Read the Starlight docs
-    #   link: https://starlight.astro.build
-    #   icon: external
-    #   variant: minimal
+template: splash
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import HomePage from '../../components/HomePage.astro';
 
-<CardGrid stagger>
-	<Card title="Installation" icon="pencil">
-		How to install ParrotOS on your computer? Follow these guides step by step.
-	</Card>
-</CardGrid>
+<HomePage />
