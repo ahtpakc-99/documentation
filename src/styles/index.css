@@ -9,6 +9,12 @@ starlight-toc h2 {
 starlight-toc a {
   font-size: var(--sl-text-xs) !important; /* Default is --sl-text-sm */
   line-height: 1.4 !important; /* Pulls the links slightly closer together */
+  border-radius: 0;
+  padding: 0.5rem 0.75rem;
+}
+
+starlight-toc a[aria-current='true'] {
+  border-left: 2px solid var(--sl-color-accent);
 }
 
 /* 3. OPTIONAL: Shrink the physical width of the right sidebar column on desktop */
