@@ -13,7 +13,7 @@ The software in the parrot archive is delivered in form of deb packages, and the
 
 The Parrot system is configured to use the central parrot archive directors. The Parrot directors are special servers that collect all the requests of the end users and redirect them to the geographically nearest download server available for the user who made the request.
 
-If you want and can, you can make your own mirror for Parrot following [this procedure](/mirrors/make-mirror).
+If you want and can, you can make your own mirror for Parrot following [this procedure](../make-mirror/).
 
 ### Security measures
 

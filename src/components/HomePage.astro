@@ -1,29 +1,31 @@
 ---
 import parrotLogo from "../assets/parrot-logo.svg";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const cards = [
   {
     title: "Getting started",
     description: "Learn the basics and prepare your first Parrot installation.",
-    href: "/introduction/",
+    href: `${base}/introduction/`,
     icon: "parrot",
   },
   {
     title: "Installation",
     description: "Install on bare metal, virtual machines, containers, or ARM.",
-    href: "/installation/",
+    href: `${base}/installation/`,
     icon: "terminal",
   },
   {
     title: "Configuration",
     description: "Customize your desktop, packages, network, and services.",
-    href: "/configuration/",
+    href: `${base}/configuration/`,
     icon: "sliders",
   },
   {
     title: "Security & privacy",
     description: "Explore hardening, AppArmor, anonymity, and security tools.",
-    href: "/tools/",
+    href: `${base}/tools/`,
     icon: "shield",
   },
 ];

@@ -2,8 +2,11 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+const base = "/docs";
+
 // https://astro.build/config
 export default defineConfig({
+  base,
   integrations: [
     starlight({
       title: "ParrotOS Docs",
