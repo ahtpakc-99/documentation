@@ -1,0 +1,64 @@
+starlight-toc h2 {
+  font-size: var(
+    --sl-text-sm
+  ) !important; 
+}
+
+starlight-toc a {
+  font-size: var(--sl-text-xs) !important;
+  line-height: 1.4 !important;
+  border-radius: 0;
+  padding: 0.5rem 0.75rem;
+}
+
+starlight-toc nav > ul {
+  border-left: 2px solid var(--sl-color-hairline);
+}
+
+starlight-toc a[aria-current='true'] {
+  border-left: 2px solid var(--sl-color-accent);
+  margin-left: -2px;
+}
+
+:root {
+  --sl-content-width: 60rem;
+}
+
+:root[data-theme='light'] {
+  --sl-color-accent-high: #087F72;
+  --sl-color-accent: #0EB39E;
+  --sl-color-accent-low: #D9F7F3;
+  --sl-color-text-accent: #087F72;
+}
+
+:root[data-theme='dark'] {
+
+  --sl-color-accent-high: #5eead7;
+  --sl-color-accent: #0eb39e;      /* Main teal for active items and links */
+  --sl-color-accent-low: #043933;  /* Dark teal used for badge/card backgrounds */
+
+  --sl-color-text-accent: #1bdac1; 
+  
+  --sl-color-bg: #0D1117;          /* Main content area */
+  --sl-color-bg-nav: #0D1117;      /* Top navigation bar */
+  --sl-color-bg-sidebar: #090D13;  /* Left and right sidebars */
+  --sl-color-hairline: #21262D;
+  --sl-color-hairline-light: #21262D;
+  --sl-color-hairline-shade: #21262D;
+  
+  /* Body and sidebar text */
+  --sl-color-text: #8B949E;
+  --sl-color-text-muted: #8B949E;
+  --sl-color-gray-2: #8B949E;
+}
+
+.sidebar-content a[aria-current='page'] {
+  color: var(--sl-color-accent);
+  background-color: #00D4C81A;
+  border-left: 2px solid var(--sl-color-accent);
+}
+
+.sidebar-content a {
+  border-radius: 0;
+  padding: 0.5rem 0.75rem;
+}
