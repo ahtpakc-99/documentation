@@ -1,5 +1,5 @@
 ---
-import parrotLogo from "../assets/parrot-logo.svg";
+import parrotPattern from "../assets/parrot.svg";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -9,77 +9,70 @@ const cards = [
     description: "Learn the basics and prepare your first Parrot installation.",
     href: `${base}/introduction/`,
     icon: "parrot",
+    action: "Get started",
   },
   {
     title: "Installation",
     description: "Install on bare metal, virtual machines, containers, or ARM.",
     href: `${base}/installation/`,
     icon: "terminal",
+    action: "Install Parrot",
   },
   {
     title: "Configuration",
     description: "Customize your desktop, packages, network, and services.",
     href: `${base}/configuration/`,
     icon: "sliders",
+    action: "Configure",
   },
   {
     title: "Security & privacy",
     description: "Explore hardening, AppArmor, anonymity, and security tools.",
     href: `${base}/tools/`,
     icon: "shield",
+    action: "Explore tools",
   },
 ];
 ---
 
-<div class="home-page">
+<div
+  class="home-page"
+  style={`--parrot-pattern: url("${parrotPattern.src}")`}
+>
   <section class="home-hero">
     <h1>How can we help?</h1>
     <p>Everything you need to install, configure, and master ParrotOS.</p>
+    <button
+      class="home-search"
+      type="button"
+      data-home-search
+      aria-keyshortcuts="Control+K"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="m16 16 5 5"></path>
+      </svg>
+      <span>Search the documentation</span>
+      <kbd data-home-search-shortcut>Ctrl K</kbd>
+    </button>
   </section>
 
-  <section class="home-grid" aria-label="Documentation categories">
-    {
-      cards.map((card) => (
-        <a class="home-card" href={card.href}>
-          <div class="card-visual">
-            {card.icon === "parrot" && (
-              <img src={parrotLogo.src} alt="" width="92" height="92" />
-            )}
-            {card.icon === "terminal" && (
-              <svg class="card-icon terminal" viewBox="0 0 180 130" aria-hidden="true">
-                <path d="M34 24 143 7v81L34 117Z"></path>
-                <path d="M49 38 158 21v81L49 131Z"></path>
-                <circle cx="145" cy="32" r="3"></circle>
-                <circle cx="136" cy="34" r="3"></circle>
-                <path class="line" d="m69 84 14 10-14 16m21-4 20-4"></path>
-              </svg>
-            )}
-            {card.icon === "sliders" && (
-              <svg class="card-icon sliders" viewBox="0 0 160 130" aria-hidden="true">
-                <path class="line" d="M25 35h110M25 65h110M25 95h110"></path>
-                <circle cx="59" cy="35" r="13"></circle>
-                <circle cx="107" cy="65" r="13"></circle>
-                <circle cx="73" cy="95" r="13"></circle>
-              </svg>
-            )}
-            {card.icon === "shield" && (
-              <svg class="card-icon shield" viewBox="0 0 150 150" aria-hidden="true">
-                <path d="M75 10 128 30v39c0 35-20 58-53 72-33-14-53-37-53-72V30Z"></path>
-                <path class="line" d="m52 74 16 16 32-39"></path>
-              </svg>
-            )}
-          </div>
-          <h2>{card.title}</h2>
-          <p>{card.description}</p>
-        </a>
-      ))
-    }
-  </section>
+  <a class="home-button" href={`${base}/introduction/what-is-parrot`}>Get Started</a>
 </div>
 
 <script>
+  const homeSearch = document.querySelector<HTMLElement>("[data-home-search]");
+  const shortcut = document.querySelector<HTMLElement>("[data-home-search-shortcut]");
+  const isApplePlatform = /Mac|iPhone|iPad|iPod/i.test(navigator.platform);
+
+  if (homeSearch && shortcut && isApplePlatform) {
+    shortcut.textContent = "⌘ K";
+    homeSearch.setAttribute("aria-keyshortcuts", "Meta+K");
+  }
+
   document.querySelectorAll("[data-home-search]").forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
       document
         .querySelector<HTMLButtonElement>("site-search button[data-open-modal]")
         ?.click();
@@ -89,29 +82,70 @@ const cards = [
 
 <style>
   .home-page {
-    width: min(100%, 880px);
+    width: min(100%, 1450px);
+    min-height: calc(100dvh - var(--sl-nav-height) - var(--sl-mobile-toc-height) - 3rem);
     margin: 0 auto;
-    padding: clamp(3rem, 8vw, 6rem) 1rem 5rem;
+    padding: clamp(1.5rem, 4vh, 3rem) 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    gap: 2rem;
     position: relative;
+    isolation: isolate;
   }
 
   .home-page::before {
     content: "";
     position: absolute;
     z-index: -1;
-    top: -8rem;
+    top: 0;
+    bottom: 50%;
     left: 50%;
-    width: min(80vw, 760px);
-    height: 420px;
+    width: 100vw;
     transform: translateX(-50%);
-    border-radius: 50%;
-    background: color-mix(in srgb, var(--sl-color-accent) 10%, transparent);
-    filter: blur(90px);
+    background-image: var(--parrot-pattern);
+    background-position: center top;
+    background-repeat: repeat;
+    background-size: clamp(8rem, 12vw, 11rem);
+    opacity: 0.3;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
     pointer-events: none;
+  }
+
+  :global(:root[data-theme="light"]) .home-page::before {
+    opacity: .7;
+  }
+
+  :global(main:has(.home-page) footer) {
+    display: none;
+  }
+
+  :global(main:has(.home-page)) {
+    overflow: clip;
   }
 
   .home-hero {
     text-align: center;
+  }
+
+  .home-button {
+    padding: .5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-radius: .3rem;
+    border: none;
+    background: var(--sl-color-accent);
+    color: var(--sl-color-text-secondary);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: var(--sl-shadow-sm);
   }
 
   .eyebrow {
@@ -162,7 +196,7 @@ const cards = [
     gap: 0.8rem;
     border: 1px solid var(--sl-color-hairline-light);
     border-radius: 0.75rem;
-    background: color-mix(in srgb, var(--sl-color-bg) 88%, var(--sl-color-accent) 12%);
+    background: transparent;
     color: var(--sl-color-text-muted);
     font: inherit;
     text-align: left;
@@ -192,7 +226,7 @@ const cards = [
     padding: 0.25rem 0.45rem;
     border: 1px solid var(--sl-color-hairline-light);
     border-radius: 0.35rem;
-    background: var(--sl-color-bg-inline-code);
+    background: transparent;
     color: var(--sl-color-text-muted);
     font-size: var(--sl-text-xs);
   }
@@ -200,90 +234,121 @@ const cards = [
   .home-grid {
     margin-top: clamp(3.5rem, 8vw, 5rem);
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2.25rem 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
   }
 
   .home-card {
-    color: inherit;
+    --card-accent: var(--sl-color-accent);
+    min-height: 290px;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid color-mix(in srgb, var(--card-accent) 28%, var(--sl-color-hairline));
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--sl-color-bg) 91%, var(--sl-color-gray-6));
+    color: var(--sl-color-text);
     text-decoration: none;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 8%);
+    transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
   }
 
-  .card-visual {
-    height: 148px;
+  .home-card:hover,
+  .home-card:focus-visible {
+    border-color: var(--card-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 1.75rem 4.5rem rgb(0 0 0 / 16%);
+  }
+
+  .card-icon-frame {
+    width: 4.15rem;
+    height: 4.15rem;
     display: grid;
     place-items: center;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid color-mix(in srgb, var(--sl-color-accent) 28%, var(--sl-color-hairline));
-    border-radius: 0.85rem;
-    background:
-      linear-gradient(color-mix(in srgb, var(--sl-color-accent) 13%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in srgb, var(--sl-color-accent) 13%, transparent) 1px, transparent 1px),
-      linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--sl-color-accent) 15%, var(--sl-color-bg)),
-        color-mix(in srgb, var(--sl-color-accent) 5%, var(--sl-color-bg))
-      );
-    background-size: 28px 28px, 28px 28px, auto;
-    box-shadow: var(--sl-shadow-md);
-    transition: border-color 160ms ease, transform 160ms ease;
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--sl-color-bg) 94%, var(--card-accent));
+    color: var(--sl-color-white);
   }
 
-  .home-card:hover .card-visual,
-  .home-card:focus-visible .card-visual {
-    border-color: var(--sl-color-accent);
-    transform: translateY(-2px);
-  }
-
-  .card-visual img {
-    width: 86px;
-    height: 86px;
-    filter: drop-shadow(0 0.8rem 1.5rem rgb(0 0 0 / 30%));
+  .card-icon-frame img {
+    width: 2.5rem;
+    height: 2.5rem;
+    filter: brightness(0) invert(1);
   }
 
   .card-icon {
-    width: 118px;
-    height: 96px;
+    width: 2.6rem;
+    height: 2.6rem;
     overflow: visible;
   }
 
   .card-icon path:not(.line) {
-    fill: color-mix(in srgb, var(--sl-color-accent) 17%, var(--sl-color-bg));
-    stroke: var(--sl-color-accent-high);
-    stroke-width: 2;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 5;
   }
 
   .card-icon circle {
-    fill: color-mix(in srgb, var(--sl-color-accent) 19%, var(--sl-color-bg));
-    stroke: var(--sl-color-accent-high);
-    stroke-width: 3;
+    fill: currentColor;
+    stroke: none;
   }
 
   .card-icon .line {
     fill: none;
-    stroke: var(--sl-color-accent-high);
-    stroke-width: 5;
+    stroke: currentColor;
+    stroke-width: 7;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
 
   .shield {
-    width: 94px;
-    height: 94px;
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .card-copy {
+    margin-top: 1.6rem;
   }
 
   .home-card h2 {
-    margin: 1rem 0 0;
+    margin: 0;
     color: var(--sl-color-white);
-    font-size: var(--sl-text-lg);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 500;
   }
 
   .home-card p {
-    margin: 0.35rem 0 0;
+    margin: 0.55rem 0 0;
     color: var(--sl-color-text-muted);
-    font-size: var(--sl-text-sm);
-    line-height: 1.55;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .card-action {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--sl-color-accent);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .card-action svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 160ms ease;
+  }
+
+  .home-card:hover .card-action svg,
+  .home-card:focus-visible .card-action svg {
+    transform: translateX(0.2rem);
   }
 
   @media (max-width: 40rem) {
@@ -299,6 +364,10 @@ const cards = [
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    .home-search kbd {
+      display: none;
     }
   }
 </style>

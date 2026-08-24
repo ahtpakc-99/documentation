@@ -26,7 +26,7 @@ starlight-toc a[aria-current='true'] {
 
 :root[data-theme='light'] {
   --sl-color-accent-high: #087F72;
-  --sl-color-accent: #0EB39E;
+  --sl-color-accent: #00FFF0;
   --sl-color-accent-low: #D9F7F3;
   --sl-color-text-accent: #087F72;
 }
@@ -34,22 +34,32 @@ starlight-toc a[aria-current='true'] {
 :root[data-theme='dark'] {
 
   --sl-color-accent-high: #5eead7;
-  --sl-color-accent: #0eb39e;      /* Main teal for active items and links */
+  --sl-color-accent: #00FFF0;      /* Main teal for active items and links */
   --sl-color-accent-low: #043933;  /* Dark teal used for badge/card backgrounds */
 
   --sl-color-text-accent: #1bdac1; 
   
-  --sl-color-bg: #0D1117;          /* Main content area */
-  --sl-color-bg-nav: #0D1117;      /* Top navigation bar */
-  --sl-color-bg-sidebar: #090D13;  /* Left and right sidebars */
-  --sl-color-hairline: #21262D;
-  --sl-color-hairline-light: #21262D;
-  --sl-color-hairline-shade: #21262D;
+  --sl-color-bg: #0A0A0A;          /* Main content area */
+  --sl-color-bg-nav: #0A0A0A;      /* Top navigation bar */
+  --sl-color-bg-sidebar: #0A0A0A;  /* Left and right sidebars */
+  --sl-color-hairline: #1B1916;
+  --sl-color-hairline-light: #1B1916;
+  --sl-color-hairline-shade: #1B1916;
   
   /* Body and sidebar text */
   --sl-color-text: #8B949E;
   --sl-color-text-muted: #8B949E;
   --sl-color-gray-2: #8B949E;
+  --sl-color-text-secondary: #0A0117;
+}
+
+site-search button[data-open-modal],
+site-search button[data-open-modal] > kbd {
+  background-color: transparent;
+}
+
+body:has(.home-page) header site-search > button[data-open-modal] {
+  display: none;
 }
 
 .sidebar-content a[aria-current='page'] {
