@@ -83,7 +83,7 @@ const cards = [
 <style>
   .home-page {
     width: min(100%, 1450px);
-    min-height: calc(100dvh - var(--sl-nav-height) - var(--sl-mobile-toc-height) - 3rem);
+    min-height: calc(100dvh - var(--sl-nav-height) - var(--sl-mobile-toc-height));
     margin: 0 auto;
     padding: clamp(1.5rem, 4vh, 3rem) 1rem;
     display: flex;
@@ -101,17 +101,17 @@ const cards = [
     position: absolute;
     z-index: -1;
     top: 0;
-    bottom: 50%;
+    bottom: 30%;
     left: 50%;
     width: 100vw;
     transform: translateX(-50%);
     background-image: var(--parrot-pattern);
     background-position: center top;
     background-repeat: repeat;
-    background-size: clamp(8rem, 12vw, 11rem);
+    background-size: clamp(.5rem, 2.5vw, 2rem);
     opacity: 0.3;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 15%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 15%, transparent 100%);
     pointer-events: none;
   }
 
@@ -121,6 +121,10 @@ const cards = [
 
   :global(main:has(.home-page) footer) {
     display: none;
+  }
+
+  :global(.content-panel:has(.home-page)) {
+    padding-block: 0;
   }
 
   :global(main:has(.home-page)) {
@@ -196,17 +200,22 @@ const cards = [
     gap: 0.8rem;
     border: 1px solid var(--sl-color-hairline-light);
     border-radius: 0.75rem;
-    background: transparent;
+    background: var(--sl-color-bg);
     color: var(--sl-color-text-muted);
     font: inherit;
     text-align: left;
     cursor: pointer;
     box-shadow: var(--sl-shadow-sm);
+    transition: all .3s ease-in-out;
   }
 
   .home-search:hover,
   .home-search:focus-visible {
-    border-color: var(--sl-color-accent);
+    border-color: color-mix(
+      in srgb,
+      var(--sl-color-accent) 25%,
+      var(--sl-color-hairline)
+    );
   }
 
   .home-search svg {
