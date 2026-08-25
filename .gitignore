@@ -1,7 +1,6 @@
 # Dependencies
 yarn.lock
 /node_modules
-.idea
 
 # build output
 dist/
