@@ -129,7 +129,7 @@ export default defineConfig({
         },
         {
           label: 'Installation',
-          collapsed: true,
+          collapsed: false,
           items: [{ autogenerate: { directory: 'installation' } }]
         },
         {
