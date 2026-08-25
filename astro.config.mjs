@@ -26,11 +26,11 @@ export default defineConfig({
       },
       customCss: ['./src/styles/index.css'],
       components: {
-        PageTitle: './src/components/PageTitle.astro',
-        Search: './src/components/Search.astro',
-        SiteTitle: './src/components/SiteTitle.astro',
-        ThemeProvider: './src/components/ThemeProvider.astro',
-        ThemeSelect: './src/components/ThemeSelect.astro'
+        PageTitle: './src/components/layout/PageTitle.astro',
+        Search: './src/components/layout/Search.astro',
+        SiteTitle: './src/components/layout/SiteTitle.astro',
+        ThemeProvider: './src/components/theme/ThemeProvider.astro',
+        ThemeSelect: './src/components/theme/ThemeSelect.astro'
       },
       social: [
         {

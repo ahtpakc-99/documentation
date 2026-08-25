@@ -1,0 +1,93 @@
+---
+import HighlightGraphic from './HighlightGraphic.astro'
+
+interface Props {
+  title: string
+  description: string
+  href: string
+  icon: 'cloud' | 'desktop' | 'virtual'
+}
+
+const { title, description, href, icon } = Astro.props
+---
+
+<a class="homepage-highlight-card not-content" href={href}>
+  <HighlightGraphic variant={icon} />
+  <span class="body">
+    <span class="heading">
+      <span class="title">{title}</span>
+      <svg
+        class="arrow"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+      >
+        <path d="m9 18 6-6-6-6" />
+      </svg>
+    </span>
+    <span class="description">{description}</span>
+  </span>
+</a>
+
+<style>
+  .homepage-highlight-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 0.85rem;
+  }
+
+  .homepage-highlight-card:focus-visible {
+    outline: 2px solid var(--sl-color-text-accent);
+    outline-offset: 3px;
+  }
+
+  .body {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding-inline: 0.15rem;
+  }
+
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .title {
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-lg);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .description {
+    color: var(--sl-color-text-muted);
+    font-size: var(--sl-text-sm);
+    line-height: 1.45;
+  }
+
+  .arrow {
+    flex: 0 0 auto;
+    color: var(--sl-color-text-accent);
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+    transition: transform 0.2s ease;
+  }
+
+  .homepage-highlight-card:hover .arrow,
+  .homepage-highlight-card:focus-visible .arrow {
+    transform: translateX(0.2rem);
+  }
+</style>

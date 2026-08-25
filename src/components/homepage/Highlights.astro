@@ -1,0 +1,57 @@
+---
+import HighlightCard from './HighlightCard.astro'
+
+interface Highlight {
+  title: string
+  description: string
+  href: string
+  icon: 'cloud' | 'desktop' | 'virtual'
+}
+
+const highlights: Highlight[] = [
+  {
+    title: 'Docker Images',
+    description:
+      'Run Parrot containers with ready-to-use images for development, security testing, and isolated workflows.',
+    href: './containers/parrot-on-docker/',
+    icon: 'cloud'
+  },
+  {
+    title: 'UTM',
+    description:
+      'Launch a preconfigured Parrot virtual machine on Apple Silicon without completing a manual installation.',
+    href: './virtualization/utm-configuration/',
+    icon: 'virtual'
+  },
+  {
+    title: 'Desktop Environments',
+    description:
+      'Explore KDE Plasma and the additional desktop environments available to customize your ParrotOS workspace.',
+    href: './configuration/desktop-environments/',
+    icon: 'desktop'
+  }
+]
+---
+
+<nav class="homepage-highlights not-content" aria-label="Featured documentation">
+  {
+    highlights.map((highlight) => (
+      <HighlightCard {...highlight} />
+    ))
+  }
+</nav>
+
+<style>
+  .homepage-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 50rem) {
+    .homepage-highlights {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

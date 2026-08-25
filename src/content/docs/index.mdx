@@ -6,40 +6,19 @@ sidebar_position: 1
 tableOfContents: false
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
-import HomepageSearch from '../../components/HomepageSearch.astro';
+import Highlights from '../../components/homepage/Highlights.astro';
+import Preview from '../../components/homepage/Preview.astro';
+import Search from '../../components/homepage/Search.astro';
 
 <div class="homepage-intro">
-  <p><strong>ParrotOS</strong> is a <strong>free and open-source GNU/Linux distribution</strong> based on <strong>Debian Stable</strong>, built for security professionals, developers, digital forensics specialists, and privacy-conscious users.</p>
-  <p>It combines a portable <strong>security and forensics toolkit</strong> with a complete environment for <strong>software development</strong>, <strong>privacy</strong>, and everyday work.</p>
+  <p>ParrotOS is a Debian-based GNU/Linux distribution that provides a comprehensive cybersecurity toolkit and a secure working environment for security professionals and researchers.</p>
 </div>
 
-<HomepageSearch />
+<Search />
 
-<div class="homepage-actions">
-  <CardGrid>
-    <Card title="Docker Images">
-      Run Parrot containers using ready-to-use images for different security workflows.
+<Highlights />
 
-      [Read the Docker Images guide](./containers/parrot-on-docker/)
-    </Card>
-
-    <Card title="UTM">
-      Run a pre-configured Parrot virtual machine on Apple Silicon Macs.
-
-      [Read the UTM guide](./virtualization/utm-configuration/)
-    </Card>
-
-    <Card title="Desktop Environments">
-      Explore KDE Plasma and the additional desktop environments available for ParrotOS.
-
-      [Read the Desktop Environments guide](./configuration/desktop-environments/)
-    </Card>
-  </CardGrid>
-</div>
-
-![Parrot Security Desktop](./introduction/images/parrot_desktop-v7.png)
-<p class="homepage-image-caption">Parrot Security 7.0 with KDE Plasma</p>
+<Preview />
 
 ## History and Team
 

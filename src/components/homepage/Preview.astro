@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets'
+import desktopPreview from '../../content/docs/introduction/images/parrot_desktop-v7.png'
+---
+
+<figure class="homepage-preview not-content">
+  <Image
+    src={desktopPreview}
+    alt="Parrot Security 7.0 desktop running KDE Plasma"
+    widths={[640, 960, 1280]}
+    sizes="(max-width: 50rem) 100vw, 50rem"
+    loading="lazy"
+  />
+  <figcaption>Parrot Security 7.0 with KDE Plasma</figcaption>
+</figure>
+
+<style>
+  .homepage-preview {
+    max-width: 50rem;
+    margin: 0 auto 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--sl-color-hairline);
+  }
+
+  .homepage-preview :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.75rem;
+    box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 20%);
+  }
+
+  figcaption {
+    margin-top: 1rem;
+    color: var(--sl-color-text-muted);
+    font-size: var(--sl-text-sm);
+    text-align: center;
+  }
+</style>
