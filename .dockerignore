@@ -1,0 +1,8 @@
+.astro
+.DS_Store
+.git
+.gitlab-ci.yml
+.idea
+dist
+node_modules
+npm-debug.log*
