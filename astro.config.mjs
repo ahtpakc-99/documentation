@@ -112,7 +112,9 @@ export default defineConfig({
       customCss: ['./src/styles/index.css'],
       components: {
         PageTitle: './src/components/PageTitle.astro',
-        SiteTitle: './src/components/SiteTitle.astro'
+        SiteTitle: './src/components/SiteTitle.astro',
+        ThemeProvider: './src/components/ThemeProvider.astro',
+        ThemeSelect: './src/components/ThemeSelect.astro'
       },
       social: [
         {
