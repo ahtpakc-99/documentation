@@ -67,6 +67,9 @@ const createParrotTerminalTheme = (type) => ({
 // https://astro.build/config
 export default defineConfig({
   base,
+  redirects: {
+    '/introduction/what-is-parrot': `${base}/`
+  },
   integrations: [
     starlight({
       title: 'ParrotOS Docs',
@@ -108,7 +111,6 @@ export default defineConfig({
       },
       customCss: ['./src/styles/index.css'],
       components: {
-        PageTitle: './src/components/PageTitle.astro',
         SiteTitle: './src/components/SiteTitle.astro'
       },
       social: [

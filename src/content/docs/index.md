@@ -15,7 +15,7 @@ Users can also install Parrot on top of a standard Debian installation using the
 
 It is also available as a Virtual Machine (Virtual Box, Parallels, and VMware), on **Raspberry Pi**, and on Docker.
 
-![Parrot Security Desktop](./images/parrot_desktop-v7.png)
+![Parrot Security Desktop](./introduction/images/parrot_desktop-v7.png)
 <h5 align="center">Parrot Security 7.0 with KDE Plasma Desktop</h5>
 
 ## History and Team

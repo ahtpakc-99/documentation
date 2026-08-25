@@ -65,10 +65,6 @@ site-search button[data-open-modal] > kbd {
   background-color: transparent;
 }
 
-body:has(.home-page) header site-search > button[data-open-modal] {
-  display: none;
-}
-
 .sidebar-content a[aria-current='page'] {
   color: var(--sl-color-accent);
   background-color: color-mix(in srgb, var(--sl-color-accent) 6%, transparent);
