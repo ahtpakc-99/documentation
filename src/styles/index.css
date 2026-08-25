@@ -37,7 +37,7 @@ starlight-toc a[aria-current='true'] {
   --sl-color-accent: #00FFF0;      /* Main teal for active items and links */
   --sl-color-accent-low: #043933;  /* Dark teal used for badge/card backgrounds */
 
-  --sl-color-text-accent: #1bdac1; 
+  --sl-color-text-accent: #00FFF0; 
   
   --sl-color-bg: #0A0A0A;          /* Main content area */
   --sl-color-bg-nav: #0A0A0A;      /* Top navigation bar */

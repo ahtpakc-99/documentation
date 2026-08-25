@@ -37,7 +37,6 @@ const cards = [
 
 <div
   class="home-page"
-  style={`--parrot-pattern: url("${parrotPattern.src}")`}
 >
   <section class="home-hero">
     <h1>How can we help?</h1>
@@ -96,24 +95,6 @@ const cards = [
     isolation: isolate;
   }
 
-  .home-page::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 30%;
-    left: 50%;
-    width: 100vw;
-    transform: translateX(-50%);
-    background-image: var(--parrot-pattern);
-    background-position: center top;
-    background-repeat: repeat;
-    background-size: clamp(.5rem, 2.5vw, 2rem);
-    opacity: 0.3;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 15%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 15%, transparent 100%);
-    pointer-events: none;
-  }
 
   :global(:root[data-theme="light"]) .home-page::before {
     opacity: .7;
