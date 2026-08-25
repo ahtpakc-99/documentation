@@ -57,7 +57,6 @@ starlight-toc a[aria-current='true'] {
   --sl-color-text: #8B949E;
   --sl-color-text-muted: #8B949E;
   --sl-color-gray-2: #8B949E;
-  --sl-color-text-secondary: #0A0117;
 }
 
 site-search button[data-open-modal],
