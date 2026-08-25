@@ -292,18 +292,12 @@ const featuredDocs = [
     background: color-mix(in srgb, var(--sl-color-bg) 91%, var(--sl-color-gray-6));
     color: var(--sl-color-text);
     text-decoration: none;
-    box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 5%);
-    transition:
-      border-color 0.5s ease,
-      transform 160ms ease,
-      box-shadow 160ms ease;
+    transition: border-color 0.5s ease;
   }
 
   .home-card:hover,
   .home-card:focus-visible {
     border-color: #00B8DB70;
-    transform: translateY(-1px);
-    box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 8%);
   }
 
   .card-copy {
