@@ -1,0 +1,49 @@
+---
+import Search from '@astrojs/starlight/components/Search.astro'
+---
+
+<div class="homepage-search not-content">
+  <Search class="homepage-search-widget" />
+</div>
+
+<style is:global>
+  .homepage-search {
+    width: min(100%, 42rem);
+    margin: 2rem auto 3rem;
+  }
+
+  .homepage-search > site-search.homepage-search-widget {
+    display: block;
+    width: 100%;
+  }
+
+  .homepage-search site-search button[data-open-modal] {
+    width: 100%;
+    max-width: none;
+    height: 3.25rem;
+    padding-inline: 1rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.6rem;
+    background: color-mix(
+      in srgb,
+      var(--sl-color-bg) 92%,
+      var(--sl-color-gray-6)
+    );
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-base);
+  }
+
+  .homepage-search site-search button[data-open-modal]:hover,
+  .homepage-search site-search button[data-open-modal]:focus-visible {
+    border-color: var(--sl-color-accent);
+    color: var(--sl-color-text);
+  }
+
+  .homepage-search site-search button[data-open-modal] > span {
+    display: block !important;
+  }
+
+  .homepage-search site-search button[data-open-modal] > :last-child {
+    margin-inline-start: auto;
+  }
+</style>

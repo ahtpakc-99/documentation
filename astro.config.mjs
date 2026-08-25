@@ -27,6 +27,7 @@ export default defineConfig({
       customCss: ['./src/styles/index.css'],
       components: {
         PageTitle: './src/components/PageTitle.astro',
+        Search: './src/components/Search.astro',
         SiteTitle: './src/components/SiteTitle.astro',
         ThemeProvider: './src/components/ThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro'
