@@ -1,6 +1,7 @@
 ---
 title: "Persistent partition"
-sidebar_position: 2
+sidebar:
+  order: 2
 ---
 
 This guide shows how to create a persistent partition on a USB drive with Parrot OS.

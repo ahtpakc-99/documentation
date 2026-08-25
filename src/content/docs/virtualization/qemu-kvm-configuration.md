@@ -1,6 +1,7 @@
 ---
 title: "Installing QEMU/KVM, Virt-Manager, and GNOME Boxes on Debian"
-sidebar_position: 5
+sidebar:
+  order: 5
 ---
 
 This guide will help you set up a virtualization environment on Debian-based systems, including Parrot OS, using **QEMU/KVM**, **Virt-Manager**, and **GNOME Boxes**.

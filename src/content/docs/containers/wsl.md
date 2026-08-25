@@ -1,6 +1,7 @@
 ---
 title: "WSL Edition"
-sidebar_position: 1
+sidebar:
+  order: 1
 ---
 
 Install Parrot OS on WSL (Windows Subsystem for Linux).

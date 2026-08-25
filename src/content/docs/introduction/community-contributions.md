@@ -1,6 +1,7 @@
 ---
 title: "Community Contributions"
-sidebar_position: 4
+sidebar:
+  order: 4
 ---
 
 Parrot was born and continues to be a fully open-source project. 

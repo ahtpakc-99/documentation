@@ -1,6 +1,7 @@
 ---
 title: "Make your own mirror"
-sidebar_position: 2
+sidebar:
+  order: 2
 ---
 
 You can set up a Parrot archive mirror on your server for personal or public usage by following the steps below.

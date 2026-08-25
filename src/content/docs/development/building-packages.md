@@ -1,6 +1,7 @@
 ---
 title: "Building packages"
-sidebar_position: 2
+sidebar:
+  order: 2
 ---
 This guide covers the process of building a Debian package from a "debianized" source, which is typically managed in a git repository. It focuses on using `sbuild`, a common requirement for supporting multiple architectures like *arm64* and to be sure to compile in a clean environment. Afterwards it would use `git-sbuildpkg` the tool that is used by parrot infrastracture to massively build all tha packages.
 

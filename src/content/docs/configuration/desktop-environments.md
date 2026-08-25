@@ -1,6 +1,7 @@
 ---
 title: "Desktop Enviroments"
-sidebar_position: 7
+sidebar:
+  order: 7
 ---
 ParrotOS ships with **KDE Plasma** as the default Desktop Environment (DE) for all editions (Home, Security, and HTB). Additional desktop environments can be installed alongside it — each has its own look and workflow, so it's worth trying a few before settling on one.
 

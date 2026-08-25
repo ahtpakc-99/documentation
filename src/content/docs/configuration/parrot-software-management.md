@@ -1,6 +1,7 @@
 ---
 title: "Parrot Software Management"
-sidebar_position: 1
+sidebar:
+  order: 1
 ---
 
 In this chapter, we will introduce the **apt** package manager for Parrot. A program is a series of instructions written in programming languages such as C, Go, Nim or Rust (to name a few). These instructions are stored in text files called sources. To work in our systems, they must be converted to machine language. This step is called compilation. The compilation generates one or several files, understandable by the system, called binaries.

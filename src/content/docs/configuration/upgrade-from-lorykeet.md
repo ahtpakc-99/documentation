@@ -1,6 +1,7 @@
 ---
 title: "Upgrade to Parrot 7 \"Echo\" from Parrot 6 \"Lorykeet\""
-sidebar_position: 10
+sidebar:
+  order: 10
 ---
 
 Parrot 7 introduced a number of major changes to the system, detailed in the [Parrot 7.0 Release Notes](https://parrotsec.org/blog/2025-12-24-parrot-7.0-release-notes). 

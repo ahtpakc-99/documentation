@@ -1,6 +1,7 @@
 ---
 title: "VMware"
-sidebar_position: 3
+sidebar:
+  order: 3
 ---
 
 This guide walks you through the process of creating a Virtual Machine and installing ParrotOS using VMware. The steps apply primarily to VMware Workstation (Pro and Player) on GNU/Linux and Windows, as well as VMware Fusion on macOS.

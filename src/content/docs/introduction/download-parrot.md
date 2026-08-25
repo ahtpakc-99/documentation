@@ -1,6 +1,7 @@
 ---
 title: "Download"
-sidebar_position: 3
+sidebar:
+  order: 3
 ---
 
 ParrotOS is available for download [here](https://parrotsec.org/download/).

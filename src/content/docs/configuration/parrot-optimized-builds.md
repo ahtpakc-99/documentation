@@ -1,6 +1,7 @@
 ---
 title: "Optimized Package Builds"
-sidebar_position: 11
+sidebar:
+  order: 11
 ---
 
 Parrot Security provides **optimized package builds** that target modern CPU instruction sets for improved performance on recent hardware. This page explains what they are, which packages are currently covered, how to confirm your CPU is compatible, how to enable them, and the technical details behind the feature.

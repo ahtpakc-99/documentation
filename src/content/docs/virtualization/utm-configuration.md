@@ -1,6 +1,7 @@
 ---
 title: "UTM"
-sidebar_position: 4
+sidebar:
+  order: 4
 ---
 
 ParrotOS can be easily virtualized on macOS systems equipped with Apple Silicon (M-series chips). To achieve this, we recommend using [UTM](https://mac.getutm.app/), a popular open-source virtualization software for Mac.

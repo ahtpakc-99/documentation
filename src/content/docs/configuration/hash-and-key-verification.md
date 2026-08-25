@@ -1,6 +1,7 @@
 ---
 title: "Hash and key verification"
-sidebar_position: 5
+sidebar:
+  order: 5
 ---
 
 ## Why should anyone verify keys and signatures?

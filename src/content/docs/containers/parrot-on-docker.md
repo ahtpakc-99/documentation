@@ -1,6 +1,7 @@
 ---
 title: "Docker Images"
-sidebar_position: 1
+sidebar:
+  order: 1
 ---
 
 Docker is a powerful technology that allows users to run containers universally on any host platform.

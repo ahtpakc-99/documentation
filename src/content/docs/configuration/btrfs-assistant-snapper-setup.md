@@ -1,6 +1,7 @@
 ---
 title: "Btrfs Assistant + Snapper Setup Guide"
-sidebar_position: 10
+sidebar:
+  order: 10
 ---
 
 ## Overview

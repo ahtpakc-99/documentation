@@ -1,6 +1,7 @@
 ---
 title: "Nvidia GPU Driver configuration"
-sidebar_position: 2
+sidebar:
+  order: 2
 ---
 
 Initially, Parrot uses the Nvidia **nouveau open source drivers**, since they support most Nvidia cards. These guarantee good stability and allow you to use your GPU without problems for everyday use. 

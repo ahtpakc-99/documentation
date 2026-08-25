@@ -1,6 +1,7 @@
 ---
 title: "Printer setup"
-sidebar_position: 8
+sidebar:
+  order: 8
 ---
 
 Thanks to [**CUPS**](https://openprinting.github.io/cups/doc/overview.html), we can print any document we want.
@@ -99,4 +100,3 @@ From this page, you can perform many operations (such as printing a test page) a
 ![Verify printer installation](./images/cups/cups11.png)
 
 That's all you need to set up a printer under ParrotOS.
-

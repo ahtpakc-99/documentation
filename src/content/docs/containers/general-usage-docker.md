@@ -1,6 +1,7 @@
 ---
 title: "Docker usages and examples"
-sidebar_position: 2
+sidebar:
+  order: 2
 ---
 
 ## Launch a container

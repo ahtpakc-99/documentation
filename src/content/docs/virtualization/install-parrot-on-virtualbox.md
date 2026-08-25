@@ -1,6 +1,7 @@
 ---
 title: "VirtualBox"
-sidebar_position: 1
+sidebar:
+  order: 1
 ---
 
 This guide provides a comprehensive walkthrough for setting up a new Virtual Machine (VM) and installing ParrotOS using VirtualBox.

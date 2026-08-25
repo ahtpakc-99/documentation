@@ -1,6 +1,7 @@
 ---
 title: "Development Environment Setup"
-sidebar_position: 1
+sidebar:
+  order: 1
 ---
 
 This guide details how to set up a complete development environment for building Parrot OS packages. 

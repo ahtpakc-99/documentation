@@ -1,6 +1,7 @@
 ---
 title: "Mirrors"
-sidebar_position: 1
+sidebar:
+  order: 1
 ---
 
 The Parrot Project not only delivers a ready-to-use system in the ISO format, but it also provides a vast amount of additional software that can be installed apart from the official parrot repository.

@@ -1,6 +1,7 @@
 ---
 title: "File and Directory Permissions"
-sidebar_position: 3
+sidebar:
+  order: 3
 ---
 
 In GNU/Linux, every file and directory belongs to a user and a group.

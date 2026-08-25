@@ -1,6 +1,7 @@
 ---
 title: "Dualboot with Windows"
-sidebar_position: 2
+sidebar:
+  order: 2
 ---
 
 It is possible to install ParrotOS alongside Windows, thanks to GRUB and correct partitioning. 

@@ -1,6 +1,7 @@
 ---
 title: "Create a bootable USB"
-sidebar_position: 1
+sidebar:
+  order: 1
 ---
 
 First of all, you need to download the latest ISO file from our [website](https://parrotsec.org/download/).

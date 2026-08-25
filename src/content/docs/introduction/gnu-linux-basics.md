@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+sidebar:
+  order: 2
 title: What is GNU/Linux?
 description: A brief history and explanation of the Free Software philosophy, GNU, and Linux.
 ---

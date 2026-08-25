@@ -1,6 +1,7 @@
 ---
 title: "AppArmor"
-sidebar_position: 4
+sidebar:
+  order: 4
 ---
 
 AppArmor is a Linux security module that helps protect the system by restricting what applications can do.
