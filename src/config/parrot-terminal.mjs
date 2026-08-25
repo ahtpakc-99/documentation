@@ -23,11 +23,6 @@ const colors = {
   'titleBar.activeBackground': '#242a2e',
   'titleBar.activeForeground': '#dedede',
   'titleBar.border': '#111111',
-  'editorGroupHeader.tabsBackground': '#242a2e',
-  'editorGroupHeader.tabsBorder': '#111111',
-  'tab.activeBackground': background,
-  'tab.activeForeground': '#dedede',
-  'tab.activeBorderTop': accent,
   'terminal.background': background,
   'terminal.foreground': foreground,
   'terminal.ansiBlack': '#2e3436',
@@ -117,10 +112,6 @@ export const parrotTerminalTheme = defineEcConfig({
       terminalTitlebarBorderBottomColor: '#111111',
       terminalTitlebarDotsForeground: accent,
       terminalTitlebarDotsOpacity: '1',
-      editorBackground: background,
-      editorActiveTabBackground: background,
-      editorTabBarBackground: '#242a2e',
-      editorTabBarBorderColor: '#111111',
       frameBoxShadowCssValue: '0 20px 55px #0008'
     }
   }
