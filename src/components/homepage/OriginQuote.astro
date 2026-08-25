@@ -1,0 +1,59 @@
+<section class="origin-quote not-content" aria-labelledby="origin-quote-title">
+  <h3 id="origin-quote-title">Why &ldquo;Parrot&rdquo;?</h3>
+  <blockquote>
+    <p>Because it was born as a game, and every pirate of the seven seas needs a parrot on his shoulder if he wants to board the galleons with his crew of jailbird filibusters.</p>
+  </blockquote>
+</section>
+
+<style>
+  .origin-quote {
+    display: grid;
+    grid-template-columns: 12rem minmax(0, 1fr);
+    align-items: start;
+    gap: 2rem;
+    margin-block: 2.5rem 3rem;
+    padding-block: 1.75rem;
+    border-block: 1px solid var(--sl-color-hairline);
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: var(--sl-text-h4);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  blockquote {
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 2.75rem;
+    border: 0;
+  }
+
+  blockquote::before {
+    position: absolute;
+    top: -0.35rem;
+    left: 0;
+    color: var(--sl-color-text-accent);
+    content: '\201C';
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+
+  p {
+    margin: 0;
+    color: var(--sl-color-text);
+    font-size: clamp(1.05rem, 1rem + 0.2vw, 1.15rem);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 50rem) {
+    .origin-quote {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>
