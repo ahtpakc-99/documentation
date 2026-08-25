@@ -1,5 +1,14 @@
 ---
+import { getEntry, render } from "astro:content";
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const parrotEntry = await getEntry("docs", "introduction/what-is-parrot");
+
+if (!parrotEntry) {
+  throw new Error("Unable to load the What is Parrot documentation entry.");
+}
+
+const { Content: ParrotContent } = await render(parrotEntry);
 
 const featuredDocs = [
   {
@@ -32,27 +41,21 @@ const featuredDocs = [
 <div
   class="home-page"
 >
-  <div class="hero-stage">
-    <section class="home-hero">
-      <h1>How can we help?</h1>
-      <p>Everything you need to install, configure, and master ParrotOS.</p>
-      <button
-        class="home-search"
-        type="button"
-        data-home-search
-        aria-keyshortcuts="Control+K"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="11" cy="11" r="7"></circle>
-          <path d="m16 16 5 5"></path>
-        </svg>
-        <span>Search the documentation</span>
-        <kbd data-home-search-shortcut>Ctrl K</kbd>
-      </button>
-    </section>
+  <button
+    class="home-search"
+    type="button"
+    data-home-search
+    aria-keyshortcuts="Control+K"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m16 16 5 5"></path>
+    </svg>
+    <span>Search the documentation</span>
+    <kbd data-home-search-shortcut>Ctrl K</kbd>
+  </button>
 
-    <a class="home-button" href={`${base}/introduction/what-is-parrot`}>Get Started</a>
-  </div>
+  <a class="home-button" href={`${base}/introduction/what-is-parrot/`}>Get Started</a>
 
   <section class="featured-docs" aria-labelledby="featured-docs-title">
     <div class="featured-header">
@@ -80,6 +83,12 @@ const featuredDocs = [
       }
     </div>
   </section>
+
+  <article class="parrot-article" data-pagefind-ignore>
+    <div class="parrot-content">
+      <ParrotContent />
+    </div>
+  </article>
 </div>
 
 <script>
@@ -104,113 +113,19 @@ const featuredDocs = [
 
 <style>
   .home-page {
-    width: min(100%, 1450px);
+    width: min(100%, 60rem);
     margin: 0 auto;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    position: relative;
-    isolation: isolate;
-  }
-
-  .hero-stage {
-    min-height: calc(70dvh - var(--sl-nav-height) - var(--sl-mobile-toc-height));
-    padding: clamp(1rem, 3vh, 2rem) 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(1.5rem, 3vh, 2.5rem);
-    box-sizing: border-box;
-  }
-
-
-  :global(:root[data-theme="light"]) .home-page::before {
-    opacity: .7;
+    padding: clamp(2rem, 5vw, 4rem) 1rem 5rem;
   }
 
   :global(main:has(.home-page) footer) {
     display: none;
   }
 
-  :global(body:has(.home-page) .page > header.header) {
-    border-bottom-color: color-mix(
-      in srgb,
-      var(--sl-color-hairline-shade) 55%,
-      transparent
-    );
-  }
-
-  :global(.content-panel:has(.home-page)) {
-    padding-block: 0;
-  }
-
-  :global(main:has(.home-page)) {
-    overflow-x: clip;
-  }
-
-  .home-hero {
-    text-align: center;
-  }
-
-  .home-button {
-    padding: 0.4rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    border-radius: .3rem;
-    border: none;
-    background: var(--sl-color-accent);
-    color: var(--sl-color-text-secondary);
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: var(--sl-shadow-sm);
-  }
-
-  .eyebrow {
-    width: fit-content;
-    margin: 0 auto 1.25rem;
-    padding: 0.4rem 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    border: 1px solid color-mix(in srgb, var(--sl-color-accent) 35%, var(--sl-color-hairline));
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--sl-color-accent) 9%, var(--sl-color-bg));
-    color: var(--sl-color-text-accent);
-    font-size: var(--sl-text-2xs);
-    font-weight: 650;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .eyebrow span {
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 50%;
-    background: var(--sl-color-accent);
-    box-shadow: 0 0 0.8rem var(--sl-color-accent);
-  }
-
-  h1 {
-    margin: 0;
-    color: var(--sl-color-white);
-    font-size: clamp(2.25rem, 6vw, 3.25rem);
-    letter-spacing: -0.045em;
-  }
-
-  .home-hero > p {
-    margin: 0.5rem auto 0;
-    color: var(--sl-color-text-muted);
-    font-size: clamp(1rem, 2vw, 1.1rem);
-  }
-
   .home-search {
     width: min(100%, 590px);
     min-height: 3rem;
-    margin: 1rem auto 0;
+    margin: 0 auto;
     padding: 0.6rem 0.75rem 0.6rem 0.9rem;
     display: flex;
     align-items: center;
@@ -253,10 +168,25 @@ const featuredDocs = [
     font-size: var(--sl-text-xs);
   }
 
+  .home-button {
+    width: fit-content;
+    margin: 1.25rem auto 0;
+    padding: 0.4rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    background: var(--sl-color-accent);
+    color: var(--sl-color-text-secondary);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
   .featured-docs {
     width: 100%;
     margin: 0;
-    padding: 2rem 0 4rem;
+    padding: 2rem 0 0;
   }
 
   .featured-header {
@@ -362,11 +292,21 @@ const featuredDocs = [
     transform: translateX(0.2rem);
   }
 
-  @media (max-width: 40rem) {
-    .hero-stage {
-      padding-block: 0.75rem;
-    }
+  .parrot-article {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    padding-top: clamp(2rem, 5vw, 3.5rem);
+    border-top: 1px solid var(--sl-color-hairline);
+  }
 
+  .parrot-content :global(h2) {
+    margin-top: 2.5rem;
+  }
+
+  .parrot-content :global(img) {
+    border-radius: 0.5rem;
+  }
+
+  @media (max-width: 40rem) {
     .home-search span {
       overflow: hidden;
       text-overflow: ellipsis;
