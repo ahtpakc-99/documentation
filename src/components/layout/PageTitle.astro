@@ -1,39 +1,23 @@
 ---
 import Default from "@astrojs/starlight/components/PageTitle.astro";
 
-const isHomepage = Astro.locals.starlightRoute.id === "";
+const { id, entry } = Astro.locals.starlightRoute;
+const isHomepage = id === "";
 ---
 
 {
   isHomepage
-    ? <h1 id="_top" class="homepage-title-placeholder"><slot /></h1>
-    : <Default><slot /></Default>
+    ? <h1 id="_top" class="homepage-title-placeholder sr-only">{entry.data.title}</h1>
+    : <Default />
 }
 
 <style is:global>
   .content-panel:has(.homepage-title-placeholder) {
-    position: relative;
     height: 0;
     padding-block: 0;
-    overflow: visible;
   }
 
   .content-panel:has(.homepage-title-placeholder) + .content-panel {
     border-top: 0;
-  }
-
-  .homepage-title-placeholder {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-
-  body:has(.homepage-title-placeholder) .sl-markdown-content {
-    padding-bottom: 45vh;
   }
 </style>
