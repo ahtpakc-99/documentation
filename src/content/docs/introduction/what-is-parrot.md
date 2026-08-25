@@ -80,7 +80,7 @@ Parrot comes with **automount functions disabled by default** to allow safe fore
 * **Kernel Level:** The `noautomount` option is passed at boot.
 * **File Manager:** Settings are tuned to disable auto-mount and plug & play features.
 
-:::warning Important
+:::caution[Important]
 The no-automount behavior is consistent, but **no protection is provided in case of accidental manual mounts**. A hardware write blocker is always recommended in any digital forensics scenario.
 :::
 

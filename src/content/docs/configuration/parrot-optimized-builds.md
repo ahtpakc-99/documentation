@@ -28,7 +28,7 @@ The optimized packages are published in **dedicated, opt-in repository component
 
 Only a curated subset of the archive is optimized. Priority is given first to **shared libraries** that many other programs depend on (compression, cryptography, numerical, and parsing libraries), then to **compute-heavy utilities** (such as ffmpeg), and finally to other packages that benefit measurably. Packages that are I/O-bound or syscall-bound — network daemons, shells, and similar infrastructure — are intentionally left at the baseline because recompiling them yields no measurable benefit.
 
-:::info
+:::note
  **This list changes over time.** Packages are added as coverage expands, and individual packages may temporarily leave the optimized set (see [Section 8](#8-why-an-optimized-package-may-revert-to-the-standard-version)). Treat the lists below as a snapshot, not a fixed guarantee.
 :::
 
@@ -132,7 +132,7 @@ If your CPU supports the v3 baseline, the output includes a line similar to:
 
 If `x86-64-v3` is listed as supported, your machine is compatible with `amd64v3`.
 
-:::info
+:::note
     This method requires glibc 2.33 or newer. Parrot Security and current Debian releases meet this requirement.
 :::
 

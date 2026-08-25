@@ -20,7 +20,7 @@ For those who already have Parrot installed on their computer, the main changes 
 
 In general, using `parrot-upgrade` or `parrot-updater` should allow you to perform a clean migration.
 
-:::warning Backup your data!
+:::caution[Backup your data!]
 It is **strongly** recommended that you backup your files and configurations (whether they are `.bashrc`, `.zshrc`, configurations of other WMs such as i3, etc.) as they may be overwritten during the upgrade process.
 :::
 
@@ -234,7 +234,7 @@ During the installation, you may be prompted to choose your default display mana
 
 After the installation, MATE will still be present on your system. You can choose your preferred DE from the login screen. 
 
-:::info MATE is still supported!
+:::note[MATE is still supported!]
 While KDE Plasma is the new default, MATE remains a fully supported and excellent choice, especially for users running Parrot OS on systems with limited hardware resources. If KDE is not installed, we will continue to provide the MATE metapackage, so it is perfectly fine to use Parrot 7 while keeping MATE.
 :::
 

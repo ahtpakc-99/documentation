@@ -27,7 +27,7 @@ This security measure implemented in APT (the Parrot/Debian package manager) is 
 
 The APT package manager uses `/etc/apt/sources.list` and any _.list_ file found in the `/etc/apt/sources.list.d/` directory.
 
-:::info Note
+:::note[Note]
 /etc/apt/sources.list is EMPTY and the default APT configuration is located at **/etc/apt/sources.list.d/parrot.list**
 :::
 

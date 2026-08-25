@@ -32,7 +32,7 @@ We are committed to providing a harassment-free experience for everyone. Harassm
 - Deliberate intimidation or stalking.
 - Sustained disruption of discussion.
 
-:::info NOTE
+:::note[NOTE]
 Behavior that can be reasonably considered harassment will result in immediate review by community moderators and may lead to a temporary or permanent ban from all collaborative spaces.
 :::
 

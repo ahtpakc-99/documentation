@@ -69,7 +69,7 @@ Click on **Write** and wait for the writing procedure to finish.
 
 For those running a Windows 8 or later host, Rufus is the preferred USB formatting utility. Simply download the executable from the website and run it – no installation is necessary.
 
-:::info Note
+:::note[Note]
 Before using Rufus, please read the following from the Rufus FAQ regarding DD mode and ISO mode for ISOHybrid images:
 
 [**Why doesn't Rufus recommend DD mode over ISO mode for ISOHybrid images? Surely DD is better!**](https://github.com/pbatard/rufus/wiki/FAQ#why-doesnt-rufus-recommend-dd-mode-over-iso-mode-for-isohybrid-images-surely-dd-is-better)

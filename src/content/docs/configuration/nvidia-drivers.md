@@ -10,7 +10,7 @@ However, it may be necessary to use other drivers that give greater compatibilit
 You have two ways to install, either via [the Parrot repository](#install-the-driver-via-the-parrot-repositories) or [from the official Nvidia website](#install-the-driver-from-the-official-nvidia-website).
 
 
-:::info Note
+:::note[Note]
   Please note the driver installation and configuration may be different for laptop or desktop computers. For example, the user could have a CPU with an iGPU (integrated GPU) and a dGPU (dedicated GPU). Users with hybrid setups (iGPU + dGPU) must configure their system to correctly offload rendering to the dedicated GPU.
 
   [The differences will be highlighted in this document](#nvidia-driver-on-a-computer-with-igpu-and-dgpu).
@@ -94,7 +94,7 @@ Wait for the installation to proceed. When a warning notifying **nouveau** drive
 
 #### Step 2 - Blacklist Nouveau
 
-:::info Note
+:::note[Note]
   If you have already followed [the Nvidia installation via the Parrot repo](#install-the-driver-via-the-parrot-repositories) you can go to [step 3](#step-3---configure-bumblebee).
 :::
 
@@ -146,7 +146,7 @@ The result should be similar to this:
 
 In `nvidia-smi` interface, `hashcat` should appear running using your Nvidia video card.
 
-:::info Note
+:::note[Note]
   Launching application with **primusrun** will use PRIMUS Technology, while using **optirun** will use VirtualGL.
 :::
 
@@ -182,7 +182,7 @@ We can do this simply via systemd, with the systemctl command:
 sudo systemctl set-default multi-user.target
 ```
 
-:::info Note
+:::note[Note]
 If by any chance you want to go back and reuse Parrot with KDE Plasma, use the following commands:
 
 ```bash  
@@ -219,7 +219,7 @@ sudo chmod +x NVIDIA-Linux-x86_64-<driver version>.run
 ```
 
 
-:::info Note
+:::note[Note]
 If you don't remember what chmod does, it is recommended that you read the [File and Directory permissions](./file-and-directory-permissions) document.
 :::
 

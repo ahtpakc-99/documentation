@@ -11,7 +11,7 @@ To proceed with the installation, you will need:
 * A computer with a microSD card reader.
 * **Raspberry Pi Imager** or **Balena Etcher** installed on your computer.
 
-:::info Note
+:::note[Note]
   This procedure applies to any edition of ParrotOS on Raspberry Pi. Currently, ParrotOS has been successfully tested on Raspberry Pi models **3B, 4B, 400, and 5**.
 :::
 

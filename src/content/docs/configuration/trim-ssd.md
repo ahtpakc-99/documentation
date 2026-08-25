@@ -14,7 +14,7 @@ $ sudo fdisk -l
 $ sudo hdparm -I /dev/sdx
 ```
 
-:::info Note
+:::note[Note]
     If it’s supported, the output should contain this:
     Data Set Management TRIM supported
 :::
@@ -34,7 +34,7 @@ $ sudo pluma /etc/fstab
 The file should result like this:
 
 
-:::info Note
+:::note[Note]
 
 The UUIDs listed below are only examples. 
 

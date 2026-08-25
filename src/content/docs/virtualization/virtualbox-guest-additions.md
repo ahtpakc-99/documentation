@@ -61,7 +61,7 @@ If you prefer to install the additions directly from the VirtualBox hypervisor I
 
 Click on **Insert**. 
 
-:::info Note
+:::note[Note]
 If it returns an error stating it cannot mount the ISO, turn off the virtual machine. From the main VirtualBox screen, go to **Settings > Storage**, add a new optical drive, set it as Secondary (to avoid boot issues), and manually load the downloaded ISO.
 :::
 

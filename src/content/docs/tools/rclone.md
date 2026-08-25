@@ -39,7 +39,7 @@ The configuration wizard will ask for the remote name, storage type, and credent
  
 ## Basic Usage
  
-:::info Note
+:::note[Note]
  
 It's good practice to test every command by attaching the `--dry-run` flag. After ensuring that everything is okay, repeat the command without `--dry-run` option.
 

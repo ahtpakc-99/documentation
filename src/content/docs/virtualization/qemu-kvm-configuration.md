@@ -44,7 +44,7 @@ This allows running virtual machines without sudo:
 sudo usermod -aG libvirt $USER
 sudo usermod -aG kvm $USER
 ```
-:::info NOTE
+:::note[NOTE]
     If we import a .qcow2 image, it should not cause any issues. Just configure the resources and start.
 :::
 
@@ -67,7 +67,7 @@ When clicking Create New Virtual Machine, you will have two options. Select the 
 
 With the ISO selected.
 
-:::info NOTE
+:::note[NOTE]
     Log out and log back in (or reboot) for the changes to take effect.
 :::
 
@@ -101,7 +101,7 @@ Done. From here, you can follow the standard Parrot OS installation procedure.
 
 After installing the package, Virt-Manager will be ready to use.
 
-:::info NOTE
+:::note[NOTE]
     This Virt-Manager GUI can be slightly more complex to use than Boxes for beginner users.
 :::
 
@@ -123,7 +123,7 @@ It is important to disable automatic OS detection. You should manually select th
 
 ![15](./images/qemu/15.png)
 
-:::info NOTE
+:::note[NOTE]
 Allocate the resources you need (or consider appropriate) for your project.
 :::
 
@@ -153,6 +153,6 @@ You can also manage snapshots.
 
 Once the changes are done, you can return to the VM start screen by clicking the monitor icon.
 
-:::info NOTE
+:::note[NOTE]
 There are other alternatives if you prefer a more minimal approach to managing and using VMs with QEMU/KVM, such as `virsh` or commands like `qemu-img`.
 :::

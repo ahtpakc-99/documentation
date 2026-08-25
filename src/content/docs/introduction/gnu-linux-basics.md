@@ -29,7 +29,7 @@ There are four essential freedoms that define "Free Software":
 
 A program is "Free Software" if it grants users all of these freedoms appropriately. Otherwise, it is arguably non-free (Proprietary Software).
 
-:::info Summary
+:::note[Summary]
 * **Free Software** does not necessarily mean it is free of charge, although in many cases it is.
 * It guarantees the freedom to **run**, **modify**, **study**, and **redistribute** the software.
 :::

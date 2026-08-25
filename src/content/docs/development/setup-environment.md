@@ -102,7 +102,7 @@ schroot -i -c echo-<architecture>-sbuild
 
 Delete the directory found in the previous step. This is often located in */var/lib/sbuild/*.
 
-:::warning Warning
+:::caution[Warning]
     The `rm -rf` command permanently deletes files without confirmation. Double-check that the path is correct.  
 :::
 

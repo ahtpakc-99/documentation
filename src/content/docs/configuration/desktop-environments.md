@@ -11,7 +11,7 @@ Since the DE is the graphical layer through which you interact with the operatin
 - **XFCE**
 - **GNOME**
 
-:::info
+:::note
 If you prefer a window manager over a full DE, a metapackage for [**i3**](https://i3wm.org/) is available in the Parrot repositories.
 :::
 

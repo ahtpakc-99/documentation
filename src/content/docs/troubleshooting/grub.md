@@ -4,7 +4,7 @@ title: "GRUB"
 
 This guide will give you a list of known solutions to use when you are having problems with GRUB. 
 
-:::info Note
+:::note[Note]
 If you want to know more about GRUB: 
 
 [GRUB - gnu.org](https://www.gnu.org/software/grub/)
@@ -65,7 +65,7 @@ Now it's time to mount the partitions. In the same terminal window, type
 sudo mount -o subvol=@ /dev/sda2 /mnt
 ```
 
-:::info Note
+:::note[Note]
   This is needed since ParrotOS default filesystem is **btrfs** and it has subvolumes enabled. 
 :::
 

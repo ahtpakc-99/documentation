@@ -32,7 +32,7 @@ To run ParrotOS on a **UEFI** system, at least three partitions are required:
 * `/` - *The root partition containing the entire operating system.*
 * `/home` - *The partition dedicated to user data.*
 
-:::info Note
+:::note[Note]
   Ensure that **Secure Boot** and **CSM** (Compatibility Support Module) are disabled in your machine's UEFI settings before proceeding with the operations described below.
 :::
 
@@ -57,7 +57,7 @@ Drag the bar or enter a specific value to resize the partition.
 
 Click **OK** when finished.
 
-:::info Note
+:::note[Note]
   **Storage Requirements:**
   * Parrot Home Edition: At least **20GB**.
   * Parrot Security Edition: At least **40GB**.
@@ -132,7 +132,7 @@ Configure the root partition:
 * **Mount Point:** `/`
 * Click **OK**.
 
-:::info Note
+:::note[Note]
   Remember the minimum requirements: 20GB for Home Edition, 40GB for Security Edition.
 :::
 

@@ -27,7 +27,7 @@ Navigate to the downloaded folder and unpack **dus-plus.tar.xz** using *tar*:
 cd tarballs && tar -xf dus-plus.tar.xz
 ```
 
-:::info
+:::note
 Why only **dus-plus.tar.xz** instead of **dus.tar.xz**? In short, it contains the *usb-pack-efi* package needed to boot the partition.
 :::
 
@@ -39,7 +39,7 @@ cd dus-tplus/ && sudo ./dus-installer i
 
 In the same terminal session, type `dus` (or open *guidus* from the Parrot menu) and it will start. You will be greeted by a warning about overwriting the target device. Click **OK**.
 
-:::info
+:::note
 `dus` will ask to install the *guidus* GUI as well. The functionality will remain the same.
 :::
 

@@ -9,7 +9,7 @@ sidebar_position: 2
 docker run --name pcore-1 -ti parrotsec/core
 ```
 
-:::info Note
+:::note[Note]
   The `pcore-1` name is arbitrary and can be customized.
 :::
 
@@ -131,7 +131,7 @@ If you need to make the Docker container share the same networking space as the 
 docker run --rm --network host -ti parrotsec/core
 ```
 
-:::info Note
+:::note[Note]
   * Every port opened in the container will be opened on the host as well.
   * You can perform packet sniffing on the host network.
   * `iptables` rules applied inside the container will take effect on the host as well.

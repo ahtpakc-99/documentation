@@ -31,7 +31,7 @@ Open VMware, go to the **File** tab, and click on **Create a New Virtual Machine
 
 The Virtual Machine Wizard will open. Select **Use ISO image**, browse for the ParrotOS ISO file you downloaded, and click **Next**.
 
-:::warning Note
+:::caution[Note]
 
 VMware's automatic OS detection might misidentify the system as an older Debian version. This is completely normal and can be easily corrected in the following steps.
 
@@ -49,7 +49,7 @@ Give your new Virtual Machine a recognizable name and click **Next**.
 
 Next, allocate the disk capacity and configure the hardware specifications.
 
-:::info Note
+:::note[Note]
 
 Please refer to the official [ParrotOS Download Page](https://parrotsec.org/download/) for the minimum and recommended system requirements (Disk Space, RAM, and CPU) based on the specific edition you downloaded.
 

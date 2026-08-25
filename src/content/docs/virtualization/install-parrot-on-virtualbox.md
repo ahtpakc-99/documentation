@@ -76,7 +76,7 @@ Check the box for **Enable 3D Acceleration**.
 ### Storage and ISO Loading
 Navigate to **Storage**. Click on the **Empty** CD icon under the IDE Controller. On the right panel, click the small CD icon and choose your downloaded ParrotOS ISO.
 
-:::info Note
+:::note[Note]
   If you only want to test ParrotOS without installing it, check the **Live CD/DVD** box to run the live environment directly.
 :::
 

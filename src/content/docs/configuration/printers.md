@@ -5,7 +5,7 @@ sidebar_position: 8
 
 Thanks to [**CUPS**](https://openprinting.github.io/cups/doc/overview.html), we can print any document we want.
 
-:::info Note
+:::note[Note]
   These instructions apply to any printer; this guide uses an HP printer as an example.
   For this reason, it may be necessary to install [HPLIP](https://developers.hp.com/hp-linux-imaging-and-printing/tech_docs/overview) (which provides also the necessary drivers for the printer) with this command:
   ```
@@ -29,7 +29,7 @@ After installation, it may be necessary to add your user to the lpadmin group in
 sudo adduser user lpadmin
 ```
 
-:::info Note
+:::note[Note]
   Change the *user* user name in the command to match your system's user name.
 :::
 
