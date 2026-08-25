@@ -28,16 +28,3 @@ build_beta:
   script:
     - docker build -t sjc.vultrcr.com/parrotinfra/documentation-beta:latest .
     - docker push sjc.vultrcr.com/parrotinfra/documentation-beta:latest
-
-#build_test:
-#  except:
-#    - dev
-#    - master
-#  image: docker:28
-#  artifacts:
-#    paths:
-#      - build
-#  script:
-#    - docker build -t test .
-#    - mkdir -p build
-#    - docker run --rm -v $(pwd)/build:/build test -- cp -r /usr/share/nginx/html/ /build
