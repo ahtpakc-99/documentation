@@ -111,6 +111,7 @@ export default defineConfig({
       },
       customCss: ['./src/styles/index.css'],
       components: {
+        PageTitle: './src/components/PageTitle.astro',
         SiteTitle: './src/components/SiteTitle.astro'
       },
       social: [

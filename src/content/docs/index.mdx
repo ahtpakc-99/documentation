@@ -5,6 +5,39 @@ sidebar_label: What is Parrot?
 sidebar_position: 1
 ---
 
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Featured documents
+
+<div class="featured-docs">
+  <CardGrid>
+    <Card title="Docker Images">
+      Run Parrot containers using ready-to-use images for different security workflows.
+
+      [Read the Docker Images guide](./containers/parrot-on-docker/)
+    </Card>
+
+    <Card title="UTM">
+      Run a pre-configured Parrot virtual machine on Apple Silicon Macs.
+
+      [Read the UTM guide](./virtualization/utm-configuration/)
+    </Card>
+
+    <Card title="Desktop Environments">
+      Explore KDE Plasma and the additional desktop environments available for ParrotOS.
+
+      [Read the Desktop Environments guide](./configuration/desktop-environments/)
+    </Card>
+
+    <Card title="What is Parrot?">
+      Learn about ParrotOS, its editions, security tools, development features, and privacy focus.
+
+      [Continue reading](#history-and-team)
+    </Card>
+  </CardGrid>
+</div>
+
+## What is Parrot
 Parrot Security (ParrotOS, Parrot) is a Free and Open source GNU/Linux distribution based on Debian Stable designed for security experts, developers, and privacy-aware people.
 
 It includes a full portable arsenal for IT security and digital forensics operations. It also includes everything you need to develop your own programs or protect your privacy while surfing the net.
