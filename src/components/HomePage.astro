@@ -1,36 +1,30 @@
 ---
-import parrotPattern from "../assets/parrot.svg";
-
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const cards = [
+const featuredDocs = [
   {
-    title: "Getting started",
-    description: "Learn the basics and prepare your first Parrot installation.",
-    href: `${base}/introduction/`,
-    icon: "parrot",
-    action: "Get started",
+    category: "Containers",
+    title: "Docker Images",
+    description: "Run Parrot containers and choose from ready-to-use images for different security workflows.",
+    href: `${base}/containers/parrot-on-docker/`,
   },
   {
-    title: "Installation",
-    description: "Install on bare metal, virtual machines, containers, or ARM.",
-    href: `${base}/installation/`,
-    icon: "terminal",
-    action: "Install Parrot",
+    category: "Virtualization",
+    title: "UTM",
+    description: "Run a pre-configured Parrot virtual machine on Apple Silicon Macs using UTM.",
+    href: `${base}/virtualization/utm-configuration/`,
   },
   {
-    title: "Configuration",
-    description: "Customize your desktop, packages, network, and services.",
-    href: `${base}/configuration/`,
-    icon: "sliders",
-    action: "Configure",
+    category: "Configuration",
+    title: "Desktop Environments",
+    description: "Explore KDE Plasma and the additional desktop environments available for ParrotOS.",
+    href: `${base}/configuration/desktop-environments/`,
   },
   {
-    title: "Security & privacy",
-    description: "Explore hardening, AppArmor, anonymity, and security tools.",
-    href: `${base}/tools/`,
-    icon: "shield",
-    action: "Explore tools",
+    category: "Introduction",
+    title: "What is Parrot?",
+    description: "Learn about ParrotOS, its editions, security tools, development features, and privacy focus.",
+    href: `${base}/introduction/what-is-parrot/`,
   },
 ];
 ---
@@ -57,6 +51,33 @@ const cards = [
   </section>
 
   <a class="home-button" href={`${base}/introduction/what-is-parrot`}>Get Started</a>
+
+  <section class="featured-docs" aria-labelledby="featured-docs-title">
+    <div class="featured-header">
+      <h2 id="featured-docs-title">Featured documents</h2>
+      <p>Start with some of the most useful ParrotOS guides.</p>
+    </div>
+
+    <div class="home-grid">
+      {
+        featuredDocs.map((doc) => (
+          <a class="home-card" href={doc.href}>
+            <div class="card-copy">
+              <span class="card-category">{doc.category}</span>
+              <h2>{doc.title}</h2>
+              <p>{doc.description}</p>
+            </div>
+            <span class="card-action">
+              Read guide
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
 </div>
 
 <script>
@@ -84,13 +105,13 @@ const cards = [
     width: min(100%, 1450px);
     min-height: calc(100dvh - var(--sl-nav-height) - var(--sl-mobile-toc-height));
     margin: 0 auto;
-    padding: clamp(1.5rem, 4vh, 3rem) 1rem;
+    padding: clamp(0.75rem, 2vh, 1.5rem) 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    gap: 2rem;
+    gap: clamp(1.5rem, 3vh, 2.5rem);
     position: relative;
     isolation: isolate;
   }
@@ -102,6 +123,14 @@ const cards = [
 
   :global(main:has(.home-page) footer) {
     display: none;
+  }
+
+  :global(body:has(.home-page) .page > header.header) {
+    border-bottom-color: color-mix(
+      in srgb,
+      var(--sl-color-hairline-shade) 55%,
+      transparent
+    );
   }
 
   :global(.content-panel:has(.home-page)) {
@@ -117,7 +146,7 @@ const cards = [
   }
 
   .home-button {
-    padding: .5rem 2rem;
+    padding: 0.4rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,21 +190,21 @@ const cards = [
   h1 {
     margin: 0;
     color: var(--sl-color-white);
-    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-size: clamp(2.25rem, 6vw, 3.25rem);
     letter-spacing: -0.045em;
   }
 
   .home-hero > p {
-    margin: 1rem auto 0;
+    margin: 0.5rem auto 0;
     color: var(--sl-color-text-muted);
     font-size: clamp(1rem, 2vw, 1.1rem);
   }
 
   .home-search {
     width: min(100%, 590px);
-    min-height: 3.5rem;
-    margin: 2rem auto 0;
-    padding: 0.75rem 0.85rem 0.75rem 1rem;
+    min-height: 3rem;
+    margin: 1rem auto 0;
+    padding: 0.6rem 0.75rem 0.6rem 0.9rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -187,16 +216,12 @@ const cards = [
     text-align: left;
     cursor: pointer;
     box-shadow: var(--sl-shadow-sm);
-    transition: all .3s ease-in-out;
+    transition: border-color 0.5s ease;
   }
 
   .home-search:hover,
   .home-search:focus-visible {
-    border-color: color-mix(
-      in srgb,
-      var(--sl-color-accent) 25%,
-      var(--sl-color-hairline)
-    );
+    border-color: #00B8DB70;
   }
 
   .home-search svg {
@@ -221,102 +246,97 @@ const cards = [
     font-size: var(--sl-text-xs);
   }
 
+  .featured-docs {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .featured-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .featured-header h2 {
+    margin: 0;
+    color: var(--sl-color-white);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    letter-spacing: -0.03em;
+  }
+
+  .featured-header p {
+    margin: 0;
+    color: var(--sl-color-text-muted);
+    font-size: 1rem;
+  }
+
   .home-grid {
-    margin-top: clamp(3.5rem, 8vw, 5rem);
+    margin-top: 0.75rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
   .home-card {
     --card-accent: var(--sl-color-accent);
-    min-height: 290px;
-    padding: clamp(1.5rem, 4vw, 2.25rem);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid color-mix(in srgb, var(--card-accent) 28%, var(--sl-color-hairline));
-    border-radius: 1rem;
+    padding: 0.65rem 0.9rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #00B8DB33;
+    border-radius: 0.6rem;
     background: color-mix(in srgb, var(--sl-color-bg) 91%, var(--sl-color-gray-6));
     color: var(--sl-color-text);
     text-decoration: none;
-    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 8%);
-    transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 5%);
+    transition:
+      border-color 0.5s ease,
+      transform 160ms ease,
+      box-shadow 160ms ease;
   }
 
   .home-card:hover,
   .home-card:focus-visible {
-    border-color: var(--card-accent);
-    transform: translateY(-3px);
-    box-shadow: 0 1.75rem 4.5rem rgb(0 0 0 / 16%);
-  }
-
-  .card-icon-frame {
-    width: 4.15rem;
-    height: 4.15rem;
-    display: grid;
-    place-items: center;
-    border-radius: 1rem;
-    background: color-mix(in srgb, var(--sl-color-bg) 94%, var(--card-accent));
-    color: var(--sl-color-white);
-  }
-
-  .card-icon-frame img {
-    width: 2.5rem;
-    height: 2.5rem;
-    filter: brightness(0) invert(1);
-  }
-
-  .card-icon {
-    width: 2.6rem;
-    height: 2.6rem;
-    overflow: visible;
-  }
-
-  .card-icon path:not(.line) {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 5;
-  }
-
-  .card-icon circle {
-    fill: currentColor;
-    stroke: none;
-  }
-
-  .card-icon .line {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 7;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .shield {
-    width: 2.35rem;
-    height: 2.35rem;
+    border-color: #00B8DB70;
+    transform: translateY(-1px);
+    box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 8%);
   }
 
   .card-copy {
-    margin-top: 1.6rem;
+    margin-top: 0;
+  }
+
+  .card-category {
+    display: block;
+    margin-bottom: 0.1rem;
+    color: var(--sl-color-accent);
+    font-size: var(--sl-text-xs);
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .home-card h2 {
     margin: 0;
     color: var(--sl-color-white);
-    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
     font-weight: 500;
   }
 
   .home-card p {
-    margin: 0.55rem 0 0;
+    margin: 0.15rem 0 0;
     color: var(--sl-color-text-muted);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: var(--sl-text-sm);
+    line-height: 1.45;
   }
 
   .card-action {
-    margin-top: auto;
-    padding-top: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -343,11 +363,7 @@ const cards = [
 
   @media (max-width: 40rem) {
     .home-page {
-      padding-top: 2.5rem;
-    }
-
-    .home-grid {
-      grid-template-columns: 1fr;
+      padding-top: 0.75rem;
     }
 
     .home-search span {
@@ -358,6 +374,15 @@ const cards = [
 
     .home-search kbd {
       display: none;
+    }
+
+    .featured-header {
+      display: block;
+    }
+
+    .featured-header p {
+      margin-top: 0.2rem;
+      font-size: var(--sl-text-sm);
     }
   }
 </style>

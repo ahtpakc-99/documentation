@@ -39,12 +39,18 @@ starlight-toc a[aria-current='true'] {
 
   --sl-color-text-accent: #00FFF0; 
   
-  --sl-color-bg: #0A0A0A;          /* Main content area */
-  --sl-color-bg-nav: #0A0A0A;      /* Top navigation bar */
-  --sl-color-bg-sidebar: #0A0A0A;  /* Left and right sidebars */
+  --sl-color-black: #0A0118;
+  --sl-color-gray-6: #120525;
+  --sl-color-gray-5: #1B1916;
+
+  --sl-color-bg: #0A0118;          /* Main content area */
+  --sl-color-bg-nav: #0A0118;      /* Top navigation bar */
+  --sl-color-bg-sidebar: #0A0118;  /* Left and right sidebars */
+  --sl-color-bg-inline-code: #16082A;
   --sl-color-hairline: #1B1916;
   --sl-color-hairline-light: #1B1916;
   --sl-color-hairline-shade: #1B1916;
+  --sl-color-backdrop-overlay: rgb(10 1 24 / 72%);
   
   /* Body and sidebar text */
   --sl-color-text: #8B949E;
