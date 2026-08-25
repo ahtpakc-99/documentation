@@ -32,25 +32,27 @@ const featuredDocs = [
 <div
   class="home-page"
 >
-  <section class="home-hero">
-    <h1>How can we help?</h1>
-    <p>Everything you need to install, configure, and master ParrotOS.</p>
-    <button
-      class="home-search"
-      type="button"
-      data-home-search
-      aria-keyshortcuts="Control+K"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="11" cy="11" r="7"></circle>
-        <path d="m16 16 5 5"></path>
-      </svg>
-      <span>Search the documentation</span>
-      <kbd data-home-search-shortcut>Ctrl K</kbd>
-    </button>
-  </section>
+  <div class="hero-stage">
+    <section class="home-hero">
+      <h1>How can we help?</h1>
+      <p>Everything you need to install, configure, and master ParrotOS.</p>
+      <button
+        class="home-search"
+        type="button"
+        data-home-search
+        aria-keyshortcuts="Control+K"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m16 16 5 5"></path>
+        </svg>
+        <span>Search the documentation</span>
+        <kbd data-home-search-shortcut>Ctrl K</kbd>
+      </button>
+    </section>
 
-  <a class="home-button" href={`${base}/introduction/what-is-parrot`}>Get Started</a>
+    <a class="home-button" href={`${base}/introduction/what-is-parrot`}>Get Started</a>
+  </div>
 
   <section class="featured-docs" aria-labelledby="featured-docs-title">
     <div class="featured-header">
@@ -103,17 +105,22 @@ const featuredDocs = [
 <style>
   .home-page {
     width: min(100%, 1450px);
-    min-height: calc(100dvh - var(--sl-nav-height) - var(--sl-mobile-toc-height));
     margin: 0 auto;
-    padding: clamp(0.75rem, 2vh, 1.5rem) 1rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .hero-stage {
+    min-height: calc(70dvh - var(--sl-nav-height) - var(--sl-mobile-toc-height));
+    padding: clamp(1rem, 3vh, 2rem) 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
     gap: clamp(1.5rem, 3vh, 2.5rem);
-    position: relative;
-    isolation: isolate;
+    box-sizing: border-box;
   }
 
 
@@ -138,7 +145,7 @@ const featuredDocs = [
   }
 
   :global(main:has(.home-page)) {
-    overflow: clip;
+    overflow-x: clip;
   }
 
   .home-hero {
@@ -249,7 +256,7 @@ const featuredDocs = [
   .featured-docs {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 2rem 0 4rem;
   }
 
   .featured-header {
@@ -356,8 +363,8 @@ const featuredDocs = [
   }
 
   @media (max-width: 40rem) {
-    .home-page {
-      padding-top: 0.75rem;
+    .hero-stage {
+      padding-block: 0.75rem;
     }
 
     .home-search span {
