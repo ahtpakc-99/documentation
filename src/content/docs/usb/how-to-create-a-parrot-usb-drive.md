@@ -21,11 +21,10 @@ You will need a USB drive with a minimum size of 8 GB for the Security Edition a
 
 A quick summary of which tools you can use to create your Parrot USB:
 
-- [Create a bootable USB](#create-a-bootable-usb)
-  - [Balena Etcher](#balena-etcher)
-  - [DD command line tool](#dd-command-line-tool)
-  - [ROSA image writer](#rosa-image-writer)
-  - [Rufus USB formatting utility](#rufus-usb-formatting-utility)
+- [Balena Etcher](#balena-etcher)
+- [DD command line tool](#dd-command-line-tool)
+- [ROSA image writer](#rosa-image-writer)
+- [Rufus USB formatting utility](#rufus-usb-formatting-utility)
 
 ## Balena Etcher
 
