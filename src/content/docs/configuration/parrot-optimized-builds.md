@@ -7,7 +7,7 @@ sidebar:
 
 Parrot Security provides **optimized package builds** that target modern CPU instruction sets for improved performance on recent hardware. This page explains what they are, which packages are currently covered, how to confirm your CPU is compatible, how to enable them, and the technical details behind the feature.
 
-## 1. What are optimized builds?
+## What are optimized builds?
 
 Every standard `amd64` package in Parrot Security (and in Debian, on which Parrot is based) is compiled to run on the original 64-bit x86 instruction set defined in 2003. This guarantees that a package runs on any 64-bit machine, regardless of age. The same principle applies to the standard `arm64` packages, which target the original ARMv8.0 baseline.
 
@@ -26,12 +26,12 @@ The optimized packages are published in **dedicated, opt-in repository component
 
 ![Parrot Optimized Repositories](./images/parrot-optimized-builds/optimized-repositories.png)
 
-## 2. Which packages are currently optimized?
+## Which packages are currently optimized?
 
 Only a curated subset of the archive is optimized. Priority is given first to **shared libraries** that many other programs depend on (compression, cryptography, numerical, and parsing libraries), then to **compute-heavy utilities** (such as ffmpeg), and finally to other packages that benefit measurably. Packages that are I/O-bound or syscall-bound — network daemons, shells, and similar infrastructure — are intentionally left at the baseline because recompiling them yields no measurable benefit.
 
 :::note
- **This list changes over time.** Packages are added as coverage expands, and individual packages may temporarily leave the optimized set (see [Section 8](#8-why-an-optimized-package-may-revert-to-the-standard-version)). Treat the lists below as a snapshot, not a fixed guarantee.
+ **This list changes over time.** Packages are added as coverage expands, and individual packages may temporarily leave the optimized set (see [why an optimized package may revert](#why-an-optimized-package-may-revert-to-the-standard-version)). Treat the lists below as a snapshot, not a fixed guarantee.
 :::
 
 ### A note on source vs binary package names
@@ -89,7 +89,7 @@ rust-ripgrep     scilab           scipy            x264
 zlib
 ```
 
-## 3. CPU compatibility requirement
+## CPU compatibility requirement
 
 > **Important:** Optimized builds require a CPU that supports the corresponding instruction set. Installing them on incompatible hardware will result in programs that crash with an *illegal instruction* error. The packages are designed to refuse installation on unsupported hardware, but you should verify compatibility before enabling the feature.
 
@@ -114,7 +114,7 @@ Your CPU must support the ARMv8.2-A instruction set with the dot-product, FP16, 
 
 The following are **not** compatible: Cortex-A72-class hardware (Raspberry Pi 3 and 4, AWS Graviton 1) and earlier ARMv8.0 cores.
 
-## 4. Verifying your CPU is compatible
+## Verifying your CPU is compatible
 
 Before enabling the feature, confirm your processor supports the required instruction set.
 
@@ -164,7 +164,7 @@ The terms correspond to LSE (`atomics`), dot-product (`asimddp`), FP16 (`fphp`, 
 grep -m1 ^flags /proc/cpuinfo | grep -qE 'avx2.*bmi2|bmi2.*avx2' && echo "compatible" || echo "not compatible"
 ```
 
-## 5. Enabling the optimized repository
+## Enabling the optimized repository
 
 After confirming compatibility, add the repository component for your architecture.
 
@@ -196,7 +196,7 @@ For arm64v8.2:
 echo 'deb https://deb.parrot.sh/parrot echo arm64v8.2' | sudo tee /etc/apt/sources.list.d/parrot-optimized.list
 ```
 
-## 6. Installing the optimized packages
+## Installing the optimized packages
 
 Once the repository is enabled, upgrade your system. The package manager will automatically replace any package that has an optimized variant available.
 
@@ -214,7 +214,7 @@ sudo parrot-upgrade
 
 `full-upgrade` (rather than a plain `upgrade`) is recommended so that APT is permitted to resolve the package transitions cleanly.
 
-## 7. Recognizing optimized packages
+## Recognizing optimized packages
 
 Optimized packages are easy to identify by their version suffix:
 
@@ -235,7 +235,7 @@ apt-cache policy <package-name>
 
 The optimized version will be listed with a higher priority than the standard version, which is why APT prefers it.
 
-## 8. Why an optimized package may revert to the standard version
+## Why an optimized package may revert to the standard version
 
 It is normal and expected for an individual package to occasionally appear **without** its optimized suffix, even while the optimized repository is enabled. This is not a malfunction. There are three reasons it can happen, and in every case the system automatically returns to the optimized version once it becomes available again.
 
@@ -253,7 +253,7 @@ The optimized packages are produced by automated build workers. When a new versi
 
 In all three cases, the practical effect is the same: the package temporarily loses its `+amd64v3optimized1` / `+armv82optimized1` suffix and runs as the standard build. No action is required from you; the optimized version returns automatically once it is rebuilt.
 
-## 9. Verifying an installed binary is optimized
+## Verifying an installed binary is optimized
 
 To confirm that an installed library actually contains the optimized instructions, you can inspect it with `objdump`. For example, to check a shared object on amd64v3:
 
@@ -269,7 +269,7 @@ objdump -d /usr/lib/aarch64-linux-gnu/libzstd.so.1 | grep -m5 -E '(ldaddal|udot|
 
 Here `ldaddal` indicates LSE atomics and `udot`/`sdot` indicate the dot-product instructions.
 
-## 10. Disabling optimized builds
+## Disabling optimized builds
 
 To revert to standard packages, remove the repository file and reinstall the affected packages from the standard archive.
 
@@ -285,7 +285,7 @@ Because the standard archive always contains the baseline version of every packa
 sudo apt install --reinstall <package-name>
 ```
 
-## 11. Technical implementation details
+## Technical implementation details
 
 This section describes how the feature is implemented for users who want to understand the underlying mechanism. It is not required reading for normal use.
 
@@ -302,7 +302,7 @@ Each optimized package is built with a version string that appends a suffix to t
 This produces exactly the behaviour we want:
 
 - When the optimized component is enabled, APT sees both the standard and optimized versions of a package and selects the optimized one because its version is higher.
-- When a newer standard release appears upstream — including a **security update** — before the optimized rebuild has caught up, APT temporarily selects the standard version (because `1.2.3-2` outranks `1.2.3-1+amd64v3optimized1`). The user silently and safely falls back to the baseline package until the optimized rebuild is published. This is correct and intentional, and is what guarantees that security fixes are never delayed by the optimization process. (See [Section 8](#8-why-an-optimized-package-may-revert-to-the-standard-version).)
+- When a newer standard release appears upstream — including a **security update** — before the optimized rebuild has caught up, APT temporarily selects the standard version (because `1.2.3-2` outranks `1.2.3-1+amd64v3optimized1`). The user silently and safely falls back to the baseline package until the optimized rebuild is published. This is correct and intentional, and is what guarantees that security fixes are never delayed by the optimization process. (See [why an optimized package may revert](#why-an-optimized-package-may-revert-to-the-standard-version).)
 
 Because selection is driven entirely by standard version comparison, the feature requires no modifications to APT or dpkg.
 
@@ -326,19 +326,19 @@ The `-mtune` value selects instruction-scheduling heuristics. For arm64 the gene
 
 Languages with their own toolchains are handled separately: Go builds set `GOAMD64=v3` (or the ARM equivalent) and Rust builds set the corresponding `target-cpu` / `target-feature` options, because these toolchains do not read the C/C++ build-flags system.
 
-Because the rebuilds are automated, a new upstream version is recompiled with the optimization flags as soon as it is published. If that automated rebuild fails — due to a build-flag incompatibility, an architecture-specific issue in the new code, or a failing test in the optimized environment — no optimized variant is produced for that version, and the package falls back to the standard build until a maintainer intervenes. (See [Section 8](#8-why-an-optimized-package-may-revert-to-the-standard-version).)
+Because the rebuilds are automated, a new upstream version is recompiled with the optimization flags as soon as it is published. If that automated rebuild fails — due to a build-flag incompatibility, an architecture-specific issue in the new code, or a failing test in the optimized environment — no optimized variant is produced for that version, and the package falls back to the standard build until a maintainer intervenes. (See [why an optimized package may revert](#why-an-optimized-package-may-revert-to-the-standard-version).)
 
 ### Hardware-compatibility guard
 
 To prevent the optimized packages from being installed on hardware that cannot execute them, the component employs a guard mechanism: a small support package performs a CPU feature check at installation time, and optimized packages declare a dependency on it. If the check fails on incompatible hardware, the installation aborts cleanly before any unusable binary is unpacked.
 
-## 12. Caveats and known limitations
+## Caveats and known limitations
 
-- **The feature is experimental.** Package coverage is being expanded over time, and you may encounter packages that are not yet optimized. The lists in [Section 2](#2-which-packages-are-currently-optimized) are a snapshot and will change.
+- **The feature is experimental.** Package coverage is being expanded over time, and you may encounter packages that are not yet optimized. The lists in [the list of optimized packages](#which-packages-are-currently-optimized) are a snapshot and will change.
 
 - **Not every package is optimized.** We deliberately limit the optimized component to packages where the performance benefit is measurable — shared libraries, compute-heavy utilities, language runtimes, and databases. Network daemons, shells, and I/O-bound infrastructure are intentionally left at the baseline because recompiling them yields no measurable benefit.
 
-- **Optimized packages may temporarily revert to the standard build.** As described in [Section 8](#8-why-an-optimized-package-may-revert-to-the-standard-version), this happens when a newer standard version is published, when a security update is released, or when an automated optimized rebuild fails and needs manual intervention. In every case the optimized version returns automatically once available, and no user action is required.
+- **Optimized packages may temporarily revert to the standard build.** As described in [why an optimized package may revert](#why-an-optimized-package-may-revert-to-the-standard-version), this happens when a newer standard version is published, when a security update is released, or when an automated optimized rebuild fails and needs manual intervention. In every case the optimized version returns automatically once available, and no user action is required.
 
 - **Security updates always take precedence.** Security fixes are published to the standard archive immediately and are installed straight away, even if that means temporarily running the unoptimized build of a package. The optimized rebuild of the patched version follows afterward.
 
@@ -346,19 +346,19 @@ To prevent the optimized packages from being installed on hardware that cannot e
 
 - **Third-party repositories are unaffected.** The optimized component only affects packages published in it. Packages from other repositories continue to install their standard versions.
 
-## 13. Frequently Asked Questions
+## Frequently Asked Questions
 
 **Do I need to reinstall Parrot?**
 No. The feature is enabled by adding a repository and upgrading. No reinstallation is required.
 
 **Why did one of my packages lose its optimized suffix after an update?**
-This is expected. It happens when a newer standard version (including a security update) is published before the optimized rebuild catches up, or when the automated optimized rebuild of a new version fails and needs manual intervention. The optimized version returns automatically once it is rebuilt. See [Section 8](#8-why-an-optimized-package-may-revert-to-the-standard-version).
+This is expected. It happens when a newer standard version (including a security update) is published before the optimized rebuild catches up, or when the automated optimized rebuild of a new version fails and needs manual intervention. The optimized version returns automatically once it is rebuilt. See [why an optimized package may revert](#why-an-optimized-package-may-revert-to-the-standard-version).
 
 **Does this delay security updates?**
 No. Security updates are delivered immediately on the standard package. If a package is temporarily unoptimized because of a security update, you still received the fix on time; the optimized rebuild simply follows afterward.
 
 **My package isn't in the optimized list. Will it be added?**
-Possibly. Coverage is expanding over time, prioritizing widely-shared libraries and compute-heavy software. The pipeline list in [Section 2](#2-which-packages-are-currently-optimized) shows what is currently being prepared.
+Possibly. Coverage is expanding over time, prioritizing widely-shared libraries and compute-heavy software. The pipeline list in [the list of optimized packages](#which-packages-are-currently-optimized) shows what is currently being prepared.
 
 **I found a binary package name that isn't in the list, but a related one is.**
 The lists use source package names. One source package produces several binary packages (for example `libabc1`, `abc-dev`, `abc-doc`). If the source package is optimized, all of its binaries are. Use `apt-cache showsrc <binary-package>` to find the source package a binary comes from.

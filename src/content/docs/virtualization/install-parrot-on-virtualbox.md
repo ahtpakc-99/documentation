@@ -24,19 +24,19 @@ Ensure you have downloaded the ParrotOS ISO of your choice from the [official do
 
 Once VirtualBox is installed, launch the application and click on **New** to create a new virtual machine.
 
-### 1. Name and Operating System
+### Name and Operating System
 Enter **Parrot OS** as the name. Load your downloaded ParrotOS ISO by clicking the dropdown arrow and selecting the file. The **Type** (Linux) and **Version** (Debian 64-bit) should be detected automatically.
 
 ![1](./images/vbox/1.png)
 
-### 2. Allocate Memory and CPU
+### Allocate Memory and CPU
 While the OS can run on minimal resources, at least **2 GB of RAM (2048 MB)** and **2 CPU cores** are strongly recommended for a smooth experience in both the Security and Home Editions.
 
 Choose the best settings based on your host machine's available hardware. Check the **Enable EFI** box and click *Next*.
 
 ![2](./images/vbox/2.png)
 
-### 3. Create a Virtual Hard Drive
+### Create a Virtual Hard Drive
 Select **Create a Virtual Hard Disk Now**. Set the disk size to at least **20 GB for the Home Edition** and **40 GB for the Security Edition**.
 
 By default, this creates a **Dynamically Allocated Disk**. If you prefer the VM to reserve the full storage space immediately for slight performance gains, check **Pre-Allocated Full Size**.
