@@ -1,13 +1,14 @@
 ---
 title: "Building packages"
+description: Build Debian packages for ParrotOS with sbuild and git-buildpackage in a clean chroot.
 sidebar:
   order: 2
 ---
-This guide covers the process of building a Debian package from a "debianized" source, which is typically managed in a git repository. It focuses on using `sbuild`, a common requirement for supporting multiple architectures like *arm64* and to be sure to compile in a clean environment. Afterwards it would use `git-sbuildpkg` the tool that is used by parrot infrastracture to massively build all tha packages.
+This guide covers the process of building a Debian package from a "debianized" source, which is typically managed in a git repository. It focuses on using `sbuild`, a common requirement for supporting multiple architectures like *arm64* and to be sure to compile in a clean environment. Afterwards it would use `git-sbuildpkg`, the tool that is used by the Parrot infrastructure to massively build all the packages.
 
 Before making changes to a package, it is highly recommended to build it in its original state. This establishes a baseline and ensures that if any problems arise after your modifications, you can be confident that the issue lies with your changes and not the original source or your environment.
 
-This document assumes you have already configured a `schroot` environment for sbuild as detailed in the previous sections of the documentation.
+This document assumes you have already configured a `schroot` environment for sbuild as detailed in [Development Environment Setup](../setup-environment/).
 
 ## 1. Download the Original Source Tarball
 
@@ -39,7 +40,7 @@ sbuild --arch=arm64 --dist=echo --apt-update --source --force-orig-source --no-r
 
 #### Cross-Compilation:
 - `--arch=arm64`: This flag specifies the target architecture for the package. `sbuild` will set up the build environment accordingly. Inside the chroot, this value is accessible through the `$DEB_HOST_ARCH` environment variable, which build scripts can use to make architecture-specific decisions.
-- `--chroot=echo-arm64-sbuild`: Specifies the exact name of the schroot environment to use for the build. This chroot must be configured for the target architecture (arm64) and distribution (lory).
+- `--chroot=echo-arm64-sbuild`: Specifies the exact name of the schroot environment to use for the build. This chroot must be configured for the target architecture (arm64) and distribution (echo).
 
 #### Build Environment and Behavior:
 

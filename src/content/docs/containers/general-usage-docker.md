@@ -1,5 +1,6 @@
 ---
 title: "Docker usages and examples"
+description: Common Docker commands for running, resuming, listing and removing ParrotOS containers.
 sidebar:
   order: 2
 ---

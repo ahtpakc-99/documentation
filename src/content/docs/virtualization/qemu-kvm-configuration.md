@@ -1,5 +1,6 @@
 ---
 title: "Installing QEMU/KVM, Virt-Manager, and GNOME Boxes on Debian"
+description: Set up QEMU/KVM, Virt-Manager and GNOME Boxes on ParrotOS and other Debian-based systems.
 sidebar:
   order: 5
 ---

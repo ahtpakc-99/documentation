@@ -1,7 +1,8 @@
 ---
 title: "Apple Container"
+description: Run the ParrotOS OCI images on Apple Silicon with the container CLI and Apple Containerization.
 sidebar:
-  order: 4
+  order: 3
 ---
 
 During the latest WWDC (2025), Containerization was announced and released, a software that "[executes each Linux container inside of its own lightweight virtual machine](https://github.com/apple/containerization?tab=readme-ov-file#design)" on Apple Silicon processors, starting from macOS 15 **Sequoia** and macOS 26 **Tahoe**. 

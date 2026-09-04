@@ -1,5 +1,8 @@
 ---
 title: "Installing on Raspberry Pi"
+description: Write a ParrotOS image to a microSD card and boot it on a Raspberry Pi.
+sidebar:
+  order: 4
 ---
 
 ParrotOS is available for Raspberry Pi in all main editions: [Core, Home, and Security](https://parrotsec.org/download/?version=raspberry).

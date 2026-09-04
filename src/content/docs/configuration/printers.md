@@ -1,5 +1,6 @@
 ---
 title: "Printer setup"
+description: Configure printers on ParrotOS through the CUPS web interface.
 sidebar:
   order: 8
 ---

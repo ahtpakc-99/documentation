@@ -1,8 +1,13 @@
 ---
 title: "Assistive Technologies"
+description: Enable the onscreen keyboard and other assistive technologies on ParrotOS.
 sidebar:
   order: 6
 ---
+
+:::note
+The steps below describe the **MATE** desktop, which was the default up to Parrot 6.4 and is still fully supported. On KDE Plasma, the equivalent options live under *System Settings > Accessibility*.
+:::
 
 ## Onscreen Keyboard
 

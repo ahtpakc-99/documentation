@@ -1,5 +1,8 @@
 ---
 title: "Caido"
+description: Run the Caido web security auditing proxy on ParrotOS, from the GUI or headless.
+sidebar:
+  order: 2
 ---
 
 Caido is a modern web security auditing toolkit that sits as an interception 
@@ -22,7 +25,7 @@ Start Caido from the Parrot menu under
 or run it from the terminal:
 
 ```bash
-$ caido
+caido
 ```
 
 The Caido launcher will open, showing the Instances screen.

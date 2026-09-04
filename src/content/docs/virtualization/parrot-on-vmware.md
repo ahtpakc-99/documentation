@@ -1,5 +1,6 @@
 ---
 title: "VMware"
+description: Create a virtual machine and install ParrotOS on VMware Workstation.
 sidebar:
   order: 3
 ---

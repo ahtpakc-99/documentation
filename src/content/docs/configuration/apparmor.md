@@ -1,5 +1,6 @@
 ---
 title: "AppArmor"
+description: Check, install and configure AppArmor profiles on ParrotOS, and switch them between complain and enforce mode.
 sidebar:
   order: 4
 ---

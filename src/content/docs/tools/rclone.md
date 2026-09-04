@@ -1,5 +1,8 @@
 ---
 title: "rclone"
+description: Manage and sync files with cloud storage and remote systems using rclone.
+sidebar:
+  order: 4
 ---
 
 rclone is a CLI tool that makes it easier to manage and sync files and directories in cloud storage and remote systems. It's officially supported by Google Drive, Dropbox, Amazon S3, and many other services.

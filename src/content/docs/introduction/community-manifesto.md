@@ -1,5 +1,8 @@
 ---
 title: "Community Manifesto"
+description: The principles and code of conduct that govern the ParrotSec community.
+sidebar:
+  order: 5
 ---
 
 The ParrotSec community is dedicated to providing a safe, respectful, and productive environment for security researchers, developers, and privacy enthusiasts. We believe that open-source security is a collaborative effort that thrives on diverse perspectives and collective intelligence.

@@ -1,5 +1,8 @@
 ---
 title: "AnonSurf"
+description: Route your connections through Tor with AnonSurf, Parrot's anonymous mode wrapper.
+sidebar:
+  order: 1
 ---
 
 [AnonSurf](https://nest.parrotsec.org/packages/tools/anonsurf/-/tree/3.2.0) is Parrot's anonymous mode wrapper to force connections through [Tor](https://www.torproject.org/). It is written in Nim Language and uses GTK libraries so it can be used via a graphical interface (GUI) and a CommandLine Interface (CLI).

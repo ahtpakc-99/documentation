@@ -1,5 +1,6 @@
 ---
 title: "Install ParrotOS"
+description: Install ParrotOS step by step with the Calamares graphical installer.
 sidebar:
   order: 1
 ---

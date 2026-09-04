@@ -1,5 +1,6 @@
 ---
-title: "Desktop Enviroments"
+title: "Desktop Environments"
+description: Install and switch between KDE Plasma, MATE, XFCE and GNOME on ParrotOS.
 sidebar:
   order: 7
 ---

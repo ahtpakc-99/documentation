@@ -1,5 +1,8 @@
 ---
 title: "wget"
+description: Download files and interact with REST APIs from the command line using wget.
+sidebar:
+  order: 5
 ---
 
 Wget is a CLI tool which lets you download files and use REST API interactively. 

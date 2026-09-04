@@ -1,5 +1,8 @@
 ---
 title: "Wi-Fi Adapter Not Detected"
+description: Diagnose a wireless adapter that is not detected on ParrotOS, from bus enumeration to firmware and rfkill.
+sidebar:
+  order: 3
 ---
 
 Wireless adapter detection failures on Parrot OS usually originate from one of four layers: hardware visibility, kernel driver support, firmware availability, or interface state. This guide focuses on structured diagnosis rather than one-click fixes.

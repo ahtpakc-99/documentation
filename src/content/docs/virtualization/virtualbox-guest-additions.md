@@ -1,5 +1,6 @@
 ---
 title: "VirtualBox Guest Additions"
+description: Install the VirtualBox Guest Additions in a ParrotOS guest for better display and integration.
 sidebar:
   order: 2
 ---
@@ -20,7 +21,7 @@ For more information, please refer to the [official VirtualBox manual](https://w
 
 ---
 
-# Guest Additions Installation
+## Guest Additions Installation
 
 ## Method 1 (Recommended & Easiest)
 

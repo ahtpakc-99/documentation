@@ -1,5 +1,6 @@
 ---
 title: "Community Contributions"
+description: How to contribute to ParrotOS, from packaging and documentation to the website and ARM images.
 sidebar:
   order: 4
 ---
@@ -49,7 +50,7 @@ of this subproject will review your request as soon as possible and coordinate t
 
 ### Documentation
 
-The official ParrotOS documentation, accessible at https://parrotsec.org/docs. It is based on the Docusaurus v3 framework
+The official ParrotOS documentation, accessible at https://parrotsec.org/docs. It is based on [Astro Starlight](https://starlight.astro.build/)
 and the graphics follow the ParrotOS style. New features will always be added to make it as complete as possible.
 If you think you can add some essential or interesting documents, feel free to clone this [repository](https://gitlab.com/parrotsec/project/documentation) and open a merge request.
 

@@ -1,5 +1,6 @@
 ---
 title: "Persistent partition"
+description: Create a ParrotOS live USB drive with a persistent partition that keeps your changes across reboots.
 sidebar:
   order: 2
 ---

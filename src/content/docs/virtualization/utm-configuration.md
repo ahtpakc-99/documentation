@@ -1,5 +1,6 @@
 ---
 title: "UTM"
+description: Virtualize ParrotOS on Apple Silicon Macs using UTM.
 sidebar:
   order: 4
 ---

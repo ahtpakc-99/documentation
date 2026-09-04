@@ -1,5 +1,6 @@
 ---
 title: "File and Directory Permissions"
+description: Read and change file ownership and permissions on GNU/Linux, in both symbolic and numeric notation.
 sidebar:
   order: 3
 ---

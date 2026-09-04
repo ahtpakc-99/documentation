@@ -1,5 +1,6 @@
 ---
 title: "Create a bootable USB"
+description: Write the ParrotOS ISO to a USB drive on GNU/Linux, Windows and macOS.
 sidebar:
   order: 1
 ---
