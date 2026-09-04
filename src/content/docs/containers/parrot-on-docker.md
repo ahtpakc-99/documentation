@@ -14,7 +14,7 @@ Parrot uses Docker to allow its users to take advantage of its vast arsenal of t
 | Image | Based on | Main packages |
 |:---|:---|:---|
 | [`parrotsec/core`](#parrotseccore) | — | Parrot base system |
-| [`parrotsec/security`](#parrotsecsecurity) | — | `parrot-cloud` |
+| [`parrotsec/security`](#parrotsecsecurity) | `core` | `parrot-tools-*` metapackages |
 | [`parrotsec/nmap`](#parrotsecnmap) | `core` | `nmap`, `ncat`, `ndiff` |
 | [`parrotsec/metasploit`](#parrotsecmetasploit) | `nmap` | `metasploit-framework`, `postgresql` |
 | [`parrotsec/set`](#parrotsecset) | `metasploit` | `set` |
@@ -46,10 +46,19 @@ docker run --rm -ti --network host -v $PWD/work:/work parrotsec/core
 
 This container includes a huge collection of tools that can be used via the command line from inside a Docker container.
 
-Some tools with graphical interfaces were excluded for obvious reasons.
+**Based on:** `parrotsec/core`  
+**Ships with the following metapackages:**
+* `parrot-tools-cloud`
+* `parrot-tools-infogathering`
+* `parrot-tools-maintain`
+* `parrot-tools-password`
+* `parrot-tools-postexploit`
+* `parrot-tools-pwn`
+* `parrot-tools-sniff`
+* `parrot-tools-vuln`
+* `parrot-tools-web`
 
-This container ships with the following metapackages:
-* `parrot-cloud`
+Tools shipping a graphical interface are deliberately excluded, since a container has no desktop session to run them in. That covers `burpsuite`, `gvm`, `ettercap-graphical`, `wireshark`, `armitage`, `beef-xss`, `king-phisher` and `sqlitebrowser`.
 
 **Launch the container:**
 
