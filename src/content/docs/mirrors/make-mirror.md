@@ -8,7 +8,7 @@ sidebar:
 You can set up a Parrot archive mirror on your server for personal or public usage by following the steps below.
 
 
-### Make sure to have enough free space
+## Make sure to have enough free space
 
 You can sync the entire repository or pick just the ISO images.
 
@@ -30,7 +30,7 @@ If you sync the entire archive with the below instructions, you do NOT need to s
 
 #### Sync the repository
 
-```
+```bash
 rsync -Pahv --delete-after rsync://rsync.parrot.sh:/parrot /var/www/html/parrot
 ```
 
@@ -38,7 +38,7 @@ rsync -Pahv --delete-after rsync://rsync.parrot.sh:/parrot /var/www/html/parrot
 
 launch the following command:
 
-```
+```bash
 crontab -e
 ```
 
@@ -56,7 +56,7 @@ use the following instructions if you want to sync only the ISO files.
 
 #### Sync the repository
 
-```
+```bash
 rsync -Pahv --delete-after rsync://rsync.parrot.sh:/parrot-iso /var/www/html/parrot
 ```
 
@@ -64,7 +64,7 @@ rsync -Pahv --delete-after rsync://rsync.parrot.sh:/parrot-iso /var/www/html/par
 
 launch the following command:
 
-```
+```bash
 crontab -e
 ```
 
@@ -84,13 +84,13 @@ The following instructions will set up rsync and expose the parrot archive in co
 
 install rsync with:
 
-```
+```bash
 sudo apt install rsync
 ```
 
 edit /etc/rsyncd.conf with nano:
 
-```
+```bash
 sudo nano /etc/rsyncd.conf
 ```
 
@@ -125,13 +125,13 @@ paste the following settings in the config file and save it:
 
 Enable the rsync service:
 
-```
+```bash
 sudo systemctl enable rsync
 ```
 
 Start the rsync service:
 
-```
+```bash
 sudo service rsync start
 ```
 

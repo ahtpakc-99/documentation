@@ -26,7 +26,7 @@ With **Change Identity** you will switch to another exit node:
 
 ![Anonsurf](./images/anonsurf/5.png)
 
-### AnonSurf CLI
+## AnonSurf CLI
 
 ![Anonsurf CLI](./images/anonsurf/6.png)
 
@@ -38,16 +38,16 @@ Since version 3.2.0, AnonSurf has been rewritten, with a new code structure. The
 
 First of all, being written in Nim, some dependencies need to be installed:
 
-```
+```bash
 sudo apt install nim
 ```
-```
+```bash
 sudo apt install libnim-gintro-dev
 ```
 
 Then you can download the anonsurf source:
 
-```
+```bash
 cd anonsurf/
 
 make build
