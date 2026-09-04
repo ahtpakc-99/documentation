@@ -13,7 +13,7 @@ Following these steps will install the essential tools and create a clean chroot
 First, you need to update your system's package list and install the essential tools for package building. 
 This initial setup is a one-time process that prepares your machine for all future packaging work.
 
-### 1. **Update Package Lists:** 
+### 1. Update Package Lists
 Refresh your local package index to ensure you are installing the latest versions of the required tools. This command synchronizes the list of available packages from the Parrot OS repositories.
 
 ```bash
@@ -21,7 +21,7 @@ sudo apt update
 ```
 
 
-### 2. **Install Development Tools:** **devscripts**, **git-buildpackage**, and **sbuild**
+### 2. Install Development Tools: devscripts, git-buildpackage, and sbuild
 
 These three packages form the foundation of the Debian packaging toolchain.
 
@@ -33,7 +33,7 @@ These three packages form the foundation of the Debian packaging toolchain.
 sudo apt install devscripts git-buildpackage sbuild
 ```
 
-### 3. **Create the Build Chroot:** 
+### 3. Create the Build Chroot
 
 Set up a clean build environment for your target architecture using sbuild. A chroot is essentially a self-contained copy of a minimal Parrot OS system. This command creates a chroot named **echo-\<architecture\>-sbuild** for the "echo" Parrot OS release.  
 Replace **\<architecture\>** with your target architecture, such as *amd64* or *arm64*. 
@@ -42,7 +42,7 @@ Replace **\<architecture\>** with your target architecture, such as *amd64* or *
 sudo sbuild-createchroot --arch=<architecture> echo /var/lib/sbuild/echo-<architecture>-sbuild https://deb.parrot.sh/parrot
 ```
 
-### 4. **Add User to Sbuild Group:**
+### 4. Add User to Sbuild Group
 
 Add your user account to the sbuild system group. This grants you the necessary permissions to execute build jobs with sbuild without needing to use sudo for every operation, which is a safer and more convenient practice. You will need to log out and log back in for this change to take effect. 
 
@@ -92,7 +92,7 @@ chroot with name echo-<architecture>-sbuild already exists at /usr/bin/sbuild-cr
 
 To resolve this, you must manually remove all traces of the old, conflicting chroot. Follow these steps carefully, replacing \<architecture\> with the specific architecture of the chroot you need to remove.
 
-#### 1. **Check the chroot directory:** 
+#### 1. Check the chroot directory
 
 Use `schroot -i -c <chroot_name>` to find the exact location of the chroot's filesystem directory.  
 
@@ -100,7 +100,7 @@ Use `schroot -i -c <chroot_name>` to find the exact location of the chroot's fil
 schroot -i -c echo-<architecture>-sbuild
 ```
 
-#### 2. **Remove the directory:** 
+#### 2. Remove the directory
 
 Delete the directory found in the previous step. This is often located in */var/lib/sbuild/*.
 
@@ -112,7 +112,7 @@ Delete the directory found in the previous step. This is often located in */var/
 sudo rm -rf /var/lib/sbuild/echo-<architecture>-sbuild
 ```
 
-#### 3. **Remove the schroot config:** 
+#### 3. Remove the schroot config
 
 Delete the chroot's main configuration file from */etc/schroot/chroot.d/*
 
@@ -120,7 +120,7 @@ Delete the chroot's main configuration file from */etc/schroot/chroot.d/*
 sudo rm /etc/schroot/chroot.d/echo-<architecture>-sbuild.conf
 ```
 
-#### 4. **Remove the sbuild config:** 
+#### 4. Remove the sbuild config
 
 Finally, remove the chroot's configuration from sbuild's specific configuration directory.
 

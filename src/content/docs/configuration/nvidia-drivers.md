@@ -70,7 +70,7 @@ In addition, the settings manager will be automatically installed together with 
 
 ![3](./images/nvidia-drivers/3.png)
 
-## Nvidia Driver on a computer with iGPU and dGPU 
+## Nvidia Driver on a computer with iGPU and dGPU
 
 Most modern computers come with an integrated video card in the CPU (iGPU, like an Intel Graphic Card or AMD in most cases) and a dedicated video card (dGPU, Nvidia).
 
