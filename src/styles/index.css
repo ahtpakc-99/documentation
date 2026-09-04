@@ -88,3 +88,24 @@ site-search button[data-open-modal] > kbd {
   border-radius: 0;
   padding: 0.5rem 0.75rem;
 }
+
+/* Starlight paints the mobile menu button with --sl-color-white, which stays
+   pure white in the dark theme. Bind it to the nav surface instead. */
+starlight-menu-button button {
+  background-color: var(--sl-color-bg-nav);
+  color: var(--sl-color-text);
+  border: 1px solid var(--sl-color-hairline);
+  box-shadow: none;
+}
+
+starlight-menu-button button:hover,
+starlight-menu-button button:focus-visible {
+  color: var(--sl-color-accent);
+  border-color: var(--sl-color-accent);
+}
+
+starlight-menu-button[aria-expanded='true'] button {
+  background-color: var(--sl-color-bg-sidebar);
+  color: var(--sl-color-accent);
+  border-color: var(--sl-color-accent);
+}
