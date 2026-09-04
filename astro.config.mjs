@@ -8,9 +8,11 @@ const base = '/docs'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://parrotsec.org',
   base,
   redirects: {
-    '/introduction/what-is-parrot': `${base}/`
+    '/introduction/what-is-parrot': `${base}/`,
+    '/installation/install-with-wsl': `${base}/containers/wsl/`
   },
   integrations: [
     starlight({
