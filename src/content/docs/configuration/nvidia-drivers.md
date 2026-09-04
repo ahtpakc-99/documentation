@@ -70,13 +70,13 @@ In addition, the settings manager will be automatically installed together with 
 
 ![3](./images/nvidia-drivers/3.png)
 
-### Nvidia Driver on a computer with iGPU and dGPU 
+## Nvidia Driver on a computer with iGPU and dGPU 
 
 Most modern computers come with an integrated video card in the CPU (iGPU, like an Intel Graphic Card or AMD in most cases) and a dedicated video card (dGPU, Nvidia).
 
 In this guide we'll deal with the drivers for both video cards and show how to switch between them.
 
-#### Step 1 - Install Nvidia Drivers and CUDA Toolkit
+### Step 1 - Install Nvidia Drivers and CUDA Toolkit
 
 Open a terminal window and type:
 
@@ -94,7 +94,7 @@ Wait for the installation to proceed. When a warning notifying **nouveau** drive
 
 ![8](./images/nvidia-drivers/8.png)
 
-#### Step 2 - Blacklist Nouveau
+### Step 2 - Blacklist Nouveau
 
 :::note[Note]
   If you have already followed [the Nvidia installation via the Parrot repo](#install-the-driver-via-the-parrot-repositories) you can go to [step 3](#step-3---configure-bumblebee).
@@ -110,7 +110,7 @@ echo -e "blacklist nouveau\noptions nouveau modeset=0\nalias nouveau off" | sudo
 
 Save your work and reboot.
  
-#### Step 3 - Configure Bumblebee
+### Step 3 - Configure Bumblebee
 
 Now it's time to tell **bumblebee** which driver should be used.
 
@@ -128,7 +128,7 @@ Look for the string **Driver=** and add **nvidia**, then look for the string **K
 
 Save the file and reboot.
 
-#### Step 4 - Testing the Drivers
+### Step 4 - Testing the Drivers
 
 Open a terminal and type:
 

@@ -28,13 +28,13 @@ Feel free to contact the Parrot team if you have specific mirroring needs or ban
 
 If you sync the entire archive with the below instructions, you do NOT need to synchronize the ISO archive. ISO files are included by default!
 
-#### Sync the repository
+#### Sync the full archive
 
 ```bash
 rsync -Pahv --delete-after rsync://rsync.parrot.sh:/parrot /var/www/html/parrot
 ```
 
-#### Configure a cronjob
+#### Configure a cronjob for the full archive
 
 launch the following command:
 
@@ -54,13 +54,13 @@ Do not sync the ISO archive if you are already synchronizing the full archive wi
 
 use the following instructions if you want to sync only the ISO files.
 
-#### Sync the repository
+#### Sync the ISO archive
 
 ```bash
 rsync -Pahv --delete-after rsync://rsync.parrot.sh:/parrot-iso /var/www/html/parrot
 ```
 
-#### Configure a cronjob
+#### Configure a cronjob for the ISO archive
 
 launch the following command:
 
