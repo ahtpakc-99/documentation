@@ -1,5 +1,6 @@
 ---
 title: "Download"
+description: Choose between the Security, Home, IoT and Docker editions of ParrotOS.
 sidebar:
   order: 3
 ---
@@ -36,7 +37,7 @@ Forget all you know about pentesting circumstances. Carrying a laptop everywhere
 You can now have a remote VPS loaded with Parrot OS ready to perform all sort of tasks from an embedded terminal, with discretion. 
 This edition does not provide a GUI out of the box, but it's available in the repositories if needed.
 
-[Check it out now](<../containers/parrot-on-docker>)
+[Check it out now](../../containers/parrot-on-docker/)
 
 ### Security vs Home Edition: Which one should I choose?
 

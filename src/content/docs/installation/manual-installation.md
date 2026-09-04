@@ -1,5 +1,8 @@
 ---
 title: "Manual Partitioning"
+description: Partition your disk manually during the ParrotOS installation for full control over layout and filesystems.
+sidebar:
+  order: 3
 ---
 
 This guide focuses on the **Manual Partitioning** of ParrotOS using the Calamares installer. This method provides full control over disk management, allowing you to define partition sizes, file systems, and mount points according to your specific needs.
@@ -15,7 +18,7 @@ We will cover two common use cases:
 
 ## Case 1: Partitioning a disk with existing partitions
 
-After following the initial [Parrot Installation](./) steps, select **Manual Partitioning** and click **Next**.
+After following the initial [Parrot Installation](../installation-parrot/) steps, select **Manual Partitioning** and click **Next**.
 
 ![par0](./images/partitioning/par0.png)
 
@@ -91,7 +94,7 @@ Follow the remaining on-screen instructions to complete the installation.
 
 ## Case 2: Partitioning an empty disk
 
-After following the initial [Parrot Installation](./) steps, select **Manual Partitioning** and click **Next**.
+After following the initial [Parrot Installation](../installation-parrot/) steps, select **Manual Partitioning** and click **Next**.
 
 ![manp0](./images/partitioning/manp0.png)
 

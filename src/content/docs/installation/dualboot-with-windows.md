@@ -1,5 +1,6 @@
 ---
 title: "Dualboot with Windows"
+description: Install ParrotOS alongside an existing Windows installation, using automated or manual partitioning.
 sidebar:
   order: 2
 ---
@@ -10,14 +11,14 @@ It is possible to install ParrotOS alongside Windows, thanks to GRUB and correct
   Disable Secure Boot and CSM in your machine's UEFI settings.
 :::
 
-After following the steps in the [Parrot Installation](./) guide up to the partitioning section, the situation will look similar to this:
+After following the steps in the [Parrot Installation](../installation-parrot/) guide up to the partitioning section, the situation will look similar to this:
 
 ![1](./images/dualboot/db1.png)
 
 There are two ways to proceed: 
 
- - [Method 1: Automated Partitioning](<./dualboot-with-windows.html#method-1-automated-partitioning>)
- - [Method 2: Manual Partitioning](<./dualboot-with-windows.html#method-2-manual-partitioning>)
+ - [Method 1: Automated Partitioning](#method-1-automated-partitioning)
+ - [Method 2: Manual Partitioning](#method-2-manual-partitioning)
 
 
 ## Method 1: Automated Partitioning

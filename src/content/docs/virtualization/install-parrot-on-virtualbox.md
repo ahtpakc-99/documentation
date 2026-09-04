@@ -1,5 +1,6 @@
 ---
 title: "VirtualBox"
+description: Create a virtual machine and install ParrotOS on VirtualBox.
 sidebar:
   order: 1
 ---
@@ -15,7 +16,7 @@ On GNU/Linux environments, you can install it via the terminal:
     sudo apt update
     sudo apt install virtualbox virtualbox-ext-pack
 
-Ensure you have downloaded the ParrotOS ISO of your choice from the [official download page](../introduction/download-parrot).
+Ensure you have downloaded the ParrotOS ISO of your choice from the [official download page](../../introduction/download-parrot/).
 
 ## Creating a New Virtual Machine
 

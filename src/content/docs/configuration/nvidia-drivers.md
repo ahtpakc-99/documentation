@@ -1,5 +1,6 @@
 ---
 title: "Nvidia GPU Driver configuration"
+description: Install and verify the proprietary Nvidia drivers on ParrotOS, replacing the default nouveau driver.
 sidebar:
   order: 2
 ---
@@ -221,7 +222,7 @@ sudo chmod +x NVIDIA-Linux-x86_64-<driver version>.run
 
 
 :::note[Note]
-If you don't remember what chmod does, it is recommended that you read the [File and Directory permissions](./file-and-directory-permissions) document.
+If you don't remember what chmod does, it is recommended that you read the [File and Directory permissions](../file-and-directory-permissions/) document.
 :::
 
 After that you can start the **.run** file:

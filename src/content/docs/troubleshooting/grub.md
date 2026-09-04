@@ -1,5 +1,8 @@
 ---
 title: "GRUB"
+description: Known fixes for GRUB problems on ParrotOS, including reinstalling the bootloader from a live session.
+sidebar:
+  order: 1
 ---
 
 This guide will give you a list of known solutions to use when you are having problems with GRUB. 
@@ -16,7 +19,7 @@ If you want to know more about GRUB:
 
 In order to repair GRUB:
 
-[Download](https://parrotsec.org/download/) the latest ParrotOS **.iso**, [flash it onto an USB drive](../usb/how-to-create-a-parrot-usb-drive) and boot it.
+[Download](https://parrotsec.org/download/) the latest ParrotOS **.iso**, [flash it onto an USB drive](../../usb/how-to-create-a-parrot-usb-drive/) and boot it.
 
 ## Step 2 - Disk and partition identification
 
