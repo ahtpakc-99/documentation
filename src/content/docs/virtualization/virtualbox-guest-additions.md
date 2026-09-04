@@ -29,19 +29,27 @@ The most reliable way to install Guest Additions on Parrot OS is via the officia
 
 **1.** Open a terminal and update your package list:
 
-    sudo apt update
+```bash
+sudo apt update
+```
 
 **2.** Install the Guest Additions packages:
 
-    sudo apt install -y virtualbox-guest-utils virtualbox-guest-x11
+```bash
+sudo apt install -y virtualbox-guest-utils virtualbox-guest-x11
+```
 
 **3.** Once the installation is complete, reboot your virtual machine:
 
-    sudo reboot
+```bash
+sudo reboot
+```
 
 **4.** After rebooting, you can verify if the Guest Additions are running correctly with:
 
-    sudo /usr/sbin/VBoxService -V
+```bash
+sudo /usr/sbin/VBoxService -V
+```
 
 ---
 
@@ -71,14 +79,20 @@ If it returns an error stating it cannot mount the ISO, turn off the virtual mac
 
 **3.** Navigate to the mounted Guest Additions directory, open a terminal there, and grant execution permissions to the installer:
 
-    sudo chmod +x VBoxLinuxAdditions.run
+```bash
+sudo chmod +x VBoxLinuxAdditions.run
+```
 
 Execute the script:
 
-    sudo ./VBoxLinuxAdditions.run
+```bash
+sudo ./VBoxLinuxAdditions.run
+```
 
 **4.** Wait for the installation process to finish. Once completed, reboot the virtual machine:
 
 ![6](./images/vbox/guest_additions6.png)
 
-    sudo reboot
+```bash
+sudo reboot
+```

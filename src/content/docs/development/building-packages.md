@@ -16,7 +16,7 @@ Before building the Debian package, you need to generate the original upstream s
 
 From the root of your git repository, run the following command:
 
-```
+```bash
 gbp export-orig --verbose --no-pristine-tar
 ```
 
@@ -32,7 +32,7 @@ After running this command, you will see the `.orig.tar.gz` file in the parent d
 
 Once the source tarball is ready, you can proceed with the build using `sbuild`. The following command demonstrates a cross-compilation build for the arm64 architecture targeting the "echo" distribution of Parrot OS.
 
-```
+```bash
 sbuild --arch=arm64 --dist=echo --apt-update --source --force-orig-source --no-run-lintian --no-clean-source -v --chroot=echo-arm64-sbuild -D .
 ```
 
@@ -75,7 +75,7 @@ The command's syntax is `main.sh <path> <branch> <architecture>`.
 
 To perform the same *arm64* build, the commands are:
 
-```
+```bash
 cd <path_to_git-sbuildpkg>
 ./main.sh <path_to_git> debian/latest arm64
 ```

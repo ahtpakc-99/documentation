@@ -19,7 +19,7 @@ Nmap or Network Mapper is a free and open source utility for network discovery a
 
 ## Sample nmap command
 
-```
+```bash
 nmap -A -T4 scanme.nmap.org
 ```
 
@@ -27,7 +27,7 @@ nmap -A -T4 scanme.nmap.org
 
 If you want to get a summary of nmap’s command just run nmap without any command like this:
 
-```
+```bash
 nmap
 ```
 
@@ -35,7 +35,7 @@ nmap
 
 One of the very first steps in any network reconnaissance mission is to reduce a (sometimes huge) set of IP ranges into a list of active or interesting hosts. Scanning every port of every single IP address is slow and usually unnecessary. Of course what makes a host interesting depends greatly on the scan purposes. Network administrators may only be interested in hosts running a certain service, while security auditors may care about every single device with an IP address. An administrator may be comfortable using just an ICMP ping to locate hosts on his internal network, while an external penetration tester may use a diverse set of dozens of probes in an attempt to evade firewall restrictions
 
-```
+```bash
 # (List Scan)
 nmap  -sL
 

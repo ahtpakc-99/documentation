@@ -15,11 +15,15 @@ First, download the latest version of VMware Workstation from the [official webs
 
 If you are installing VMware on a GNU/Linux host system, navigate to the directory where you downloaded the `.bundle` installer, open a terminal, and grant it execution privileges:
 
-    chmod +x VMware-Workstation-*.bundle
+```bash
+chmod +x VMware-Workstation-*.bundle
+```
 
 Then, run the installer with root privileges:
 
-    sudo ./VMware-Workstation-*.bundle
+```bash
+sudo ./VMware-Workstation-*.bundle
+```
 
 Follow the on-screen prompts to complete the setup. Once finished, you will find VMware ready to use in your application menu.
 

@@ -16,7 +16,7 @@ This initial setup is a one-time process that prepares your machine for all futu
 ### 1. **Update Package Lists:** 
 Refresh your local package index to ensure you are installing the latest versions of the required tools. This command synchronizes the list of available packages from the Parrot OS repositories.
 
-```
+```bash
 sudo apt update
 ```
 
@@ -29,7 +29,7 @@ These three packages form the foundation of the Debian packaging toolchain.
 * **git-buildpackage**: An indispensable tool for maintaining Debian packages within a Git repository. It bridges the gap between source code version control and Debian packaging, allowing you to build directly from commits or tags.  
 * **sbuild**: The core tool for building packages in a pristine, isolated chroot (a "clean room" environment). This guarantees that the build process is not influenced by any libraries or configurations on your host machine, which is critical for ensuring packages will work correctly for all users.
 
-```
+```bash
 sudo apt install devscripts git-buildpackage sbuild
 ```
 
@@ -38,7 +38,7 @@ sudo apt install devscripts git-buildpackage sbuild
 Set up a clean build environment for your target architecture using sbuild. A chroot is essentially a self-contained copy of a minimal Parrot OS system. This command creates a chroot named **echo-\<architecture\>-sbuild** for the "echo" Parrot OS release.  
 Replace **\<architecture\>** with your target architecture, such as *amd64* or *arm64*. 
 
-``` 
+```bash
 sudo sbuild-createchroot --arch=<architecture> echo /var/lib/sbuild/echo-<architecture>-sbuild https://deb.parrot.sh/parrot
 ```
 
@@ -46,7 +46,7 @@ sudo sbuild-createchroot --arch=<architecture> echo /var/lib/sbuild/echo-<archit
 
 Add your user account to the sbuild system group. This grants you the necessary permissions to execute build jobs with sbuild without needing to use sudo for every operation, which is a safer and more convenient practice. You will need to log out and log back in for this change to take effect. 
 
-``` 
+```bash
 sudo sbuild-adduser $USER
 ```
 
@@ -78,7 +78,7 @@ As mentioned, **sbuild** is used to build Debian packages in a clean, isolated c
 
 As shown in the setup section, you can create a chroot with the following command. You can have multiple chroots for different releases or architectures on the same machine.
 
-```
+```bash
 sudo sbuild-createchroot --arch=<architecture\> echo /var/lib/sbuild/echo-<architecture>-sbuild https://deb.parrot.sh/parrot
 ```
 
@@ -96,7 +96,7 @@ To resolve this, you must manually remove all traces of the old, conflicting chr
 
 Use `schroot -i -c <chroot_name>` to find the exact location of the chroot's filesystem directory.  
 
-```
+```bash
 schroot -i -c echo-<architecture>-sbuild
 ```
 
@@ -108,7 +108,7 @@ Delete the directory found in the previous step. This is often located in */var/
     The `rm -rf` command permanently deletes files without confirmation. Double-check that the path is correct.  
 :::
 
-```
+```bash
 sudo rm -rf /var/lib/sbuild/echo-<architecture>-sbuild
 ```
 
@@ -116,7 +116,7 @@ sudo rm -rf /var/lib/sbuild/echo-<architecture>-sbuild
 
 Delete the chroot's main configuration file from */etc/schroot/chroot.d/*
 
-```  
+```bash
 sudo rm /etc/schroot/chroot.d/echo-<architecture>-sbuild.conf
 ```
 
@@ -124,7 +124,7 @@ sudo rm /etc/schroot/chroot.d/echo-<architecture>-sbuild.conf
 
 Finally, remove the chroot's configuration from sbuild's specific configuration directory.
 
-```  
+```bash
 sudo rm /etc/sbuild/chroot/echo-<architecture>-sbuild.conf
 ```  
 

@@ -32,7 +32,7 @@ This is a standard mismatch, not a timezone bug.
 
 Inspect system clock, RTC, timezone, and sync status:
 
-```
+```bash
 timedatectl
 ```
 
@@ -65,7 +65,7 @@ Using UTC for RTC is cleaner and aligns with Linux defaults. Configure Windows t
 
 Run **Command Prompt as Administrator**:
 
-```
+```bash
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /t REG_DWORD /d 1 /f
 ```
 
@@ -75,13 +75,13 @@ Then fully reboot Windows.
 
 Ensure it is using UTC behavior:
 
-```
+```bash
 timedatectl set-local-rtc 0
 ```
 
 Re-check:
 
-```
+```bash
 timedatectl
 ```
 
@@ -93,13 +93,13 @@ Expected:
 
 Use this only if Windows-side changes are not possible.
 
-```
+```bash
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
 Then verify:
 
-```
+```bash
 timedatectl
 ```
 
@@ -113,7 +113,7 @@ This works, but UTC is generally preferable.
 
 Even after RTC alignment, network time sync should remain active.
 
-```
+```bash
 timedatectl set-ntp true  
 timedatectl
 ```
@@ -126,19 +126,19 @@ If the offset is caused by wrong timezone rather than RTC interpretation:
 
 List zones:
 
-```
+```bash
 timedatectl list-timezones
 ```
 
 Set timezone (example Sri Lanka):
 
-```
+```bash
 sudo timedatectl set-timezone Asia/Colombo
 ```
 
 Then verify again:
 
-```
+```bash
 timedatectl
 ```
 

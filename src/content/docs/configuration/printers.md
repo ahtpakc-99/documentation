@@ -10,7 +10,7 @@ Thanks to [**CUPS**](https://openprinting.github.io/cups/doc/overview.html), we 
 :::note[Note]
   These instructions apply to any printer; this guide uses an HP printer as an example.
   For this reason, it may be necessary to install [HPLIP](https://developers.hp.com/hp-linux-imaging-and-printing/tech_docs/overview) (which provides also the necessary drivers for the printer) with this command:
-  ```
+  ```bash
   sudo apt install hplip -y
   ```
 :::
@@ -19,7 +19,7 @@ Thanks to [**CUPS**](https://openprinting.github.io/cups/doc/overview.html), we 
 
 It should already be installed on ParrotOS, but if not, open a terminal window and run:
 
-```
+```bash
 sudo apt update && sudo apt install cups
 ```
 
@@ -27,7 +27,7 @@ sudo apt update && sudo apt install cups
 
 After installation, it may be necessary to add your user to the lpadmin group in order to perform administrative tasks via the web interface. For this reason, it is necessary to authenticate to the lpadmin group. Otherwise CUPS will not authenticate a user without a password:
 
-```
+```bash
 sudo adduser user lpadmin
 ```
 
@@ -41,7 +41,7 @@ Learn more about what lpadmin is [here](https://www.cups.org/doc/admin.html)
 
 Start CUPS service:
 
-```
+```bash
 sudo service cups start
 ```
 

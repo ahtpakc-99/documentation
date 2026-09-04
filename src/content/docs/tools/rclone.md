@@ -23,14 +23,14 @@ Let's see in detail how to use `rclone`.
 
 First, open a terminal window and launch
 
-```
+```bash
 sudo apt update && sudo apt install rclone
 ```
 ![rclone usage](images/rclone/rclone0.png)
 
 This will install `rclone` in your system. Now it needs to be configured:
 
-```
+```bash
 rclone config
 ```
  ![rclone usage](images/rclone/rclone2.png)
@@ -50,7 +50,7 @@ It's good practice to test every command by attaching the `--dry-run` flag. Afte
  
 1. List all of the remotes configured
  
-  ```
+  ```bash
   rclone listremotes
   ```
 
@@ -58,7 +58,7 @@ It's good practice to test every command by attaching the `--dry-run` flag. Afte
  
 2. Copy files from source storage to destination storage
  
-  ```
+  ```bash
   rclone copy source:path dest:path
   ```
  
@@ -69,7 +69,7 @@ It's good practice to test every command by attaching the `--dry-run` flag. Afte
 
 3. Sync storage
 
-  ```
+  ```bash
   rclone sync source:path dest:path
   ```
   
@@ -77,7 +77,7 @@ It's good practice to test every command by attaching the `--dry-run` flag. Afte
 
 4. List all of the files in a remote
   
-  ```
+  ```bash
   rclone ls remote:path
   ```
 
@@ -86,7 +86,7 @@ It's good practice to test every command by attaching the `--dry-run` flag. Afte
   
 5. Delete all files from a specific path in the remote
   
-  ```
+  ```bash
   rclone delete remote:path
   ```
   

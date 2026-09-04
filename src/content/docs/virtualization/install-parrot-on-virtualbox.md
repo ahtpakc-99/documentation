@@ -13,7 +13,9 @@ If you are using Windows or macOS, download the latest VirtualBox installer from
 
 On GNU/Linux environments, you can install it via the terminal:
 
-    sudo apt update
+```bash
+sudo apt update
+```
     sudo apt install virtualbox virtualbox-ext-pack
 
 Ensure you have downloaded the ParrotOS ISO of your choice from the [official download page](../../introduction/download-parrot/).

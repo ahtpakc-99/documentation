@@ -40,7 +40,7 @@ The lists below give **source package names**. A single source package frequentl
 
 ### Currently optimized (source packages)
 
-```
+```text
 aom              armnn            arpack           blender
 box2d            btrfs-progs      bullet           bzip2
 cairo            cairosvg         capnproto        ccache

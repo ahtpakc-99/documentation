@@ -25,7 +25,7 @@ In order to repair GRUB:
 
 Once you entered the live mode, open terminal and type 
 
-```
+```bash
 sudo fdisk -l
 ```
 
@@ -40,19 +40,19 @@ The output should be similar to this. `/dev/sda` is usually the first SSD or HDD
 
 A mount folder is needed to perform this operation. So, in the same terminal window, type:
     
-```
+```bash
 sudo mkdir /mnt
 ```
 
 This is the main folder. Next type: 
 
-```
+```bash
 sudo mkdir /mnt/boot
 ```
 
 followed by:
 
-```
+```bash
 sudo mkdir /boot/efi
 ```
 
@@ -64,7 +64,7 @@ Which creates the directory used for mounting the EFI partition. This is needed 
 
 Now it's time to mount the partitions. In the same terminal window, type 
 
-```
+```bash
 sudo mount -o subvol=@ /dev/sda2 /mnt
 ```
 
@@ -78,7 +78,7 @@ Mount the `dev`, `proc`, `sys` folders and the `EFI` partion in order to get acc
 
 In the same terminal window, type
 
-```
+```bash
 sudo mount --bind /dev /mnt/dev
 
 sudo mount --bind /proc /mnt/proc
@@ -94,13 +94,13 @@ sudo mount /dev/sda1 /mnt/boot/efi
 
 Time to enter the system. In the same terminal window, type 
 
-```
+```bash
 sudo chroot /mnt
 ```
 
 Once in chroot environment, type 
 
-```
+```bash
 grub-install /dev/sda
 ```
 
@@ -113,7 +113,7 @@ After the installation is finished, type `exit` so as to exit the chroot environ
 After exiting the chroot environment, unmount all of the partitions and folders used.
 In the same terminal window type:
 
-```
+```bash
 sudo umount /mnt/dev
 
 sudo umount /mnt/proc

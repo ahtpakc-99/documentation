@@ -22,13 +22,13 @@ Start by checking if the device is visible on the bus.
 
 ### PCI / Internal Adapters
 
-```
+```bash
 lspci -nnk | grep -A3 -i network
 ```
 
 ### USB Adapters
 
-```
+```bash
 lsusb
 ```
 
@@ -46,7 +46,7 @@ If hardware does not enumerate, this is not yet a Linux driver issue.
 
 List interfaces:
 
-```
+```bash
 sudo ip link
 ```
 
@@ -62,19 +62,19 @@ If only `lo` and Ethernet interfaces exist, continue to driver and firmware chec
 
 Determine whether the kernel matched a driver.
 
-```
+```bash
 lspci -nnk
 ```
 
 or for USB:
 
-```
+```bash
 lsusb
 ```
 
 Then inspect loaded modules:
 
-```
+```bash
 lsmod | grep -E 'iwlwifi|ath|rtw|rtl|mt76|brcm'
 ```
 
@@ -94,7 +94,7 @@ If the adapter is visible but no suitable module loads, continue below.
 
 Kernel logs often reveal the exact failure reason.
 
-```
+```bash
 sudo dmesg | grep -iE 'wifi|wlan|firmware|iwlwifi|rtl|ath|mt76|brcm'
 ```
 
@@ -116,7 +116,7 @@ Many adapters require proprietary firmware blobs that are loaded at runtime.
 
 Refresh repositories and install standard firmware packages:
 
-```
+```bash
 sudo apt update  
 sudo apt install firmware-linux firmware-linux-nonfree
 ```
@@ -125,7 +125,7 @@ Then reboot or reload the module.
 
 Example:
 
-```
+```bash
 sudo modprobe -r iwlwifi  
 sudo modprobe iwlwifi
 ```
@@ -138,13 +138,13 @@ Some systems expose the adapter but block radio transmission.
 
 Check state:
 
-```
+```bash
 rfkill list
 ```
 
 If blocked:
 
-```
+```bash
 sudo rfkill unblock all
 ```
 
@@ -154,19 +154,19 @@ Then verify NetworkManager detects the device.
 
 Confirm service state:
 
-```
+```bash
 systemctl status NetworkManager
 ```
 
 Restart if needed:
 
-```
+```bash
 sudo systemctl restart NetworkManager
 ```
 
 Then inspect devices:
 
-```
+```bash
 nmcli device status
 ```
 
@@ -178,7 +178,7 @@ Some Realtek USB chipsets rely on out-of-tree drivers or newer kernel support.
 
 Identify the chipset first:
 
-```
+```bash
 lsusb
 ```
 
@@ -192,13 +192,13 @@ Broadcom support is fragmented. Open drivers work for some chipsets, proprietary
 
 Check device ID:
 
-```
+```bash
 lspci -nn | grep -i broadcom
 ```
 
 Then install the recommended package if required:
 
-```
+```bash
 sudo apt install broadcom-sta-dkms
 ```
 
@@ -226,7 +226,7 @@ Very new chipsets may need a newer kernel than the one currently installed.
 
 Check kernel:
 
-```
+```bash
 uname -r
 ```
 
@@ -238,7 +238,7 @@ Adapters that appear/disappear repeatedly may be suspended by power management.
 
 Temporarily test:
 
-```
+```bash
 sudo usbreset
 ```
 
@@ -248,7 +248,7 @@ or disable auto suspend via kernel parameters / TLP configuration.
 
 Once fixed, confirm:
 
-```
+```bash
 iw dev  
 nmcli device wifi list  
 ip addr show
