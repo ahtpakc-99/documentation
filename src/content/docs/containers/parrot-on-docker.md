@@ -11,11 +11,20 @@ Docker uses template images, and allows the user to start several instances of t
 
 Parrot uses Docker to allow its users to take advantage of its vast arsenal of tools on any platform supported by Docker.
 
-| Editions                                                | Tools                                                                                                                                                                       |
-|:--------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Core](#parrotseccore) • [Security](#parrotsecsecurity) | [nmap](#parrotsecnmap) • [metasploit](#parrotsecmetasploit) • [SET](#parrotsecset) • [beef](#parrotsecbeef) • [bettercap](#parrotsecbettercap) • [SQLMap](#parrotsecsqlmap) |
+| Image | Based on | Main packages |
+|:---|:---|:---|
+| [`parrotsec/core`](#parrotseccore) | — | Parrot base system |
+| [`parrotsec/security`](#parrotsecsecurity) | — | `parrot-cloud` |
+| [`parrotsec/nmap`](#parrotsecnmap) | `core` | `nmap`, `ncat`, `ndiff` |
+| [`parrotsec/metasploit`](#parrotsecmetasploit) | `nmap` | `metasploit-framework`, `postgresql` |
+| [`parrotsec/set`](#parrotsecset) | `metasploit` | `set` |
+| [`parrotsec/beef`](#parrotsecbeef) | `core` | `beef-xss` |
+| [`parrotsec/bettercap`](#parrotsecbettercap) | `nmap` | `bettercap` |
+| [`parrotsec/sqlmap`](#parrotsecsqlmap) | `nmap` | `sqlmap` |
 
-[Skip to usage examples](../general-usage-docker/)
+:::tip
+Already know which image you need? Jump straight to the [common Docker commands](../general-usage-docker/).
+:::
 
 ## Available Templates
 
