@@ -47,11 +47,15 @@ docker ps -a
 docker run --name pentest1 -ti parrotsec/security
 ```
 
-**Terminal 2:** ```bash
+**Terminal 2:**
+
+```bash
 docker run --name pentest2 -ti parrotsec/security
 ```
 
-**Terminal 3:** ```bash
+**Terminal 3:**
+
+```bash
 docker run --name msf-listener -ti parrotsec/metasploit
 ```
 
@@ -85,11 +89,15 @@ docker run --rm -ti -v $PWD/work:/work parrotsec/core
 docker run --name pentest -ti -v $PWD/work:/work parrotsec/security
 ```
 
-**Terminal 2:** ```bash
+**Terminal 2:**
+
+```bash
 docker run --rm --network host -v $PWD/work:/work -ti parrotsec/security
 ```
 
-**Terminal 3:** ```bash
+**Terminal 3:**
+
+```bash
 docker run --rm -v $PWD/work:/work -ti parrotsec/metasploit
 ```
 
