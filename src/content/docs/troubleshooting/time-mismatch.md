@@ -114,7 +114,7 @@ This works, but UTC is generally preferable.
 Even after RTC alignment, network time sync should remain active.
 
 ```bash
-timedatectl set-ntp true  
+timedatectl set-ntp true
 timedatectl
 ```
 

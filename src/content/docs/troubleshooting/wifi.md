@@ -117,8 +117,7 @@ Many adapters require proprietary firmware blobs that are loaded at runtime.
 Refresh repositories and install standard firmware packages:
 
 ```bash
-sudo apt update  
-sudo apt install firmware-linux firmware-linux-nonfree
+sudo apt update && sudo apt install firmware-linux firmware-linux-nonfree
 ```
 
 Then reboot or reload the module.
@@ -126,7 +125,7 @@ Then reboot or reload the module.
 Example:
 
 ```bash
-sudo modprobe -r iwlwifi  
+sudo modprobe -r iwlwifi
 sudo modprobe iwlwifi
 ```
 
@@ -249,8 +248,8 @@ or disable auto suspend via kernel parameters / TLP configuration.
 Once fixed, confirm:
 
 ```bash
-iw dev  
-nmcli device wifi list  
+iw dev
+nmcli device wifi list
 ip addr show
 ```
 

@@ -123,6 +123,11 @@ export const parrotTerminalPrompt = () =>
           return
         }
 
+        // A synthetic prompt can only be placed on the first line, so a block
+        // holding several lines would render the rest as if it were output.
+        // Those blocks are scripts or command sequences: leave them unprompted.
+        if (sourceLines.filter((line) => line.trim()).length > 1) return
+
         const firstWrapper = codeWrapper(lines[0])
         if (!firstWrapper) return
 

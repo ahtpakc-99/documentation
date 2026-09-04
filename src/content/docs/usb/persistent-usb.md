@@ -13,8 +13,7 @@ To do this, we will use the [mkusb](https://github.com/sudodus/tarballs) tool.
 Before downloading the tool, ensure you have the necessary dependencies installed:
 
 ```bash
-sudo apt update
-sudo apt install gdisk dialog zenity -y
+sudo apt update && sudo apt install gdisk dialog zenity -y
 ```
 
 After downloading the Parrot OS *.iso* file from our website, download *mkusb* from the [repository](https://github.com/sudodus/tarballs):

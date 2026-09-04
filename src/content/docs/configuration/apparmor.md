@@ -76,8 +76,7 @@ Y
 If AppArmor is not installed, you can install it with:
 
 ```bash
-sudo apt update
-sudo apt install apparmor apparmor-utils auditd
+sudo apt update && sudo apt install apparmor apparmor-utils auditd
 ```
 
 Package description:
