@@ -1,5 +1,8 @@
 ---
 title: "Dual Boot Time Mismatch"
+description: Fix the clock offset between ParrotOS and Windows on a dual-boot system, caused by RTC interpretation.
+sidebar:
+  order: 2
 ---
 
 A common issue in Linux + Windows dual-boot systems is that the clock appears correct in one OS and wrong in the other. The usual symptom is an offset of several hours after rebooting between systems. This is not a hardware clock failure—it is typically caused by different assumptions about how the Real-Time Clock (RTC) is stored.
@@ -44,7 +47,7 @@ Important fields:
 
 This command usually reveals the exact configuration mismatch, e.g.:
 
-```
+```text
 Local time: Mon 2026-04-27 11:18:28 UTC
 Universal time: Mon 2026-04-27 11:18:28 UTC
 RTC time: Mon 2026-04-27 13:18:28

@@ -1,16 +1,10 @@
 import { definePlugin } from '@astrojs/starlight/expressive-code'
 import { parrotTerminalPalette as palette } from './parrot-terminal.mjs'
 
-const promptLanguages = new Set([
-  '',
-  'bash',
-  'console',
-  'plaintext',
-  'sh',
-  'shell',
-  'text',
-  'zsh'
-])
+// Only shell dialects get a synthetic prompt. Blocks tagged `text` hold command
+// output or file contents, so prefixing them with a prompt would present them as
+// commands to type.
+const promptLanguages = new Set(['', 'bash', 'console', 'sh', 'shell', 'zsh'])
 
 const text = (value) => ({ type: 'text', value })
 

@@ -1,5 +1,6 @@
 ---
 title: "Development Environment Setup"
+description: Set up a complete environment for building ParrotOS packages, including the sbuild chroot.
 sidebar:
   order: 1
 ---
@@ -85,7 +86,7 @@ sudo sbuild-createchroot --arch=<architecture\> echo /var/lib/sbuild/echo-<archi
 
 If you attempt to create a chroot that is already defined, you will see an error like this:
 
-```
+```text
 chroot with name echo-<architecture>-sbuild already exists at /usr/bin/sbuild-createchroot line 283, <PH> line 1.
 ```
 

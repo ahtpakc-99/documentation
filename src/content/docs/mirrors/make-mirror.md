@@ -1,5 +1,6 @@
 ---
 title: "Make your own mirror"
+description: Set up and keep in sync your own public or private mirror of the Parrot archive.
 sidebar:
   order: 2
 ---
@@ -43,7 +44,7 @@ crontab -e
 
 and add the following content to the crontab file:
 
-```
+```text
 0 4 * * * flock -xn /tmp/parrot-rsync.lock -c 'rsync -aq --delete-after rsync://rsync.parrot.sh:/parrot /var/www/html/parrot'
 ```
 
@@ -69,7 +70,7 @@ crontab -e
 
 and add the following content to the crontab file:
 
-```
+```text
 30 2 * * * flock -xn /tmp/parrot-rsync.lock -c 'rsync -aq --delete-after rsync://rsync.parrot.sh:/parrot-iso /var/www/html/parrot'
 ```
 
@@ -95,7 +96,7 @@ sudo nano /etc/rsyncd.conf
 
 paste the following settings in the config file and save it:
 
-```
+```text
 [parrot]
         comment = Parrot OS - full archive [rsync.parrot.sh/parrot]
         path = /var/www/html/parrot/

@@ -90,7 +90,12 @@ const createTheme = (type) => ({
 export const parrotTerminalTheme = defineEcConfig({
   themes: [createTheme('dark'), createTheme('light')],
   defaultProps: {
-    frame: 'terminal'
+    frame: 'terminal',
+    // `text` and `ini` blocks carry command output or file contents, so they get a
+    // plain code frame instead of the terminal chrome used for interactive commands.
+    overridesByLang: {
+      'ini,text': { frame: 'code' }
+    }
   },
   frames: {
     removeCommentsWhenCopyingTerminalFrames: false

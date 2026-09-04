@@ -1,7 +1,8 @@
 ---
 title: "Optimized Package Builds"
+description: Enable the ParrotOS package builds optimized for modern x86-64 and arm64 instruction sets.
 sidebar:
-  order: 11
+  order: 12
 ---
 
 Parrot Security provides **optimized package builds** that target modern CPU instruction sets for improved performance on recent hardware. This page explains what they are, which packages are currently covered, how to confirm your CPU is compatible, how to enable them, and the technical details behind the feature.
@@ -127,7 +128,7 @@ On a 64-bit Intel/AMD system, run:
 
 If your CPU supports the v3 baseline, the output includes a line similar to:
 
-```
+```text
   x86-64-v3 (supported, searched)
 ```
 
@@ -171,7 +172,7 @@ After confirming compatibility, add the repository component for your architectu
 
 Create the file `/etc/apt/sources.list.d/parrot-optimized.list` containing:
 
-```
+```text
 deb https://deb.parrot.sh/parrot echo amd64v3
 ```
 
@@ -179,7 +180,7 @@ deb https://deb.parrot.sh/parrot echo amd64v3
 
 Create the file `/etc/apt/sources.list.d/parrot-optimized.list` containing:
 
-```
+```text
 deb https://deb.parrot.sh/parrot echo arm64v8.2
 ```
 
@@ -311,13 +312,13 @@ The optimized packages are produced by automated build environments configured t
 
 For the `amd64v3` component, builds inject:
 
-```
+```text
 -march=x86-64-v3 -mtune=generic
 ```
 
 For the `arm64v8.2` component, builds inject:
 
-```
+```text
 -march=armv8.2-a+dotprod+fp16+crypto -mtune=neoverse-n1
 ```
 

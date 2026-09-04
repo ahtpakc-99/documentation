@@ -1,7 +1,8 @@
 ---
 title: "Btrfs Assistant + Snapper Setup Guide"
+description: Set up Btrfs subvolumes with Snapper and Btrfs Assistant for bootable system snapshots on ParrotOS.
 sidebar:
-  order: 10
+  order: 11
 ---
 
 ## Overview
@@ -42,7 +43,7 @@ sudo snapper list-configs
 
 You should see:
 
-```
+```text
 Config | Subvolume
 -------+----------
 root   | /
@@ -186,7 +187,7 @@ sudo reboot
 
 When Btrfs Assistant restores a snapshot it creates a backup subvolume of your previous root, named something like:
 
-```
+```text
 @_backup_2026-04-15T10:22:26.644Z_test
 ```
 
