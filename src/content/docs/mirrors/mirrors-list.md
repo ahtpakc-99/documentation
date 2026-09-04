@@ -1,5 +1,6 @@
 ---
 title: "Mirrors"
+description: The Parrot mirror network, the default APT configuration and the list of official mirrors.
 sidebar:
   order: 1
 ---
@@ -8,7 +9,7 @@ The Parrot Project not only delivers a ready-to-use system in the ISO format, bu
 
 The Parrot repository is used to provide officially supported software, system updates and security fixes.
 
-# The mirrors network
+## The mirrors network
 
 The software in the parrot archive is delivered in form of deb packages, and these packages are served through a vast network of mirror servers that provide the same set of packages distributed all around the world for faster software delivery.
 
@@ -16,7 +17,7 @@ The Parrot system is configured to use the central parrot archive directors. The
 
 If you want and can, you can make your own mirror for Parrot following [this procedure](../make-mirror/).
 
-### Security measures
+## Security measures
 
 The Parrot Mirror Network is secured by centralized digital signatures and the mirrors can't inject fake updates.
 
@@ -34,26 +35,30 @@ The APT package manager uses `/etc/apt/sources.list` and any _.list_ file found 
 
 ### Content of /etc/apt/sources.list.d/parrot.list
 
-```
+```text
 deb https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
-deb https://deb.parrot.sh/parrot echo-security main contrib non-free non-free-firmware
+deb https://deb.parrot.sh/direct/parrot echo-security main contrib non-free non-free-firmware
 deb https://deb.parrot.sh/parrot echo-backports main contrib non-free non-free-firmware
 #deb-src https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
 #deb-src https://deb.parrot.sh/parrot echo-security main contrib non-free non-free-firmware
 #deb-src https://deb.parrot.sh/parrot echo-backports main contrib non-free non-free-firmware
 ```
 
+:::caution
+`echo-security` deliberately points at `deb.parrot.sh/direct`, not at a mirror. A mirror can lag behind the archive, which would leave you without a security update for a window outside our control. Configure mirrors for `echo`, `echo-backports` and `echo-updates` only.
+:::
+
 ### Updates/Testing purpose
 
-The 'parrot-updates' repository provides updates before they are made available
-to 'parrot'. This repo is mostly meant to be used by developers and beta testers
+The 'echo-updates' repository provides updates before they are made available
+to 'echo'. This repo is mostly meant to be used by developers and beta testers
 to extensively test updates before they are migrated to the main repository.
 
 We suggest to not enable it, as it may introduce untested bugs and make the
 system unstable. Updates are delivered as fast as possible (within a week),
 so you are not missing anything important with this disabled (unless you are a dev):
 
-```
+```text
 deb https://deb.parrot.sh/parrot echo-updates main contrib non-free non-free-firmware
 ```
 
@@ -71,7 +76,7 @@ deb https://deb.parrot.sh/parrot echo-updates main contrib non-free non-free-fir
 
 | Location<br />Mirror ID<br />bandwidth  |                         Provider Name                         | URL                                                                                    | APT config string                                                                                         |
 | :-------------------------------------- | :-----------------------------------------------------------: | :------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| Massachussetts<br />MIT<br />1 Gbps     |                           SIPB MIT                            | [mirrors.mit.edu/parrot](http://mirrors.mit.edu/parrot/)                               | <sub>deb http://mirrors.mit.edu/parrot/ echo main contrib non-free non-free-firmware</sub>                |
+| Massachusetts<br />MIT<br />1 Gbps     |                           SIPB MIT                            | [mirrors.mit.edu/parrot](http://mirrors.mit.edu/parrot/)                               | <sub>deb http://mirrors.mit.edu/parrot/ echo main contrib non-free non-free-firmware</sub>                |
 | New York<br />Clarkson<br />1 Gbps      |                      Clarkson University                      | [mirror.clarkson.edu/parrot](https://mirror.clarkson.edu/parrot/)                      | <sub>deb https://mirror.clarkson.edu/parrot/ echo main contrib non-free non-free-firmware</sub>           |
 | New Jersey<br />Princeton<br />1 Gbps   |                     Princeton University                      | [mirror.math.princeton.edu/pub/parrot/](https://mirror.math.princeton.edu/pub/parrot/) | <sub>deb https://mirror.math.princeton.edu/pub/parrot/ echo main contrib non-free non-free-firmware</sub> |
 | Oregon<br />Osuosl<br />1 Gbps          |           Oregon State University - Open Source Lab           | [ftp.osuosl.org/pub/parrotos](https://ftp.osuosl.org/pub/parrotos)                     | <sub>deb https://ftp.osuosl.org/pub/parrotos echo main contrib non-free non-free-firmware</sub>           |

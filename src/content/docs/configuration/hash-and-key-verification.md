@@ -1,5 +1,6 @@
 ---
 title: "Hash and key verification"
+description: Verify the authenticity and integrity of ParrotOS images using GPG signatures and checksums.
 sidebar:
   order: 5
 ---
@@ -20,67 +21,90 @@ By verifying all the files we download that purport to be authored by a party we
 
 However, for digital signatures to make any sense, we must ensure that the public keys we use for signature verification are indeed the original ones. Anybody can generate a GPG key pair that purports to belong to the “Parrot OS” but of course only the key pair that we (i.e. the Parrot Team) generated is the *legitimate one*. The next section explains how to verify the validity of the ParrotOS signing keys in the process of verifying a Parrot OS ISO. However, the same general principles apply to all cases in which you may wish to verify a PGP signature, such as verifying repositories, not just ISOs.
 
-## Fetch the key and Verify the repositories
+## Import the Parrot signing key
 
-Optional: Complete the steps below if unfamiliar with GnuPG or if they haven't already been performed. This will fix eventual *GPG: WARNING: unsafe ownership warnings*.
+Complete the steps below if you are unfamiliar with GnuPG or if they haven't already been performed. They also fix eventual *GPG: WARNING: unsafe ownership* warnings.
 
-### 1. Firstly, make sure that you have GnuPG initialize your user data folder
+### 1. Make sure GnuPG has initialized your user data folder
 
-![GPG](images/hash-and-key-verification/gpg0.png)
+![GPG](./images/hash-and-key-verification/gpg0.png)
 
 ### 2. Set warning free permissions
 
-```
+```bash
 chmod --recursive og-rwx ~/.gnupg
 ```
 
 ### 3. Get the ParrotOS key
 
-```
-wget -q -O - https://deb.parrotsec.org/parrot/misc/parrotsec.gpg | gpg --import
+```bash
+wget -q -O - https://deb.parrot.sh/parrot/misc/parrotsec.gpg | gpg --import
 ```
 
-![GPG](images/hash-and-key-verification/gpg1.png)
+![GPG](./images/hash-and-key-verification/gpg1.png)
 
-**Warning**: Checking the GPG signature timestamp makes sense. For example, if you previously saw a signature from 2018 and now see a signature from 2017, then this might be a targeted rollback (downgrade) or indefinite freeze attack. 
+:::caution
+Checking the GPG signature timestamp makes sense. For example, if you previously saw a signature from 2018 and now see a signature from 2017, then this might be a targeted rollback (downgrade) or indefinite freeze attack.
+:::
 
 ## ISO Verification
 
-### md5sum hash verification
+Verification is a two-step process, and both steps are needed. A checksum on its own only proves that the file you downloaded matches the list you read; it proves nothing if an attacker controls the server serving both. Verifying the signature on the hash list first is what makes the comparison meaningful.
 
-After you got the ISO of your choice, go [here: https://download.parrot.sh/parrot/iso/7.1/signed-hashes.txt](https://download.parrot.sh/parrot/iso/7.1/signed-hashes.txt) to see the signed hashes.
+### 1. Download and verify the signed hash list
 
-In the first section where it says "MD5" find the hash that matches your downloaded ISO.
+Each release directory contains a `signed-hashes.txt` file: a clearsigned PGP message listing the `md5`, `sha256` and `sha512` checksums of every published image. Download the one matching your release from the [ParrotOS ISO archive](https://download.parrot.sh/parrot/iso/):
 
-![Hash](images/hash-and-key-verification/hash0.png)
-
-For this tutorial we will use **Parrot-home-6.4_amd64.iso**.
-
-Now open a terminal window and run the following command:
-
-```
-md5sum Parrot-home-6.4_amd64.iso
+```bash
+wget https://download.parrot.sh/parrot/iso/7.1/signed-hashes.txt
 ```
 
-![Hash](images/hash-and-key-verification/hash1.png)
+Verify that it was really signed by the Parrot team:
 
-Compare the **hash (the alphanumeric string on the left)** that your machine calculated with the corresponding hash on the page signed-hashes.txt linked above.
-
-![Hash](images/hash-and-key-verification/hash2.png)
-
-An easy way to do this is to open the page "signed-hashes.txt" in your browser, then copy the hash your machine calculated from the terminal into the "Find" box in your browser. (In Firefox you can open the "Find" box by pressing CTRL + F.)
-
-![Hash](images/hash-and-key-verification/hash3.png)
-
-When both hashes match exactly then the downloaded file is almost certainly intact. If the hashes do not match, then there was a problem with either the download or a problem with the server. You should download the file again from either the same mirror or from a different mirror if you suspect a server error. 
-If you continuously receive an erroneous file from a server, please be kind and notify the Parrot team of that mirror so we can investigate the issue. 
-
-### Other hashes
-
-The method for other hashes such as SHA256 or SHA512 is exactly the same with the above guides, only instead of md5 you must use the proper hash you want. Let's make an example:
-
-```
-sha512sum Parrot-home-6.4_amd64.iso
+```bash
+gpg --verify signed-hashes.txt
 ```
 
-![Hash](images/hash-and-key-verification/hash4.png)
+The output must contain a **Good signature** line naming the Parrot key you imported above:
+
+```text
+gpg: Signature made Wed Feb 11 01:15:48 2026 CET
+gpg:                using RSA key B711822346552E4D92DA02DF7A8286AF0E81EE4A
+gpg: Good signature from "Parrot Project (2024-2026) <team@parrotsec.org>" [unknown]
+```
+
+:::danger
+If GPG reports **BAD signature**, the file has been altered. Stop here and do not trust any checksum it contains.
+:::
+
+A `WARNING: This key is not certified with a trusted signature` notice is expected: it only means you have not personally assigned trust to the key, not that the signature is invalid.
+
+### 2. Compare the checksum of your image
+
+Now compute the checksum of the file you downloaded. Prefer SHA512 or SHA256:
+
+```bash
+sha512sum Parrot-home-7.1_amd64.iso
+```
+
+![Hash](./images/hash-and-key-verification/hash4.png)
+
+Then find the matching entry in the `sha512` section of the verified `signed-hashes.txt`:
+
+```bash
+grep Parrot-home-7.1_amd64.iso signed-hashes.txt
+```
+
+![Hash](./images/hash-and-key-verification/hash0.png)
+
+Compare the alphanumeric string produced by your machine with the one on the corresponding line. They must match exactly.
+
+![Hash](./images/hash-and-key-verification/hash2.png)
+
+If the two hashes match, the downloaded file is intact and authentic. If they do not, the download was either corrupted or served by a faulty mirror: download the file again, from a different mirror if you suspect a server error.
+
+If you repeatedly receive an erroneous file from a server, please notify the Parrot team about that mirror so we can investigate.
+
+:::note[Why not MD5?]
+`signed-hashes.txt` still lists MD5 checksums for backwards compatibility, and `md5sum` works the same way as the command above. MD5 is broken against deliberate collisions, though, so it can only tell you that a download was not accidentally corrupted. Use SHA256 or SHA512 whenever you care about tampering.
+:::

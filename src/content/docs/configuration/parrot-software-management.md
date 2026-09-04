@@ -1,5 +1,6 @@
 ---
 title: "Parrot Software Management"
+description: Install, update and remove software on ParrotOS with apt and the parrot-upgrade wrapper.
 sidebar:
   order: 1
 ---
@@ -25,14 +26,14 @@ The package manager must check in a given location (it can be a local directory 
 
 ## List of Repositories
 
-Although in Parrot it is not necessary (nor recommended) to add new repositories or modify existing ones, we will see where we can configure them. In the file system, under the path */etc/apt/sources.list.d*, we find the file **parrot.list**. The content of this file should be:
+Although in Parrot it is not necessary (nor recommended) to add new repositories or modify existing ones, we will see where we can configure them. In the file system, under the path */etc/apt/sources.list.d*, we find the file **parrot.list**. The stable repository is declared there like this:
 
-```bash
+```text
 ## stable repository
 deb https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware
 ```
 
-With this, we make sure we have the correct repository list. In this location the Parrot developers keep the packages updated.
+The shipped file also declares the security, backports and source repositories. See [Mirrors](../../mirrors/mirrors-list/) for its full content.
 
 ## Package Manager
 
@@ -92,10 +93,10 @@ Update the repositories information:
 sudo apt update
 ```
 
-Update a specific package to the last available version in the repository:
+Upgrade a single package to the latest version available in the repository, without touching the rest of the system:
 
 ```bash
-sudo apt upgrade <package>
+sudo apt install --only-upgrade <package>
 ```
     
 Update the full distribution. It will update our system to the next available version:
