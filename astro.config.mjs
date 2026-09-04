@@ -12,7 +12,10 @@ export default defineConfig({
   base,
   redirects: {
     '/introduction/what-is-parrot': `${base}/`,
-    '/installation/install-with-wsl': `${base}/containers/wsl/`
+    '/installation/install-with-wsl': `${base}/containers/wsl/`,
+    '/tools/nmap': 'https://nmap.org/book/',
+    '/tools/rclone': 'https://rclone.org/docs/',
+    '/tools/wget': 'https://www.gnu.org/software/wget/manual/wget.html'
   },
   integrations: [
     starlight({
