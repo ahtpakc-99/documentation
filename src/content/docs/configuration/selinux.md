@@ -100,11 +100,11 @@ Changes to this file require a reboot to take effect.
 
 ## SELinux Modes
 
-| Mode | Description |
-|---|---|
-| `enforcing` | Policy is active and violations are blocked |
+| Mode         | Description                                       |
+| ------------ | ------------------------------------------------- |
+| `enforcing`  | Policy is active and violations are blocked       |
 | `permissive` | Policy is not enforced, but violations are logged |
-| `disabled` | SELinux is turned off |
+| `disabled`   | SELinux is turned off                             |
 
 On Parrot OS, starting in `permissive` mode is especially important. The distribution includes a large number of tools with execution patterns that the default Debian SELinux policy does not cover. Switching directly to `enforcing` without reviewing logs first is likely to break multiple tools.
 
@@ -322,6 +322,13 @@ type_transition unconfined_t firefox_confined_exec_t : process firefox_confined_
 allow unconfined_t firefox_confined_t : process transition;
 allow unconfined_t firefox_confined_exec_t : file { getattr open read execute };
 allow firefox_confined_t firefox_confined_exec_t : file entrypoint;
+```
+
+Install the policy development tools (required for `/usr/share/selinux/devel/Makefile`):
+
+```bash
+sudo apt update
+sudo apt install selinux-policy-dev
 ```
 
 Compile and install the module:
