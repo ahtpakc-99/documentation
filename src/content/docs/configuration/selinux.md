@@ -1,8 +1,7 @@
 ---
-title: "Configure SELinux"
+title: 'Configure SELinux'
 description: Install and configure SELinux on ParrotOS, manage file labels and policy rules, and troubleshoot application access.
 ---
-
 
 SELinux (Security-Enhanced Linux) is a Linux security module that enforces mandatory access control on processes, files, ports, and users at the kernel level. Even when Unix permissions allow an action, SELinux still denies it unless the active policy explicitly permits it.
 
@@ -53,7 +52,7 @@ Take a snapshot or backup and make sure you can access the console. Start in per
 
 The following steps are for GRUB. Leave AppArmor running until you reboot.
 
-### 1. Configure Permissive Mode
+#### 1. Configure Permissive Mode
 
 ```bash
 sudo nano /etc/selinux/config
@@ -66,7 +65,7 @@ SELINUX=permissive
 SELINUXTYPE=default
 ```
 
-### 2. Configure GRUB
+#### 2. Configure GRUB
 
 Check `/etc/default/grub` and `/etc/default/grub.d/*.cfg` for conflicting options such as `security=apparmor`, `selinux=0` or `enforcing=1`. If you have an explicit `lsm=` list, it takes precedence over `security=`. Replace AppArmor with SELinux in that list without removing the other modules.
 
@@ -88,7 +87,7 @@ sudo grep -E '^[[:space:]]*linux' /boot/grub/grub.cfg
 
 Check the output again before continuing. The normal boot entry should select SELinux without conflicting options. Recovery entries are unchanged.
 
-### 3. Reboot and Verify
+#### 3. Reboot and Verify
 
 `selinux-activate` also schedules filesystem labelling for the next boot. Reboot now and wait for labelling and the automatic second reboot to finish:
 
@@ -110,11 +109,11 @@ You should see the `default` policy in `Permissive` mode and `selinux` in the mo
 
 ## Change SELinux Mode
 
-| Mode | Effect |
-|---|---|
-| `enforcing` | Policy violations are blocked |
+| Mode         | Effect                                   |
+| ------------ | ---------------------------------------- |
+| `enforcing`  | Policy violations are blocked            |
 | `permissive` | Policy violations are allowed and logged |
-| `disabled` | SELinux does not enforce a policy |
+| `disabled`   | SELinux does not enforce a policy        |
 
 You can switch to permissive mode without rebooting:
 
@@ -287,17 +286,18 @@ Use a disposable system in permissive mode. The example is not a complete Firefo
    sudo restorecon -v /usr/lib/firefox-esr/firefox-esr
    ```
 
-5. Run Firefox without opening a window and inspect the audit log after it exits:
+5. Run Firefox without opening a window. Even loading the start page is enough: the minimal module denies routine operations, so any records for the new domain prove the transition.
 
    ```bash
-   firefox-esr --headless --no-remote --profile "$lab_dir/profile" \
-     --screenshot "$lab_dir/demo.png" "file://$lab_dir/.ssh/demo.txt"
-   sudo ausearch -m AVC -ts recent | grep 'scontext=.*:firefox_confined_t:.*tcontext=.*:ssh_home_t:'
+   firefox-esr --headless --no-remote --profile "$lab_dir/profile" "file://$lab_dir/.ssh/demo.txt" &
+   sleep 20
+   sudo ausearch -m AVC -ts recent | grep 'scontext=.*:firefox_confined_t:'
+   pkill firefox-esr
    ```
 
-   Records with `firefox_confined_t` and `ssh_home_t` show Firefox accessing the dummy data. `permissive=1` means access was **allowed and logged**. The policy is not sufficient for normal Firefox use in enforcing mode.
+   Records with `firefox_confined_t` as subject and `permissive=1` show allowed-and-logged denials. If the page itself loads, you may also see the `ssh_home_t` target among them. The policy is not sufficient for normal Firefox use in enforcing mode.
 
-6. Once Firefox exits, restore the original configuration in this order:
+6. Restore the original configuration in this order:
 
    ```bash
    sudo semanage fcontext -d "/usr/lib/firefox-esr/firefox-esr"
