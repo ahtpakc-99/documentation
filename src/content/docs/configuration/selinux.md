@@ -143,14 +143,12 @@ ls -Zd /some/path
 sudo restorecon -v /path/to/subvolume
 ```
 
-Files created inside afterwards inherit a correct label. Run it against any subvolume, disk, or share added after the initial relabel, and after restoring pre-SELinux snapshots (contexts live in the `security.selinux` extended attribute, so snapshots carry them along). Preview with `-n` first:
+Files created inside afterwards inherit a correct label. Run it against any subvolume, disk, or share added after the initial relabel, and after restoring pre-SELinux snapshots: contexts live in the `security.selinux` extended attribute, so snapshots carry them along.
 
 ```bash
 sudo restorecon -nRv /path/to/new/mount
 sudo restorecon -Rv /path/to/new/mount
 ```
-
-The `-n` flag previews changes before writing them.
 
 ## When Something Stops Working
 
@@ -162,16 +160,15 @@ The `-n` flag previews changes before writing them.
    sudo dmesg | grep -i -E 'avc|selinux' | tail -n 30
    ```
 
-2. Test in `permissive` mode. If the problem disappears, SELinux is involved. Return to `enforcing` only if that was the original mode:
+2. Test in `permissive` mode. If the problem disappears, SELinux is involved:
 
    ```bash
-   initial_mode=$(getenforce)
    sudo setenforce 0
    # reproduce the issue
-   if [ "$initial_mode" = "Enforcing" ]; then
-     sudo setenforce 1
-   fi
+   sudo setenforce 1
    ```
+
+   The last line restores `enforcing`. Skip it if the system was already in `permissive`.
 
 3. Rule out wrong labels before writing policy:
 
@@ -206,7 +203,7 @@ ls -Zd ~/.ssh
 system_u:object_r:ssh_home_t:s0 /home/user/.ssh
 ```
 
-That label alone protects nothing while every desktop application runs unconfined:
+That label alone protects nothing while every desktop application runs unconfined (on a `disabled` system `ps -eZ` prints bare `unconfined`):
 
 ```bash
 ps -eZ | grep -i firefox
@@ -216,7 +213,7 @@ ps -eZ | grep -i firefox
 unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023  firefox-esr
 ```
 
-(On a `disabled` system `ps -eZ` prints bare `unconfined`.) The binary maps to `mozilla_exec_t`, but the policy defines no transition from `unconfined_t` to `mozilla_t`, so on a Parrot desktop Firefox stays in `unconfined_t`, which is allowed to reach almost every type, including `ssh_home_t`. A label only confines an application whose process runs in a domain without an allow rule for it.
+The binary maps to `mozilla_exec_t`, but the policy defines no transition from `unconfined_t` to `mozilla_t`. On a Parrot desktop Firefox therefore stays in `unconfined_t`. That domain can reach almost every type, including `ssh_home_t`. A label only confines an application whose process runs in a domain without an allow rule for it.
 
 The module below puts Firefox in its own domain and proves the denial in the audit log. It is minimal on purpose: enough to demonstrate the transition, not enough to run Firefox fully confined under `enforcing`. Treat it as a lab exercise in `permissive` mode.
 
@@ -299,7 +296,7 @@ The module below puts Firefox in its own domain and proves the denial in the aud
 
 ## Disabling SELinux
 
-1. Switch to `permissive` if necessary: `selinux-activate disable` refuses to run in `enforcing` mode. Undo both the `selinux-activate` edit and the drop-in (removing only one leaves `security=selinux` on the command line):
+1. Undo both the `selinux-activate` edit and the drop-in. Removing only one leaves `security=selinux` on the command line. Note that `selinux-activate disable` refuses to run in `enforcing` mode, so switch to `permissive` first if needed:
 
    ```bash
    if [ "$(getenforce)" = "Enforcing" ]; then
