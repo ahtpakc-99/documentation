@@ -1,228 +1,246 @@
 ---
-title: SELinux
-description: Install, enable, and manage SELinux on Parrot OS, including compatibility with offensive security tools and Btrfs-specific caveats.
+title: "Configure SELinux"
+description: Install and configure SELinux on ParrotOS, manage file labels and policy rules, and troubleshoot application access.
 ---
+
 
 SELinux (Security-Enhanced Linux) is a Linux security module that enforces mandatory access control on processes, files, ports, and users at the kernel level. Even when Unix permissions allow an action, SELinux still denies it unless the active policy explicitly permits it.
 
-Parrot OS uses AppArmor by default. The two cannot serve as the primary security module at the same time, so enabling SELinux means switching away from AppArmor. For desktop use and offensive security work, AppArmor remains the recommended choice. SELinux fits server deployments and setups that need stricter mandatory access control.
+Parrot OS uses AppArmor by default. The two cannot serve as the primary security module at the same time, so enabling SELinux means switching away from AppArmor. For desktop use and offensive security work, AppArmor remains the recommended choice.
 
-## Checking Whether SELinux Is Active
+## Check Whether SELinux Is Enabled
 
-`sestatus` and `getenforce` come preinstalled, so their presence does not mean SELinux is active. On a stock system:
+Start by checking whether SELinux is active:
 
 ```bash
 sestatus
 getenforce
-dpkg -l | grep selinux-policy
-cat /proc/cmdline
 ```
+
+With AppArmor active, the output should look like this:
 
 ```text
 SELinux status:                 disabled
 Disabled
 ```
 
-If `selinux-policy-default` is missing and `/proc/cmdline` contains no `security=selinux`, SELinux is off, even when `/etc/selinux/config` already reads `SELINUX=permissive`. That file only takes effect once the kernel boots with SELinux as the active module. The Parrot kernel also ignores the legacy `selinux=1` and `enforcing=0` boot parameters; `security=selinux` is the only switch, and the starting mode comes from `/etc/selinux/config`.
+The following commands show the installed policy and boot configuration:
 
-## Installing
+```bash
+dpkg-query -W selinux-policy-default
+cat /proc/cmdline
+cat /sys/kernel/security/lsm
+```
+
+## Install SELinux
 
 ```bash
 sudo apt update
 sudo apt install selinux-basics selinux-policy-default auditd policycoreutils-python-utils
 ```
 
-For policy debugging and custom modules:
+Install these additional tools to inspect policy rules and follow the Firefox example:
 
 ```bash
-sudo apt install setools selinux-policy-dev
+sudo apt install setools selinux-policy-dev make
 ```
 
-## Enabling SELinux
+## Enable SELinux
 
-:::caution[Plan for two reboots]
-Switching security modules and relabelling the filesystem both require a reboot. Keep a snapshot or backup, start in `permissive` mode, and do not jump straight to `enforcing`.
+:::caution
+Take a snapshot or backup and make sure you can access the console. Start in permissive mode to log violations without blocking applications. The first SELinux boot labels the filesystems and reboots automatically. Let it finish.
 :::
 
-1. Stop and disable AppArmor:
+The following steps are for GRUB. Leave AppArmor running until you reboot.
 
-   ```bash
-   sudo systemctl stop apparmor
-   sudo systemctl disable apparmor
-   ```
-
-2. Activate SELinux and reboot. This appends `security=selinux` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`, runs `update-grub`, and schedules a filesystem relabel at next boot:
-
-   ```bash
-   sudo selinux-activate
-   sudo reboot
-   ```
-
-3. Verify after the reboot:
-
-   ```bash
-   sestatus
-   cat /proc/cmdline | tr ' ' '\n' | grep security=
-   ```
-
-   On Parrot OS step 2 alone is often not enough. `/etc/default/grub.d/grub.cfg` sets `GRUB_CMDLINE_LINUX` after `/etc/default/grub` is read, overwriting the edit, and the system comes back up still `disabled`. If that happens, add a drop-in file instead and regenerate the boot configuration:
-
-   ```bash
-   sudo mkdir -p /etc/default/grub.d
-   echo 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT security=selinux"' | sudo tee /etc/default/grub.d/selinux.cfg
-   sudo grub-mkconfig | grep 'security=selinux' | head -n 3
-   sudo update-grub
-   sudo reboot
-   ```
-
-4. Check `/etc/selinux/config`. For Parrot OS it should read:
-
-   ```text
-   SELINUX=permissive
-   SELINUXTYPE=default
-   ```
-
-   Edits here need a reboot to apply. The type is `default`, not `targeted` (the latter is the RHEL name).
-
-## Modes
-
-| Mode         | Effect                                     |
-| ------------ | ------------------------------------------ |
-| `enforcing`  | Policy is enforced, violations are blocked |
-| `permissive` | Violations are only logged                 |
-| `disabled`   | SELinux is off                             |
-
-Stay in `permissive` until the logs are clean. Parrot ships many tools whose behavior the default Debian policy does not cover, and going straight to `enforcing` will break them. `setenforce` needs SELinux to be enabled; on a `disabled` system it exits with an error:
+### 1. Configure Permissive Mode
 
 ```bash
-sudo setenforce 0   # permissive
-sudo setenforce 1   # enforcing
+sudo nano /etc/selinux/config
 ```
 
-For a permanent change, edit `/etc/selinux/config` and reboot.
+Set the policy and mode as follows **before rebooting**:
 
-## Relabelling the Filesystem
+```text
+SELINUX=permissive
+SELINUXTYPE=default
+```
 
-A fresh SELinux install must label every file once:
+### 2. Configure GRUB
+
+Check `/etc/default/grub` and `/etc/default/grub.d/*.cfg` for conflicting options such as `security=apparmor`, `selinux=0` or `enforcing=1`. If you have an explicit `lsm=` list, it takes precedence over `security=`. Replace AppArmor with SELinux in that list without removing the other modules.
+
+Activate SELinux and inspect the generated boot entries:
+
+```bash
+sudo selinux-activate
+sudo grep -E '^[[:space:]]*linux' /boot/grub/grub.cfg
+```
+
+Parrot's `grub.cfg` drop-in can overwrite the change made by `selinux-activate`. If `security=selinux` is missing from the normal boot entry, add the configuration below. If `selinux.cfg` already exists, edit it without overwriting unrelated settings.
+
+```bash
+sudo mkdir -p /etc/default/grub.d
+echo 'GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT security=selinux"' | sudo tee /etc/default/grub.d/selinux.cfg
+sudo update-grub
+sudo grep -E '^[[:space:]]*linux' /boot/grub/grub.cfg
+```
+
+Check the output again before continuing. The normal boot entry should select SELinux without conflicting options. Recovery entries are unchanged.
+
+### 3. Reboot and Verify
+
+`selinux-activate` also schedules filesystem labelling for the next boot. Reboot now and wait for labelling and the automatic second reboot to finish:
+
+```bash
+sudo reboot
+```
+
+Once you can log in again, check the running configuration:
+
+```bash
+sestatus
+getenforce
+cat /proc/cmdline
+cat /sys/kernel/security/lsm
+sudo check-selinux-installation
+```
+
+You should see the `default` policy in `Permissive` mode and `selinux` in the module list. If SELinux is disabled, correct the boot configuration rather than running `setenforce`.
+
+## Change SELinux Mode
+
+| Mode | Effect |
+|---|---|
+| `enforcing` | Policy violations are blocked |
+| `permissive` | Policy violations are allowed and logged |
+| `disabled` | SELinux does not enforce a policy |
+
+You can switch to permissive mode without rebooting:
+
+```bash
+sudo setenforce 0
+```
+
+Check that your applications work and investigate any denials before switching to enforcing mode:
+
+```bash
+sudo setenforce 1
+```
+
+Also set `SELINUX=` in `/etc/selinux/config` to keep the mode after rebooting. Empty logs alone do not show that the policy is ready, since applications may be unconfined or auditing inactive.
+
+:::caution
+If enforcing mode prevents login, use a rescue environment to set `SELINUX=permissive` in the installed system's configuration. Support for `enforcing=` and `selinux=` boot parameters depends on the kernel build.
+:::
+
+## Relabel Filesystems
+
+The initial relabel is automatic. You may need to repeat it after restoring data saved before SELinux was enabled. Set permissive mode first, then run:
 
 ```bash
 sudo touch /.autorelabel
 sudo reboot
 ```
 
-`selinux-activate` already schedules one relabel; repeat the above whenever labels may be stale, for example after restoring a snapshot taken before SELinux was enabled. At boot, `selinux-autorelabel.service` relabels each mounted filesystem. On a full Parrot install this takes a while.
+The service labels mounted filesystems that support SELinux labels and are writable, then reboots. It skips any paths listed in `/etc/selinux/fixfiles_exclude_dirs`.
 
 ### Btrfs Subvolumes
 
-Parrot uses Btrfs with separate `@` (root) and `@home` subvolumes:
+Root and home commonly use the `@` and `@home` subvolumes. Check how they are mounted and whether their labels match the policy:
 
 ```bash
 sudo btrfs subvolume list /
+findmnt -T / -o TARGET,FSTYPE,OPTIONS
+findmnt -T /home -o TARGET,FSTYPE,OPTIONS
+matchpathcon -V / /home
 ```
 
-```text
-ID 256 gen ... top level 5 path @
-ID 257 gen ... top level 5 path @home
-```
-
-Both are mounted at boot, so `/.autorelabel` covers both. Subvolumes created later, or filesystems mounted after boot, are not covered, because the relabel service runs once against what is mounted at that time.
-
-An inode with no SELinux context shows `?`:
-
-```bash
-ls -Zd /some/path
-```
-
-```text
-? /some/path
-```
-
-`restorecon` reads the same object as `unlabeled_t`, which is denied by default in `enforcing` mode. Fix it:
-
-```bash
-sudo restorecon -v /path/to/subvolume
-```
-
-Files created inside afterwards inherit a correct label. Run it against any subvolume, disk, or share added after the initial relabel, and after restoring pre-SELinux snapshots: contexts live in the `security.selinux` extended attribute, so snapshots carry them along.
+Look for `rw` and `seclabel` in the mount options. New or nested subvolumes may need separate attention. The first command below previews label changes at the mount point, while the second applies them:
 
 ```bash
 sudo restorecon -nRv /path/to/new/mount
 sudo restorecon -Rv /path/to/new/mount
 ```
 
-## When Something Stops Working
+:::caution
+Snapshots retain their labels, but those labels may be outdated or wrong for a different mount path. Avoid relabelling entire snapshot trees. `restorecon` cannot repair read-only snapshots or filesystems without per-file label support.
+:::
 
-1. Look for recent denials and their cause (`auditd` starts automatically after install; without it, use the `dmesg` fallback):
+## Troubleshoot Application Access
 
-   ```bash
-   sudo ausearch -m AVC,USER_AVC -ts recent
-   sudo ausearch -m AVC,USER_AVC -ts recent | audit2why
-   sudo dmesg | grep -i -E 'avc|selinux' | tail -n 30
-   ```
-
-2. Test in `permissive` mode. If the problem disappears, SELinux is involved:
-
-   ```bash
-   sudo setenforce 0
-   # reproduce the issue
-   sudo setenforce 1
-   ```
-
-   The last line restores `enforcing`. Skip it if the system was already in `permissive`.
-
-3. Rule out wrong labels before writing policy:
-
-   ```bash
-   ls -Z /path/to/file
-   sudo restorecon -Rv /path/to/directory
-   ```
-
-   Paths worth checking on Parrot: `/usr/share/metasploit-framework`, `/opt`, `/home`.
-
-4. If the denial is legitimate, build a targeted module. Read the generated source before installing it, and narrow the `ausearch` window if it contains unrelated permissions:
-
-   ```bash
-   sudo ausearch -m AVC -ts recent | audit2allow -M <tool_name>_local
-   cat <tool_name>_local.te
-   sudo semodule -i <tool_name>_local.pp
-   ```
-
-Tools that typically need extra rules under the default policy: Nmap SYN scans and OS detection, Metasploit handlers, Wireshark/tcpdump capture, Aircrack-ng monitor mode, and GDB-style debuggers using `ptrace`. Confirm each case with `ausearch` before writing policy for it.
-
-Ignore RHEL guides that suggest `setsebool -P deny_ptrace off` for debuggers. That boolean does not exist in the Debian policy; the command fails with `Boolean deny_ptrace is not defined`. Use the `audit2allow` workflow above instead.
-
-## Example: Confining Firefox
-
-`~/.ssh` already carries its own type under the default policy:
+When an application fails, check whether auditing is running and look for recent denials:
 
 ```bash
-ls -Zd ~/.ssh
+sudo systemctl status auditd --no-pager
+sudo auditctl -s
+sudo ausearch -m AVC,USER_AVC -ts recent | audit2why
 ```
 
-```text
-system_u:object_r:ssh_home_t:s0 /home/user/.ssh
-```
+If auditing fails, check `sudo journalctl -b -u auditd`. Try `sudo setenforce 0` to see whether permissive mode resolves the problem. Return to enforcing afterwards only if that was the original mode.
 
-That label alone protects nothing while every desktop application runs unconfined (on a `disabled` system `ps -eZ` prints bare `unconfined`):
+Before changing the policy, check for incorrect labels and repair only the affected directory:
 
 ```bash
-ps -eZ | grep -i firefox
+ls -Z /path/to/file
+sudo restorecon -nRv /path/to/directory
+sudo restorecon -Rv /path/to/directory
 ```
 
-```text
-unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023  firefox-esr
+### Create a Local Policy Module
+
+When existing rules and booleans are insufficient, collect events for a local module. Replace `12345` with the process PID and `mytool_local` with a unique name:
+
+```bash
+sudo ausearch -m AVC,USER_AVC -ts recent -p 12345 --raw > mytool.avc
+audit2allow -m mytool_local < mytool.avc > mytool_local.te
+cat mytool_local.te
 ```
 
-The binary maps to `mozilla_exec_t`, but the policy defines no transition from `unconfined_t` to `mozilla_t`. On a Parrot desktop Firefox therefore stays in `unconfined_t`. That domain can reach almost every type, including `ssh_home_t`. A label only confines an application whose process runs in a domain without an allow rule for it.
+Read the generated source and remove permissions the application does not need before compiling and installing it:
 
-The module below puts Firefox in its own domain and proves the denial in the audit log. It is minimal on purpose: enough to demonstrate the transition, not enough to run Firefox fully confined under `enforcing`. Treat it as a lab exercise in `permissive` mode.
+```bash
+make -f /usr/share/selinux/devel/Makefile mytool_local.pp
+sudo semodule -i mytool_local.pp
+```
 
-1. Write the policy source:
+:::caution
+A logged denial is not necessarily a permission to grant. Some operations should remain blocked. Remember that applications may also use helper processes with different PIDs.
+:::
+
+Try security tools in an authorized lab before deciding whether they need custom rules. Use `getsebool -a` to check available booleans rather than copying settings from RHEL guides.
+
+## Optional: Run Firefox in a Separate Domain
+
+This example uses a temporary Firefox profile and dummy SSH data to demonstrate a domain transition. It requires the optional policy tools installed above.
+
+:::caution
+Use a disposable system in permissive mode. The example is not a complete Firefox sandbox and changes the executable's label for every new instance. Close Firefox before starting and restore its original configuration afterwards.
+:::
+
+1. Check the mode and existing customizations:
 
    ```bash
-   mkdir -p ~/selinux-firefox && cd ~/selinux-firefox
+   getenforce
+   id -Z
+   sudo semodule -l
+   sudo semanage fcontext -l -C
+   ```
+
+   The mode must be `Permissive` and the shell context must contain `unconfined_r:unconfined_t`. Stop if a `firefox_confined` module or local Firefox label override already exists.
+
+2. Create a temporary profile and dummy data:
+
+   ```bash
+   lab_dir=$(mktemp -d "$HOME/selinux-firefox.XXXXXX")
+   cd "$lab_dir"
+   mkdir profile .ssh
+   printf 'SELinux demo: no real credentials\n' > .ssh/demo.txt
+   chcon -R -t ssh_home_t "$lab_dir/.ssh"
    nano firefox_confined.te
    ```
+
+   Save this policy as `firefox_confined.te`:
 
    ```text
    policy_module(firefox_confined, 1.0)
@@ -247,56 +265,52 @@ The module below puts Firefox in its own domain and proves the denial in the aud
    allow firefox_confined_t firefox_confined_exec_t : file entrypoint;
    ```
 
-2. Install the build tools, compile, and load the module:
+3. Compile and load the module:
 
    ```bash
-   sudo apt update
-   sudo apt install selinux-policy-dev
    make -f /usr/share/selinux/devel/Makefile firefox_confined.pp
    sudo semodule -i firefox_confined.pp
    ```
 
-3. Label the real binary (`/usr/bin/firefox-esr` is a symlink; confirm the target on your system):
+4. Find the real executable and note its current label. Use the resolved path below if it differs:
 
    ```bash
    readlink -f /usr/bin/firefox-esr
+   ls -Z /usr/lib/firefox-esr/firefox-esr
+   matchpathcon /usr/lib/firefox-esr/firefox-esr
+   ```
+
+   Check that the current label matches what the policy expects before applying the temporary mapping:
+
+   ```bash
    sudo semanage fcontext -a -t firefox_confined_exec_t "/usr/lib/firefox-esr/firefox-esr"
    sudo restorecon -v /usr/lib/firefox-esr/firefox-esr
    ```
 
-4. Restart Firefox and confirm the new domain:
+5. Run Firefox without opening a window and inspect the audit log after it exits:
 
    ```bash
-   pkill firefox-esr
-   firefox-esr &
-   ps -eZ | grep firefox-esr
+   firefox-esr --headless --no-remote --profile "$lab_dir/profile" \
+     --screenshot "$lab_dir/demo.png" "file://$lab_dir/.ssh/demo.txt"
+   sudo ausearch -m AVC -ts recent | grep 'scontext=.*:firefox_confined_t:.*tcontext=.*:ssh_home_t:'
    ```
 
-   ```text
-   unconfined_u:unconfined_r:firefox_confined_t:s0-s0:c0.c1023  firefox-esr
-   ```
+   Records with `firefox_confined_t` and `ssh_home_t` show Firefox accessing the dummy data. `permissive=1` means access was **allowed and logged**. The policy is not sufficient for normal Firefox use in enforcing mode.
 
-5. In Firefox, open `file:///home/user/.ssh/`, then check the log:
-
-   ```bash
-   sudo ausearch -m AVC -ts recent | grep ssh_home_t
-   ```
-
-   ```text
-   type=AVC msg=audit(...): avc:  denied  { search } for  pid=... comm="FSBroker..." name=".ssh" dev="..." ino=... scontext=unconfined_u:unconfined_r:firefox_confined_t:s0-s0:c0.c1023 tcontext=system_u:object_r:ssh_home_t:s0 tclass=dir permissive=1
-   ```
-
-   No rule allows `firefox_confined_t` to reach `ssh_home_t`, so the access is denied by default. `permissive=1` means this was only logged; under `enforcing` it is blocked. Afterwards, close Firefox and remove the experiment unless you intend to finish the policy:
+6. Once Firefox exits, restore the original configuration in this order:
 
    ```bash
    sudo semanage fcontext -d "/usr/lib/firefox-esr/firefox-esr"
    sudo restorecon -v /usr/lib/firefox-esr/firefox-esr
    sudo semodule -r firefox_confined
+   matchpathcon -V /usr/lib/firefox-esr/firefox-esr
    ```
 
-## Disabling SELinux
+   Check the temporary directory's path with `printf '%s\n' "$lab_dir"` before deleting it. Undo any successful module or label changes even if an earlier step failed.
 
-1. Undo both the `selinux-activate` edit and the drop-in. Removing only one leaves `security=selinux` on the command line. Note that `selinux-activate disable` refuses to run in `enforcing` mode, so switch to `permissive` first if needed:
+## Disable SELinux
+
+1. Undo activation and remove the drop-in **only if you created it for this guide**. Keep any unrelated settings:
 
    ```bash
    if [ "$(getenforce)" = "Enforcing" ]; then
@@ -304,22 +318,32 @@ The module below puts Firefox in its own domain and proves the denial in the aud
    fi
    sudo selinux-activate disable
    sudo rm -f /etc/default/grub.d/selinux.cfg /.autorelabel
-   sudo update-grub
    ```
 
-2. Set `SELINUX=disabled` in `/etc/selinux/config`.
+   Check GRUB for leftover SELinux selectors or `apparmor=0`. If you changed an `lsm=` list, restore it to select AppArmor.
 
-3. Re-enable AppArmor, reboot, and verify (`security=selinux` gone from `/proc/cmdline`, `sestatus` back to `disabled`, `sudo aa-status` listing profiles again):
+2. Open `/etc/selinux/config` and set:
+
+   ```text
+   SELINUX=disabled
+   ```
+
+3. Enable AppArmor for the next boot and regenerate GRUB:
 
    ```bash
    sudo systemctl enable apparmor
-   sudo systemctl start apparmor
+   sudo update-grub
+   sudo grep -E '^[[:space:]]*linux' /boot/grub/grub.cfg
    sudo reboot
    ```
 
-## References
+   Wait until after the reboot to start AppArmor. Until then, SELinux is still the active module.
 
-- [Debian Administrator's Handbook - SELinux](https://debian-handbook.info/browse/stable/sect.selinux.html)
-- [Debian Wiki - SELinux Setup](https://wiki.debian.org/SELinux/Setup)
-- [Linux Kernel Documentation - SELinux](https://docs.kernel.org/admin-guide/LSM/SELinux.html)
-- [Linux man-pages - selinux(8)](https://man7.org/linux/man-pages/man8/selinux.8.html)
+4. Verify that SELinux is disabled and AppArmor profiles are loaded:
+
+   ```bash
+   sestatus
+   cat /proc/cmdline
+   cat /sys/kernel/security/lsm
+   sudo aa-status
+   ```
