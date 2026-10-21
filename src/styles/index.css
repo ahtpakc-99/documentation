@@ -64,6 +64,45 @@ site-search button[data-open-modal] > kbd {
   background-color: transparent;
 }
 
+.tool-intro {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-block: 1rem 2rem;
+}
+
+.tool-intro > img {
+  flex: 0 0 9rem;
+  width: 9rem;
+  height: 9rem;
+  object-fit: contain;
+}
+
+.tool-intro > div {
+  min-width: 0;
+}
+
+.tool-intro p:first-child {
+  margin-top: 0;
+}
+
+.tool-intro p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 40rem) {
+  .tool-intro {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tool-intro > img {
+    flex-basis: 6rem;
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
 .homepage-intro {
   max-width: 48rem;
   margin-inline: auto;
