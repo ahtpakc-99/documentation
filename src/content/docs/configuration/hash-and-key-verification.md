@@ -47,6 +47,16 @@ wget -q -O - https://deb.parrot.sh/parrot/misc/parrotsec.gpg | gpg --import
 Checking the GPG signature timestamp makes sense. For example, if you previously saw a signature from 2018 and now see a signature from 2017, then this might be a targeted rollback (downgrade) or indefinite freeze attack.
 :::
 
+### 4. Verify the key fingerprint
+
+Importing a key does not prove that it is the genuine Parrot key. Display its fingerprint:
+
+```bash
+gpg --fingerprint team@parrotsec.org
+```
+
+Compare it, character by character, with the fingerprint published by the Parrot team. Also check the `expires` date in the output: signing keys have a limited lifetime, and if the key has expired you must download it again from the URL above and repeat this check.
+
 ## ISO Verification
 
 Verification is a two-step process, and both steps are needed. A checksum on its own only proves that the file you downloaded matches the list you read; it proves nothing if an attacker controls the server serving both. Verifying the signature on the hash list first is what makes the comparison meaningful.
@@ -89,7 +99,7 @@ sha512sum Parrot-home-7.1_amd64.iso
 
 ![Hash](./images/hash-and-key-verification/hash4.png)
 
-Then find the matching entry in the `sha512` section of the verified `signed-hashes.txt`:
+Then find the matching entries in the verified `signed-hashes.txt`:
 
 ```bash
 grep Parrot-home-7.1_amd64.iso signed-hashes.txt
@@ -97,7 +107,7 @@ grep Parrot-home-7.1_amd64.iso signed-hashes.txt
 
 ![Hash](./images/hash-and-key-verification/hash0.png)
 
-Compare the alphanumeric string produced by your machine with the one on the corresponding line. They must match exactly.
+The command prints one line per algorithm (`md5`, `sha256` and `sha512`). Compare the alphanumeric string produced by your machine with the line that has the same length (the `sha512` hash is the longest one). They must match exactly.
 
 ![Hash](./images/hash-and-key-verification/hash2.png)
 
