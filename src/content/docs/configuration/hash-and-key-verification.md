@@ -115,6 +115,14 @@ If the two hashes match, the downloaded file is intact and authentic. If they do
 
 If you repeatedly receive an erroneous file from a server, please notify the Parrot team about that mirror so we can investigate.
 
+Alternatively, let `sha512sum` do the comparison for you. Place the image in the same directory as `signed-hashes.txt` and run:
+
+```bash
+sha512sum --ignore-missing -c signed-hashes.txt
+```
+
+It only checks the images present in the current directory and prints `Parrot-home-7.1_amd64.iso: OK` when the hash matches, or `FAILED` when it does not. Warnings about improperly formatted lines are expected, because the file also contains the MD5 and SHA256 entries and the PGP signature. If it reports `no file was verified`, the image is not in the current directory or its name differs from the one in the list. Use `sha256sum` instead to check the SHA256 entries.
+
 :::note[Why not MD5?]
 `signed-hashes.txt` still lists MD5 checksums for backwards compatibility, and `md5sum` works the same way as the command above. MD5 is broken against deliberate collisions, though, so it can only tell you that a download was not accidentally corrupted. Use SHA256 or SHA512 whenever you care about tampering.
 :::
