@@ -66,7 +66,7 @@ Verification is a two-step process, and both steps are needed. A checksum on its
 Each release directory contains a `signed-hashes.txt` file: a clearsigned PGP message listing the `md5`, `sha256` and `sha512` checksums of every published image. Download the one matching your release from the [ParrotOS ISO archive](https://download.parrot.sh/parrot/iso/):
 
 ```bash
-wget https://download.parrot.sh/parrot/iso/7.1/signed-hashes.txt
+wget https://download.parrot.sh/parrot/iso/7.4/signed-hashes.txt
 ```
 
 Verify that it was really signed by the Parrot team:
@@ -78,7 +78,7 @@ gpg --verify signed-hashes.txt
 The output must contain a **Good signature** line naming the Parrot key you imported above:
 
 ```text
-gpg: Signature made Wed Feb 11 01:15:48 2026 CET
+gpg: Signature made Sat 03 Oct 2026 19:30:42 CEST
 gpg:                using RSA key B711822346552E4D92DA02DF7A8286AF0E81EE4A
 gpg: Good signature from "Parrot Project (2024-2026) <team@parrotsec.org>" [unknown]
 ```
@@ -94,7 +94,7 @@ A `WARNING: This key is not certified with a trusted signature` notice is expect
 Now compute the checksum of the file you downloaded. Prefer SHA512 or SHA256:
 
 ```bash
-sha512sum Parrot-home-7.1_amd64.iso
+sha512sum Parrot-home-7.4_amd64.iso
 ```
 
 ![Hash](./images/hash-and-key-verification/hash4.png)
@@ -102,7 +102,7 @@ sha512sum Parrot-home-7.1_amd64.iso
 Then find the matching entries in the verified `signed-hashes.txt`:
 
 ```bash
-grep Parrot-home-7.1_amd64.iso signed-hashes.txt
+grep Parrot-home-7.4_amd64.iso signed-hashes.txt
 ```
 
 ![Hash](./images/hash-and-key-verification/hash0.png)
@@ -121,7 +121,7 @@ Alternatively, let `sha512sum` do the comparison for you. Place the image in the
 sha512sum --ignore-missing -c signed-hashes.txt
 ```
 
-It only checks the images present in the current directory and prints `Parrot-home-7.1_amd64.iso: OK` when the hash matches, or `FAILED` when it does not. Warnings about improperly formatted lines are expected, because the file also contains the MD5 and SHA256 entries and the PGP signature. If it reports `no file was verified`, the image is not in the current directory or its name differs from the one in the list. Use `sha256sum` instead to check the SHA256 entries.
+It only checks the images present in the current directory and prints `Parrot-home-7.4_amd64.iso: OK` when the hash matches, or `FAILED` when it does not. Warnings about improperly formatted lines are expected, because the file also contains the MD5 and SHA256 entries and the PGP signature. If it reports `no file was verified`, the image is not in the current directory or its name differs from the one in the list. Use `sha256sum` instead to check the SHA256 entries.
 
 :::note[Why not MD5?]
 `signed-hashes.txt` still lists MD5 checksums for backwards compatibility, and `md5sum` works the same way as the command above. MD5 is broken against deliberate collisions, though, so it can only tell you that a download was not accidentally corrupted. Use SHA256 or SHA512 whenever you care about tampering.
