@@ -61,6 +61,10 @@ Compare it, character by character, with the fingerprint published by the Parrot
 
 Verification is a two-step process, and both steps are needed. A checksum on its own only proves that the file you downloaded matches the list you read; it proves nothing if an attacker controls the server serving both. Verifying the signature on the hash list first is what makes the comparison meaningful.
 
+:::note[Versions and editions]
+The examples use Parrot 7.4 and the Home edition. The names of the image files follow the same structure in every release, and only the version number changes, so these instructions also apply to previous and subsequent versions of Parrot. Replace `7.4` with the version you downloaded, and `home` with the edition you use if it is different.
+:::
+
 ### 1. Download and verify the signed hash list
 
 Each release directory contains a `signed-hashes.txt` file: a clearsigned PGP message listing the `md5`, `sha256` and `sha512` checksums of every published image. Download the one matching your release from the [ParrotOS ISO archive](https://download.parrot.sh/parrot/iso/):
